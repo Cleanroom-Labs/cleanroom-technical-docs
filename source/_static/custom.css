@@ -1,0 +1,56 @@
+/* IEEE standard document styling */
+.document {
+    max-width: 900px;
+}
+
+/* Highlight requirement IDs */
+.needs_head {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+/* Traceability matrix styling */
+.needstable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.needstable th {
+    background-color: #f0f0f0;
+    padding: 8px;
+}
+
+/* Use case highlighting */
+.usecase {
+    border-left: 4px solid #BFD8D2;
+    padding-left: 10px;
+    margin-bottom: 20px;
+}
+
+/* Requirement highlighting */
+.req, .nfreq {
+    border-left: 4px solid #FEDCD2;
+    padding-left: 10px;
+    margin-bottom: 15px;
+}
+
+/* Test case highlighting */
+.test {
+    border-left: 4px solid #84B39D;
+    padding-left: 10px;
+    margin-bottom: 15px;
+}
+
+/* Implementation highlighting */
+.impl {
+    border-left: 4px solid #00A8B5;
+    padding-left: 10px;
+    margin-bottom: 15px;
+}
+
+/* Design specification highlighting */
+.spec {
+    border-left: 4px solid #DCB239;
+    padding-left: 10px;
+    margin-bottom: 15px;
+}
