@@ -3,10 +3,10 @@ Traceability Matrix
 
 This document demonstrates bidirectional traceability between use cases, requirements, test cases, and implementations using sphinx-needs.
 
-Phase 1 Demo: AirGap Whisper
------------------------------
+AirGap Whisper Complete Traceability
+-------------------------------------
 
-This initial traceability matrix shows a subset of AirGap Whisper requirements and their associated test cases as a proof-of-concept.
+This section demonstrates complete bidirectional traceability for AirGap Whisper with all requirements, use cases, and test cases linked.
 
 Requirements to Tests Table
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -94,13 +94,23 @@ All Other Projects
 Statistics
 ----------
 
-Current traceability coverage:
+AirGap Whisper Traceability Coverage:
 
-- **Requirements documented:** 10 (FR-WHISPER-001 through FR-WHISPER-012)
-- **Test cases documented:** 10 (TC-REC-001 through TC-TRS-005)
-- **Traceability links:** 10 (each test linked to requirement)
-- **Coverage:** 100% of documented requirements have tests
+- **Use Cases:** 4 (UC-WHISPER-001 through UC-WHISPER-004)
+- **Functional Requirements:** 36 (FR-WHISPER-001 through FR-WHISPER-036)
+- **Non-Functional Requirements:** 6 (NFR-WHISPER-001 through NFR-WHISPER-006)
+- **Test Cases:** 43 (TC-REC-001 through TC-NFR-004)
+- **Total Needs:** 89 sphinx-needs directives
+- **Traceability Links:** 43 requirement-to-test links
+- **Coverage:** 100% of requirements have associated test cases
+
+Project Status:
+
+- **AirGap Whisper:** ✅ Complete (42 requirements, 4 use cases, 43 tests)
+- **AirGap Deploy:** ⏳ Pending (64 requirements, 3 workflows, ~123 tests)
+- **AirGap Transfer:** ⏳ Pending (51 requirements, 3 workflows, ~100 tests)
 
 .. note::
 
-   This is a Phase 1 proof-of-concept. Full traceability will include all 156 requirements across 3 projects.
+   Phase 3 in progress. AirGap Whisper demonstrates complete bidirectional traceability.
+   AirGap Deploy and AirGap Transfer will be completed next.
