@@ -1,7 +1,7 @@
 Software Requirements Specification
 ===================================
 
-Whisper Lite
+AirGap Whisper
 ------------
 
 **Version:** 1.0.0 **Date:** 2026-01-04 **Standard:** IEEE 830 (simplified for MVP)
@@ -14,12 +14,12 @@ Whisper Lite
 1.1 Purpose
 ~~~~~~~~~~~
 
-This SRS defines MVP requirements for Whisper Lite, an offline audio transcription app.
+This SRS defines MVP requirements for AirGap Whisper, an offline audio transcription app.
 
 1.2 Scope
 ~~~~~~~~~
 
-**Product:** Whisper Lite — a minimal desktop app for voice-to-text using whisper.cpp.
+**Product:** AirGap Whisper — a minimal desktop app for voice-to-text using whisper.cpp.
 
 **In Scope:** - Record audio from microphone - Transcribe using whisper.cpp - Store history in SQLite - Global hotkeys for hands-free operation - System tray for background operation
 

@@ -1,4 +1,4 @@
-Whisper Lite
+AirGap Whisper
 ============
 
 A minimal, keyboard-driven desktop application for offline audio transcription using `whisper.cpp <https://github.com/ggerganov/whisper.cpp>`__.
@@ -84,16 +84,16 @@ See `Development Plan <development-plan.md>`__ for complete build instructions a
 Air-Gapped Deployment
 ---------------------
 
-Whisper Lite supports deployment on systems with no internet access. All dependencies can be vendored and transferred offline via USB or other secure methods.
+AirGap Whisper supports deployment on systems with no internet access. All dependencies can be vendored and transferred offline via USB or other secure methods.
 
-For detailed air-gap deployment procedures, see the airgap-deploy project documentation.
+For detailed air-gap deployment procedures, see the AirGap Deploy project documentation.
 
 --------------
 
 Privacy
 -------
 
-Whisper Lite is **private by architecture**:
+AirGap Whisper is **private by architecture**:
 
 - Zero network code in the application
 - No analytics, telemetry, or crash reporting

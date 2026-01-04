@@ -1,7 +1,7 @@
 Software Design Document
 ========================
 
-Whisper Lite
+AirGap Whisper
 ------------
 
 **Version:** 1.0.0 **Date:** 2026-01-04 **Standard:** IEEE 1016 (simplified for MVP)
@@ -11,7 +11,7 @@ Whisper Lite
 1. Introduction
 ---------------
 
-This SDD describes the architecture and design of Whisper Lite’s MVP.
+This SDD describes the architecture and design of AirGap Whisper’s MVP.
 
 **Guiding document:** `principles.md <../../principles.md>`__
 
@@ -406,7 +406,7 @@ Native dialog with the following layout:
 ::
 
    ┌─────────────────────────────────────────────────────┐
-   │                   Welcome to Whisper Lite           │
+   │                   Welcome to AirGap Whisper           │
    ├─────────────────────────────────────────────────────┤
    │                                                     │
    │  To get started, configure your whisper.cpp paths: │
