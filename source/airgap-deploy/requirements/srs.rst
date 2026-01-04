@@ -143,13 +143,53 @@ airgap-deploy provides the following major functions:
 
 **FR-1.1:** The system SHALL parse ``AirGapDeploy.toml`` files using TOML syntax.
 
+.. req:: Parse TOML Manifest Files
+   :id: FR-DEPLOY-001
+   :status: approved
+   :tags: deploy, manifest, parsing
+   :priority: must
+
+   The system SHALL parse AirGapDeploy.toml files using TOML syntax.
+
 **FR-1.2:** The system SHALL validate manifest structure and required fields before processing.
+
+.. req:: Validate Manifest Structure
+   :id: FR-DEPLOY-002
+   :status: approved
+   :tags: deploy, manifest, validation
+   :priority: must
+
+   The system SHALL validate manifest structure and required fields before processing.
 
 **FR-1.3:** The system SHALL support the following manifest sections: - ``[package]`` - Package metadata (name, version, description) - ``[targets]`` - Target platforms (linux-x86_64, macos-aarch64, windows-x86_64) - ``[install]`` - Installation configuration (method, prefix, mode) - ``[[components]]`` - List of components to include
 
+.. req:: Support Manifest Sections
+   :id: FR-DEPLOY-003
+   :status: approved
+   :tags: deploy, manifest, structure
+   :priority: must
+
+   The system SHALL support the following manifest sections: [package], [targets], [install], [[components]]
+
 **FR-1.4:** The system SHALL provide clear error messages for invalid manifests, including line numbers and expected values.
 
+.. req:: Clear Manifest Error Messages
+   :id: FR-DEPLOY-004
+   :status: approved
+   :tags: deploy, manifest, validation, error-handling
+   :priority: must
+
+   The system SHALL provide clear error messages for invalid manifests, including line numbers and expected values.
+
 **FR-1.5:** The system SHALL support schema versioning to enable future manifest evolution.
+
+.. req:: Manifest Schema Versioning
+   :id: FR-DEPLOY-005
+   :status: approved
+   :tags: deploy, manifest, versioning
+   :priority: should
+
+   The system SHALL support schema versioning to enable future manifest evolution.
 
 --------------
 
@@ -161,48 +201,192 @@ airgap-deploy provides the following major functions:
 
 **FR-2.1:** The system SHALL collect Rust application source code from local directories.
 
+.. req:: Collect Rust Application Source
+   :id: FR-DEPLOY-006
+   :status: approved
+   :tags: deploy, rust, component
+   :priority: must
+
+   The system SHALL collect Rust application source code from local directories.
+
 **FR-2.2:** The system SHALL execute ``cargo vendor`` to download and vendor all Cargo dependencies.
+
+.. req:: Vendor Cargo Dependencies
+   :id: FR-DEPLOY-007
+   :status: approved
+   :tags: deploy, rust, vendor, dependencies
+   :priority: must
+
+   The system SHALL execute cargo vendor to download and vendor all Cargo dependencies.
 
 **FR-2.3:** The system SHALL optionally include Rust toolchain installer for offline builds.
 
+.. req:: Include Rust Toolchain Installer
+   :id: FR-DEPLOY-008
+   :status: approved
+   :tags: deploy, rust, toolchain
+   :priority: should
+
+   The system SHALL optionally include Rust toolchain installer for offline builds.
+
 **FR-2.4:** The system SHALL generate ``.cargo/config.toml`` to configure vendored dependency usage.
 
+.. req:: Generate Cargo Config
+   :id: FR-DEPLOY-009
+   :status: approved
+   :tags: deploy, rust, configuration
+   :priority: must
+
+   The system SHALL generate .cargo/config.toml to configure vendored dependency usage.
+
 **FR-2.5:** The system SHALL support the following configuration options: - ``source`` - Path to Rust project - ``vendor`` - Boolean flag to enable vendoring (default: true) - ``include_toolchain`` - Boolean flag to include Rust installer (default: false) - ``prebuild`` - Boolean flag to prebuild binary (default: false, deferred to v0.2)
+
+.. req:: Rust Component Configuration Options
+   :id: FR-DEPLOY-010
+   :status: approved
+   :tags: deploy, rust, configuration
+   :priority: must
+
+   The system SHALL support configuration options: source, vendor, include_toolchain, prebuild
 
 3.2.2 External Binary Component
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **FR-2.6:** The system SHALL clone Git repositories for external binaries.
 
+.. req:: Clone Git Repositories
+   :id: FR-DEPLOY-011
+   :status: approved
+   :tags: deploy, git, external-binary
+   :priority: must
+
+   The system SHALL clone Git repositories for external binaries.
+
 **FR-2.7:** The system SHALL support specifying Git branch, tag, or commit.
+
+.. req:: Specify Git Version
+   :id: FR-DEPLOY-012
+   :status: approved
+   :tags: deploy, git, versioning
+   :priority: must
+
+   The system SHALL support specifying Git branch, tag, or commit.
 
 **FR-2.8:** The system SHALL include build instructions in installation scripts.
 
-**FR-2.9:** The system SHALL support the following configuration options: - ``name`` - Component name - ``repo`` - Git repository URL - ``branch`` / ``tag`` / ``commit`` - Version specification - ``build_instructions`` - Build command (e.g., “make”)
+.. req:: Include Build Instructions
+   :id: FR-DEPLOY-013
+   :status: approved
+   :tags: deploy, installation, build
+   :priority: must
+
+   The system SHALL include build instructions in installation scripts.
+
+**FR-2.9:** The system SHALL support the following configuration options: - ``name`` - Component name - ``repo`` - Git repository URL - ``branch`` / ``tag`` / ``commit`` - Version specification - ``build_instructions`` - Build command (e.g., "make")
+
+.. req:: External Binary Configuration Options
+   :id: FR-DEPLOY-014
+   :status: approved
+   :tags: deploy, external-binary, configuration
+   :priority: must
+
+   The system SHALL support configuration options: name, repo, branch/tag/commit, build_instructions
 
 3.2.3 Model File Component
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **FR-2.10:** The system SHALL download model files from HTTP/HTTPS URLs.
 
+.. req:: Download Model Files
+   :id: FR-DEPLOY-015
+   :status: approved
+   :tags: deploy, model, download
+   :priority: must
+
+   The system SHALL download model files from HTTP/HTTPS URLs.
+
 **FR-2.11:** The system SHALL verify downloaded files using SHA-256 checksums.
+
+.. req:: Verify File Checksums
+   :id: FR-DEPLOY-016
+   :status: approved
+   :tags: deploy, model, verification, security
+   :priority: must
+
+   The system SHALL verify downloaded files using SHA-256 checksums.
 
 **FR-2.12:** The system SHALL display download progress with progress bars.
 
+.. req:: Display Download Progress
+   :id: FR-DEPLOY-017
+   :status: approved
+   :tags: deploy, model, download, ui
+   :priority: must
+
+   The system SHALL display download progress with progress bars.
+
 **FR-2.13:** The system SHALL support resume capability for interrupted downloads.
 
+.. req:: Resume Interrupted Downloads
+   :id: FR-DEPLOY-018
+   :status: approved
+   :tags: deploy, model, download, reliability
+   :priority: should
+
+   The system SHALL support resume capability for interrupted downloads.
+
 **FR-2.14:** The system SHALL support the following configuration options: - ``name`` - Model name - ``url`` - Download URL - ``checksum`` - SHA-256 checksum - ``required`` - Boolean flag (default: true) - ``install_path`` - Installation destination
+
+.. req:: Model File Configuration Options
+   :id: FR-DEPLOY-019
+   :status: approved
+   :tags: deploy, model, configuration
+   :priority: must
+
+   The system SHALL support configuration options: name, url, checksum, required, install_path
 
 3.2.4 System Package Component
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **FR-2.15:** The system SHALL detect Linux distribution (Debian, Fedora, Arch).
 
+.. req:: Detect Linux Distribution
+   :id: FR-DEPLOY-020
+   :status: approved
+   :tags: deploy, system-package, linux
+   :priority: could
+
+   The system SHALL detect Linux distribution (Debian, Fedora, Arch).
+
 **FR-2.16:** The system SHALL download system packages (.deb, .rpm, etc.) with dependencies.
+
+.. req:: Download System Packages
+   :id: FR-DEPLOY-021
+   :status: approved
+   :tags: deploy, system-package, dependencies
+   :priority: could
+
+   The system SHALL download system packages (.deb, .rpm, etc.) with dependencies.
 
 **FR-2.17:** The system SHALL include system packages in deployment archive.
 
+.. req:: Include System Packages in Archive
+   :id: FR-DEPLOY-022
+   :status: approved
+   :tags: deploy, system-package, packaging
+   :priority: could
+
+   The system SHALL include system packages in deployment archive.
+
 **FR-2.18:** The system SHALL configure installation scripts to install system packages.
+
+.. req:: Configure System Package Installation
+   :id: FR-DEPLOY-023
+   :status: approved
+   :tags: deploy, system-package, installation
+   :priority: could
+
+   The system SHALL configure installation scripts to install system packages.
 
 **Note:** SystemPackageComponent is marked as **optional for MVP** and may be deferred to v0.2.
 
@@ -213,7 +397,23 @@ airgap-deploy provides the following major functions:
 
 **FR-3.1:** The system SHALL create tar.gz archives for Linux and macOS deployments.
 
+.. req:: Create Tar.gz Archives
+   :id: FR-DEPLOY-024
+   :status: approved
+   :tags: deploy, packaging, archive
+   :priority: must
+
+   The system SHALL create tar.gz archives for Linux and macOS deployments.
+
 **FR-3.2:** The system SHALL create zip archives for Windows deployments.
+
+.. req:: Create Zip Archives
+   :id: FR-DEPLOY-025
+   :status: approved
+   :tags: deploy, packaging, archive, windows
+   :priority: must
+
+   The system SHALL create zip archives for Windows deployments.
 
 **FR-3.3:** The system SHALL organize package contents with the following structure:
 
@@ -229,11 +429,43 @@ airgap-deploy provides the following major functions:
    ├── models/                     # Model files
    └── packages/                   # System packages (if any)
 
+.. req:: Organize Package Directory Structure
+   :id: FR-DEPLOY-026
+   :status: approved
+   :tags: deploy, packaging, structure
+   :priority: must
+
+   The system SHALL organize package contents with standardized directory structure.
+
 **FR-3.4:** The system SHALL generate ``airgap-deploy-metadata.json`` with package information: - Package name, version, description - Target platform - Component inventory - Build date - airgap-deploy version
+
+.. req:: Generate Package Metadata
+   :id: FR-DEPLOY-027
+   :status: approved
+   :tags: deploy, packaging, metadata
+   :priority: must
+
+   The system SHALL generate airgap-deploy-metadata.json with package information.
 
 **FR-3.5:** The system SHALL generate SHA-256 checksum for the entire package.
 
+.. req:: Generate Package Checksum
+   :id: FR-DEPLOY-028
+   :status: approved
+   :tags: deploy, packaging, verification, security
+   :priority: must
+
+   The system SHALL generate SHA-256 checksum for the entire package.
+
 **FR-3.6:** The system SHALL support configurable compression levels.
+
+.. req:: Configurable Compression Levels
+   :id: FR-DEPLOY-029
+   :status: approved
+   :tags: deploy, packaging, compression
+   :priority: should
+
+   The system SHALL support configurable compression levels.
 
 --------------
 
@@ -242,17 +474,73 @@ airgap-deploy provides the following major functions:
 
 **FR-4.1:** The system SHALL generate Bash installation scripts (``install.sh``) for Linux/macOS.
 
+.. req:: Generate Bash Installation Scripts
+   :id: FR-DEPLOY-030
+   :status: approved
+   :tags: deploy, installation, bash, linux, macos
+   :priority: must
+
+   The system SHALL generate Bash installation scripts (install.sh) for Linux/macOS.
+
 **FR-4.2:** The system SHALL generate PowerShell installation scripts (``install.ps1``) for Windows.
+
+.. req:: Generate PowerShell Installation Scripts
+   :id: FR-DEPLOY-031
+   :status: approved
+   :tags: deploy, installation, powershell, windows
+   :priority: must
+
+   The system SHALL generate PowerShell installation scripts (install.ps1) for Windows.
 
 **FR-4.3:** Installation scripts SHALL perform the following steps: 1. Check for required dependencies (compilers, build tools) 2. Display installation plan (dry-run mode) 3. Prompt for installation location (interactive mode) 4. Execute component-specific build/install steps 5. Generate application configuration files 6. Set file permissions and ownership 7. Log all actions to install.log
 
+.. req:: Installation Script Steps
+   :id: FR-DEPLOY-032
+   :status: approved
+   :tags: deploy, installation, workflow
+   :priority: must
+
+   Installation scripts SHALL perform dependency checks, display plan, prompt for location, execute builds, configure files, set permissions, and log actions.
+
 **FR-4.4:** Installation scripts SHALL support the following modes: - **Interactive mode:** Prompt user for installation location and options - **Automatic mode:** Use environment variables for unattended installation
+
+.. req:: Installation Script Modes
+   :id: FR-DEPLOY-033
+   :status: approved
+   :tags: deploy, installation, modes
+   :priority: must
+
+   Installation scripts SHALL support interactive mode and automatic (unattended) mode.
 
 **FR-4.5:** Installation scripts SHALL detect existing installations and offer upgrade path.
 
+.. req:: Detect Existing Installations
+   :id: FR-DEPLOY-034
+   :status: approved
+   :tags: deploy, installation, upgrade
+   :priority: should
+
+   Installation scripts SHALL detect existing installations and offer upgrade path.
+
 **FR-4.6:** Installation scripts SHALL verify sufficient disk space before proceeding.
 
+.. req:: Verify Disk Space
+   :id: FR-DEPLOY-035
+   :status: approved
+   :tags: deploy, installation, validation
+   :priority: must
+
+   Installation scripts SHALL verify sufficient disk space before proceeding.
+
 **FR-4.7:** Installation scripts SHALL provide clear error messages and recovery instructions.
+
+.. req:: Installation Error Messages
+   :id: FR-DEPLOY-036
+   :status: approved
+   :tags: deploy, installation, error-handling
+   :priority: must
+
+   Installation scripts SHALL provide clear error messages and recovery instructions.
 
 --------------
 
@@ -269,13 +557,53 @@ airgap-deploy provides the following major functions:
 
 **``airgap-deploy list-components``** - **Purpose:** Show available built-in component types - **No arguments**
 
+.. req:: CLI Commands
+   :id: FR-DEPLOY-037
+   :status: approved
+   :tags: deploy, cli, commands
+   :priority: must
+
+   The system SHALL provide commands: prep, validate, init, list-components with appropriate arguments.
+
 **FR-5.2:** The system SHALL display colored output for improved readability.
+
+.. req:: Colored CLI Output
+   :id: FR-DEPLOY-038
+   :status: approved
+   :tags: deploy, cli, ui
+   :priority: should
+
+   The system SHALL display colored output for improved readability.
 
 **FR-5.3:** The system SHALL display progress bars for long-running operations (downloads, compression).
 
+.. req:: Progress Bars
+   :id: FR-DEPLOY-039
+   :status: approved
+   :tags: deploy, cli, ui, progress
+   :priority: must
+
+   The system SHALL display progress bars for long-running operations (downloads, compression).
+
 **FR-5.4:** The system SHALL support ``--verbose`` flag for detailed logging.
 
+.. req:: Verbose Logging Flag
+   :id: FR-DEPLOY-040
+   :status: approved
+   :tags: deploy, cli, logging
+   :priority: must
+
+   The system SHALL support --verbose flag for detailed logging.
+
 **FR-5.5:** The system SHALL support ``--help`` flag for all commands.
+
+.. req:: Help Flag
+   :id: FR-DEPLOY-041
+   :status: approved
+   :tags: deploy, cli, help
+   :priority: must
+
+   The system SHALL support --help flag for all commands.
 
 --------------
 
@@ -284,9 +612,33 @@ airgap-deploy provides the following major functions:
 
 **FR-6.1:** The system SHALL support global configuration file at ``~/.airgap-deploy/config.toml``.
 
+.. req:: Global Configuration File
+   :id: FR-DEPLOY-042
+   :status: approved
+   :tags: deploy, configuration
+   :priority: should
+
+   The system SHALL support global configuration file at ~/.airgap-deploy/config.toml.
+
 **FR-6.2:** The system SHALL support the following global configuration options: - ``default_target`` - Default target platform - ``cache_dir`` - Directory for cached downloads - ``proxy`` - HTTP proxy settings (for downloads)
 
+.. req:: Global Configuration Options
+   :id: FR-DEPLOY-043
+   :status: approved
+   :tags: deploy, configuration
+   :priority: should
+
+   The system SHALL support global configuration options: default_target, cache_dir, proxy.
+
 **FR-6.3:** Command-line arguments SHALL override global configuration.
+
+.. req:: CLI Overrides Configuration
+   :id: FR-DEPLOY-044
+   :status: approved
+   :tags: deploy, configuration, cli
+   :priority: must
+
+   Command-line arguments SHALL override global configuration.
 
 --------------
 
@@ -295,11 +647,43 @@ airgap-deploy provides the following major functions:
 
 **FR-7.1:** The system SHALL provide clear, actionable error messages for all failure modes.
 
+.. req:: Clear Error Messages
+   :id: FR-DEPLOY-045
+   :status: approved
+   :tags: deploy, error-handling
+   :priority: must
+
+   The system SHALL provide clear, actionable error messages for all failure modes.
+
 **FR-7.2:** The system SHALL suggest recovery steps for common errors: - Missing dependencies - Network failures - Disk space issues - Invalid manifests
+
+.. req:: Suggest Error Recovery Steps
+   :id: FR-DEPLOY-046
+   :status: approved
+   :tags: deploy, error-handling, recovery
+   :priority: should
+
+   The system SHALL suggest recovery steps for common errors: missing dependencies, network failures, disk space issues, invalid manifests.
 
 **FR-7.3:** The system SHALL exit with non-zero status codes on errors.
 
+.. req:: Non-Zero Exit Codes
+   :id: FR-DEPLOY-047
+   :status: approved
+   :tags: deploy, error-handling, cli
+   :priority: must
+
+   The system SHALL exit with non-zero status codes on errors.
+
 **FR-7.4:** The system SHALL log all operations to enable debugging.
+
+.. req:: Operation Logging
+   :id: FR-DEPLOY-048
+   :status: approved
+   :tags: deploy, logging, debugging
+   :priority: must
+
+   The system SHALL log all operations to enable debugging.
 
 --------------
 
@@ -311,77 +695,301 @@ airgap-deploy provides the following major functions:
 
 **NFR-1.1:** Package preparation SHALL complete in less than 5 minutes for typical applications (<1GB components).
 
+.. nfreq:: Package Preparation Performance
+   :id: NFR-DEPLOY-001
+   :status: approved
+   :tags: deploy, performance
+   :priority: should
+
+   Package preparation SHALL complete in less than 5 minutes for typical applications (<1GB components).
+
 **NFR-1.2:** Large model downloads (1-10GB) SHALL display progress and support resume.
+
+.. nfreq:: Large Download Handling
+   :id: NFR-DEPLOY-002
+   :status: approved
+   :tags: deploy, performance, download
+   :priority: must
+
+   Large model downloads (1-10GB) SHALL display progress and support resume.
 
 **NFR-1.3:** Parallel component collection SHALL be used where possible to reduce preparation time.
 
+.. nfreq:: Parallel Component Collection
+   :id: NFR-DEPLOY-003
+   :status: approved
+   :tags: deploy, performance, parallelism
+   :priority: should
+
+   Parallel component collection SHALL be used where possible to reduce preparation time.
+
 **NFR-1.4:** Installation scripts SHALL complete in less than 20 minutes for typical applications (including build time).
+
+.. nfreq:: Installation Performance
+   :id: NFR-DEPLOY-004
+   :status: approved
+   :tags: deploy, performance, installation
+   :priority: should
+
+   Installation scripts SHALL complete in less than 20 minutes for typical applications (including build time).
 
 4.2 Reliability
 ~~~~~~~~~~~~~~~
 
 **NFR-2.1:** The system SHALL verify all downloaded files using SHA-256 checksums.
 
+.. nfreq:: Checksum Verification
+   :id: NFR-DEPLOY-005
+   :status: approved
+   :tags: deploy, reliability, security, verification
+   :priority: must
+
+   The system SHALL verify all downloaded files using SHA-256 checksums.
+
 **NFR-2.2:** The system SHALL retry failed network operations up to 3 times with exponential backoff.
+
+.. nfreq:: Network Operation Retry
+   :id: NFR-DEPLOY-006
+   :status: approved
+   :tags: deploy, reliability, network
+   :priority: must
+
+   The system SHALL retry failed network operations up to 3 times with exponential backoff.
 
 **NFR-2.3:** Installation scripts SHALL be idempotent (safe to run multiple times).
 
+.. nfreq:: Idempotent Installation
+   :id: NFR-DEPLOY-007
+   :status: approved
+   :tags: deploy, reliability, installation
+   :priority: must
+
+   Installation scripts SHALL be idempotent (safe to run multiple times).
+
 **NFR-2.4:** The system SHALL handle interruptions gracefully (Ctrl+C, system shutdown).
+
+.. nfreq:: Graceful Interruption Handling
+   :id: NFR-DEPLOY-008
+   :status: approved
+   :tags: deploy, reliability, error-handling
+   :priority: must
+
+   The system SHALL handle interruptions gracefully (Ctrl+C, system shutdown).
 
 4.3 Usability
 ~~~~~~~~~~~~~
 
 **NFR-3.1:** First-time users SHALL be able to create a deployment package within 10 minutes using provided examples.
 
+.. nfreq:: First-Time User Experience
+   :id: NFR-DEPLOY-009
+   :status: approved
+   :tags: deploy, usability
+   :priority: should
+
+   First-time users SHALL be able to create a deployment package within 10 minutes using provided examples.
+
 **NFR-3.2:** Error messages SHALL include specific details about the failure and suggested fixes.
+
+.. nfreq:: Detailed Error Messages
+   :id: NFR-DEPLOY-010
+   :status: approved
+   :tags: deploy, usability, error-handling
+   :priority: must
+
+   Error messages SHALL include specific details about the failure and suggested fixes.
 
 **NFR-3.3:** The CLI SHALL provide help text accessible via ``--help`` for all commands.
 
+.. nfreq:: Command Help Text
+   :id: NFR-DEPLOY-011
+   :status: approved
+   :tags: deploy, usability, cli, help
+   :priority: must
+
+   The CLI SHALL provide help text accessible via --help for all commands.
+
 **NFR-3.4:** Progress indicators SHALL be shown for all operations taking longer than 2 seconds.
+
+.. nfreq:: Progress Indicators
+   :id: NFR-DEPLOY-012
+   :status: approved
+   :tags: deploy, usability, ui
+   :priority: must
+
+   Progress indicators SHALL be shown for all operations taking longer than 2 seconds.
 
 4.4 Maintainability
 ~~~~~~~~~~~~~~~~~~~
 
 **NFR-4.1:** The codebase SHALL achieve at least 80% test coverage.
 
+.. nfreq:: Test Coverage
+   :id: NFR-DEPLOY-013
+   :status: approved
+   :tags: deploy, maintainability, testing
+   :priority: must
+
+   The codebase SHALL achieve at least 80% test coverage.
+
 **NFR-4.2:** All public APIs SHALL have rustdoc documentation.
+
+.. nfreq:: API Documentation
+   :id: NFR-DEPLOY-014
+   :status: approved
+   :tags: deploy, maintainability, documentation
+   :priority: must
+
+   All public APIs SHALL have rustdoc documentation.
 
 **NFR-4.3:** The code SHALL pass ``cargo clippy`` with zero warnings.
 
+.. nfreq:: Clippy Compliance
+   :id: NFR-DEPLOY-015
+   :status: approved
+   :tags: deploy, maintainability, code-quality
+   :priority: must
+
+   The code SHALL pass cargo clippy with zero warnings.
+
 **NFR-4.4:** The code SHALL be formatted with ``rustfmt``.
+
+.. nfreq:: Code Formatting
+   :id: NFR-DEPLOY-016
+   :status: approved
+   :tags: deploy, maintainability, code-quality
+   :priority: must
+
+   The code SHALL be formatted with rustfmt.
 
 4.5 Portability
 ~~~~~~~~~~~~~~~
 
 **NFR-5.1:** The system SHALL run on Linux (Ubuntu 20.04+, Fedora 35+, Debian 11+).
 
+.. nfreq:: Linux Platform Support
+   :id: NFR-DEPLOY-017
+   :status: approved
+   :tags: deploy, portability, linux
+   :priority: must
+
+   The system SHALL run on Linux (Ubuntu 20.04+, Fedora 35+, Debian 11+).
+
 **NFR-5.2:** The system SHALL run on macOS (10.15+, both Intel and Apple Silicon).
+
+.. nfreq:: macOS Platform Support
+   :id: NFR-DEPLOY-018
+   :status: approved
+   :tags: deploy, portability, macos
+   :priority: must
+
+   The system SHALL run on macOS (10.15+, both Intel and Apple Silicon).
 
 **NFR-5.3:** The system SHALL run on Windows (Windows 10/11).
 
+.. nfreq:: Windows Platform Support
+   :id: NFR-DEPLOY-019
+   :status: approved
+   :tags: deploy, portability, windows
+   :priority: must
+
+   The system SHALL run on Windows (Windows 10/11).
+
 **NFR-5.4:** Generated installation scripts SHALL be compatible with Bash 4.0+ (Linux/macOS) and PowerShell 5.1+ (Windows).
+
+.. nfreq:: Installation Script Compatibility
+   :id: NFR-DEPLOY-020
+   :status: approved
+   :tags: deploy, portability, installation
+   :priority: must
+
+   Generated installation scripts SHALL be compatible with Bash 4.0+ (Linux/macOS) and PowerShell 5.1+ (Windows).
 
 4.6 Security
 ~~~~~~~~~~~~
 
 **NFR-6.1:** The system SHALL verify checksums for all downloaded files.
 
+.. nfreq:: Verify All Checksums
+   :id: NFR-DEPLOY-021
+   :status: approved
+   :tags: deploy, security, verification
+   :priority: must
+
+   The system SHALL verify checksums for all downloaded files.
+
 **NFR-6.2:** The system SHALL NOT execute arbitrary code from manifests.
+
+.. nfreq:: No Arbitrary Code Execution
+   :id: NFR-DEPLOY-022
+   :status: approved
+   :tags: deploy, security
+   :priority: must
+
+   The system SHALL NOT execute arbitrary code from manifests.
 
 **NFR-6.3:** Installation scripts SHALL require explicit confirmation before destructive operations.
 
+.. nfreq:: Confirm Destructive Operations
+   :id: NFR-DEPLOY-023
+   :status: approved
+   :tags: deploy, security, installation
+   :priority: must
+
+   Installation scripts SHALL require explicit confirmation before destructive operations.
+
 **NFR-6.4:** The system SHALL use HTTPS for all network operations.
 
+.. nfreq:: HTTPS for Network Operations
+   :id: NFR-DEPLOY-024
+   :status: approved
+   :tags: deploy, security, network
+   :priority: must
+
+   The system SHALL use HTTPS for all network operations.
+
 **NFR-6.5:** Temporary files SHALL be created with restrictive permissions (user-only).
+
+.. nfreq:: Restrictive File Permissions
+   :id: NFR-DEPLOY-025
+   :status: approved
+   :tags: deploy, security, filesystem
+   :priority: must
+
+   Temporary files SHALL be created with restrictive permissions (user-only).
 
 4.7 Scalability
 ~~~~~~~~~~~~~~~
 
 **NFR-7.1:** The system SHALL handle packages up to 50GB in size.
 
+.. nfreq:: Large Package Support
+   :id: NFR-DEPLOY-026
+   :status: approved
+   :tags: deploy, scalability
+   :priority: should
+
+   The system SHALL handle packages up to 50GB in size.
+
 **NFR-7.2:** The system SHALL support manifests with up to 100 components.
 
+.. nfreq:: Multi-Component Manifests
+   :id: NFR-DEPLOY-027
+   :status: approved
+   :tags: deploy, scalability
+   :priority: should
+
+   The system SHALL support manifests with up to 100 components.
+
 **NFR-7.3:** Parallel collection SHALL scale with available CPU cores.
+
+.. nfreq:: CPU-Scalable Parallelism
+   :id: NFR-DEPLOY-028
+   :status: approved
+   :tags: deploy, scalability, performance
+   :priority: should
+
+   Parallel collection SHALL scale with available CPU cores.
 
 --------------
 

@@ -6,6 +6,21 @@ Scenario
 
 Deploy Ollama (LLM runtime) and models to an air-gapped production system for local AI inference without internet connectivity.
 
+.. usecase:: Ollama Deployment to Air-Gapped System
+   :id: UC-DEPLOY-002
+   :status: approved
+   :tags: deploy, workflow, ollama, llm
+
+   Deploy Ollama runtime and LLM models to air-gapped production system for local AI inference without internet connectivity.
+
+   **Preparation:** Download Ollama binary and models (3-20GB), create deployment package with installation scripts.
+
+   **Transfer:** Move package via USB or chunked transfer for large models.
+
+   **Installation:** Extract package, run installation script to install binary, models, and systemd service.
+
+   **Success Criteria:** Ollama runs as service, models load successfully, inference works offline, no network calls attempted.
+
 --------------
 
 Prerequisites
