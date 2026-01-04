@@ -24,6 +24,15 @@ Primary Use Cases
 
 **Success Criteria:** - Recording captured clearly - Transcription accurate (> 90%) - Available in clipboard within 10 seconds - No data sent over network
 
+.. usecase:: Quick Voice Memo
+   :id: UC-WHISPER-001
+   :status: approved
+   :tags: whisper, voice-memo, quick-capture
+
+   Capture quick thoughts, reminders, or ideas as text without typing using global hotkeys.
+
+   **Success Criteria:** Recording captured clearly, transcription accurate (>90%), available in clipboard within 10 seconds, no network usage.
+
 --------------
 
 2. Meeting Notes
@@ -38,6 +47,15 @@ Primary Use Cases
 **Workflow:** 1. During meeting: press hotkey to start recording 2. Speak meeting notes verbally or record discussion 3. Stop recording when section complete 4. Review transcription in tray menu 5. Copy to meeting notes document 6. Repeat for multiple sections as needed
 
 **Success Criteria:** - Multiple recordings maintained in history - Transcriptions accessible from tray menu - Easy to copy and organize notes - All data stays on local machine
+
+.. usecase:: Meeting Notes
+   :id: UC-WHISPER-002
+   :status: approved
+   :tags: whisper, meeting-notes, history
+
+   Transcribe verbal discussion during or after a meeting for documentation, with history access for review.
+
+   **Success Criteria:** Multiple recordings maintained in history, transcriptions accessible from tray menu, easy to copy and organize notes, all data stays local.
 
 --------------
 
@@ -54,6 +72,15 @@ Primary Use Cases
 
 **Success Criteria:** - Handle longer audio segments (up to 2 hours) - Accurate transcription of multiple speakers - History preserved for review and editing - Workflow manageable without technical expertise
 
+.. usecase:: Interview Transcription
+   :id: UC-WHISPER-003
+   :status: approved
+   :tags: whisper, interview, long-form
+
+   Transcribe recorded interviews for analysis or documentation, handling longer audio segments.
+
+   **Success Criteria:** Handle longer audio segments (up to 2 hours), accurate transcription of multiple speakers, history preserved for review and editing, workflow manageable without technical expertise.
+
 --------------
 
 4. Accessibility - Hands-Free Text Input
@@ -68,6 +95,15 @@ Primary Use Cases
 **Workflow:** 1. Press accessible hotkey to start recording 2. Dictate text content 3. Stop recording and review transcription 4. Copy transcription to target application 5. Edit as needed using accessibility tools
 
 **Success Criteria:** - Hotkeys customizable for accessibility hardware - Fast transcription turnaround (< 10 seconds) - High accuracy to minimize editing - Reliable offline operation
+
+.. usecase:: Accessibility - Hands-Free Text Input
+   :id: UC-WHISPER-004
+   :status: approved
+   :tags: whisper, accessibility, hands-free
+
+   User with mobility limitations needs to input text without keyboard using customizable hotkeys.
+
+   **Success Criteria:** Hotkeys customizable for accessibility hardware, fast transcription turnaround (<10 seconds), high accuracy to minimize editing, reliable offline operation.
 
 --------------
 

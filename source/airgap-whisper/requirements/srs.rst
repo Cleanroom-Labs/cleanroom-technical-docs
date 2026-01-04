@@ -175,6 +175,214 @@ Priority: **M**\ ust / **S**\ hould / **C**\ ould
 
    Handle transcription errors with system notification
 
+.. req:: Recording Duration Limit
+   :id: FR-WHISPER-006
+   :status: approved
+   :tags: whisper, recording
+   :priority: should
+
+   Configurable recording duration limit (default: 120 min)
+
+.. req:: Audio Input Device Selection
+   :id: FR-WHISPER-007
+   :status: approved
+   :tags: whisper, recording, audio
+   :priority: should
+
+   Audio input device selection in settings
+
+.. req:: Save Transcriptions to Database
+   :id: FR-WHISPER-013
+   :status: approved
+   :tags: whisper, history, database
+   :priority: must
+
+   Save all transcriptions to SQLite
+
+.. req:: Show Recent Transcriptions
+   :id: FR-WHISPER-014
+   :status: approved
+   :tags: whisper, history, ui
+   :priority: must
+
+   Tray menu shows recent transcriptions (newest first)
+
+.. req:: Transcription Menu Preview
+   :id: FR-WHISPER-015
+   :status: approved
+   :tags: whisper, history, ui
+   :priority: must
+
+   Menu items show: timestamp and text preview
+
+.. req:: Copy Transcription on Click
+   :id: FR-WHISPER-016
+   :status: approved
+   :tags: whisper, history, clipboard
+   :priority: must
+
+   Click menu item copies full transcription to clipboard
+
+.. req:: View History Dialog
+   :id: FR-WHISPER-017
+   :status: approved
+   :tags: whisper, history, ui
+   :priority: should
+
+   "View History" opens native dialog with full list
+
+.. req:: Delete Transcription
+   :id: FR-WHISPER-018
+   :status: approved
+   :tags: whisper, history
+   :priority: should
+
+   Delete transcription from history dialog
+
+.. req:: Copy Last Transcription Hotkey
+   :id: FR-WHISPER-019
+   :status: approved
+   :tags: whisper, output, hotkey, clipboard
+   :priority: must
+
+   Global hotkey copies most recent transcription
+
+.. req:: Export Transcription to File
+   :id: FR-WHISPER-020
+   :status: approved
+   :tags: whisper, output, file
+   :priority: should
+
+   Export transcription as .txt file from history dialog
+
+.. req:: Settings Dialog
+   :id: FR-WHISPER-021
+   :status: approved
+   :tags: whisper, settings, ui
+   :priority: must
+
+   "Settings" menu item opens native settings dialog
+
+.. req:: Configure Whisper Binary Path
+   :id: FR-WHISPER-022
+   :status: approved
+   :tags: whisper, settings, configuration
+   :priority: must
+
+   Configure whisper.cpp binary path with file picker
+
+.. req:: Configure Model Path
+   :id: FR-WHISPER-023
+   :status: approved
+   :tags: whisper, settings, configuration
+   :priority: must
+
+   Configure model file path with file picker
+
+.. req:: Path Validation
+   :id: FR-WHISPER-024
+   :status: approved
+   :tags: whisper, settings, validation
+   :priority: must
+
+   Validate paths exist before save
+
+.. req:: Hotkey Configuration
+   :id: FR-WHISPER-025
+   :status: approved
+   :tags: whisper, settings, hotkey
+   :priority: must
+
+   Configure global hotkeys with conflict detection
+
+.. req:: First-Run Prompt
+   :id: FR-WHISPER-026
+   :status: approved
+   :tags: whisper, settings, ux
+   :priority: should
+
+   First-run prompt when paths not configured
+
+.. req:: Tray Icon Status Display
+   :id: FR-WHISPER-027
+   :status: approved
+   :tags: whisper, tray, ui
+   :priority: must
+
+   Tray icon shows app status (idle/recording/transcribing)
+
+.. req:: Tray Icon Click Toggle
+   :id: FR-WHISPER-028
+   :status: approved
+   :tags: whisper, tray, ui
+   :priority: must
+
+   Left-click tray icon toggles recording
+
+.. req:: Tray Menu
+   :id: FR-WHISPER-029
+   :status: approved
+   :tags: whisper, tray, ui
+   :priority: must
+
+   Right-click shows menu: Recent items, Settings, Quit
+
+.. req:: Minimized Tray Start
+   :id: FR-WHISPER-030
+   :status: approved
+   :tags: whisper, tray, ui
+   :priority: must
+
+   App starts minimized to tray (no main window)
+
+.. req:: Path Sanitization
+   :id: FR-WHISPER-031
+   :status: approved
+   :tags: whisper, security
+   :priority: must
+
+   Sanitize file paths (reject `..`)
+
+.. req:: Parameterized Queries
+   :id: FR-WHISPER-032
+   :status: approved
+   :tags: whisper, security, database
+   :priority: must
+
+   Use parameterized database queries
+
+.. req:: No Network Calls
+   :id: FR-WHISPER-033
+   :status: approved
+   :tags: whisper, security, privacy
+   :priority: must
+
+   No network calls under any circumstance
+
+.. req:: Offline Build Dependencies
+   :id: FR-WHISPER-034
+   :status: approved
+   :tags: whisper, deployment
+   :priority: must
+
+   All dependencies available for offline build
+
+.. req:: Internet-Free Build
+   :id: FR-WHISPER-035
+   :status: approved
+   :tags: whisper, deployment
+   :priority: must
+
+   Build process works without internet after initial setup
+
+.. req:: Single-Directory Deployment
+   :id: FR-WHISPER-036
+   :status: approved
+   :tags: whisper, deployment
+   :priority: should
+
+   Single-directory deployment (app + whisper.cpp + model)
+
 3.2 Transcription
 ~~~~~~~~~~~~~~~~~
 
@@ -289,6 +497,56 @@ FR-033 M        No network calls under any circumstance
 +----------+------------------------------------+------------------------------------------------------------------+
 | NFR-006  | Theme support                      | Follow system (dark/light)                                       |
 +----------+------------------------------------+------------------------------------------------------------------+
+
+**Traceable Non-Functional Requirements (sphinx-needs directives):**
+
+.. nfreq:: App Launch Time
+   :id: NFR-WHISPER-001
+   :status: approved
+   :tags: whisper, performance
+   :priority: must
+
+   App launch time < 2 seconds
+
+.. nfreq:: Memory Footprint
+   :id: NFR-WHISPER-002
+   :status: approved
+   :tags: whisper, performance
+   :priority: must
+
+   Memory footprint < 100 MB (excluding whisper.cpp)
+
+.. nfreq:: Privacy Guarantee
+   :id: NFR-WHISPER-003
+   :status: approved
+   :tags: whisper, privacy, security
+   :priority: must
+
+   All data stays on user's machine; no network calls, no telemetry
+
+.. nfreq:: Offline Functionality
+   :id: NFR-WHISPER-004
+   :status: approved
+   :tags: whisper, offline
+   :priority: must
+
+   100% functional offline
+
+.. nfreq:: Air-Gap Deployment
+   :id: NFR-WHISPER-005
+   :status: approved
+   :tags: whisper, deployment, offline
+   :priority: must
+
+   Build and run on systems with no internet access
+
+.. nfreq:: System Theme Support
+   :id: NFR-WHISPER-006
+   :status: approved
+   :tags: whisper, ui, accessibility
+   :priority: should
+
+   Follow system theme (dark/light)
 
 --------------
 
