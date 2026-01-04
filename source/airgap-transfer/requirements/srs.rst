@@ -99,6 +99,70 @@ Priority: **M**\ ust / **S**\ hould / **C**\ ould
 | FR-008  | S                       | Prompt for USB swapping when multiple chunks needed         |
 +---------+-------------------------+-------------------------------------------------------------+
 
+.. req:: Split Files into Chunks
+   :id: FR-TRANSFER-001
+   :status: approved
+   :tags: transfer, pack, chunking
+   :priority: must
+
+   Split source files/directories into fixed-size chunks
+
+.. req:: Auto-Detect USB Capacity
+   :id: FR-TRANSFER-002
+   :status: approved
+   :tags: transfer, pack, usb
+   :priority: must
+
+   Auto-detect USB capacity and set chunk size accordingly
+
+.. req:: Generate Chunk Checksums
+   :id: FR-TRANSFER-003
+   :status: approved
+   :tags: transfer, pack, checksum, security
+   :priority: must
+
+   Generate SHA-256 checksums for each chunk
+
+.. req:: Create Manifest File
+   :id: FR-TRANSFER-004
+   :status: approved
+   :tags: transfer, pack, manifest
+   :priority: must
+
+   Create manifest file with chunk metadata and checksums
+
+.. req:: Stream Data to USB
+   :id: FR-TRANSFER-005
+   :status: approved
+   :tags: transfer, pack, streaming, performance
+   :priority: must
+
+   Stream data directly to USB without intermediate temp files
+
+.. req:: Manual Chunk Size Specification
+   :id: FR-TRANSFER-006
+   :status: approved
+   :tags: transfer, pack, configuration
+   :priority: should
+
+   Support manual chunk size specification
+
+.. req:: Show Pack Progress
+   :id: FR-TRANSFER-007
+   :status: approved
+   :tags: transfer, pack, ui, progress
+   :priority: should
+
+   Show progress during chunk creation
+
+.. req:: Prompt for USB Swapping
+   :id: FR-TRANSFER-008
+   :status: approved
+   :tags: transfer, pack, usb, ui
+   :priority: should
+
+   Prompt for USB swapping when multiple chunks needed
+
 3.2 Unpack Operation
 ~~~~~~~~~~~~~~~~~~~~
 
@@ -120,6 +184,62 @@ Priority: **M**\ ust / **S**\ hould / **C**\ ould
 | FR-015  | S                       | Show progress during reconstruction                      |
 +---------+-------------------------+----------------------------------------------------------+
 
+.. req:: Reconstruct Files from Chunks
+   :id: FR-TRANSFER-009
+   :status: approved
+   :tags: transfer, unpack, reconstruction
+   :priority: must
+
+   Reconstruct original files from chunks
+
+.. req:: Verify Chunk Checksums Before Unpack
+   :id: FR-TRANSFER-010
+   :status: approved
+   :tags: transfer, unpack, verification, security
+   :priority: must
+
+   Verify chunk checksums before reconstruction
+
+.. req:: Place Files in Destination
+   :id: FR-TRANSFER-011
+   :status: approved
+   :tags: transfer, unpack, filesystem
+   :priority: must
+
+   Place reconstructed files in specified destination
+
+.. req:: Validate Chunk Completeness
+   :id: FR-TRANSFER-012
+   :status: approved
+   :tags: transfer, unpack, validation
+   :priority: must
+
+   Validate chunk completeness (all chunks present)
+
+.. req:: Resume Partial Unpacks
+   :id: FR-TRANSFER-013
+   :status: approved
+   :tags: transfer, unpack, resume, reliability
+   :priority: should
+
+   Resume partial unpacks if interrupted
+
+.. req:: Delete Chunks After Unpack
+   :id: FR-TRANSFER-014
+   :status: approved
+   :tags: transfer, unpack, cleanup
+   :priority: should
+
+   Optionally delete chunks after successful reconstruction
+
+.. req:: Show Unpack Progress
+   :id: FR-TRANSFER-015
+   :status: approved
+   :tags: transfer, unpack, ui, progress
+   :priority: should
+
+   Show progress during reconstruction
+
 3.3 List Operation
 ~~~~~~~~~~~~~~~~~~
 
@@ -131,6 +251,38 @@ FR-017 M        Show chunk sizes and verification status
 FR-018 S        Identify missing or corrupted chunks
 FR-019 S        Display estimated total size after reconstruction
 ====== ======== =================================================
+
+.. req:: Display Chunk Inventory
+   :id: FR-TRANSFER-016
+   :status: approved
+   :tags: transfer, list, manifest
+   :priority: must
+
+   Display chunk inventory from manifest
+
+.. req:: Show Chunk Sizes and Status
+   :id: FR-TRANSFER-017
+   :status: approved
+   :tags: transfer, list, verification
+   :priority: must
+
+   Show chunk sizes and verification status
+
+.. req:: Identify Missing Chunks
+   :id: FR-TRANSFER-018
+   :status: approved
+   :tags: transfer, list, validation
+   :priority: should
+
+   Identify missing or corrupted chunks
+
+.. req:: Display Estimated Total Size
+   :id: FR-TRANSFER-019
+   :status: approved
+   :tags: transfer, list, ui
+   :priority: should
+
+   Display estimated total size after reconstruction
 
 3.4 Integrity Verification
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -147,6 +299,38 @@ FR-019 S        Display estimated total size after reconstruction
 | FR-023  | S                       | Verify final reconstructed file against original checksum |
 +---------+-------------------------+-----------------------------------------------------------+
 
+.. req:: Generate SHA-256 Checksums
+   :id: FR-TRANSFER-020
+   :status: approved
+   :tags: transfer, verification, checksum, security
+   :priority: must
+
+   Generate SHA-256 checksums during pack
+
+.. req:: Verify Checksums During Unpack
+   :id: FR-TRANSFER-021
+   :status: approved
+   :tags: transfer, verification, checksum, security
+   :priority: must
+
+   Verify checksums during unpack
+
+.. req:: Detect Corrupted Chunks
+   :id: FR-TRANSFER-022
+   :status: approved
+   :tags: transfer, verification, error-handling
+   :priority: must
+
+   Detect corrupted chunks and report errors
+
+.. req:: Verify Final File Checksum
+   :id: FR-TRANSFER-023
+   :status: approved
+   :tags: transfer, verification, checksum, security
+   :priority: should
+
+   Verify final reconstructed file against original checksum
+
 3.5 State Management
 ~~~~~~~~~~~~~~~~~~~~
 
@@ -158,6 +342,38 @@ FR-025 M        Track chunk completion status
 FR-026 S        Support resume for interrupted pack operations
 FR-027 S        Support resume for interrupted unpack operations
 ====== ======== ================================================
+
+.. req:: Maintain Operation State
+   :id: FR-TRANSFER-024
+   :status: approved
+   :tags: transfer, state, manifest
+   :priority: must
+
+   Maintain operation state in manifest file
+
+.. req:: Track Chunk Completion
+   :id: FR-TRANSFER-025
+   :status: approved
+   :tags: transfer, state, tracking
+   :priority: must
+
+   Track chunk completion status
+
+.. req:: Resume Interrupted Pack
+   :id: FR-TRANSFER-026
+   :status: approved
+   :tags: transfer, state, resume, pack
+   :priority: should
+
+   Support resume for interrupted pack operations
+
+.. req:: Resume Interrupted Unpack
+   :id: FR-TRANSFER-027
+   :status: approved
+   :tags: transfer, state, resume, unpack
+   :priority: should
+
+   Support resume for interrupted unpack operations
 
 3.6 Command Interface
 ~~~~~~~~~~~~~~~~~~~~~
@@ -180,6 +396,62 @@ FR-027 S        Support resume for interrupted unpack operations
 | FR-034 | S        | ``--verbose`` flag for detailed output                    |
 +--------+----------+-----------------------------------------------------------+
 
+.. req:: Pack Command
+   :id: FR-TRANSFER-028
+   :status: approved
+   :tags: transfer, cli, pack
+   :priority: must
+
+   airgap-transfer pack <source> <dest> command
+
+.. req:: Unpack Command
+   :id: FR-TRANSFER-029
+   :status: approved
+   :tags: transfer, cli, unpack
+   :priority: must
+
+   airgap-transfer unpack <source> <dest> command
+
+.. req:: List Command
+   :id: FR-TRANSFER-030
+   :status: approved
+   :tags: transfer, cli, list
+   :priority: must
+
+   airgap-transfer list <chunk-location> command
+
+.. req:: Dry Run Flag
+   :id: FR-TRANSFER-031
+   :status: approved
+   :tags: transfer, cli, dry-run
+   :priority: must
+
+   --dry-run flag for all operations
+
+.. req:: Verify Flag
+   :id: FR-TRANSFER-032
+   :status: approved
+   :tags: transfer, cli, verification
+   :priority: must
+
+   --verify flag to enable/disable checksum verification
+
+.. req:: Chunk Size Flag
+   :id: FR-TRANSFER-033
+   :status: approved
+   :tags: transfer, cli, configuration
+   :priority: should
+
+   --chunk-size flag for manual chunk size specification
+
+.. req:: Verbose Flag
+   :id: FR-TRANSFER-034
+   :status: approved
+   :tags: transfer, cli, logging
+   :priority: should
+
+   --verbose flag for detailed output
+
 3.7 Error Handling
 ~~~~~~~~~~~~~~~~~~
 
@@ -191,6 +463,38 @@ FR-036 M        Handle missing chunks gracefully
 FR-037 M        Detect and report checksum verification failures
 FR-038 M        Provide clear error messages with suggested actions
 ====== ======== ===================================================
+
+.. req:: Detect Insufficient USB Capacity
+   :id: FR-TRANSFER-035
+   :status: approved
+   :tags: transfer, error-handling, usb
+   :priority: must
+
+   Detect and report insufficient USB capacity
+
+.. req:: Handle Missing Chunks
+   :id: FR-TRANSFER-036
+   :status: approved
+   :tags: transfer, error-handling, chunks
+   :priority: must
+
+   Handle missing chunks gracefully
+
+.. req:: Report Checksum Failures
+   :id: FR-TRANSFER-037
+   :status: approved
+   :tags: transfer, error-handling, verification
+   :priority: must
+
+   Detect and report checksum verification failures
+
+.. req:: Clear Error Messages
+   :id: FR-TRANSFER-038
+   :status: approved
+   :tags: transfer, error-handling, usability
+   :priority: must
+
+   Provide clear error messages with suggested actions
 
 3.8 Safety Features
 ~~~~~~~~~~~~~~~~~~~
@@ -204,6 +508,38 @@ FR-041 M        Safely sync USB before prompting for removal
 FR-042 S        Atomic operations where possible
 ====== ======== ============================================
 
+.. req:: Confirm File Overwrite
+   :id: FR-TRANSFER-039
+   :status: approved
+   :tags: transfer, safety, filesystem
+   :priority: must
+
+   Confirm overwrite of existing files
+
+.. req:: Validate Destination Paths
+   :id: FR-TRANSFER-040
+   :status: approved
+   :tags: transfer, safety, validation
+   :priority: must
+
+   Validate destination paths and permissions
+
+.. req:: Sync USB Safely
+   :id: FR-TRANSFER-041
+   :status: approved
+   :tags: transfer, safety, usb
+   :priority: must
+
+   Safely sync USB before prompting for removal
+
+.. req:: Atomic Operations
+   :id: FR-TRANSFER-042
+   :status: approved
+   :tags: transfer, safety, reliability
+   :priority: should
+
+   Atomic operations where possible
+
 3.9 Deployment
 ~~~~~~~~~~~~~~
 
@@ -216,6 +552,30 @@ FR-042 S        Atomic operations where possible
 +---------+-------------------------+----------------------------------------------------------+
 | FR-045  | S                       | Single-binary deployment                                 |
 +---------+-------------------------+----------------------------------------------------------+
+
+.. req:: Offline Build Dependencies
+   :id: FR-TRANSFER-043
+   :status: approved
+   :tags: transfer, deployment, offline
+   :priority: must
+
+   All dependencies available for offline build
+
+.. req:: Internet-Free Build
+   :id: FR-TRANSFER-044
+   :status: approved
+   :tags: transfer, deployment, offline
+   :priority: must
+
+   Build process works without internet after initial setup
+
+.. req:: Single-Binary Deployment
+   :id: FR-TRANSFER-045
+   :status: approved
+   :tags: transfer, deployment
+   :priority: should
+
+   Single-binary deployment
 
 --------------
 
@@ -237,6 +597,54 @@ FR-042 S        Atomic operations where possible
 +----------+------------------------------------+-----------------------------------------------------------+
 | NFR-006  | Cross-platform                     | Support macOS, Windows, Linux                             |
 +----------+------------------------------------+-----------------------------------------------------------+
+
+.. nfreq:: Chunk Creation Performance
+   :id: NFR-TRANSFER-001
+   :status: approved
+   :tags: transfer, performance
+   :priority: should
+
+   Chunk creation time < 10 minutes for 10GB dataset
+
+.. nfreq:: Memory Footprint
+   :id: NFR-TRANSFER-002
+   :status: approved
+   :tags: transfer, performance, memory
+   :priority: must
+
+   Memory footprint < 100 MB during streaming operations
+
+.. nfreq:: Privacy Guarantee
+   :id: NFR-TRANSFER-003
+   :status: approved
+   :tags: transfer, privacy, security
+   :priority: must
+
+   All data stays on local/removable media; no network calls
+
+.. nfreq:: Offline Functionality
+   :id: NFR-TRANSFER-004
+   :status: approved
+   :tags: transfer, offline
+   :priority: must
+
+   100% functional offline
+
+.. nfreq:: Air-Gap Deployment
+   :id: NFR-TRANSFER-005
+   :status: approved
+   :tags: transfer, deployment, offline
+   :priority: must
+
+   Build and run on systems with no internet access
+
+.. nfreq:: Cross-Platform Support
+   :id: NFR-TRANSFER-006
+   :status: approved
+   :tags: transfer, portability
+   :priority: must
+
+   Support macOS, Windows, Linux
 
 --------------
 

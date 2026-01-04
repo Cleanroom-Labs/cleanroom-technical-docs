@@ -6,6 +6,21 @@ Scenario
 
 Transfer a large directory with mixed file sizes (e.g., software development environment with source code, dependencies, build artifacts) across an air-gap.
 
+.. usecase:: Large Directory Transfer
+   :id: UC-TRANSFER-002
+   :status: approved
+   :tags: transfer, workflow, directory, tar
+
+   Transfer large directory with mixed file sizes (40GB, 50,000 files) across air-gap preserving structure and permissions.
+
+   **Pack:** Archive directory to tar format, split into chunks sized for USB capacity (32GB + 8GB), preserve directory structure and file permissions.
+
+   **Transfer:** Transport USB drives across air-gap with optional chain of custody verification.
+
+   **Unpack:** Verify chunk checksums, extract in order preserving structure, verify final directory integrity and file count.
+
+   **Success Criteria:** All files present, directory structure preserved, file permissions maintained, all checksums verified, process takes < 30 minutes.
+
 --------------
 
 Prerequisites

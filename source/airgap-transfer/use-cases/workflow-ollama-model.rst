@@ -8,6 +8,21 @@ Scenario
 
 Transfer a large dataset (e.g., machine learning models, video collection) that requires multiple USB drive swaps due to size constraints.
 
+.. usecase:: Multi-USB Dataset Transfer
+   :id: UC-TRANSFER-003
+   :status: approved
+   :tags: transfer, workflow, multi-usb, swap
+
+   Transfer large dataset (30GB) requiring multiple USB swaps with small capacity drives (4x 8GB USBs).
+
+   **Pack:** Split dataset into chunks matching USB capacity, prompt for USB swaps during packing, write manifest to each USB for independent verification.
+
+   **Transfer:** Transport all USB drives across air-gap (together or separately).
+
+   **Unpack:** Support progressive unpack with USB swaps, process USBs in any order, verify each chunk before extraction, resume if interrupted mid-swap.
+
+   **Success Criteria:** Handle 4+ USB swaps without errors, clear prompts for USB insertion, verify integrity across all chunks, work with USBs in any order.
+
 --------------
 
 Prerequisites
