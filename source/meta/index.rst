@@ -18,6 +18,12 @@ Cross-project documentation covering principles, architecture, and traceability 
    gap-analysis
 
 .. toctree::
+   :maxdepth: 2
+   :caption: Implementation Guides
+
+   rust-integration-guide
+
+.. toctree::
    :maxdepth: 1
    :caption: Project Status
 
