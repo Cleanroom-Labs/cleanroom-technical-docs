@@ -1,10 +1,10 @@
-Use Case Analysis - Whisper Lite
+Use Case Analysis - AirGap Whisper
 ================================
 
 Purpose
 -------
 
-This document provides an overview of primary use cases for Whisper Lite, an offline audio transcription application designed for privacy-conscious users who need reliable voice-to-text conversion without cloud dependencies.
+This document provides an overview of primary use cases for AirGap Whisper, an offline audio transcription application designed for privacy-conscious users who need reliable voice-to-text conversion without cloud dependencies.
 
 --------------
 
@@ -50,7 +50,7 @@ Primary Use Cases
 
 **Trigger:** Have pre-recorded interview audio file
 
-**Workflow:** 1. Play interview audio through system audio 2. Use Whisper Lite to record system audio output 3. Transcribe in sections (e.g., 5-10 minute chunks) 4. Review and copy each transcription 5. Compile full transcript in document editor
+**Workflow:** 1. Play interview audio through system audio 2. Use AirGap Whisper to record system audio output 3. Transcribe in sections (e.g., 5-10 minute chunks) 4. Review and copy each transcription 5. Compile full transcript in document editor
 
 **Success Criteria:** - Handle longer audio segments (up to 2 hours) - Accurate transcription of multiple speakers - History preserved for review and editing - Workflow manageable without technical expertise
 
@@ -110,14 +110,14 @@ With Other Applications
 | Chat/messaging   | Copy messages                   | Dictate messages          |
 +------------------+---------------------------------+---------------------------+
 
-With airgap-deploy
+With AirGap Deploy
 ~~~~~~~~~~~~~~~~~~
 
-AirGap Whisper can be deployed to air-gapped systems using airgap-deploy:
+AirGap Whisper can be deployed to air-gapped systems using AirGap Deploy:
 
 1. Package AirGap Whisper binary with vendored dependencies
 2. Include whisper.cpp source and pre-downloaded models
-3. Transfer via airgap-transfer if package exceeds USB capacity
+3. Transfer via AirGap Transfer if package exceeds USB capacity
 4. Deploy and build on isolated system
 
 **See:** `airgap-deploy workflow documentation <../../airgap-deploy/use-case-analysis/workflow-airgap-whisper.md>`__

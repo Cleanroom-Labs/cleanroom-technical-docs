@@ -89,7 +89,7 @@ All Other Projects
 
 .. note::
 
-   Traceability for **airgap-deploy** and **airgap-transfer** will be added in Phase 2 and Phase 3 of the Sphinx migration.
+   Traceability for **AirGap Deploy** and **AirGap Transfer** will be added in Phase 2 and Phase 3 of the Sphinx migration.
 
 Statistics
 ----------
