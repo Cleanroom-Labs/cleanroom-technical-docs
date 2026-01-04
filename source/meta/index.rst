@@ -22,9 +22,11 @@ Cross-project documentation covering principles, architecture, and traceability 
    :caption: Implementation Guides
 
    rust-integration-guide
+   sphinx-needs-guide
 
 .. toctree::
    :maxdepth: 1
-   :caption: Project Status
+   :caption: Migration & Status
 
+   migration-summary
    docs-status
