@@ -252,6 +252,303 @@ TC-REC-008 Custom audio device works          FR-007      Medium
 
    **Expected:** Error notification displayed with helpful message
 
+.. test:: Tray Menu Shows Recording Duration
+   :id: TC-REC-006
+   :status: approved
+   :tags: whisper, recording, ui
+   :tests: FR-WHISPER-005
+   :priority: medium
+
+   Verify tray menu displays recording duration while active
+
+.. test:: Recording Duration Limit
+   :id: TC-REC-007
+   :status: approved
+   :tags: whisper, recording
+   :tests: FR-WHISPER-006
+   :priority: medium
+
+   Verify recording stops at configured duration limit
+
+.. test:: Custom Audio Device
+   :id: TC-REC-008
+   :status: approved
+   :tags: whisper, recording, audio
+   :tests: FR-WHISPER-007
+   :priority: medium
+
+   Verify custom audio input device selection works correctly
+
+.. test:: Transcription Saved to Database
+   :id: TC-HIS-001
+   :status: approved
+   :tags: whisper, history, database
+   :tests: FR-WHISPER-013
+   :priority: high
+
+   Verify all transcriptions are saved to SQLite database
+
+.. test:: Tray Menu Shows Recent Items
+   :id: TC-HIS-002
+   :status: approved
+   :tags: whisper, history, ui
+   :tests: FR-WHISPER-014
+   :priority: high
+
+   Verify tray menu displays recent transcriptions (newest first)
+
+.. test:: Menu Items Show Timestamp and Preview
+   :id: TC-HIS-003
+   :status: approved
+   :tags: whisper, history, ui
+   :tests: FR-WHISPER-015
+   :priority: medium
+
+   Verify menu items display timestamp and text preview
+
+.. test:: Click Menu Item Copies to Clipboard
+   :id: TC-HIS-004
+   :status: approved
+   :tags: whisper, history, clipboard
+   :tests: FR-WHISPER-016
+   :priority: high
+
+   Verify clicking menu item copies full transcription to clipboard
+
+.. test:: View History Dialog
+   :id: TC-HIS-005
+   :status: approved
+   :tags: whisper, history, ui
+   :tests: FR-WHISPER-017
+   :priority: medium
+
+   Verify "View History" opens native dialog with full list
+
+.. test:: Delete Transcription
+   :id: TC-HIS-006
+   :status: approved
+   :tags: whisper, history
+   :tests: FR-WHISPER-018
+   :priority: medium
+
+   Verify transcription can be deleted from history dialog
+
+.. test:: Hotkey Copies Last Transcription
+   :id: TC-OUT-001
+   :status: approved
+   :tags: whisper, output, hotkey, clipboard
+   :tests: FR-WHISPER-019
+   :priority: high
+
+   Verify global hotkey copies most recent transcription to clipboard
+
+.. test:: Export to Text File
+   :id: TC-OUT-002
+   :status: approved
+   :tags: whisper, output, file
+   :tests: FR-WHISPER-020
+   :priority: medium
+
+   Verify transcription can be exported as .txt file from history dialog
+
+.. test:: Settings Dialog Opens
+   :id: TC-SET-001
+   :status: approved
+   :tags: whisper, settings, ui
+   :tests: FR-WHISPER-021
+   :priority: high
+
+   Verify "Settings" menu item opens native settings dialog
+
+.. test:: Configure Whisper Path
+   :id: TC-SET-002
+   :status: approved
+   :tags: whisper, settings, configuration
+   :tests: FR-WHISPER-022
+   :priority: high
+
+   Verify whisper.cpp binary path can be configured with file picker
+
+.. test:: Configure Model Path
+   :id: TC-SET-003
+   :status: approved
+   :tags: whisper, settings, configuration
+   :tests: FR-WHISPER-023
+   :priority: high
+
+   Verify model file path can be configured with file picker
+
+.. test:: Path Validation
+   :id: TC-SET-004
+   :status: approved
+   :tags: whisper, settings, validation
+   :tests: FR-WHISPER-024
+   :priority: high
+
+   Verify paths are validated to exist before save
+
+.. test:: Configure Hotkeys
+   :id: TC-SET-005
+   :status: approved
+   :tags: whisper, settings, hotkey
+   :tests: FR-WHISPER-025
+   :priority: high
+
+   Verify global hotkeys can be configured with conflict detection
+
+.. test:: First-Run Prompt
+   :id: TC-SET-006
+   :status: approved
+   :tags: whisper, settings, ux
+   :tests: FR-WHISPER-026
+   :priority: medium
+
+   Verify first-run prompt appears when paths not configured
+
+.. test:: Tray Icon Shows Status
+   :id: TC-TRY-001
+   :status: approved
+   :tags: whisper, tray, ui
+   :tests: FR-WHISPER-027
+   :priority: high
+
+   Verify tray icon shows app status (idle/recording/transcribing)
+
+.. test:: Left-Click Toggles Recording
+   :id: TC-TRY-002
+   :status: approved
+   :tags: whisper, tray, ui
+   :tests: FR-WHISPER-028
+   :priority: high
+
+   Verify left-click on tray icon toggles recording
+
+.. test:: Right-Click Shows Menu
+   :id: TC-TRY-003
+   :status: approved
+   :tags: whisper, tray, ui
+   :tests: FR-WHISPER-029
+   :priority: high
+
+   Verify right-click shows menu with Recent items, Settings, Quit
+
+.. test:: App Starts Minimized to Tray
+   :id: TC-TRY-004
+   :status: approved
+   :tags: whisper, tray, ui
+   :tests: FR-WHISPER-030
+   :priority: high
+
+   Verify app starts minimized to tray (no main window)
+
+.. test:: Path Traversal Rejected
+   :id: TC-SEC-001
+   :status: approved
+   :tags: whisper, security
+   :tests: FR-WHISPER-031
+   :priority: critical
+
+   Verify file paths with ``..`` are rejected
+
+.. test:: SQL Injection Prevention
+   :id: TC-SEC-002
+   :status: approved
+   :tags: whisper, security, database
+   :tests: FR-WHISPER-032
+   :priority: critical
+
+   Verify parameterized queries prevent SQL injection
+
+.. test:: No Network Calls (Firewall Test)
+   :id: TC-SEC-003
+   :status: approved
+   :tags: whisper, security, privacy
+   :tests: FR-WHISPER-033
+   :priority: critical
+
+   Verify no network calls using firewall monitoring
+
+.. test:: No Network Calls (Packet Capture)
+   :id: TC-SEC-004
+   :status: approved
+   :tags: whisper, security, privacy
+   :tests: FR-WHISPER-033
+   :priority: critical
+
+   Verify no network calls using packet capture analysis
+
+.. test:: App Works Offline
+   :id: TC-SEC-005
+   :status: approved
+   :tags: whisper, security, privacy, offline
+   :tests: FR-WHISPER-033, NFR-WHISPER-004
+   :priority: critical
+
+   Verify app is 100% functional offline (airplane mode test)
+
+.. test:: Cargo Vendor Directory Present
+   :id: TC-DEP-001
+   :status: approved
+   :tags: whisper, deployment
+   :tests: FR-WHISPER-034
+   :priority: high
+
+   Verify cargo vendor directory is present for offline build
+
+.. test:: Build Succeeds Without Internet
+   :id: TC-DEP-002
+   :status: approved
+   :tags: whisper, deployment
+   :tests: FR-WHISPER-035
+   :priority: critical
+
+   Verify build process works without internet after initial setup
+
+.. test:: Single-Directory Deployment
+   :id: TC-DEP-003
+   :status: approved
+   :tags: whisper, deployment
+   :tests: FR-WHISPER-036
+   :priority: medium
+
+   Verify single-directory deployment works (app + whisper.cpp + model)
+
+.. test:: App Launch Time
+   :id: TC-NFR-001
+   :status: approved
+   :tags: whisper, performance
+   :tests: NFR-WHISPER-001
+   :priority: high
+
+   Verify app launches in < 2 seconds
+
+.. test:: Memory Footprint
+   :id: TC-NFR-002
+   :status: approved
+   :tags: whisper, performance
+   :tests: NFR-WHISPER-002
+   :priority: high
+
+   Verify memory usage < 100 MB (excluding whisper.cpp)
+
+.. test:: Build on Air-Gapped System
+   :id: TC-NFR-003
+   :status: approved
+   :tags: whisper, deployment, offline
+   :tests: NFR-WHISPER-005
+   :priority: high
+
+   Verify build succeeds on air-gapped system with no internet
+
+.. test:: System Theme Support
+   :id: TC-NFR-004
+   :status: approved
+   :tags: whisper, ui, accessibility
+   :tests: NFR-WHISPER-006
+   :priority: medium
+
+   Verify app follows system theme (dark/light)
+
 3.2 Transcription Tests
 ~~~~~~~~~~~~~~~~~~~~~~~
 
