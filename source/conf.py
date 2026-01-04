@@ -174,6 +174,42 @@ html_show_sourcelink = True
 html_show_sphinx = False
 html_show_copyright = True
 
+# Additional HTML context
+html_context = {
+    'display_github': True,
+    'github_user': 'cleanroom-labs',
+    'github_repo': 'airgap',
+    'github_version': 'main',
+    'conf_py_path': '/sphinx-docs/source/',
+}
+
+# Favicon and logo (placeholders - can be added later)
+# html_favicon = '_static/favicon.ico'
+# html_logo = '_static/airgap-logo.png'
+
+# HTML last updated format
+html_last_updated_fmt = '%Y-%m-%d'
+
+# If true, links to the source are added to the sidebar
+html_show_sourcelink = True
+
+# HTML permalinks
+html_permalinks = True
+html_permalinks_icon = '¶'
+
+# HTML search options
+html_search_language = 'en'
+html_search_options = {
+    'type': 'default',
+    'minlength': 3,
+}
+
+# Additional CSS classes for specific pages
+html_additional_pages = {}
+
+# Output file base name for HTML help builder
+htmlhelp_basename = 'AirGapSuitedoc'
+
 # -- Intersphinx mapping (for future code docs) -----------------------------
 
 intersphinx_mapping = {
