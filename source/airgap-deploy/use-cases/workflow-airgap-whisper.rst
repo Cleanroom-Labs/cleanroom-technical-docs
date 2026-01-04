@@ -8,6 +8,19 @@ Overview
 
 The workflow has two sides: 1. **Developer Side** (Connected System) - Creating release packages 2. **User Side** (Air-Gapped System) - Installing from package
 
+.. usecase:: AirGap Whisper Deployment Workflow
+   :id: UC-DEPLOY-001
+   :status: approved
+   :tags: deploy, workflow, airgap-whisper
+
+   Complete end-to-end workflow for packaging AirGap Whisper with airgap-deploy and deploying to air-gapped systems.
+
+   **Developer Side:** Create multi-platform release packages using GitHub Actions, vendor all dependencies, include Rust toolchain and whisper.cpp source.
+
+   **User Side:** Transfer package via USB, run installation script to build and install on air-gapped system with minimal interaction.
+
+   **Success Criteria:** Developer creates releases with single git tag push; user installs with single script execution; complete offline functionality.
+
 --------------
 
 Developer Workflow: Creating Release Packages
