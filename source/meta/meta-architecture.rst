@@ -107,17 +107,17 @@ Project Relationships
 .. code:: bash
 
    # Developer creates large package (e.g., Ollama + multiple LLM models = 20GB)
-   AirGap Deploy prep --manifest AirGapDeploy.ollama.toml
+   airgap-deploy prep --manifest AirGapDeploy.ollama.toml
    # Output: ollama-deploy-20GB.tar.gz
 
    # Package exceeds 16GB USB capacity
-   # User employs AirGap Transfer to chunk it
-   AirGap Transfer pack ollama-deploy-20GB.tar.gz /media/usb --chunk-size 16GB
+   # User employs airgap-transfer to chunk it
+   airgap-transfer pack ollama-deploy-20GB.tar.gz /media/usb --chunk-size 16GB
 
    # Transfer chunks across air-gap with multiple USBs
 
    # Reconstruct on air-gapped system
-   AirGap Transfer unpack /media/usb ~/deployment/
+   airgap-transfer unpack /media/usb ~/deployment/
    # Then install as normal
    cd ~/deployment/ollama-deploy
    sudo ./install.sh
@@ -370,8 +370,8 @@ Journey 1: Developer Releasing AirGap Whisper
 **Steps:**
 
 1. **Developer** creates ``AirGapDeploy.toml`` manifest for AirGap Whisper
-2. **Developer** runs ``AirGap Deploy prep`` → generates package (~300MB)
-3. Package fits on single USB, no need for AirGap Transfer
+2. **Developer** runs ``airgap-deploy prep`` → generates package (~300MB)
+3. Package fits on single USB, no need for airgap-transfer
 4. **Developer** uploads package to GitHub releases
 5. **End user** downloads package, transfers via USB
 6. **End user** extracts and runs ``./install.sh``
@@ -391,12 +391,12 @@ Journey 2: Deploying Ollama with Large Models
 **Steps:**
 
 1. **Developer** creates ``AirGapDeploy.ollama.toml`` with 3 models
-2. **Developer** runs ``AirGap Deploy prep`` → 20GB package
+2. **Developer** runs ``airgap-deploy prep`` → 20GB package
 3. Package exceeds 16GB USB capacity
-4. **Developer** runs ``AirGap Transfer pack`` → chunks into 2x 10GB chunks
+4. **Developer** runs ``airgap-transfer pack`` → chunks into 2x 10GB chunks
 5. **Developer** uploads chunks to file server
 6. **User** downloads chunks, transfers with 2x USB drives
-7. **User** runs ``AirGap Transfer unpack`` → reconstructs 20GB package
+7. **User** runs ``airgap-transfer unpack`` → reconstructs 20GB package
 8. **User** extracts and runs ``./install.sh`` → installs Ollama + models
 
 **Tools used:** AirGap Deploy (packaging), AirGap Transfer (chunking), Ollama (end use)
@@ -413,12 +413,12 @@ Journey 3: Transferring Research Dataset
 **Steps:**
 
 1. **Researcher** has dataset in ``/data/research/``
-2. **Researcher** runs ``AirGap Transfer pack /data/research /media/usb1``
+2. **Researcher** runs ``airgap-transfer pack /data/research /media/usb1``
 3. Fills USB1 (16GB), prompts for USB2
 4. Continues filling USB2, USB3, …, USB32 (32x 16GB USBs)
 5. Physically transfers USBs to air-gapped system
-6. **Researcher** runs ``AirGap Transfer unpack /media/usb1 /data/restored``
-7. Inserts each USB in sequence, AirGap Transfer reconstructs dataset
+6. **Researcher** runs ``airgap-transfer unpack /media/usb1 /data/restored``
+7. Inserts each USB in sequence, airgap-transfer reconstructs dataset
 8. Verifies checksums, data integrity confirmed
 
 **Tools used:** AirGap Transfer only (no deployment, no transcription)
