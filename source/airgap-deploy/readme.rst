@@ -397,7 +397,7 @@ Meta-Architecture
 +=================================================+====================================================+
 | `Meta-Architecture <../meta-architecture.md>`__ | How airgap-deploy relates to other AirGap projects |
 +-------------------------------------------------+----------------------------------------------------+
-| `Gap Analysis <../gap-analysis.md>`__           | Requirements traceability and coverage             |
+| `Traceability Matrix <../meta/traceability-matrix.rst>`__ | Requirements traceability and coverage   |
 +-------------------------------------------------+----------------------------------------------------+
 
 Use Cases

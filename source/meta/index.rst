@@ -15,7 +15,6 @@ Cross-project documentation covering principles, architecture, and traceability 
    :caption: Traceability
 
    traceability-matrix
-   gap-analysis
 
 .. toctree::
    :maxdepth: 2
@@ -24,9 +23,3 @@ Cross-project documentation covering principles, architecture, and traceability 
    rust-integration-guide
    sphinx-needs-guide
 
-.. toctree::
-   :maxdepth: 1
-   :caption: Migration & Status
-
-   migration-summary
-   docs-status
