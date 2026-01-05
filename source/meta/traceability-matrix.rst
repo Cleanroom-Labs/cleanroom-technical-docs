@@ -25,8 +25,8 @@ Requirements to Tests Table
 The following table shows all requirements and test cases for AirGap Whisper, along with their traceability links:
 
 .. needtable::
-   :types: req, test
-   :columns: id, title, status, tags, outgoing
+   :types: req, nfreq, test
+   :columns: id, title, status, incoming
    :filter: "whisper" in tags
    :style: table
 
@@ -34,10 +34,12 @@ Requirements Only
 ~~~~~~~~~~~~~~~~~
 
 .. needtable::
-   :types: req
-   :columns: id, title, priority, status
+   :types: req, nfreq
+   :columns: id, title, priority, status, incoming
    :filter: "whisper" in tags
    :style: table
+
+The "Incoming" column shows which test cases validate each requirement.
 
 Test Cases Only
 ~~~~~~~~~~~~~~~
@@ -47,6 +49,8 @@ Test Cases Only
    :columns: id, title, priority, status, outgoing
    :filter: "whisper" in tags
    :style: table
+
+The "Outgoing" column shows which requirements each test case validates.
 
 Traceability Flow Diagram
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -84,7 +88,7 @@ The following table shows all requirements and test cases for AirGap Deploy:
 
 .. needtable::
    :types: req, nfreq, test
-   :columns: id, title, status, tags, outgoing
+   :columns: id, title, status, incoming
    :filter: "deploy" in tags
    :style: table
 
@@ -93,9 +97,11 @@ Requirements Only
 
 .. needtable::
    :types: req, nfreq
-   :columns: id, title, priority, status
+   :columns: id, title, priority, status, incoming
    :filter: "deploy" in tags
    :style: table
+
+The "Incoming" column shows which test cases validate each requirement.
 
 Test Cases Only
 ~~~~~~~~~~~~~~~
@@ -105,6 +111,8 @@ Test Cases Only
    :columns: id, title, priority, status, outgoing
    :filter: "deploy" in tags
    :style: table
+
+The "Outgoing" column shows which requirements each test case validates.
 
 Traceability Flow Diagram
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -126,7 +134,7 @@ The following table shows all requirements and test cases for AirGap Transfer:
 
 .. needtable::
    :types: req, nfreq, test
-   :columns: id, title, status, tags, outgoing
+   :columns: id, title, status, incoming
    :filter: "transfer" in tags
    :style: table
 
@@ -135,9 +143,11 @@ Requirements Only
 
 .. needtable::
    :types: req, nfreq
-   :columns: id, title, priority, status
+   :columns: id, title, priority, status, incoming
    :filter: "transfer" in tags
    :style: table
+
+The "Incoming" column shows which test cases validate each requirement.
 
 Test Cases Only
 ~~~~~~~~~~~~~~~
@@ -147,6 +157,8 @@ Test Cases Only
    :columns: id, title, priority, status, outgoing
    :filter: "transfer" in tags
    :style: table
+
+The "Outgoing" column shows which requirements each test case validates.
 
 Traceability Flow Diagram
 ~~~~~~~~~~~~~~~~~~~~~~~~~
