@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(for version in 0.8.1 0.8.0 0.7.1)",
+      "Bash(do echo '=== sphinxcontrib-rust $version ===')",
+      "Bash(pip index:*)",
+      "Bash(python3 -c \"import urllib.request, json; print\\(json.loads\\(urllib.request.urlopen\\(''''https://pypi.org/pypi/sphinxcontrib-rust/$version/json''''\\).read\\(\\)\\)[''''info''''][''''requires_dist'''']\\)\")",
+      "Bash(done)"
+    ]
+  }
+}

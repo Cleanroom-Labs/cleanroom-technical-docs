@@ -169,7 +169,7 @@ airgap-deploy provides the following major functions:
    :tags: deploy, manifest, structure
    :priority: must
 
-   The system SHALL support the following manifest sections: [package], [targets], [install], [[components]]
+   The system SHALL support the following manifest sections: ``[package]``, ``[targets]``, ``[install]``, ``[[components]]``
 
 **FR-1.4:** The system SHALL provide clear error messages for invalid manifests, including line numbers and expected values.
 

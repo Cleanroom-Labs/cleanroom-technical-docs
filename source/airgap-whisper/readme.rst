@@ -1,5 +1,5 @@
 AirGap Whisper
-============
+==============
 
 A minimal, keyboard-driven desktop application for offline audio transcription using `whisper.cpp <https://github.com/ggerganov/whisper.cpp>`__.
 
