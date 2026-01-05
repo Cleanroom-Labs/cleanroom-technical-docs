@@ -167,52 +167,47 @@ The full traceability chain will look like:
       ↓           ↓             ↓              ↓              ↓
    UC-XXX  →  FR-XXX    →   DS-XXX   →    IMPL-XXX   →   TC-XXX
 
-All Other Projects
-------------------
-
-.. note::
-
-   Traceability for **AirGap Deploy** and **AirGap Transfer** will be added in Phase 2 and Phase 3 of the Sphinx migration.
-
 Statistics
 ----------
 
-AirGap Whisper Traceability Coverage:
+The following charts and tables are **automatically generated** from sphinx-needs directives and update dynamically as requirements, tests, and use cases are added or modified.
 
-- **Use Cases:** 4 (UC-WHISPER-001 through UC-WHISPER-004)
-- **Functional Requirements:** 36 (FR-WHISPER-001 through FR-WHISPER-036)
-- **Non-Functional Requirements:** 6 (NFR-WHISPER-001 through NFR-WHISPER-006)
-- **Test Cases:** 43 (TC-REC-001 through TC-NFR-004)
-- **Total Needs:** 89 sphinx-needs directives
-- **Traceability Links:** 43 requirement-to-test links
-- **Coverage:** 100% of requirements have associated test cases
+AirGap Whisper Statistics
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-AirGap Deploy Traceability Coverage:
+.. needpie:: AirGap Whisper Need Distribution
+   :tags: whisper
+   :legend:
+   :shadow:
 
-- **Use Cases/Workflows:** 2 (UC-DEPLOY-001 through UC-DEPLOY-002)
-- **Functional Requirements:** 48 (FR-DEPLOY-001 through FR-DEPLOY-048)
-- **Non-Functional Requirements:** 28 (NFR-DEPLOY-001 through NFR-DEPLOY-028)
-- **Test Cases:** 52 (TC-MAN-001 through TC-DEPLOY-SEC-004)
-- **Total Needs:** 130 sphinx-needs directives
-- **Traceability Links:** 52+ requirement-to-test links
-- **Coverage:** 100% of requirements have associated test cases
+The pie chart above automatically counts and visualizes all sphinx-needs directives tagged with "whisper".
 
-AirGap Transfer Traceability Coverage:
+AirGap Deploy Statistics
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- **Use Cases/Workflows:** 3 (UC-TRANSFER-001 through UC-TRANSFER-003)
-- **Functional Requirements:** 45 (FR-TRANSFER-001 through FR-TRANSFER-045)
-- **Non-Functional Requirements:** 6 (NFR-TRANSFER-001 through NFR-TRANSFER-006)
-- **Test Cases:** 42 (TC-PCK-001 through TC-NFR-004)
-- **Total Needs:** 96 sphinx-needs directives
-- **Traceability Links:** 42+ requirement-to-test links
-- **Coverage:** 100% of requirements have associated test cases
+.. needpie:: AirGap Deploy Need Distribution
+   :tags: deploy
+   :legend:
+   :shadow:
 
-Project Status:
+The pie chart above automatically counts and visualizes all sphinx-needs directives tagged with "deploy".
 
-- **AirGap Whisper:** ✅ Complete (42 requirements, 4 use cases, 43 tests) = 89 directives
-- **AirGap Deploy:** ✅ Complete (76 requirements, 2 workflows, 52 tests) = 130 directives
-- **AirGap Transfer:** ✅ Complete (51 requirements, 3 workflows, 42 tests) = 96 directives
+AirGap Transfer Statistics
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. note::
+.. needpie:: AirGap Transfer Need Distribution
+   :tags: transfer
+   :legend:
+   :shadow:
 
-   Phase 3 complete! All three projects now have complete bidirectional traceability with 315 total sphinx-needs directives.
+The pie chart above automatically counts and visualizes all sphinx-needs directives tagged with "transfer".
+
+Combined Project Statistics
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. needpie:: All Projects Need Distribution by Type
+   :legend:
+   :shadow:
+
+The pie chart above shows the distribution of all sphinx-needs directives across all three projects, automatically counting use cases, requirements (functional and non-functional), and test cases.
+
