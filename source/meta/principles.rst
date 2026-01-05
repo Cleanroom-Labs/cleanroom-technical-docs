@@ -25,7 +25,11 @@ What this means
 How to verify
 ~~~~~~~~~~~~~
 
-The app must work identically with: - Network disabled at OS level - Firewall blocking all connections - No internet connection
+The app must work identically with:
+
+- Network disabled at OS level
+- Firewall blocking all connections
+- No internet connections
 
 Implementation rules
 ~~~~~~~~~~~~~~~~~~~~
@@ -59,22 +63,26 @@ Build dependencies
 Target
 ~~~~~~
 
-- **Direct dependencies:** ≤10 crates
+- **Direct dependencies:** Ideally ≤10 crates
 - **No system dependencies:** Everything bundled or uses OS APIs
 - **No native bindings:** Pure Rust where possible
 
 Technology constraints
 ~~~~~~~~~~~~~~~~~~~~~~
 
-- Pure Rust, no WebView, no frontend build step
-- No GUI frameworks (tray-only interface)
-- No async runtime (not needed for this app’s concurrency model)
+- Pure Rust
 - Use stdlib where possible (time handling, string operations, etc.)
 
 Before adding a dependency
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Ask: 1. Can I do this with stdlib? 2. Can I do this with code I write myself (<100 lines)? 3. Does this crate have network capabilities? 4. How many transitive dependencies does it add? 5. Is it actively maintained?
+Ask:
+
+1. Can I do this with stdlib?
+2. Can I do this with code I write myself (<100 lines)?
+3. Does this crate have network capabilities?
+4. How many transitive dependencies does it add?
+5. Is it actively maintained?
 
 If the answer to #1 or #2 is yes, don’t add the dependency.
 
@@ -88,7 +96,7 @@ If the answer to #1 or #2 is yes, don’t add the dependency.
 File structure
 ~~~~~~~~~~~~~~
 
-**Flat structure:** ~5 files maximum. No nested modules. No frontend.
+**Flat structure:** No nested modules.
 
 Code rules
 ~~~~~~~~~~
@@ -106,7 +114,10 @@ Use ``String``                 Create newtype wrappers
 The YAGNI test
 ~~~~~~~~~~~~~~
 
-Before adding any feature or abstraction: 1. Do I need this right now to make the app work? 2. Have I needed this exact thing twice already?
+Before adding any feature or abstraction:
+
+1. Do I need this right now to make the app work?
+2. Have I needed this exact thing twice already?
 
 If both answers aren’t “yes”, don’t add it.
 

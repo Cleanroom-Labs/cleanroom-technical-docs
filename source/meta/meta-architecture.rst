@@ -1,7 +1,7 @@
-AirGap Project Suite - Meta-Architecture
-========================================
+Meta-Architecture
+=================
 
-**Created:** 2026-01-04 **Purpose:** Document relationships, boundaries, and dependencies between the three AirGap projects
+**Purpose:** Document relationships, boundaries, and dependencies between the three AirGap projects
 
 --------------
 
@@ -25,10 +25,10 @@ The AirGap suite consists of three independent but complementary projects:
 Architecture Diagram
 --------------------
 
-::
+.. code-block:: none
 
    ┌─────────────────────────────────────────────────────────────────┐
-   │                      AirGap Project Suite                        │
+   │                      AirGap Project Suite                       │
    └─────────────────────────────────────────────────────────────────┘
 
    ┌─────────────────────┐      ┌─────────────────────┐      ┌─────────────────────┐
@@ -43,8 +43,8 @@ Architecture Diagram
    │  └──────────────┘   │      │  │ Collectors   │   │      │  │ Checksums    │   │
    │                     │      │  │              │   │      │  │              │   │
    │  Dependencies:      │      │  │ Package      │   │      │  │ Unpack/      │   │
-   │  - whisper.cpp     │◀─────┤  │ Generator    │   │      │  │ Reconstruct  │   │
-   │  - Whisper models  │ (1)  │  │              │   │      │  └──────────────┘   │
+   │  - whisper.cpp      ├─────▶│  │ Generator    │   │      │  │ Reconstruct  │   │
+   │  - Whisper models   │ (1)  │  │              │   │      │  └──────────────┘   │
    │                     │      │  │ Install      │   │      │                     │
    │  Can be deployed    │      │  │ Script Gen   │   │      │  Used for:          │
    │  using airgap-      │      │  └──────────────┘   │      │  - Large packages   │
@@ -76,9 +76,16 @@ Project Relationships
 
 **Relationship:** AirGap Whisper is a **reference implementation** and **primary use case** for AirGap Deploy.
 
-**How they relate:** - AirGap Deploy packages AirGap Whisper (with dependencies) for air-gapped systems - Deployment workflow documented in `workflow-airgap-whisper.md <AirGap Deploy/use-case-analysis/workflow-airgap-whisper.md>`__ - AirGap Whisper’s ``AirGapDeploy.toml`` defines packaging requirements
+**How they relate:**
 
-**Independence:** - AirGap Whisper can be built/deployed manually without AirGap Deploy - AirGap Deploy can package any application, not just AirGap Whisper
+- AirGap Deploy packages AirGap Whisper (with dependencies) for air-gapped systems
+- Deployment workflow documented in `AirGap Whisper deployment workflow <airgap-deploy/use-cases/workflow-airgap-whisper.rst>`__
+- AirGap Whisper’s ``AirGapDeploy.toml`` defines packaging requirements
+
+**Independence:**
+
+- AirGap Whisper can be built/deployed manually without AirGap Deploy
+- AirGap Deploy can package any application, not just AirGap Whisper
 
 **Code dependencies:** None (no compile-time or runtime dependency)
 
@@ -89,7 +96,11 @@ Project Relationships
 
 **Relationship:** AirGap Transfer is an **optional workflow enhancement** for AirGap Deploy.
 
-**How they relate:** - When AirGap Deploy creates packages larger than USB capacity, workflows suggest using AirGap Transfer - AirGap Transfer chunks the deployment package for multi-USB transfer - Integration is at the **workflow level**, not code level
+**How they relate:**
+
+- When AirGap Deploy creates packages larger than USB capacity, workflows suggest using AirGap Transfer
+- AirGap Transfer chunks the deployment package for multi-USB transfer
+- Integration is at the **workflow level**, not code level
 
 **Example workflow:**
 
@@ -111,7 +122,10 @@ Project Relationships
    cd ~/deployment/ollama-deploy
    sudo ./install.sh
 
-**Independence:** - AirGap Deploy works fine for packages that fit on single USB - AirGap Transfer can be used for any large file transfer, not just deployment packages
+**Independence:**
+
+- AirGap Deploy works fine for packages that fit on single USB
+- AirGap Transfer can be used for any large file transfer, not just deployment packages
 
 **Code dependencies:** None (workflow integration only)
 
@@ -122,7 +136,10 @@ Project Relationships
 
 **Relationship:** No direct relationship.
 
-**Indirect connection:** - If AirGap Whisper is packaged with large models, the deployment package might need AirGap Transfer - AirGap Whisper mentioned in AirGap Transfer docs as example use case
+**Indirect connection:**
+
+- If AirGap Whisper is packaged with large models, the deployment package might need AirGap Transfer
+- AirGap Whisper mentioned in AirGap Transfer docs as example use case
 
 **Code dependencies:** None
 
@@ -134,7 +151,7 @@ Dependency Analysis
 Compile-Time Dependencies
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-::
+.. code-block:: none
 
    AirGap Whisper dependencies:
      - whisper.cpp (external, build-time)
@@ -143,20 +160,21 @@ Compile-Time Dependencies
 
    AirGap Deploy dependencies:
      - Rust crates: reqwest, serde, toml, tar, etc.
+     - Dependency on AirGap Transfer
      - NO dependency on AirGap Whisper or AirGap Transfer
 
    AirGap Transfer dependencies:
      - Rust crates: sha2, minimal stdlib usage
      - NO dependency on AirGap Whisper or AirGap Deploy
 
-**Result:** ✅ **Zero circular dependencies** - All three projects are completely independent at the code level.
+**Result:** ✅ **Zero circular dependencies**.
 
 --------------
 
 Runtime Dependencies
 ~~~~~~~~~~~~~~~~~~~~
 
-::
+.. code-block:: none
 
    AirGap Whisper runtime:
      - Requires whisper.cpp binary (external process)
@@ -178,7 +196,7 @@ Runtime Dependencies
 Workflow Dependencies
 ~~~~~~~~~~~~~~~~~~~~~
 
-::
+.. code-block:: none
 
    Developer deploying AirGap Whisper:
      1. Use AirGap Deploy to create package
@@ -204,33 +222,75 @@ Project Boundaries
 AirGap Whisper
 ~~~~~~~~~~~~~~
 
-**Scope:** - ✅ Audio recording and transcription - ✅ System tray interface - ✅ Hotkey management - ✅ Transcription history (SQLite) - ✅ Privacy-focused, offline-first
+**Scope:**
 
-**Out of scope:** - ❌ Deployment packaging (that’s AirGap Deploy) - ❌ File transfer utilities (that’s AirGap Transfer) - ❌ Network communication (violates privacy principle)
+- ✅ Audio recording and transcription
+- ✅ System tray interface
+- ✅ Hotkey management
+- ✅ Transcription history (SQLite)
+- ✅ Privacy-focused, offline-first
 
-**Boundaries:** - End-user application, not a library or framework - Focused on single use case: offline transcription - Does NOT reuse code from AirGap Deploy or AirGap Transfer
+**Out of scope:**
+
+- ❌ Deployment packaging (that’s AirGap Deploy)
+- ❌ File transfer utilities (that’s AirGap Transfer)
+- ❌ Network communication (violates privacy principle)
+
+**Boundaries:**
+
+- End-user application, not a library or framework
+- Focused on single use case: offline transcription
+- Does NOT reuse code from AirGap Deploy or AirGap Transfer
 
 --------------
 
 AirGap Deploy
 ~~~~~~~~~~~~~
 
-**Scope:** - ✅ Parse deployment manifests (TOML) - ✅ Collect application components (source, binaries, models) - ✅ Generate installation scripts (Bash, PowerShell) - ✅ Package for air-gap deployment - ✅ Generic, works for any application
+**Scope:**
 
-**Out of scope:** - ❌ Large file chunking/transfer (suggest AirGap Transfer in workflows) - ❌ Application-specific logic (remains generic) - ❌ Runtime dependencies on specific applications
+- ✅ Parse deployment manifests (TOML)
+- ✅ Collect application components (source, binaries, models)
+- ✅ Generate installation scripts (Bash, PowerShell)
+- ✅ Package for air-gap deployment
+- ✅ Generic, works for any application
 
-**Boundaries:** - Developer tool, not end-user application - Generic packaging framework, not AirGap Whisper-specific - Does NOT include chunking logic (delegates to AirGap Transfer)
+**Out of scope:**
+
+- ❌ Large file chunking/transfer (suggest AirGap Transfer in workflows)
+- ❌ Application-specific logic (remains generic)
+- ❌ Runtime dependencies on specific applications
+
+**Boundaries:**
+
+- Developer tool, not end-user application
+- Generic packaging framework, not AirGap Whisper-specific
+- Does NOT include chunking logic (delegates to AirGap Transfer)
 
 --------------
 
 AirGap Transfer
 ~~~~~~~~~~~~~~~
 
-**Scope:** - ✅ Chunk large files/directories - ✅ SHA-256 verification - ✅ Resume interrupted transfers - ✅ Reconstruct files on destination - ✅ Generic, works for any large data
+**Scope:**
 
-**Out of scope:** - ❌ Application packaging (that’s AirGap Deploy) - ❌ Deployment orchestration (users combine tools in workflows) - ❌ Audio transcription or other application features
+- ✅ Chunk large files/directories
+- ✅ SHA-256 verification
+- ✅ Resume interrupted transfers
+- ✅ Reconstruct files on destination
+- ✅ Generic, works for any large data
 
-**Boundaries:** - Utility for file transfer, not a packaging framework - Generic, not specific to AirGap Whisper or deployment workflows - Single responsibility: move large data across air-gaps safely
+**Out of scope:**
+
+- ❌ Application packaging (that’s AirGap Deploy)
+- ❌ Deployment orchestration (users combine tools in workflows)
+- ❌ Audio transcription or other application features
+
+**Boundaries:**
+
+- Utility for file transfer, not a packaging framework
+- Generic, not specific to AirGap Whisper or deployment workflows
+- Single responsibility: move large data across air-gaps safely
 
 --------------
 
@@ -246,7 +306,12 @@ AirGap Whisper
 
 **Value:** “Private, offline audio transcription you can trust”
 
-**Target audience:** - Privacy-conscious professionals - Government/military users in air-gapped environments - Researchers handling sensitive data - Accessibility users needing offline voice-to-text
+**Target audience:**
+
+- Privacy-conscious professionals
+- Government/military users in air-gapped environments
+- Researchers handling sensitive data
+- Accessibility users needing offline voice-to-text
 
 **Alternative to:** Cloud transcription services (Google, AWS Transcribe, Whisper API)
 
@@ -261,7 +326,11 @@ AirGap Deploy
 
 **Value:** “Deploy any application to air-gapped systems with one manifest”
 
-**Target audience:** - Developers releasing software for air-gapped use - DevOps/release engineers - Open-source maintainers targeting security-sensitive users
+**Target audience:**
+
+- Developers releasing software for air-gapped use
+- DevOps/release engineers
+- Open-source maintainers targeting security-sensitive users
 
 **Alternative to:** Manual packaging, custom deployment scripts per application
 
@@ -276,7 +345,11 @@ AirGap Transfer
 
 **Value:** “Safely transfer multi-GB datasets across air-gaps”
 
-**Target audience:** - IT staff managing air-gapped infrastructure - Users needing to transfer large datasets (models, datasets, backups) - Anyone working with data that exceeds USB capacity
+**Target audience:**
+
+- IT staff managing air-gapped infrastructure
+- Users needing to transfer large datasets (models, datasets, backups)
+- Anyone working with data that exceeds USB capacity
 
 **Alternative to:** Manual chunking with ``split``, complex rsync workflows, proprietary tools
 
@@ -294,7 +367,15 @@ Journey 1: Developer Releasing AirGap Whisper
 
 **Scenario:** Create a release package for end users to install on air-gapped systems
 
-**Steps:** 1. **Developer** creates ``AirGapDeploy.toml`` manifest for AirGap Whisper 2. **Developer** runs ``AirGap Deploy prep`` → generates package (~300MB) 3. Package fits on single USB, no need for AirGap Transfer 4. **Developer** uploads package to GitHub releases 5. **End user** downloads package, transfers via USB 6. **End user** extracts and runs ``./install.sh`` 7. **End user** uses AirGap Whisper for transcription
+**Steps:**
+
+1. **Developer** creates ``AirGapDeploy.toml`` manifest for AirGap Whisper
+2. **Developer** runs ``AirGap Deploy prep`` → generates package (~300MB)
+3. Package fits on single USB, no need for AirGap Transfer
+4. **Developer** uploads package to GitHub releases
+5. **End user** downloads package, transfers via USB
+6. **End user** extracts and runs ``./install.sh``
+7. **End user** uses AirGap Whisper for transcription
 
 **Tools used:** AirGap Deploy (packaging), AirGap Whisper (end use)
 
@@ -307,7 +388,16 @@ Journey 2: Deploying Ollama with Large Models
 
 **Scenario:** Deploy Ollama with multiple LLM models (20GB total) to air-gapped system
 
-**Steps:** 1. **Developer** creates ``AirGapDeploy.ollama.toml`` with 3 models 2. **Developer** runs ``AirGap Deploy prep`` → 20GB package 3. Package exceeds 16GB USB capacity 4. **Developer** runs ``AirGap Transfer pack`` → chunks into 2x 10GB chunks 5. **Developer** uploads chunks to file server 6. **User** downloads chunks, transfers with 2x USB drives 7. **User** runs ``AirGap Transfer unpack`` → reconstructs 20GB package 8. **User** extracts and runs ``./install.sh`` → installs Ollama + models
+**Steps:**
+
+1. **Developer** creates ``AirGapDeploy.ollama.toml`` with 3 models
+2. **Developer** runs ``AirGap Deploy prep`` → 20GB package
+3. Package exceeds 16GB USB capacity
+4. **Developer** runs ``AirGap Transfer pack`` → chunks into 2x 10GB chunks
+5. **Developer** uploads chunks to file server
+6. **User** downloads chunks, transfers with 2x USB drives
+7. **User** runs ``AirGap Transfer unpack`` → reconstructs 20GB package
+8. **User** extracts and runs ``./install.sh`` → installs Ollama + models
 
 **Tools used:** AirGap Deploy (packaging), AirGap Transfer (chunking), Ollama (end use)
 
@@ -320,7 +410,16 @@ Journey 3: Transferring Research Dataset
 
 **Scenario:** Transfer 500GB research dataset from connected lab to air-gapped analysis system
 
-**Steps:** 1. **Researcher** has dataset in ``/data/research/`` 2. **Researcher** runs ``AirGap Transfer pack /data/research /media/usb1`` 3. Fills USB1 (16GB), prompts for USB2 4. Continues filling USB2, USB3, …, USB32 (32x 16GB USBs) 5. Physically transfers USBs to air-gapped system 6. **Researcher** runs ``AirGap Transfer unpack /media/usb1 /data/restored`` 7. Inserts each USB in sequence, AirGap Transfer reconstructs dataset 8. Verifies checksums, data integrity confirmed
+**Steps:**
+
+1. **Researcher** has dataset in ``/data/research/``
+2. **Researcher** runs ``AirGap Transfer pack /data/research /media/usb1``
+3. Fills USB1 (16GB), prompts for USB2
+4. Continues filling USB2, USB3, …, USB32 (32x 16GB USBs)
+5. Physically transfers USBs to air-gapped system
+6. **Researcher** runs ``AirGap Transfer unpack /media/usb1 /data/restored``
+7. Inserts each USB in sequence, AirGap Transfer reconstructs dataset
+8. Verifies checksums, data integrity confirmed
 
 **Tools used:** AirGap Transfer only (no deployment, no transcription)
 
@@ -332,9 +431,14 @@ Integration Points
 Documented Integration
 ~~~~~~~~~~~~~~~~~~~~~~
 
-**AirGap Deploy workflows mention AirGap Transfer:** - `workflow-ollama.md <AirGap Deploy/use-case-analysis/workflow-ollama.md>`__ - Shows chunking large Ollama packages - `workflow-airgap-whisper.md <AirGap Deploy/use-case-analysis/workflow-airgap-whisper.md>`__ - Notes option for large packages
+**AirGap Deploy workflows mention AirGap Transfer:**
 
-**AirGap Transfer docs mention AirGap Deploy:** - `overview.md <AirGap Transfer/use-case-analysis/overview.md>`__ - Lists integration with deployment workflows
+- `workflow-ollama.md <AirGap Deploy/use-case-analysis/workflow-ollama.md>`__ - Shows chunking large Ollama packages
+- `workflow-airgap-whisper.md <AirGap Deploy/use-case-analysis/workflow-airgap-whisper.md>`__ - Notes option for large packages
+
+**AirGap Transfer docs mention AirGap Deploy:**
+
+- `overview.md <AirGap Transfer/use-case-analysis/overview.md>`__ - Lists integration with deployment workflows
 
 **Cross-references maintained** in use case documentation.
 
@@ -343,7 +447,11 @@ Documented Integration
 No Integration (By Design)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**AirGap Whisper does NOT integrate with the other tools:** - No awareness of AirGap Deploy or AirGap Transfer - Can be packaged manually, with AirGap Deploy, or by other means - Maintains complete independence
+**AirGap Whisper does NOT integrate with the other tools:**
+
+- No awareness of AirGap Deploy or AirGap Transfer
+- Can be packaged manually, with AirGap Deploy, or by other means
+- Maintains complete independence
 
 **This is intentional:** AirGap Whisper is an end-user application with its own value, not a component of a larger system.
 
@@ -388,11 +496,10 @@ Relationships
 Key Insights
 ~~~~~~~~~~~~
 
-✅ **No circular dependencies** - Clean separation of concerns ✅ **Each project has distinct value** - Can be used independently ✅ **Optional workflow integration** - Users choose when to combine tools ✅ **Shared design principles** - Consistent philosophy across projects
+✅ **No circular dependencies**
 
-Next Steps
-~~~~~~~~~~
+- Clean separation of concerns ✅ **Each project has distinct value**
+- Can be used independently ✅ **Optional workflow integration**
+- Users choose when to combine tools ✅ **Shared design principles**
+- Consistent philosophy across projects
 
-- **Step 8:** Finalize high-level requirements (create AirGap Deploy SRS/SDD)
-- **Step 9:** Gap analysis (ensure all use cases are covered)
-- **Step 10:** Iterate to completeness
