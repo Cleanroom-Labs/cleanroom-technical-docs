@@ -2,7 +2,7 @@ Software Requirements Specification
 ===================================
 
 AirGap Whisper
-------------
+--------------
 
 **Version:** 1.0.0 **Date:** 2026-01-04 **Standard:** IEEE 830 (simplified for MVP)
 
