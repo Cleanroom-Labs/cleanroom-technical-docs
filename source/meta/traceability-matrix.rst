@@ -52,16 +52,6 @@ Test Cases Only
 
 The "Tests" column shows which requirements each test case validates (via the :tests: link).
 
-Traceability Flow Diagram
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-This diagram visualizes the relationships between requirements and test cases:
-
-.. needflow::
-   :types: req, test
-   :tags: whisper
-   :show_link_names:
-
 Recording Requirements Flow
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -114,16 +104,6 @@ Test Cases Only
 
 The "Tests" column shows which requirements each test case validates (via the :tests: link).
 
-Traceability Flow Diagram
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-This diagram visualizes the relationships between workflows, requirements and test cases:
-
-.. needflow::
-   :types: usecase, req, nfreq, test
-   :tags: deploy
-   :show_link_names:
-
 AirGap Transfer Traceability
 ----------------------------
 
@@ -159,16 +139,6 @@ Test Cases Only
    :style: table
 
 The "Tests" column shows which requirements each test case validates (via the :tests: link).
-
-Traceability Flow Diagram
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-This diagram visualizes the relationships between workflows, requirements and test cases:
-
-.. needflow::
-   :types: usecase, req, nfreq, test
-   :tags: transfer
-   :show_link_names:
 
 Statistics
 ----------
