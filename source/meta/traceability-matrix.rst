@@ -1,17 +1,23 @@
 Traceability Matrix
 ===================
 
-This document demonstrates bidirectional traceability between use cases, requirements, test cases, and implementations using sphinx-needs.
+This document demonstrates bidirectional traceability between use cases, requirements, test cases, and implementations using sphinx-needs. When implementation begins, this matrix will expand to include:
 
-AirGap Whisper Complete Traceability
--------------------------------------
+- **Use Cases** (:usecase:) → Requirements
+- **Requirements** (:req:, :nfreq:) → Test Cases
+- **Requirements** → Implementation (:impl:)
+- **Design Specifications** (:spec:) → Implementation
 
-This section demonstrates complete bidirectional traceability for AirGap Whisper with all requirements, use cases, and test cases linked.
+The full traceability chain will look like:
 
-AirGap Deploy Complete Traceability
-------------------------------------
+::
 
-This section demonstrates complete bidirectional traceability for AirGap Deploy with all requirements, workflows, and test cases linked.
+   Use Case → Requirement → Design Spec → Implementation → Test Case
+      ↓           ↓             ↓              ↓              ↓
+   UC-XXX  →  FR-XXX    →   DS-XXX   →    IMPL-XXX   →   TC-XXX
+
+AirGap Whisper Traceability
+---------------------------
 
 Requirements to Tests Table
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -68,8 +74,11 @@ Transcription Requirements Flow
    :tags: transcription
    :show_link_names:
 
-AirGap Deploy Requirements to Tests Table
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+AirGap Deploy Traceability
+--------------------------
+
+Requirements to Tests Table
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The following table shows all requirements and test cases for AirGap Deploy:
 
@@ -79,8 +88,8 @@ The following table shows all requirements and test cases for AirGap Deploy:
    :filter: "deploy" in tags
    :style: table
 
-AirGap Deploy Requirements Only
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Requirements Only
+~~~~~~~~~~~~~~~~~
 
 .. needtable::
    :types: req, nfreq
@@ -88,8 +97,8 @@ AirGap Deploy Requirements Only
    :filter: "deploy" in tags
    :style: table
 
-AirGap Deploy Test Cases Only
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Test Cases Only
+~~~~~~~~~~~~~~~
 
 .. needtable::
    :types: test
@@ -97,8 +106,8 @@ AirGap Deploy Test Cases Only
    :filter: "deploy" in tags
    :style: table
 
-AirGap Deploy Traceability Flow Diagram
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Traceability Flow Diagram
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This diagram visualizes the relationships between workflows, requirements and test cases:
 
@@ -107,8 +116,11 @@ This diagram visualizes the relationships between workflows, requirements and te
    :tags: deploy
    :show_link_names:
 
-AirGap Transfer Requirements to Tests Table
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+AirGap Transfer Traceability
+----------------------------
+
+Requirements to Tests Table
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The following table shows all requirements and test cases for AirGap Transfer:
 
@@ -118,8 +130,8 @@ The following table shows all requirements and test cases for AirGap Transfer:
    :filter: "transfer" in tags
    :style: table
 
-AirGap Transfer Requirements Only
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Requirements Only
+~~~~~~~~~~~~~~~~~
 
 .. needtable::
    :types: req, nfreq
@@ -127,8 +139,8 @@ AirGap Transfer Requirements Only
    :filter: "transfer" in tags
    :style: table
 
-AirGap Transfer Test Cases Only
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Test Cases Only
+~~~~~~~~~~~~~~~
 
 .. needtable::
    :types: test
@@ -136,8 +148,8 @@ AirGap Transfer Test Cases Only
    :filter: "transfer" in tags
    :style: table
 
-AirGap Transfer Traceability Flow Diagram
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Traceability Flow Diagram
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This diagram visualizes the relationships between workflows, requirements and test cases:
 
@@ -145,27 +157,6 @@ This diagram visualizes the relationships between workflows, requirements and te
    :types: usecase, req, nfreq, test
    :tags: transfer
    :show_link_names:
-
-Future Traceability
--------------------
-
-When implementation begins, this matrix will expand to include:
-
-- **Use Cases** (:usecase:) → Requirements
-- **Requirements** (:req:, :nfreq:) → Test Cases
-- **Requirements** → Implementation (:impl:)
-- **Design Specifications** (:spec:) → Implementation
-
-Complete Traceability Chain
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The full traceability chain will look like:
-
-::
-
-   Use Case → Requirement → Design Spec → Implementation → Test Case
-      ↓           ↓             ↓              ↓              ↓
-   UC-XXX  →  FR-XXX    →   DS-XXX   →    IMPL-XXX   →   TC-XXX
 
 Statistics
 ----------
