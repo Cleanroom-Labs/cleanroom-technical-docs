@@ -26,7 +26,7 @@ The following table shows all requirements and test cases for AirGap Whisper, al
 
 .. needtable::
    :types: req, nfreq, test
-   :columns: id, title, status, incoming
+   :columns: id, title, status, links
    :filter: "whisper" in tags
    :style: table
 
@@ -35,22 +35,22 @@ Requirements Only
 
 .. needtable::
    :types: req, nfreq
-   :columns: id, title, priority, status, incoming
+   :columns: id, title, priority, status, links
    :filter: "whisper" in tags
    :style: table
 
-The "Incoming" column shows which test cases validate each requirement.
+The "Links" column shows traceability relationships (requirements show which tests validate them, tests show which requirements they validate).
 
 Test Cases Only
 ~~~~~~~~~~~~~~~
 
 .. needtable::
    :types: test
-   :columns: id, title, priority, status, outgoing
+   :columns: id, title, priority, status, links
    :filter: "whisper" in tags
    :style: table
 
-The "Outgoing" column shows which requirements each test case validates.
+The "Links" column shows which requirements each test case validates.
 
 Traceability Flow Diagram
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -88,7 +88,7 @@ The following table shows all requirements and test cases for AirGap Deploy:
 
 .. needtable::
    :types: req, nfreq, test
-   :columns: id, title, status, incoming
+   :columns: id, title, status, links
    :filter: "deploy" in tags
    :style: table
 
@@ -97,22 +97,22 @@ Requirements Only
 
 .. needtable::
    :types: req, nfreq
-   :columns: id, title, priority, status, incoming
+   :columns: id, title, priority, status, links
    :filter: "deploy" in tags
    :style: table
 
-The "Incoming" column shows which test cases validate each requirement.
+The "Links" column shows traceability relationships (requirements show which tests validate them, tests show which requirements they validate).
 
 Test Cases Only
 ~~~~~~~~~~~~~~~
 
 .. needtable::
    :types: test
-   :columns: id, title, priority, status, outgoing
+   :columns: id, title, priority, status, links
    :filter: "deploy" in tags
    :style: table
 
-The "Outgoing" column shows which requirements each test case validates.
+The "Links" column shows which requirements each test case validates.
 
 Traceability Flow Diagram
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -134,7 +134,7 @@ The following table shows all requirements and test cases for AirGap Transfer:
 
 .. needtable::
    :types: req, nfreq, test
-   :columns: id, title, status, incoming
+   :columns: id, title, status, links
    :filter: "transfer" in tags
    :style: table
 
@@ -143,22 +143,22 @@ Requirements Only
 
 .. needtable::
    :types: req, nfreq
-   :columns: id, title, priority, status, incoming
+   :columns: id, title, priority, status, links
    :filter: "transfer" in tags
    :style: table
 
-The "Incoming" column shows which test cases validate each requirement.
+The "Links" column shows traceability relationships (requirements show which tests validate them, tests show which requirements they validate).
 
 Test Cases Only
 ~~~~~~~~~~~~~~~
 
 .. needtable::
    :types: test
-   :columns: id, title, priority, status, outgoing
+   :columns: id, title, priority, status, links
    :filter: "transfer" in tags
    :style: table
 
-The "Outgoing" column shows which requirements each test case validates.
+The "Links" column shows which requirements each test case validates.
 
 Traceability Flow Diagram
 ~~~~~~~~~~~~~~~~~~~~~~~~~
