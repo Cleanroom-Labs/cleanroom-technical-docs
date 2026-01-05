@@ -212,8 +212,8 @@ This creates the full traceability chain:
 
 ::
 
-   Requirement → Implementation → API Docs → Tests
-        ↓              ↓              ↓          ↓
+     Requirement  →  Implementation  →   API Docs    →   Tests
+         ↓                  ↓                ↓             ↓
    FR-WHISPER-001 → IMPL-WHISPER-001 → AudioRecorder → TC-REC-001
 
 Updating Traceability Matrix

@@ -667,6 +667,5 @@ See Also
 
 - :doc:`/meta/traceability-matrix` - See sphinx-needs in action
 - :doc:`/meta/rust-integration-guide` - Link code to requirements
-- :doc:`/meta/migration-summary` - How we built this system
 - `sphinx-needs Documentation <https://sphinx-needs.readthedocs.io/>`_
 - `IEEE 830-1998 <https://standards.ieee.org/standard/830-1998.html>`_ - Requirements specification standard
