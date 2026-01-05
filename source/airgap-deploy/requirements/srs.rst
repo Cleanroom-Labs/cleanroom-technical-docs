@@ -1,7 +1,7 @@
 Software Requirements Specification
 ===================================
 
-airgap-deploy
+AirGap Deploy
 -------------
 
 **Version:** 1.0.0 **Date:** 2026-01-04 **Status:** Draft **Standard:** IEEE 830-1998
