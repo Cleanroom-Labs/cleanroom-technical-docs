@@ -268,6 +268,6 @@ See Also
 --------
 
 - `Meta-Architecture <../meta-architecture.md>`__ - How airgap-deploy fits in the AirGap suite
-- `Traceability Matrix <../meta/traceability-matrix.rst>`__ - Requirements traceability
+- `Requirements Overview <../meta/requirements-overview.rst>`__ - Project statistics and requirements overview
 - `AirGap Whisper <../airgap-whisper/README.md>`__ - Primary use case
 - `airgap-transfer <../airgap-transfer/README.md>`__ - Large file transfer companion tool
