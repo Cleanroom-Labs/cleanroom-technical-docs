@@ -84,18 +84,13 @@ Resume after interruption Requires manual interruption
 3.1 Pack Operation Tests
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-========== =============================== =========== ========
-ID         Description                     Requirement Priority
-========== =============================== =========== ========
-TC-PCK-001 Pack single file into chunks    FR-001      High
-TC-PCK-002 Pack directory into chunks      FR-001      High
-TC-PCK-003 Auto-detect USB capacity        FR-002      High
-TC-PCK-004 Generate chunk checksums        FR-003      High
-TC-PCK-005 Create manifest file            FR-004      High
-TC-PCK-006 Stream without temp files       FR-005      High
-TC-PCK-007 Manual chunk size specification FR-006      Medium
-TC-PCK-008 Progress reporting              FR-007      Medium
-========== =============================== =========== ========
+.. needtable::
+   :types: test
+   :filter: "transfer" in tags and "pack" in tags
+   :columns: id,title,tests,priority
+   :colwidths: 20,40,20,20
+   :style: table
+   :sort: id
 
 .. test:: Pack Single File into Chunks
    :id: TC-PCK-001
@@ -172,16 +167,13 @@ TC-PCK-008 Progress reporting              FR-007      Medium
 3.2 Unpack Operation Tests
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-========== ============================= =========== ========
-ID         Description                   Requirement Priority
-========== ============================= =========== ========
-TC-UNP-001 Reconstruct files from chunks FR-009      High
-TC-UNP-002 Verify chunk checksums        FR-010      High
-TC-UNP-003 Place files in destination    FR-011      High
-TC-UNP-004 Validate chunk completeness   FR-012      High
-TC-UNP-005 Resume partial unpack         FR-013      Medium
-TC-UNP-006 Delete chunks after unpack    FR-014      Medium
-========== ============================= =========== ========
+.. needtable::
+   :types: test
+   :filter: "transfer" in tags and "unpack" in tags
+   :columns: id,title,tests,priority
+   :colwidths: 20,40,20,20
+   :style: table
+   :sort: id
 
 .. test:: Reconstruct Files from Chunks
    :id: TC-UNP-001
@@ -240,14 +232,13 @@ TC-UNP-006 Delete chunks after unpack    FR-014      Medium
 3.3 List Operation Tests
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-========== =========================== =========== ========
-ID         Description                 Requirement Priority
-========== =========================== =========== ========
-TC-LST-001 Display chunk inventory     FR-016      High
-TC-LST-002 Show chunk sizes and status FR-017      High
-TC-LST-003 Identify missing chunks     FR-018      Medium
-TC-LST-004 Show estimated total size   FR-019      Medium
-========== =========================== =========== ========
+.. needtable::
+   :types: test
+   :filter: "transfer" in tags and "list" in tags
+   :columns: id,title,tests,priority
+   :colwidths: 20,40,20,20
+   :style: table
+   :sort: id
 
 .. test:: Display Chunk Inventory
    :id: TC-LST-001
@@ -288,14 +279,13 @@ TC-LST-004 Show estimated total size   FR-019      Medium
 3.4 Integrity Tests
 ~~~~~~~~~~~~~~~~~~~
 
-========== ============================== =========== ========
-ID         Description                    Requirement Priority
-========== ============================== =========== ========
-TC-INT-001 Generate SHA-256 checksums     FR-020      Critical
-TC-INT-002 Verify checksums during unpack FR-021      Critical
-TC-INT-003 Detect corrupted chunks        FR-022      Critical
-TC-INT-004 Verify final file integrity    FR-023      High
-========== ============================== =========== ========
+.. needtable::
+   :types: test
+   :filter: "transfer" in tags and "integrity" in tags
+   :columns: id,title,tests,priority
+   :colwidths: 20,40,20,20
+   :style: table
+   :sort: id
 
 .. test:: Generate SHA-256 Checksums
    :id: TC-INT-001
@@ -336,14 +326,13 @@ TC-INT-004 Verify final file integrity    FR-023      High
 3.5 State Management Tests
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-========== ========================= =========== ========
-ID         Description               Requirement Priority
-========== ========================= =========== ========
-TC-STA-001 Persist operation state   FR-024      High
-TC-STA-002 Track chunk completion    FR-025      High
-TC-STA-003 Resume interrupted pack   FR-026      Medium
-TC-STA-004 Resume interrupted unpack FR-027      Medium
-========== ========================= =========== ========
+.. needtable::
+   :types: test
+   :filter: "transfer" in tags and "state" in tags
+   :columns: id,title,tests,priority
+   :colwidths: 20,40,20,20
+   :style: table
+   :sort: id
 
 .. test:: Persist Operation State
    :id: TC-STA-001
@@ -384,15 +373,13 @@ TC-STA-004 Resume interrupted unpack FR-027      Medium
 3.6 Command Interface Tests
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-========== ===================== =========== ========
-ID         Description           Requirement Priority
-========== ===================== =========== ========
-TC-CLI-001 Pack command syntax   FR-028      High
-TC-CLI-002 Unpack command syntax FR-029      High
-TC-CLI-003 List command syntax   FR-030      High
-TC-CLI-004 Dry-run mode          FR-031      High
-TC-CLI-005 Verify flag           FR-032      High
-========== ===================== =========== ========
+.. needtable::
+   :types: test
+   :filter: "transfer" in tags and "cli" in tags
+   :columns: id,title,tests,priority
+   :colwidths: 20,40,20,20
+   :style: table
+   :sort: id
 
 .. test:: Pack Command Syntax
    :id: TC-TRANSFER-CLI-001
@@ -442,13 +429,13 @@ TC-CLI-005 Verify flag           FR-032      High
 3.7 Error Handling Tests
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-========== =============================== =========== ========
-ID         Description                     Requirement Priority
-========== =============================== =========== ========
-TC-ERR-001 Insufficient USB capacity error FR-035      High
-TC-ERR-002 Missing chunks error            FR-036      High
-TC-ERR-004 Clear error messages            FR-038      High
-========== =============================== =========== ========
+.. needtable::
+   :types: test
+   :filter: "transfer" in tags and "error" in tags
+   :columns: id,title,tests,priority
+   :colwidths: 20,40,20,20
+   :style: table
+   :sort: id
 
 .. test:: Insufficient USB Capacity Error
    :id: TC-TRANSFER-ERR-001
@@ -480,13 +467,13 @@ TC-ERR-004 Clear error messages            FR-038      High
 3.8 Safety Tests
 ~~~~~~~~~~~~~~~~
 
-========== ========================== =========== ========
-ID         Description                Requirement Priority
-========== ========================== =========== ========
-TC-SAF-001 Confirm file overwrite     FR-039      High
-TC-SAF-002 Validate destination paths FR-040      High
-TC-SAF-003 USB sync before removal    FR-041      High
-========== ========================== =========== ========
+.. needtable::
+   :types: test
+   :filter: "transfer" in tags and "safety" in tags
+   :columns: id,title,tests,priority
+   :colwidths: 20,40,20,20
+   :style: table
+   :sort: id
 
 .. test:: Confirm File Overwrite
    :id: TC-SAF-001
@@ -518,14 +505,13 @@ TC-SAF-003 USB sync before removal    FR-041      High
 3.9 Non-Functional Tests
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-========== ========================= =========== =========
-ID         Description               Requirement Target
-========== ========================= =========== =========
-TC-NFR-001 Pack 10GB in < 10 minutes NFR-001     < 10 min
-TC-NFR-002 Memory usage              NFR-002     < 100 MB
-TC-NFR-003 Offline functionality     NFR-004     100%
-TC-NFR-004 Cross-platform            NFR-006     Pass/Fail
-========== ========================= =========== =========
+.. needtable::
+   :types: test
+   :filter: "transfer" in tags and "performance" in tags
+   :columns: id,title,tests,priority
+   :colwidths: 20,40,20,20
+   :style: table
+   :sort: id
 
 .. test:: Pack 10GB in < 10 Minutes
    :id: TC-TRANSFER-NFR-001
@@ -571,18 +557,34 @@ TC-NFR-004 Cross-platform            NFR-006     Pass/Fail
 4.1 Offline Operation Test (TC-NFR-003)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Preconditions:** - App installed - Network disconnected (airplane mode or air-gapped system)
+**Preconditions:**
 
-**Steps:** 1. Disconnect network 2. Pack 1GB test dataset 3. Unpack and verify 4. Check all operations completed
+- App installed
+- Network disconnected (airplane mode or air-gapped system)
+
+**Steps:**
+
+1. Disconnect network
+2. Pack 1GB test dataset
+3. Unpack and verify
+4. Check all operations completed
 
 **Pass Criteria:** All operations complete successfully with no network.
 
 4.2 Checksum Verification Test (TC-INT-003)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Preconditions:** - Valid chunk files - Manifest with checksums
+**Preconditions:**
 
-**Steps:** 1. Corrupt one chunk file (modify 1 byte) 2. Run unpack operation 3. Verify error is reported 4. Confirm unpack aborts
+- Valid chunk files
+- Manifest with checksums
+
+**Steps:**
+
+1. Corrupt one chunk file (modify 1 byte)
+2. Run unpack operation
+3. Verify error is reported
+4. Confirm unpack aborts
 
 **Pass Criteria:** Corrupted chunk detected, unpack aborted with clear error.
 
@@ -594,52 +596,6 @@ TC-NFR-004 Cross-platform            NFR-006     Pass/Fail
 - **All Critical tests must pass** before release
 - **All High priority tests must pass** before release
 - **Medium priority tests:** 90% pass rate acceptable
-
---------------
-
-Requirements Traceability
--------------------------
-
-This section demonstrates bidirectional traceability between requirements and test cases for AirGap Transfer.
-
-Requirements to Tests Matrix
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The following table shows all requirements and their associated test cases.
-
-.. needtable::
-   :types: req, nfreq, test
-   :columns: id, title, status, type
-   :filter: "transfer" in tags
-   :style: table
-
-Requirements Coverage
-~~~~~~~~~~~~~~~~~~~~~
-
-This table shows only requirements for AirGap Transfer.
-
-.. needtable::
-   :types: req, nfreq
-   :columns: id, title, priority, status
-   :filter: "transfer" in tags
-   :style: table
-
-.. note::
-
-   To see which tests validate each requirement, refer to the Requirements to Tests Matrix above, or check the individual test case definitions in Section 3.
-
-Test Cases
-~~~~~~~~~~
-
-This table lists all test cases with their validation links.
-
-.. needtable::
-   :types: test
-   :columns: id, title, priority, status, tests
-   :filter: "transfer" in tags
-   :style: table
-
-The "Tests" column shows which requirements each test case validates (via the :tests: link).
 
 --------------
 
