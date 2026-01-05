@@ -10,7 +10,7 @@ Welcome to the AirGap Project Suite documentation. This suite consists of three 
 All projects follow strict privacy-first design principles with zero network communication and minimal dependencies.
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Meta Documentation
 
    meta/index
@@ -40,7 +40,6 @@ Quick Links
 **Traceability:**
 
 - :doc:`meta/traceability-matrix` - Requirements ↔ Tests traceability
-- :doc:`meta/gap-analysis` - Gap analysis across all projects
 
 Indices and tables
 ==================
