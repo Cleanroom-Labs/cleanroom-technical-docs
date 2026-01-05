@@ -20,12 +20,12 @@ Why Use sphinx-needs?
 
 **Benefits:**
 
-✅ **Bidirectional Traceability:** Automatically track relationships between requirements, designs, implementations, and tests
-✅ **Automated Validation:** Sphinx validates all links at build time
-✅ **Visual Diagrams:** Auto-generate flowcharts showing relationships
-✅ **Searchable:** Full-text search across all requirements
-✅ **Maintainable:** Changes propagate automatically
-✅ **Standards-Compliant:** Supports IEEE requirements engineering practices
+- ✅ **Bidirectional Traceability:** Automatically track relationships between requirements, designs, implementations, and tests
+- ✅ **Automated Validation:** Sphinx validates all links at build time
+- ✅ **Visual Diagrams:** Auto-generate flowcharts showing relationships
+- ✅ **Searchable:** Full-text search across all requirements
+- ✅ **Maintainable:** Changes propagate automatically
+- ✅ **Standards-Compliant:** Supports IEEE requirements engineering practices
 
 Available Directive Types
 --------------------------
@@ -79,7 +79,7 @@ All sphinx-needs directives follow this pattern:
       :id: UNIQUE-ID
       :status: approved|pending|rejected
       :tags: tag1, tag2, tag3
-      :priority: must|should|could|wont  (or high|medium|low|critical)
+      :priority: must|should|could|won't  (or high|medium|low|critical)
       :links-to-other-needs: OTHER-ID-1, OTHER-ID-2
 
       Description of the need goes here.
@@ -440,7 +440,7 @@ Priority Values
 - ``must`` - Must have, critical
 - ``should`` - Should have, important
 - ``could`` - Could have, nice to have
-- ``wont`` - Won't have this release
+- ``won't`` - Won't have this release
 
 **For tests:**
 
@@ -496,10 +496,10 @@ Build-Time Checks
 
 Sphinx validates:
 
-✅ All need IDs are unique
-✅ All linked IDs exist
-✅ Required options are present
-✅ Status values are valid
+- ✅ All need IDs are unique
+- ✅ All linked IDs exist
+- ✅ Required options are present
+- ✅ Status values are valid
 
 **Error example:**
 
@@ -640,13 +640,13 @@ Summary
 
 **Key Points:**
 
-✅ Use directive types consistently (usecase, req, nfreq, test, impl, spec)
-✅ Follow ID naming conventions (PREFIX-PROJECT-###)
-✅ Link needs bidirectionally (:tests:, :implements:, :satisfies:)
-✅ Use tags for filtering and organization
-✅ Generate matrices with needtable
-✅ Visualize with needflow
-✅ Validate at build time
+- ✅ Use directive types consistently (usecase, req, nfreq, test, impl, spec)
+- ✅ Follow ID naming conventions (PREFIX-PROJECT-###)
+- ✅ Link needs bidirectionally (:tests:, :implements:, :satisfies:)
+- ✅ Use tags for filtering and organization
+- ✅ Generate matrices with needtable
+- ✅ Visualize with needflow
+- ✅ Validate at build time
 
 **Workflow:**
 
