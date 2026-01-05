@@ -1,12 +1,13 @@
 sphinx-needs Usage Guide
 ========================
 
-This guide explains how to use sphinx-needs for requirements engineering and traceability in the AirGap Project Suite documentation.
+This guide explains how to use `sphinx-needs`_ for requirements engineering and
+traceability in the AirGap Project Suite documentation.
 
 What is sphinx-needs?
 ---------------------
 
-sphinx-needs is a Sphinx extension that provides directives for requirements engineering. It allows you to:
+`sphinx-needs`_ is a Sphinx extension that provides directives for requirements engineering. It allows you to:
 
 - Define requirements, tests, specifications, and other needs
 - Link needs bidirectionally
@@ -40,28 +41,28 @@ The AirGap Project Suite uses 6 sphinx-needs directive types:
      - Prefix
      - Color
      - Purpose
-   * - ``.. usecase::``
-     - UC-
+   * - ``usecase``
+     - ``UC``
      - Blue
      - User stories and workflow descriptions
-   * - ``.. req::``
-     - FR-
+   * - ``req``
+     - ``FR``
      - Orange
      - Functional requirements
-   * - ``.. nfreq::``
-     - NFR-
+   * - ``nfreq``
+     - ``NFR``
      - Dark Orange
      - Non-functional requirements (performance, security, etc.)
-   * - ``.. spec::``
-     - DS-
+   * - ``spec``
+     - ``DS``
      - Yellow
      - Design specifications
-   * - ``.. impl::``
-     - IMPL-
+   * - ``impl``
+     - ``IMPL``
      - Purple
      - Code implementations (future)
-   * - ``.. test::``
-     - TC-
+   * - ``test``
+     - ``TC``
      - Green
      - Test cases
 
@@ -75,7 +76,7 @@ All sphinx-needs directives follow this pattern:
 
 .. code-block:: rst
 
-   .. directive-type:: Title
+   .. directive:: Title
       :id: UNIQUE-ID
       :status: approved|pending|rejected
       :tags: tag1, tag2, tag3
@@ -184,7 +185,7 @@ Linking Needs
 Link Types
 ~~~~~~~~~~
 
-sphinx-needs supports multiple link types:
+`sphinx-needs`_ supports multiple link types:
 
 .. list-table::
    :header-rows: 1
@@ -194,16 +195,16 @@ sphinx-needs supports multiple link types:
      - Meaning
      - Use When
    * - ``:tests:``
-     - "Tests the requirement(s)"
+     - Tests the requirement(s)
      - Link test cases to requirements
    * - ``:implements:``
-     - "Implements the requirement(s)"
+     - Implements the requirement(s)
      - Link code to requirements
    * - ``:satisfies:``
-     - "Satisfies the use case(s)"
+     - Satisfies the use case(s)
      - Link requirements to use cases
    * - ``:derives:``
-     - "Derives from the need(s)"
+     - Derives from the need(s)
      - Link derived requirements
 
 Link Syntax
@@ -407,7 +408,7 @@ Best Practices
 ID Naming Conventions
 ~~~~~~~~~~~~~~~~~~~~~
 
-**Format:** ``PREFIX-PROJECT-###``
+**Format:** ``PREFIX-PROJECT-(COMPONENT-)###``
 
 **Examples:**
 
@@ -641,8 +642,8 @@ Summary
 **Key Points:**
 
 - ✅ Use directive types consistently (usecase, req, nfreq, test, impl, spec)
-- ✅ Follow ID naming conventions (PREFIX-PROJECT-###)
-- ✅ Link needs bidirectionally (:tests:, :implements:, :satisfies:)
+- ✅ Follow ID naming conventions (``PREFIX-PROJECT-(COMPONENT-)###``)
+- ✅ Link needs bidirectionally (``:tests:``, ``:implements:``, ``:satisfies:``)
 - ✅ Use tags for filtering and organization
 - ✅ Generate matrices with needtable
 - ✅ Visualize with needflow
@@ -650,11 +651,11 @@ Summary
 
 **Workflow:**
 
-1. Write use cases (.. usecase::)
-2. Write requirements that satisfy use cases (:satisfies:)
-3. Write design specs that implement requirements (:implements:)
+1. Write use cases (``.. usecase::``)
+2. Write requirements that satisfy use cases (``:satisfies:``)
+3. Write design specs that implement requirements (``:implements:``)
 4. Write code with doc comments referencing requirements
-5. Write tests that validate requirements (:tests:)
+5. Write tests that validate requirements (``:tests:``)
 6. Generate matrices to verify coverage
 7. Build docs to validate all links
 
@@ -669,3 +670,5 @@ See Also
 - :doc:`/meta/rust-integration-guide` - Link code to requirements
 - `sphinx-needs Documentation <https://sphinx-needs.readthedocs.io/>`_
 - `IEEE 830-1998 <https://standards.ieee.org/standard/830-1998.html>`_ - Requirements specification standard
+
+.. _sphinx-needs: https://sphinx-needs.readthedocs.io/en/stable/
