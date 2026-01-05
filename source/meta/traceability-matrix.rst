@@ -143,68 +143,28 @@ The "Tests" column shows which requirements each test case validates (via the :t
 Statistics
 ----------
 
-**Statistics are automatically maintained** - The counts below are derived from the needtable directives throughout this document. When requirements, tests, or use cases are added or removed, these statistics automatically reflect the changes.
-
-.. note::
-
-   The traceability tables in earlier sections (Requirements to Tests, etc.) show the actual counts in their table headers when using the datatables style. For example, "Showing 1 to 42 of **42 entries**" indicates 42 needs of that type.
-
-Quick Summary
-~~~~~~~~~~~~~
-
-Based on traceability tables above (automatically counted):
+**Statistics are automatically maintained** - The counts below are derived from the need_count directives throughout this document. When requirements, tests, or use cases are added or removed, these statistics automatically reflect the changes.
 
 **AirGap Whisper:**
 
-- **Use Cases:** 4 (see "AirGap Whisper Complete Traceability" section above)
-- **Requirements:** 42 functional + 6 non-functional = 48 total
-- **Test Cases:** 43
-- **Total:** 95 sphinx-needs directives
+- **Use Cases:** :need_count:`type=='usecase' and 'whisper' in tags`
+- **Requirements:** :need_count:`type=='req' and 'whisper' in tags` functional + :need_count:`type=='nfreq' and 'whisper' in tags` non-functional = :need_count:`type in ['req', 'nfreq'] and 'whisper' in tags` total
+- **Test Cases:** :need_count:`type=='test' and 'whisper' in tags`
+- **Total:** :need_count:`'whisper' in tags` sphinx-needs directives
 
 **AirGap Deploy:**
 
-- **Use Cases/Workflows:** 2 (see "AirGap Deploy Complete Traceability" section above)
-- **Requirements:** 48 functional + 28 non-functional = 76 total
-- **Test Cases:** 52
-- **Total:** 130 sphinx-needs directives
+- **Use Cases/Workflows:** :need_count:`type=='usecase' and 'deploy' in tags`
+- **Requirements:** :need_count:`type=='req' and 'deploy' in tags` functional + :need_count:`type=='nfreq' and 'deploy' in tags` non-functional = :need_count:`type in ['req', 'nfreq'] and 'deploy' in tags` total
+- **Test Cases:** :need_count:`type=='test' and 'deploy' in tags`
+- **Total:** :need_count:`'deploy' in tags` sphinx-needs directives
 
 **AirGap Transfer:**
 
-- **Use Cases/Workflows:** 3 (see "AirGap Transfer Requirements to Tests Table" section above)
-- **Requirements:** 45 functional + 6 non-functional = 51 total
-- **Test Cases:** 42
-- **Total:** 96 sphinx-needs directives
+- **Use Cases/Workflows:** :need_count:`type=='usecase' and 'transfer' in tags`
+- **Requirements:** :need_count:`type=='req' and 'transfer' in tags` functional + :need_count:`type=='nfreq' and 'transfer' in tags` non-functional = :need_count:`type in ['req', 'nfreq'] and 'transfer' in tags` total
+- **Test Cases:** :need_count:`type=='test' and 'transfer' in tags`
+- **Total:** :need_count:`'transfer' in tags` sphinx-needs directives
 
 **Combined Total:** 321 sphinx-needs directives across all three projects
-
-How to Verify Counts
-~~~~~~~~~~~~~~~~~~~~
-
-To automatically verify these counts, check the needtable headers in the sections above:
-
-1. **AirGap Whisper Requirements** - See "Requirements to Tests Table" section, the datatables header shows the count
-2. **AirGap Deploy Requirements** - See "AirGap Deploy Requirements to Tests Table" section
-3. **AirGap Transfer Requirements** - See "AirGap Transfer Requirements to Tests Table" section
-
-Alternatively, use grep to count from source files:
-
-.. code-block:: bash
-
-   # Count AirGap Whisper requirements
-   grep -r ".. req::" source/airgap-whisper/ | wc -l
-   grep -r ".. nfreq::" source/airgap-whisper/ | wc -l
-   grep -r ".. test::" source/airgap-whisper/ | wc -l
-   grep -r ".. usecase::" source/airgap-whisper/ | wc -l
-
-   # Count AirGap Deploy directives
-   grep -r ".. req::" source/airgap-deploy/ | wc -l
-   grep -r ".. nfreq::" source/airgap-deploy/ | wc -l
-   grep -r ".. test::" source/airgap-deploy/ | wc -l
-   grep -r ".. usecase::" source/airgap-deploy/ | wc -l
-
-   # Count AirGap Transfer directives
-   grep -r ".. req::" source/airgap-transfer/ | wc -l
-   grep -r ".. nfreq::" source/airgap-transfer/ | wc -l
-   grep -r ".. test::" source/airgap-transfer/ | wc -l
-   grep -r ".. usecase::" source/airgap-transfer/ | wc -l
 
