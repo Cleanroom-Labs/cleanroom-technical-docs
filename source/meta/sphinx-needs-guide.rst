@@ -665,7 +665,7 @@ Complete, validated, bidirectional traceability from use cases through requireme
 See Also
 --------
 
-- :doc:`/meta/traceability-matrix` - See sphinx-needs in action
+- :doc:`/meta/requirements-overview` - See sphinx-needs in action
 - :doc:`/meta/rust-integration-guide` - Link code to requirements
 - `sphinx-needs Documentation <https://sphinx-needs.readthedocs.io/>`_
 - `IEEE 830-1998 <https://standards.ieee.org/standard/830-1998.html>`_ - Requirements specification standard

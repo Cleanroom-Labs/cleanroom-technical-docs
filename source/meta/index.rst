@@ -12,9 +12,9 @@ Cross-project documentation covering principles, architecture, and traceability 
 
 .. toctree::
    :maxdepth: 2
-   :caption: Traceability
+   :caption: Requirements
 
-   traceability-matrix
+   requirements-overview
 
 .. toctree::
    :maxdepth: 2

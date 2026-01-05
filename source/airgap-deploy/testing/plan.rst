@@ -935,4 +935,50 @@ Test plan will be approved when:
 
 --------------
 
+Requirements Traceability
+-------------------------
+
+This section demonstrates bidirectional traceability between requirements and test cases for AirGap Deploy.
+
+Requirements to Tests Matrix
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following table shows all requirements and their associated test cases.
+
+.. needtable::
+   :types: req, nfreq, test
+   :columns: id, title, status, type
+   :filter: "deploy" in tags
+   :style: table
+
+Requirements Coverage
+~~~~~~~~~~~~~~~~~~~~~
+
+This table shows only requirements for AirGap Deploy.
+
+.. needtable::
+   :types: req, nfreq
+   :columns: id, title, priority, status
+   :filter: "deploy" in tags
+   :style: table
+
+.. note::
+
+   To see which tests validate each requirement, refer to the Requirements to Tests Matrix above, or check the individual test case definitions throughout this document.
+
+Test Cases
+~~~~~~~~~~
+
+This table lists all test cases with their validation links.
+
+.. needtable::
+   :types: test
+   :columns: id, title, priority, status, tests
+   :filter: "deploy" in tags
+   :style: table
+
+The "Tests" column shows which requirements each test case validates (via the :tests: link).
+
+--------------
+
 **End of Test Plan**

@@ -39,7 +39,7 @@ Quick Links
 
 **Traceability:**
 
-- :doc:`meta/traceability-matrix` - Requirements ↔ Tests traceability
+- :doc:`meta/requirements-overview` - Project statistics and requirements overview
 
 Indices and tables
 ==================
