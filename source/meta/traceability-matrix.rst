@@ -22,11 +22,11 @@ AirGap Whisper Traceability
 Requirements to Tests Table
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The following table shows all requirements and test cases for AirGap Whisper, along with their traceability links:
+The following table shows all requirements and test cases for AirGap Whisper. To see which tests validate each requirement, look at the "Tests" column in the test cases below.
 
 .. needtable::
    :types: req, nfreq, test
-   :columns: id, title, status, links
+   :columns: id, title, status, type
    :filter: "whisper" in tags
    :style: table
 
@@ -35,22 +35,22 @@ Requirements Only
 
 .. needtable::
    :types: req, nfreq
-   :columns: id, title, priority, status, links
+   :columns: id, title, priority, status
    :filter: "whisper" in tags
    :style: table
 
-The "Links" column shows traceability relationships (requirements show which tests validate them, tests show which requirements they validate).
+To see which tests validate each requirement, refer to the Test Cases table below or the Traceability Flow Diagram.
 
 Test Cases Only
 ~~~~~~~~~~~~~~~
 
 .. needtable::
    :types: test
-   :columns: id, title, priority, status, links
+   :columns: id, title, priority, status, tests
    :filter: "whisper" in tags
    :style: table
 
-The "Links" column shows which requirements each test case validates.
+The "Tests" column shows which requirements each test case validates (via the :tests: link).
 
 Traceability Flow Diagram
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -84,11 +84,11 @@ AirGap Deploy Traceability
 Requirements to Tests Table
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The following table shows all requirements and test cases for AirGap Deploy:
+The following table shows all requirements and test cases for AirGap Deploy. To see which tests validate each requirement, look at the "Tests" column in the test cases below.
 
 .. needtable::
    :types: req, nfreq, test
-   :columns: id, title, status, links
+   :columns: id, title, status, type
    :filter: "deploy" in tags
    :style: table
 
@@ -97,22 +97,22 @@ Requirements Only
 
 .. needtable::
    :types: req, nfreq
-   :columns: id, title, priority, status, links
+   :columns: id, title, priority, status
    :filter: "deploy" in tags
    :style: table
 
-The "Links" column shows traceability relationships (requirements show which tests validate them, tests show which requirements they validate).
+To see which tests validate each requirement, refer to the Test Cases table below or the Traceability Flow Diagram.
 
 Test Cases Only
 ~~~~~~~~~~~~~~~
 
 .. needtable::
    :types: test
-   :columns: id, title, priority, status, links
+   :columns: id, title, priority, status, tests
    :filter: "deploy" in tags
    :style: table
 
-The "Links" column shows which requirements each test case validates.
+The "Tests" column shows which requirements each test case validates (via the :tests: link).
 
 Traceability Flow Diagram
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -130,11 +130,11 @@ AirGap Transfer Traceability
 Requirements to Tests Table
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The following table shows all requirements and test cases for AirGap Transfer:
+The following table shows all requirements and test cases for AirGap Transfer. To see which tests validate each requirement, look at the "Tests" column in the test cases below.
 
 .. needtable::
    :types: req, nfreq, test
-   :columns: id, title, status, links
+   :columns: id, title, status, type
    :filter: "transfer" in tags
    :style: table
 
@@ -143,22 +143,22 @@ Requirements Only
 
 .. needtable::
    :types: req, nfreq
-   :columns: id, title, priority, status, links
+   :columns: id, title, priority, status
    :filter: "transfer" in tags
    :style: table
 
-The "Links" column shows traceability relationships (requirements show which tests validate them, tests show which requirements they validate).
+To see which tests validate each requirement, refer to the Test Cases table below or the Traceability Flow Diagram.
 
 Test Cases Only
 ~~~~~~~~~~~~~~~
 
 .. needtable::
    :types: test
-   :columns: id, title, priority, status, links
+   :columns: id, title, priority, status, tests
    :filter: "transfer" in tags
    :style: table
 
-The "Links" column shows which requirements each test case validates.
+The "Tests" column shows which requirements each test case validates (via the :tests: link).
 
 Traceability Flow Diagram
 ~~~~~~~~~~~~~~~~~~~~~~~~~
