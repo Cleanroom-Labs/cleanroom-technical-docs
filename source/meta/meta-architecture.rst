@@ -79,8 +79,8 @@ Project Relationships
 **How they relate:**
 
 - AirGap Deploy packages AirGap Whisper (with dependencies) for air-gapped systems
-- Deployment workflow documented in `AirGap Whisper deployment workflow <airgap-deploy/use-cases/workflow-airgap-whisper.rst>`__
-- AirGap Whisper’s ``AirGapDeploy.toml`` defines packaging requirements
+- Deployment workflow documented in :doc:`/airgap-deploy/use-cases/workflow-airgap-whisper`
+- AirGap Whisper's ``AirGapDeploy.toml`` defines packaging requirements
 
 **Independence:**
 
@@ -433,12 +433,12 @@ Documented Integration
 
 **AirGap Deploy workflows mention AirGap Transfer:**
 
-- `workflow-ollama.md <AirGap Deploy/use-case-analysis/workflow-ollama.md>`__ - Shows chunking large Ollama packages
-- `workflow-airgap-whisper.md <AirGap Deploy/use-case-analysis/workflow-airgap-whisper.md>`__ - Notes option for large packages
+- :doc:`/airgap-deploy/use-cases/workflow-ollama` - Shows chunking large Ollama packages
+- :doc:`/airgap-deploy/use-cases/workflow-airgap-whisper` - Notes option for large packages
 
 **AirGap Transfer docs mention AirGap Deploy:**
 
-- `overview.md <AirGap Transfer/use-case-analysis/overview.md>`__ - Lists integration with deployment workflows
+- :doc:`/airgap-transfer/use-cases/overview` - Lists integration with deployment workflows
 
 **Cross-references maintained** in use case documentation.
 
@@ -460,7 +460,7 @@ No Integration (By Design)
 Design Principles Alignment
 ---------------------------
 
-All three projects follow the same core principles from `principles.md <principles.md>`__:
+All three projects follow the same core principles from :doc:`/meta/principles`:
 
 +---------------------------+-----------------------------+-------------------------------------+--------------------------+
 | Principle                 | AirGap Whisper              | AirGap Deploy                       | AirGap Transfer          |
