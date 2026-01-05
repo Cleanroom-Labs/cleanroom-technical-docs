@@ -1,5 +1,5 @@
-AirGap Whisper Deployment Workflow
-==================================
+Workflow: AirGap Whisper Deployment
+====================================
 
 This document describes the complete end-to-end workflow for packaging and deploying AirGap Whisper using AirGap Deploy.
 
