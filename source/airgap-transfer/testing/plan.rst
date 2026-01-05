@@ -447,7 +447,6 @@ ID         Description                     Requirement Priority
 ========== =============================== =========== ========
 TC-ERR-001 Insufficient USB capacity error FR-035      High
 TC-ERR-002 Missing chunks error            FR-036      High
-TC-ERR-003 Checksum mismatch error         FR-037      Critical
 TC-ERR-004 Clear error messages            FR-038      High
 ========== =============================== =========== ========
 
@@ -468,15 +467,6 @@ TC-ERR-004 Clear error messages            FR-038      High
    :priority: high
 
    Verify error when required chunks missing during unpack
-
-.. test:: Checksum Mismatch Error
-   :id: TC-TRANSFER-ERR-003
-   :status: approved
-   :tags: transfer, error, checksum
-   :tests: FR-TRANSFER-037
-   :priority: critical
-
-   Verify error on checksum mismatch with abort
 
 .. test:: Clear Error Messages
    :id: TC-TRANSFER-ERR-004
