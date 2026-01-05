@@ -13,7 +13,7 @@ AirGap Transfer
 
 This SDD describes the architecture and design of AirGap Transfer’s MVP.
 
-**Guiding document:** `principles.md <../../principles.md>`__
+**Guiding document:** :doc:`Principles <../../meta/principles>`
 
 --------------
 
@@ -26,25 +26,25 @@ This SDD describes the architecture and design of AirGap Transfer’s MVP.
 ::
 
    ┌────────────────────────────────────────────────────────┐
-   │                 Pure Rust CLI Application               │
+   │                 Pure Rust CLI Application              │
    ├────────────────────────────────────────────────────────┤
-   │                                                         │
-   │   ┌──────────────┐     ┌──────────────┐               │
-   │   │  CLI Parser  │────►│   Commands   │               │
-   │   │   (clap)     │     │ (pack/unpack)│               │
-   │   └──────────────┘     └──────┬───────┘               │
-   │                                 │                       │
+   │                                                        │
+   │   ┌──────────────┐       ┌──────────────┐              │
+   │   │  CLI Parser  │──────►│   Commands   │              │
+   │   │   (clap)     │       │ (pack/unpack)│              │
+   │   └──────────────┘       └──────┬───────┘              │
+   │                                 │                      │
    │                  ┌──────────────┼──────────────┐       │
    │                  ▼              ▼              ▼       │
-   │       ┌──────────────┐  ┌─────────────┐  ┌─────────┐ │
-   │       │   Chunker    │  │  Verifier   │  │  State  │ │
-   │       │  (streaming) │  │  (SHA-256)  │  │ (JSON)  │ │
-   │       └──────┬───────┘  └─────────────┘  └─────────┘ │
+   │       ┌──────────────┐  ┌─────────────┐  ┌─────────┐   │
+   │       │   Chunker    │  │  Verifier   │  │  State  │   │
+   │       │  (streaming) │  │  (SHA-256)  │  │ (JSON)  │   │
+   │       └──────┬───────┘  └─────────────┘  └─────────┘   │
    │              │                                         │
    │              ▼                                         │
-   │       ┌──────────────┐                                │
+   │       ┌───────────────┐                                │
    │       │  USB/Disk I/O │                                │
-   │       └──────────────┘                                │
+   │       └───────────────┘                                │
    └────────────────────────────────────────────────────────┘
 
 2.2 Design Rationale
@@ -129,7 +129,11 @@ Per `principles.md <../../principles.md>`__: **Flat structure, minimal modules**
 4.3 State Persistence
 ~~~~~~~~~~~~~~~~~~~~~
 
-**Manifest file location:** - **Pack operation:** Written to USB alongside chunks - **Unpack operation:** Read from USB chunk location - **Resume:** Manifest status field tracks completed chunks
+**Manifest file location:**
+
+- **Pack operation:** Written to USB alongside chunks
+- **Unpack operation:** Read from USB chunk location
+- **Resume:** Manifest status field tracks completed chunks
 
 --------------
 
@@ -141,7 +145,7 @@ Per `principles.md <../../principles.md>`__: **Flat structure, minimal modules**
 
 **Command structure:**
 
-::
+.. code-block:: bash
 
    airgap-transfer <command> [options]
 
@@ -157,30 +161,53 @@ Per `principles.md <../../principles.md>`__: **Flat structure, minimal modules**
 
 **Core responsibility:** Streaming chunk creation and reconstruction
 
-**Pack behavior:** - Stream source files into tar format - Write fixed-size chunks directly to USB - Calculate checksum during streaming (single-pass) - Update manifest progressively
+**Pack behavior:**
 
-**Unpack behavior:** - Verify chunk checksums before processing - Extract tar chunks sequentially to destination - Reconstruct original directory structure
+- Stream source files into tar format
+- Write fixed-size chunks directly to USB
+- Calculate checksum during streaming (single-pass)
+- Update manifest progressively
+
+**Unpack behavior:**
+
+- Verify chunk checksums before processing
+- Extract tar chunks sequentially to destination
+- Reconstruct original directory structure
 
 5.3 Verifier (verifier.rs)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Core responsibility:** Cryptographic integrity verification
 
-**Functions:** - Generate SHA-256 checksum during streaming - Verify chunk checksum matches manifest - Report verification failures with details
+**Functions:**
+
+- Generate SHA-256 checksum during streaming
+- Verify chunk checksum matches manifest
+- Report verification failures with details
 
 5.4 Manifest (manifest.rs)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Core responsibility:** Metadata persistence and state management
 
-**Functions:** - Create manifest from pack operation parameters - Update chunk status as operations complete - Read and validate manifest during unpack - Support resume by tracking completion status
+**Functions:**
+
+- Create manifest from pack operation parameters
+- Update chunk status as operations complete
+- Read and validate manifest during unpack
+- Support resume by tracking completion status
 
 5.5 USB Handler (usb.rs)
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Core responsibility:** Removable media detection and capacity checks
 
-**Functions:** - Detect USB mount points (platform-specific) - Query available capacity - Auto-determine optimal chunk size - Sync filesystem before USB removal prompt
+**Functions:**
+
+- Detect USB mount points (platform-specific)
+- Query available capacity
+- Auto-determine optimal chunk size
+- Sync filesystem before USB removal prompt
 
 --------------
 
@@ -238,9 +265,15 @@ Per `principles.md <../../principles.md>`__: **Flat structure, minimal modules**
 
 **Minimal crates:** Target ≤10 direct dependencies
 
-See `principles.md <../../principles.md>`__ for dependency guidelines.
+See :doc:`Principles <../../meta/principles>` for dependency guidelines.
 
-**Expected dependencies:** - ``clap`` - CLI argument parsing - ``serde`` / ``serde_json`` - Manifest serialization - ``sha2`` - SHA-256 checksums - ``tar`` - Tar archive creation/extraction - Platform-specific filesystem libs (stdlib where possible)
+**Expected dependencies:**
+
+- clap_ - CLI argument parsing
+- serde_ / serde_json_ - Manifest serialization
+- sha2_ - SHA-256 checksums
+- tar_ - Tar archive creation/extraction
+- Platform-specific filesystem libs (stdlib where possible)
 
 --------------
 
@@ -268,7 +301,11 @@ Malicious chunks  Verify checksums before extraction
 
 The application supports deployment on air-gapped systems (no internet access).
 
-**Requirements:** - Pure Rust, single binary - Vendored dependencies via ``cargo vendor`` - Offline build: ``cargo build --release --offline``
+**Requirements:**
+
+- Pure Rust, single binary
+- Vendored dependencies via ``cargo vendor``
+- Offline build: ``cargo build --release --offline``
 
 9.2 Platform Packages
 ~~~~~~~~~~~~~~~~~~~~~
@@ -317,3 +354,9 @@ Revision History
 +======================+==============+=====================================================+
 | 1.0.0                | 2026-01-04   | MVP architecture (streaming chunker, JSON manifest) |
 +----------------------+--------------+-----------------------------------------------------+
+
+.. _clap: https://docs.rs/clap/latest/clap/
+.. _serde: https://docs.rs/serde/latest/serde/
+.. _serde_json: https://docs.rs/serde_json/latest/serde_json/
+.. _sha2: https://docs.rs/sha2/latest/sha2/
+.. _tar: https://docs.rs/tar/latest/tar/
