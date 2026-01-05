@@ -8,6 +8,7 @@ Developer deployment packaging tool for air-gapped Rust development.
    :caption: Documentation
 
    readme
+   use-cases/index
    requirements/srs
    design/sdd
    testing/plan
@@ -16,7 +17,6 @@ Developer deployment packaging tool for air-gapped Rust development.
    :maxdepth: 2
    :caption: Planning
 
-   use-cases/index
    roadmap
    development-plan
 

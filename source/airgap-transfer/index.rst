@@ -8,6 +8,7 @@ Large file transfer utility for air-gapped environments.
    :caption: Documentation
 
    readme
+   use-cases/index
    requirements/srs
    design/sdd
    testing/plan
@@ -16,7 +17,6 @@ Large file transfer utility for air-gapped environments.
    :maxdepth: 2
    :caption: Planning
 
-   use-cases/index
    roadmap
    development-plan
 
