@@ -686,6 +686,52 @@ TC-NFR-004 Theme follows system       NFR-006     Pass/Fail
 
 --------------
 
+Requirements Traceability
+-------------------------
+
+This section demonstrates bidirectional traceability between requirements and test cases for AirGap Whisper.
+
+Requirements to Tests Matrix
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following table shows all requirements and their associated test cases.
+
+.. needtable::
+   :types: req, nfreq, test
+   :columns: id, title, status, type
+   :filter: "whisper" in tags
+   :style: table
+
+Requirements Coverage
+~~~~~~~~~~~~~~~~~~~~~
+
+This table shows only requirements, making it easy to verify coverage completeness.
+
+.. needtable::
+   :types: req, nfreq
+   :columns: id, title, priority, status
+   :filter: "whisper" in tags
+   :style: table
+
+.. note::
+
+   To see which tests validate each requirement, refer to the Requirements to Tests Matrix above, or check the individual test case definitions in Section 3.
+
+Test Cases
+~~~~~~~~~~
+
+This table lists all test cases with their validation links.
+
+.. needtable::
+   :types: test
+   :columns: id, title, priority, status, tests
+   :filter: "whisper" in tags
+   :style: table
+
+The "Tests" column shows which requirements each test case validates (via the :tests: link).
+
+--------------
+
 5. Pass/Fail Criteria
 ---------------------
 
