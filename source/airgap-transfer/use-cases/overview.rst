@@ -1,5 +1,5 @@
-Use Case Analysis - AirGap Transfer
-===================================
+Use Case Analysis
+=================
 
 Purpose
 -------

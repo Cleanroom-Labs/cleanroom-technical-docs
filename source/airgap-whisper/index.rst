@@ -8,6 +8,7 @@ AirGap Whisper is an end-user transcription application that runs entirely offli
    :caption: Documentation
 
    readme
+   use-cases/overview
    requirements/srs
    design/sdd
    testing/plan
@@ -16,7 +17,6 @@ AirGap Whisper is an end-user transcription application that runs entirely offli
    :maxdepth: 2
    :caption: Planning
 
-   use-cases/overview
    roadmap
    development-plan
 

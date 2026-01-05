@@ -1,5 +1,5 @@
-Use Case Analysis - AirGap Deploy
-==================================
+Use Case Analysis
+=================
 
 Primary Use Case: AirGap Whisper Deployment
 -------------------------------------------

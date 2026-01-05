@@ -1,5 +1,5 @@
-Use Case Analysis - AirGap Whisper
-==================================
+Use Case Analysis
+=================
 
 Purpose
 -------
