@@ -170,44 +170,124 @@ The full traceability chain will look like:
 Statistics
 ----------
 
-The following charts and tables are **automatically generated** from sphinx-needs directives and update dynamically as requirements, tests, and use cases are added or modified.
+The following tables are **automatically generated** from sphinx-needs directives and update dynamically as requirements, tests, and use cases are added or modified.
 
 AirGap Whisper Statistics
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. needpie:: AirGap Whisper Need Distribution
-   :tags: whisper
-   :legend:
-   :shadow:
+.. needtable::
+   :types: usecase, req, nfreq, test
+   :columns: type
+   :filter: "whisper" in tags
+   :style: table
+   :sort: type
 
-The pie chart above automatically counts and visualizes all sphinx-needs directives tagged with "whisper".
+**Total AirGap Whisper Needs:** The table above shows all sphinx-needs directive types for AirGap Whisper (automatically counted).
 
 AirGap Deploy Statistics
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. needpie:: AirGap Deploy Need Distribution
-   :tags: deploy
-   :legend:
-   :shadow:
+.. needtable::
+   :types: usecase, req, nfreq, test
+   :columns: type
+   :filter: "deploy" in tags
+   :style: table
+   :sort: type
 
-The pie chart above automatically counts and visualizes all sphinx-needs directives tagged with "deploy".
+**Total AirGap Deploy Needs:** The table above shows all sphinx-needs directive types for AirGap Deploy (automatically counted).
 
 AirGap Transfer Statistics
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. needpie:: AirGap Transfer Need Distribution
-   :tags: transfer
-   :legend:
-   :shadow:
+.. needtable::
+   :types: usecase, req, nfreq, test
+   :columns: type
+   :filter: "transfer" in tags
+   :style: table
+   :sort: type
 
-The pie chart above automatically counts and visualizes all sphinx-needs directives tagged with "transfer".
+**Total AirGap Transfer Needs:** The table above shows all sphinx-needs directive types for AirGap Transfer (automatically counted).
 
-Combined Project Statistics
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Summary Statistics
+~~~~~~~~~~~~~~~~~~
 
-.. needpie:: All Projects Need Distribution by Type
-   :legend:
-   :shadow:
+The following tables provide automatic counts by project:
 
-The pie chart above shows the distribution of all sphinx-needs directives across all three projects, automatically counting use cases, requirements (functional and non-functional), and test cases.
+**AirGap Whisper:**
+
+.. needtable::
+   :types: usecase
+   :columns: id, title
+   :filter: "whisper" in tags
+   :style: datatables
+
+Use Cases: Shows count in table header
+
+.. needtable::
+   :types: req, nfreq
+   :columns: id, title
+   :filter: "whisper" in tags
+   :style: datatables
+
+Requirements (Functional + Non-Functional): Shows count in table header
+
+.. needtable::
+   :types: test
+   :columns: id, title
+   :filter: "whisper" in tags
+   :style: datatables
+
+Test Cases: Shows count in table header
+
+**AirGap Deploy:**
+
+.. needtable::
+   :types: usecase
+   :columns: id, title
+   :filter: "deploy" in tags
+   :style: datatables
+
+Use Cases/Workflows: Shows count in table header
+
+.. needtable::
+   :types: req, nfreq
+   :columns: id, title
+   :filter: "deploy" in tags
+   :style: datatables
+
+Requirements (Functional + Non-Functional): Shows count in table header
+
+.. needtable::
+   :types: test
+   :columns: id, title
+   :filter: "deploy" in tags
+   :style: datatables
+
+Test Cases: Shows count in table header
+
+**AirGap Transfer:**
+
+.. needtable::
+   :types: usecase
+   :columns: id, title
+   :filter: "transfer" in tags
+   :style: datatables
+
+Use Cases/Workflows: Shows count in table header
+
+.. needtable::
+   :types: req, nfreq
+   :columns: id, title
+   :filter: "transfer" in tags
+   :style: datatables
+
+Requirements (Functional + Non-Functional): Shows count in table header
+
+.. needtable::
+   :types: test
+   :columns: id, title
+   :filter: "transfer" in tags
+   :style: datatables
+
+Test Cases: Shows count in table header
 
