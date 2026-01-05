@@ -64,7 +64,11 @@ Split source files into chunks:
 
    airgap-transfer pack <source> <usb-mount> [options]
 
-**Options:** - ``--chunk-size <SIZE>`` - Maximum chunk size (default: auto-detect USB capacity) - ``--dry-run`` - Preview operations without writing - ``--verify`` - Generate checksums during packing
+**Options:**
+
+- ``--chunk-size <SIZE>`` - Maximum chunk size (default: auto-detect USB capacity)
+- ``--dry-run`` - Preview operations without writing
+- ``--verify`` - Generate checksums during packing
 
 Unpack Operation
 ~~~~~~~~~~~~~~~~
@@ -75,7 +79,10 @@ Reconstruct files from chunks:
 
    airgap-transfer unpack <chunk-location> <destination> [options]
 
-**Options:** - ``--verify`` - Verify all checksums before unpacking - ``--keep-chunks`` - Don’t delete chunks after successful reconstruction
+**Options:**
+
+- ``--verify`` - Verify all checksums before unpacking
+- ``--keep-chunks`` - Don’t delete chunks after successful reconstruction
 
 List Operation
 ~~~~~~~~~~~~~~
@@ -93,7 +100,7 @@ Building
 
 Requires Rust toolchain and platform-specific build tools.
 
-See `Development Plan <development-plan.md>`__ for complete build instructions and architecture details.
+See :doc:`Development Plan <development-plan>` for complete build instructions and architecture details.
 
 Air-Gapped Deployment
 ---------------------
@@ -144,23 +151,23 @@ Start Here
 +---------------------------------------------+-------------------------------------+
 | Document                                    | Purpose                             |
 +=============================================+=====================================+
-| `principles.md <../principles.md>`__        | Core design principles (read first) |
+| :doc:`Principles <../meta/principles>`      | Core design principles (read first) |
 +---------------------------------------------+-------------------------------------+
-| `project-roadmap.md <project-roadmap.md>`__ | Project status and direction        |
+| :doc:`Roadmap <roadmap>`                    | Project status and direction        |
 +---------------------------------------------+-------------------------------------+
 
 Technical Documentation
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-+----------------------------------------------+-------------------------------------------------+
-| Document                                     | Purpose                                         |
-+==============================================+=================================================+
-| `Requirements (SRS) <requirements/srs.md>`__ | Detailed functional requirements                |
-+----------------------------------------------+-------------------------------------------------+
-| `Design (SDD) <design/sdd.md>`__             | Architecture, data structures, component design |
-+----------------------------------------------+-------------------------------------------------+
-| `Test Plan <testing/plan.md>`__              | Test cases and procedures                       |
-+----------------------------------------------+-------------------------------------------------+
++-------------------------------------------------+-------------------------------------------------+
+| Document                                        | Purpose                                         |
++=================================================+=================================================+
+| :doc:`Software Requirements <requirements/srs>` | Detailed functional requirements                |
++-------------------------------------------------+-------------------------------------------------+
+| :doc:`Software Design <design/sdd>`             | Architecture, data structures, component design |
++-------------------------------------------------+-------------------------------------------------+
+| :doc:`Test Plan <testing/plan>`                 | Test cases and procedures                       |
++-------------------------------------------------+-------------------------------------------------+
 
 Project Planning
 ~~~~~~~~~~~~~~~~
@@ -168,7 +175,7 @@ Project Planning
 +--------------------------------------------+---------------------------------+
 | Document                                   | Purpose                         |
 +============================================+=================================+
-| `Development Plan <development-plan.md>`__ | MVP implementation milestones   |
+| :doc:`Development Plan <development-plan>` | MVP implementation milestones   |
 +--------------------------------------------+---------------------------------+
-| `Use Case Analysis <use-case-analysis/>`__ | Workflow documentation          |
+| :doc:`Use Case Analysis <use-cases/index>` | Workflow documentation          |
 +--------------------------------------------+---------------------------------+
