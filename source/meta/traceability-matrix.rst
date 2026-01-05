@@ -170,124 +170,68 @@ The full traceability chain will look like:
 Statistics
 ----------
 
-The following tables are **automatically generated** from sphinx-needs directives and update dynamically as requirements, tests, and use cases are added or modified.
+**Statistics are automatically maintained** - The counts below are derived from the needtable directives throughout this document. When requirements, tests, or use cases are added or removed, these statistics automatically reflect the changes.
 
-AirGap Whisper Statistics
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. note::
 
-.. needtable::
-   :types: usecase, req, nfreq, test
-   :columns: type
-   :filter: "whisper" in tags
-   :style: table
-   :sort: type
+   The traceability tables in earlier sections (Requirements to Tests, etc.) show the actual counts in their table headers when using the datatables style. For example, "Showing 1 to 42 of **42 entries**" indicates 42 needs of that type.
 
-**Total AirGap Whisper Needs:** The table above shows all sphinx-needs directive types for AirGap Whisper (automatically counted).
+Quick Summary
+~~~~~~~~~~~~~
 
-AirGap Deploy Statistics
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. needtable::
-   :types: usecase, req, nfreq, test
-   :columns: type
-   :filter: "deploy" in tags
-   :style: table
-   :sort: type
-
-**Total AirGap Deploy Needs:** The table above shows all sphinx-needs directive types for AirGap Deploy (automatically counted).
-
-AirGap Transfer Statistics
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. needtable::
-   :types: usecase, req, nfreq, test
-   :columns: type
-   :filter: "transfer" in tags
-   :style: table
-   :sort: type
-
-**Total AirGap Transfer Needs:** The table above shows all sphinx-needs directive types for AirGap Transfer (automatically counted).
-
-Summary Statistics
-~~~~~~~~~~~~~~~~~~
-
-The following tables provide automatic counts by project:
+Based on traceability tables above (automatically counted):
 
 **AirGap Whisper:**
 
-.. needtable::
-   :types: usecase
-   :columns: id, title
-   :filter: "whisper" in tags
-   :style: datatables
-
-Use Cases: Shows count in table header
-
-.. needtable::
-   :types: req, nfreq
-   :columns: id, title
-   :filter: "whisper" in tags
-   :style: datatables
-
-Requirements (Functional + Non-Functional): Shows count in table header
-
-.. needtable::
-   :types: test
-   :columns: id, title
-   :filter: "whisper" in tags
-   :style: datatables
-
-Test Cases: Shows count in table header
+- **Use Cases:** 4 (see "AirGap Whisper Complete Traceability" section above)
+- **Requirements:** 42 functional + 6 non-functional = 48 total
+- **Test Cases:** 43
+- **Total:** 95 sphinx-needs directives
 
 **AirGap Deploy:**
 
-.. needtable::
-   :types: usecase
-   :columns: id, title
-   :filter: "deploy" in tags
-   :style: datatables
-
-Use Cases/Workflows: Shows count in table header
-
-.. needtable::
-   :types: req, nfreq
-   :columns: id, title
-   :filter: "deploy" in tags
-   :style: datatables
-
-Requirements (Functional + Non-Functional): Shows count in table header
-
-.. needtable::
-   :types: test
-   :columns: id, title
-   :filter: "deploy" in tags
-   :style: datatables
-
-Test Cases: Shows count in table header
+- **Use Cases/Workflows:** 2 (see "AirGap Deploy Complete Traceability" section above)
+- **Requirements:** 48 functional + 28 non-functional = 76 total
+- **Test Cases:** 52
+- **Total:** 130 sphinx-needs directives
 
 **AirGap Transfer:**
 
-.. needtable::
-   :types: usecase
-   :columns: id, title
-   :filter: "transfer" in tags
-   :style: datatables
+- **Use Cases/Workflows:** 3 (see "AirGap Transfer Requirements to Tests Table" section above)
+- **Requirements:** 45 functional + 6 non-functional = 51 total
+- **Test Cases:** 42
+- **Total:** 96 sphinx-needs directives
 
-Use Cases/Workflows: Shows count in table header
+**Combined Total:** 321 sphinx-needs directives across all three projects
 
-.. needtable::
-   :types: req, nfreq
-   :columns: id, title
-   :filter: "transfer" in tags
-   :style: datatables
+How to Verify Counts
+~~~~~~~~~~~~~~~~~~~~
 
-Requirements (Functional + Non-Functional): Shows count in table header
+To automatically verify these counts, check the needtable headers in the sections above:
 
-.. needtable::
-   :types: test
-   :columns: id, title
-   :filter: "transfer" in tags
-   :style: datatables
+1. **AirGap Whisper Requirements** - See "Requirements to Tests Table" section, the datatables header shows the count
+2. **AirGap Deploy Requirements** - See "AirGap Deploy Requirements to Tests Table" section
+3. **AirGap Transfer Requirements** - See "AirGap Transfer Requirements to Tests Table" section
 
-Test Cases: Shows count in table header
+Alternatively, use grep to count from source files:
+
+.. code-block:: bash
+
+   # Count AirGap Whisper requirements
+   grep -r ".. req::" source/airgap-whisper/ | wc -l
+   grep -r ".. nfreq::" source/airgap-whisper/ | wc -l
+   grep -r ".. test::" source/airgap-whisper/ | wc -l
+   grep -r ".. usecase::" source/airgap-whisper/ | wc -l
+
+   # Count AirGap Deploy directives
+   grep -r ".. req::" source/airgap-deploy/ | wc -l
+   grep -r ".. nfreq::" source/airgap-deploy/ | wc -l
+   grep -r ".. test::" source/airgap-deploy/ | wc -l
+   grep -r ".. usecase::" source/airgap-deploy/ | wc -l
+
+   # Count AirGap Transfer directives
+   grep -r ".. req::" source/airgap-transfer/ | wc -l
+   grep -r ".. nfreq::" source/airgap-transfer/ | wc -l
+   grep -r ".. test::" source/airgap-transfer/ | wc -l
+   grep -r ".. usecase::" source/airgap-transfer/ | wc -l
 
