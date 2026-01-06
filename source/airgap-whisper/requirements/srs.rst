@@ -136,6 +136,33 @@ Priority: **M**\ ust / **S**\ hould / **C**\ ould
 
    Tray menu shows recording duration while active
 
+.. req:: Recording Duration Limit
+   :id: FR-WHISPER-006
+   :status: approved
+   :tags: whisper, recording
+   :priority: should
+
+   Configurable recording duration limit (default: 120 min)
+
+.. req:: Audio Input Device Selection
+   :id: FR-WHISPER-007
+   :status: approved
+   :tags: whisper, recording, audio
+   :priority: should
+
+   Audio input device selection in settings
+
+3.2 Transcription
+~~~~~~~~~~~~~~~~~
+
+.. needtable::
+   :types: req
+   :filter: "whisper" in tags and "transcription" in tags
+   :columns: id,priority,title
+   :colwidths: 20,20,60
+   :style: table
+   :sort: id
+
 .. req:: Invoke Whisper.cpp
    :id: FR-WHISPER-008
    :status: approved
@@ -176,21 +203,16 @@ Priority: **M**\ ust / **S**\ hould / **C**\ ould
 
    Handle transcription errors with system notification
 
-.. req:: Recording Duration Limit
-   :id: FR-WHISPER-006
-   :status: approved
-   :tags: whisper, recording
-   :priority: should
+3.3 History
+~~~~~~~~~~~
 
-   Configurable recording duration limit (default: 120 min)
-
-.. req:: Audio Input Device Selection
-   :id: FR-WHISPER-007
-   :status: approved
-   :tags: whisper, recording, audio
-   :priority: should
-
-   Audio input device selection in settings
+.. needtable::
+   :types: req
+   :filter: "whisper" in tags and "history" in tags
+   :columns: id,priority,title
+   :colwidths: 20,20,60
+   :style: table
+   :sort: id
 
 .. req:: Save Transcriptions to Database
    :id: FR-WHISPER-013
@@ -240,6 +262,17 @@ Priority: **M**\ ust / **S**\ hould / **C**\ ould
 
    Delete transcription from history dialog
 
+3.4 Output
+~~~~~~~~~~
+
+.. needtable::
+   :types: req
+   :filter: "whisper" in tags and "output" in tags
+   :columns: id,priority,title
+   :colwidths: 20,20,60
+   :style: table
+   :sort: id
+
 .. req:: Copy Last Transcription Hotkey
    :id: FR-WHISPER-019
    :status: approved
@@ -255,6 +288,17 @@ Priority: **M**\ ust / **S**\ hould / **C**\ ould
    :priority: should
 
    Export transcription as .txt file from history dialog
+
+3.5 Settings
+~~~~~~~~~~~~
+
+.. needtable::
+   :types: req
+   :filter: "whisper" in tags and "settings" in tags
+   :columns: id,priority,title
+   :colwidths: 20,20,60
+   :style: table
+   :sort: id
 
 .. req:: Settings Dialog
    :id: FR-WHISPER-021
@@ -304,6 +348,17 @@ Priority: **M**\ ust / **S**\ hould / **C**\ ould
 
    First-run prompt when paths not configured
 
+3.6 System Tray
+~~~~~~~~~~~~~~~
+
+.. needtable::
+   :types: req
+   :filter: "whisper" in tags and "tray" in tags
+   :columns: id,priority,title
+   :colwidths: 20,20,60
+   :style: table
+   :sort: id
+
 .. req:: Tray Icon Status Display
    :id: FR-WHISPER-027
    :status: approved
@@ -336,6 +391,17 @@ Priority: **M**\ ust / **S**\ hould / **C**\ ould
 
    App starts minimized to tray (no main window)
 
+3.7 Security
+~~~~~~~~~~~~
+
+.. needtable::
+   :types: req
+   :filter: "whisper" in tags and "security" in tags
+   :columns: id,priority,title
+   :colwidths: 20,20,60
+   :style: table
+   :sort: id
+
 .. req:: Path Sanitization
    :id: FR-WHISPER-031
    :status: approved
@@ -360,6 +426,17 @@ Priority: **M**\ ust / **S**\ hould / **C**\ ould
 
    No network calls under any circumstance
 
+3.8 Deployment
+~~~~~~~~~~~~~~
+
+.. needtable::
+   :types: req
+   :filter: "whisper" in tags and "deployment" in tags
+   :columns: id,priority,title
+   :colwidths: 20,20,60
+   :style: table
+   :sort: id
+
 .. req:: Offline Build Dependencies
    :id: FR-WHISPER-034
    :status: approved
@@ -383,83 +460,6 @@ Priority: **M**\ ust / **S**\ hould / **C**\ ould
    :priority: should
 
    Single-directory deployment (app + whisper.cpp + model)
-
-3.2 Transcription
-~~~~~~~~~~~~~~~~~
-
-.. needtable::
-   :types: req
-   :filter: "whisper" in tags and "transcription" in tags
-   :columns: id,priority,title
-   :colwidths: 20,20,60
-   :style: table
-   :sort: id
-
-3.3 History
-~~~~~~~~~~~
-
-.. needtable::
-   :types: req
-   :filter: "whisper" in tags and "history" in tags
-   :columns: id,priority,title
-   :colwidths: 20,20,60
-   :style: table
-   :sort: id
-
-3.4 Output
-~~~~~~~~~~
-
-.. needtable::
-   :types: req
-   :filter: "whisper" in tags and "output" in tags
-   :columns: id,priority,title
-   :colwidths: 20,20,60
-   :style: table
-   :sort: id
-
-3.5 Settings
-~~~~~~~~~~~~
-
-.. needtable::
-   :types: req
-   :filter: "whisper" in tags and "settings" in tags
-   :columns: id,priority,title
-   :colwidths: 20,20,60
-   :style: table
-   :sort: id
-
-3.6 System Tray
-~~~~~~~~~~~~~~~
-
-.. needtable::
-   :types: req
-   :filter: "whisper" in tags and "tray" in tags
-   :columns: id,priority,title
-   :colwidths: 20,20,60
-   :style: table
-   :sort: id
-
-3.7 Security
-~~~~~~~~~~~~
-
-.. needtable::
-   :types: req
-   :filter: "whisper" in tags and "security" in tags
-   :columns: id,priority,title
-   :colwidths: 20,20,60
-   :style: table
-   :sort: id
-
-3.8 Deployment
-~~~~~~~~~~~~~~
-
-.. needtable::
-   :types: req
-   :filter: "whisper" in tags and "deployment" in tags
-   :columns: id,priority,title
-   :colwidths: 20,20,60
-   :style: table
-   :sort: id
 
 --------------
 
