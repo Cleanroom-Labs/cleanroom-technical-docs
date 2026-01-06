@@ -163,7 +163,6 @@ airgap-deploy provides the following major functions:
 **Regulatory Constraints:**
 
 - Must comply with open-source licensing (MIT OR Apache-2.0)
-- No export-controlled cryptography beyond SHA-256
 
 **Technical Constraints:**
 
