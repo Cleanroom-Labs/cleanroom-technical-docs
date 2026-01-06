@@ -877,6 +877,14 @@ Scalability
 
    Parallel collection SHALL scale with available CPU cores.
 
+.. nfreq:: Platform-Specific Install Paths
+   :id: NFR-DEPLOY-029
+   :status: approved
+   :tags: deploy, portability, installation
+   :priority: must
+
+   Install scripts SHALL use platform-specific default paths (user: ~/.local on Linux/macOS, %LOCALAPPDATA% on Windows; system: /usr/local on Linux/macOS, C:\Program Files on Windows)
+
 --------------
 
 External Interface Requirements
@@ -997,6 +1005,113 @@ Communications Interfaces
    :priority: must
 
    The system SHALL NOT use network communication during installation phase (enforced by air-gap).
+
+--------------
+
+Enhanced Installation Features
+----------------------------------
+
+The following requirements address gaps identified in use case analysis.
+
+Component Selection
+~~~~~~~~~~~~~~~~~~~
+
+.. req:: Optional Component Declaration
+   :id: FR-DEPLOY-062
+   :status: approved
+   :tags: deploy, components, configuration
+   :priority: should
+
+   Components SHALL support ``required`` field to mark components as optional
+
+.. req:: Component Selection at Prep Time
+   :id: FR-DEPLOY-063
+   :status: approved
+   :tags: deploy, cli, components
+   :priority: should
+
+   The CLI SHALL support ``--include`` flag to select optional components during prep
+
+Configuration Generation
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. req:: Config File Generation
+   :id: FR-DEPLOY-064
+   :status: approved
+   :tags: deploy, installation, configuration
+   :priority: should
+
+   Install scripts SHALL generate configuration files from templates
+
+.. req:: Config Template Support
+   :id: FR-DEPLOY-065
+   :status: approved
+   :tags: deploy, installation, configuration
+   :priority: should
+
+   Manifests SHALL support ``[install.config]`` section with ``config_file`` and ``config_template`` fields
+
+.. req:: Custom Installation Steps
+   :id: FR-DEPLOY-066
+   :status: approved
+   :tags: deploy, installation, customization
+   :priority: should
+
+   Manifests SHALL support ``[install.steps]`` section for component-specific installation commands
+
+Installation Modes
+~~~~~~~~~~~~~~~~~~
+
+.. req:: Interactive Installation Mode
+   :id: FR-DEPLOY-067
+   :status: approved
+   :tags: deploy, installation, usability
+   :priority: should
+
+   Install scripts SHALL support interactive mode with user prompts
+
+.. req:: Automatic Installation Mode
+   :id: FR-DEPLOY-068
+   :status: approved
+   :tags: deploy, installation, automation
+   :priority: should
+
+   Install scripts SHALL support automatic mode with environment variables (MODE=automatic)
+
+.. req:: Installation Prompts
+   :id: FR-DEPLOY-069
+   :status: approved
+   :tags: deploy, installation, usability
+   :priority: could
+
+   Manifests COULD support ``[install.prompts]`` section for interactive prompt configuration
+
+Dependency Management
+~~~~~~~~~~~~~~~~~~~~~
+
+.. req:: Dependency Declaration
+   :id: FR-DEPLOY-070
+   :status: approved
+   :tags: deploy, dependencies, configuration
+   :priority: should
+
+   Manifests SHALL support ``[install.dependencies]`` section to declare required tools
+
+.. req:: Dependency Verification
+   :id: FR-DEPLOY-071
+   :status: approved
+   :tags: deploy, dependencies, installation
+   :priority: must
+
+   Install scripts SHALL verify dependencies before building components
+
+.. req:: Disk Space Verification
+   :id: FR-DEPLOY-072
+   :status: approved
+   :tags: deploy, dependencies, installation
+   :priority: should
+
+   Install scripts SHALL verify sufficient disk space before installation
 
 --------------
 

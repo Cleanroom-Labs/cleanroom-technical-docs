@@ -636,6 +636,117 @@ Security Tests
 
    Verify temporary files have restrictive permissions
 
+Enhanced Installation Feature Tests
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. test:: Optional Component Declaration
+   :id: TC-DEPLOY-INST-001
+   :status: approved
+   :tags: deploy, components, configuration
+   :tests: FR-DEPLOY-062
+   :priority: medium
+
+   Verify manifest supports required=false for optional components
+
+.. test:: Component Selection with --include Flag
+   :id: TC-DEPLOY-INST-002
+   :status: approved
+   :tags: deploy, cli, components
+   :tests: FR-DEPLOY-063
+   :priority: medium
+
+   Verify --include flag selects optional components during prep
+
+.. test:: Config File Generation from Template
+   :id: TC-DEPLOY-INST-003
+   :status: approved
+   :tags: deploy, installation, configuration
+   :tests: FR-DEPLOY-064
+   :priority: high
+
+   Verify install script generates config file from template with variable substitution
+
+.. test:: Config Template in Manifest
+   :id: TC-DEPLOY-INST-004
+   :status: approved
+   :tags: deploy, installation, configuration
+   :tests: FR-DEPLOY-065
+   :priority: high
+
+   Verify [install.config] section supports config_file and config_template fields
+
+.. test:: Custom Installation Steps Execution
+   :id: TC-DEPLOY-INST-005
+   :status: approved
+   :tags: deploy, installation, customization
+   :tests: FR-DEPLOY-066
+   :priority: high
+
+   Verify [install.steps] section commands execute in correct order
+
+.. test:: Interactive Installation Mode
+   :id: TC-DEPLOY-INST-006
+   :status: approved
+   :tags: deploy, installation, usability
+   :tests: FR-DEPLOY-067
+   :priority: medium
+
+   Verify install script prompts user in interactive mode
+
+.. test:: Automatic Installation Mode
+   :id: TC-DEPLOY-INST-007
+   :status: approved
+   :tags: deploy, installation, automation
+   :tests: FR-DEPLOY-068
+   :priority: high
+
+   Verify install script runs without prompts when MODE=automatic
+
+.. test:: Installation Prompt Configuration
+   :id: TC-DEPLOY-INST-008
+   :status: approved
+   :tags: deploy, installation, usability
+   :tests: FR-DEPLOY-069
+   :priority: low
+
+   Verify [install.prompts] section configures interactive prompts
+
+.. test:: Dependency Declaration in Manifest
+   :id: TC-DEPLOY-INST-009
+   :status: approved
+   :tags: deploy, dependencies, configuration
+   :tests: FR-DEPLOY-070
+   :priority: medium
+
+   Verify [install.dependencies] section declares required tools
+
+.. test:: Dependency Verification Before Build
+   :id: TC-DEPLOY-INST-010
+   :status: approved
+   :tags: deploy, dependencies, installation
+   :tests: FR-DEPLOY-071
+   :priority: high
+
+   Verify install script checks for required dependencies and fails early if missing
+
+.. test:: Disk Space Verification
+   :id: TC-DEPLOY-INST-011
+   :status: approved
+   :tags: deploy, dependencies, installation
+   :tests: FR-DEPLOY-072
+   :priority: medium
+
+   Verify install script checks available disk space before installation
+
+.. test:: Platform-Specific Install Paths
+   :id: TC-DEPLOY-INST-012
+   :status: approved
+   :tags: deploy, portability, installation
+   :tests: NFR-DEPLOY-029
+   :priority: high
+
+   Verify install script uses platform-specific default paths on Linux, macOS, Windows
+
 --------------
 
 Test Execution
