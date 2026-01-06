@@ -636,8 +636,6 @@ airgap-deploy provides the following major functions:
 4.1 Performance
 ~~~~~~~~~~~~~~~
 
-**NFR-1.1:** Package preparation SHALL complete in less than 5 minutes for typical applications (<1GB components).
-
 .. nfreq:: Package Preparation Performance
    :id: NFR-DEPLOY-001
    :status: approved
@@ -645,8 +643,6 @@ airgap-deploy provides the following major functions:
    :priority: should
 
    Package preparation SHALL complete in less than 5 minutes for typical applications (<1GB components).
-
-**NFR-1.2:** Large model downloads (1-10GB) SHALL display progress and support resume.
 
 .. nfreq:: Large Download Handling
    :id: NFR-DEPLOY-002
@@ -656,8 +652,6 @@ airgap-deploy provides the following major functions:
 
    Large model downloads (1-10GB) SHALL display progress and support resume.
 
-**NFR-1.3:** Parallel component collection SHALL be used where possible to reduce preparation time.
-
 .. nfreq:: Parallel Component Collection
    :id: NFR-DEPLOY-003
    :status: approved
@@ -665,8 +659,6 @@ airgap-deploy provides the following major functions:
    :priority: should
 
    Parallel component collection SHALL be used where possible to reduce preparation time.
-
-**NFR-1.4:** Installation scripts SHALL complete in less than 20 minutes for typical applications (including build time).
 
 .. nfreq:: Installation Performance
    :id: NFR-DEPLOY-004
@@ -679,8 +671,6 @@ airgap-deploy provides the following major functions:
 4.2 Reliability
 ~~~~~~~~~~~~~~~
 
-**NFR-2.1:** The system SHALL verify all downloaded files using SHA-256 checksums.
-
 .. nfreq:: Checksum Verification
    :id: NFR-DEPLOY-005
    :status: approved
@@ -688,8 +678,6 @@ airgap-deploy provides the following major functions:
    :priority: must
 
    The system SHALL verify all downloaded files using SHA-256 checksums.
-
-**NFR-2.2:** The system SHALL retry failed network operations up to 3 times with exponential backoff.
 
 .. nfreq:: Network Operation Retry
    :id: NFR-DEPLOY-006
@@ -699,8 +687,6 @@ airgap-deploy provides the following major functions:
 
    The system SHALL retry failed network operations up to 3 times with exponential backoff.
 
-**NFR-2.3:** Installation scripts SHALL be idempotent (safe to run multiple times).
-
 .. nfreq:: Idempotent Installation
    :id: NFR-DEPLOY-007
    :status: approved
@@ -708,8 +694,6 @@ airgap-deploy provides the following major functions:
    :priority: must
 
    Installation scripts SHALL be idempotent (safe to run multiple times).
-
-**NFR-2.4:** The system SHALL handle interruptions gracefully (Ctrl+C, system shutdown).
 
 .. nfreq:: Graceful Interruption Handling
    :id: NFR-DEPLOY-008
@@ -722,8 +706,6 @@ airgap-deploy provides the following major functions:
 4.3 Usability
 ~~~~~~~~~~~~~
 
-**NFR-3.1:** First-time users SHALL be able to create a deployment package within 10 minutes using provided examples.
-
 .. nfreq:: First-Time User Experience
    :id: NFR-DEPLOY-009
    :status: approved
@@ -731,8 +713,6 @@ airgap-deploy provides the following major functions:
    :priority: should
 
    First-time users SHALL be able to create a deployment package within 10 minutes using provided examples.
-
-**NFR-3.2:** Error messages SHALL include specific details about the failure and suggested fixes.
 
 .. nfreq:: Detailed Error Messages
    :id: NFR-DEPLOY-010
@@ -742,8 +722,6 @@ airgap-deploy provides the following major functions:
 
    Error messages SHALL include specific details about the failure and suggested fixes.
 
-**NFR-3.3:** The CLI SHALL provide help text accessible via ``--help`` for all commands.
-
 .. nfreq:: Command Help Text
    :id: NFR-DEPLOY-011
    :status: approved
@@ -751,8 +729,6 @@ airgap-deploy provides the following major functions:
    :priority: must
 
    The CLI SHALL provide help text accessible via --help for all commands.
-
-**NFR-3.4:** Progress indicators SHALL be shown for all operations taking longer than 2 seconds.
 
 .. nfreq:: Progress Indicators
    :id: NFR-DEPLOY-012
@@ -765,8 +741,6 @@ airgap-deploy provides the following major functions:
 4.4 Maintainability
 ~~~~~~~~~~~~~~~~~~~
 
-**NFR-4.1:** The codebase SHALL achieve at least 80% test coverage.
-
 .. nfreq:: Test Coverage
    :id: NFR-DEPLOY-013
    :status: approved
@@ -774,8 +748,6 @@ airgap-deploy provides the following major functions:
    :priority: must
 
    The codebase SHALL achieve at least 80% test coverage.
-
-**NFR-4.2:** All public APIs SHALL have rustdoc documentation.
 
 .. nfreq:: API Documentation
    :id: NFR-DEPLOY-014
@@ -785,8 +757,6 @@ airgap-deploy provides the following major functions:
 
    All public APIs SHALL have rustdoc documentation.
 
-**NFR-4.3:** The code SHALL pass ``cargo clippy`` with zero warnings.
-
 .. nfreq:: Clippy Compliance
    :id: NFR-DEPLOY-015
    :status: approved
@@ -794,8 +764,6 @@ airgap-deploy provides the following major functions:
    :priority: must
 
    The code SHALL pass cargo clippy with zero warnings.
-
-**NFR-4.4:** The code SHALL be formatted with ``rustfmt``.
 
 .. nfreq:: Code Formatting
    :id: NFR-DEPLOY-016
@@ -808,8 +776,6 @@ airgap-deploy provides the following major functions:
 4.5 Portability
 ~~~~~~~~~~~~~~~
 
-**NFR-5.1:** The system SHALL run on Linux (Ubuntu 20.04+, Fedora 35+, Debian 11+).
-
 .. nfreq:: Linux Platform Support
    :id: NFR-DEPLOY-017
    :status: approved
@@ -817,8 +783,6 @@ airgap-deploy provides the following major functions:
    :priority: must
 
    The system SHALL run on Linux (Ubuntu 20.04+, Fedora 35+, Debian 11+).
-
-**NFR-5.2:** The system SHALL run on macOS (10.15+, both Intel and Apple Silicon).
 
 .. nfreq:: macOS Platform Support
    :id: NFR-DEPLOY-018
@@ -828,8 +792,6 @@ airgap-deploy provides the following major functions:
 
    The system SHALL run on macOS (10.15+, both Intel and Apple Silicon).
 
-**NFR-5.3:** The system SHALL run on Windows (Windows 10/11).
-
 .. nfreq:: Windows Platform Support
    :id: NFR-DEPLOY-019
    :status: approved
@@ -837,8 +799,6 @@ airgap-deploy provides the following major functions:
    :priority: must
 
    The system SHALL run on Windows (Windows 10/11).
-
-**NFR-5.4:** Generated installation scripts SHALL be compatible with Bash 4.0+ (Linux/macOS) and PowerShell 5.1+ (Windows).
 
 .. nfreq:: Installation Script Compatibility
    :id: NFR-DEPLOY-020
@@ -851,8 +811,6 @@ airgap-deploy provides the following major functions:
 4.6 Security
 ~~~~~~~~~~~~
 
-**NFR-6.1:** The system SHALL verify checksums for all downloaded files.
-
 .. nfreq:: Verify All Checksums
    :id: NFR-DEPLOY-021
    :status: approved
@@ -860,8 +818,6 @@ airgap-deploy provides the following major functions:
    :priority: must
 
    The system SHALL verify checksums for all downloaded files.
-
-**NFR-6.2:** The system SHALL NOT execute arbitrary code from manifests.
 
 .. nfreq:: No Arbitrary Code Execution
    :id: NFR-DEPLOY-022
@@ -871,8 +827,6 @@ airgap-deploy provides the following major functions:
 
    The system SHALL NOT execute arbitrary code from manifests.
 
-**NFR-6.3:** Installation scripts SHALL require explicit confirmation before destructive operations.
-
 .. nfreq:: Confirm Destructive Operations
    :id: NFR-DEPLOY-023
    :status: approved
@@ -881,8 +835,6 @@ airgap-deploy provides the following major functions:
 
    Installation scripts SHALL require explicit confirmation before destructive operations.
 
-**NFR-6.4:** The system SHALL use HTTPS for all network operations.
-
 .. nfreq:: HTTPS for Network Operations
    :id: NFR-DEPLOY-024
    :status: approved
@@ -890,8 +842,6 @@ airgap-deploy provides the following major functions:
    :priority: must
 
    The system SHALL use HTTPS for all network operations.
-
-**NFR-6.5:** Temporary files SHALL be created with restrictive permissions (user-only).
 
 .. nfreq:: Restrictive File Permissions
    :id: NFR-DEPLOY-025
@@ -904,8 +854,6 @@ airgap-deploy provides the following major functions:
 4.7 Scalability
 ~~~~~~~~~~~~~~~
 
-**NFR-7.1:** The system SHALL handle packages up to 50GB in size.
-
 .. nfreq:: Large Package Support
    :id: NFR-DEPLOY-026
    :status: approved
@@ -914,8 +862,6 @@ airgap-deploy provides the following major functions:
 
    The system SHALL handle packages up to 50GB in size.
 
-**NFR-7.2:** The system SHALL support manifests with up to 100 components.
-
 .. nfreq:: Multi-Component Manifests
    :id: NFR-DEPLOY-027
    :status: approved
@@ -923,8 +869,6 @@ airgap-deploy provides the following major functions:
    :priority: should
 
    The system SHALL support manifests with up to 100 components.
-
-**NFR-7.3:** Parallel collection SHALL scale with available CPU cores.
 
 .. nfreq:: CPU-Scalable Parallelism
    :id: NFR-DEPLOY-028
