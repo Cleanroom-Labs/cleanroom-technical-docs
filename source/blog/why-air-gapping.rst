@@ -21,12 +21,12 @@ Consider recent examples:
 
 - **xz-utils (2024)** — A backdoor was inserted into a widely-used compression
   library by a long-time contributor. It spread through normal update channels
-  and nearly compromised SSH authentication on most Linux systems.
+  and nearly compromised SSH authentication on most Linux systems. (`CVE-2024-3094 <https://en.wikipedia.org/wiki/XZ_Utils_backdoor>`__, `Technical Analysis <https://gist.github.com/thesamesam/223949d5a074ebc3dce9ee78baad9e27>`__)
 - **event-stream (2018)** — A malicious maintainer gained control of a popular
-  npm package and inserted code targeting cryptocurrency wallets.
+  npm package and inserted code targeting cryptocurrency wallets. (`npm Security Advisory <https://blog.npmjs.org/post/180565383195/details-about-the-event-stream-incident>`__, `Post-mortem Analysis <https://snyk.io/blog/a-post-mortem-of-the-malicious-event-stream-backdoor/>`__)
 - **SolarWinds (2020)** — Attackers compromised the build pipeline of a trusted
   vendor, distributing malware to thousands of organizations through routine
-  software updates.
+  software updates. (`CISA Advisory <https://www.cisa.gov/news-events/cybersecurity-advisories/aa20-352a>`__, `SolarWinds Investigation <https://www.solarwinds.com/blog/an-investigative-update-of-the-cyberattack>`__)
 
 These attacks share a common thread: they exploited the continuous, implicit
 trust that connected systems place in their dependencies.
