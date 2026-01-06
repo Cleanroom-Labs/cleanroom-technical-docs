@@ -21,9 +21,20 @@ This SRS defines MVP requirements for AirGap Whisper, an offline audio transcrip
 
 **Product:** AirGap Whisper — a minimal desktop app for voice-to-text using whisper.cpp.
 
-**In Scope:** - Record audio from microphone - Transcribe using whisper.cpp - Store history in SQLite - Global hotkeys for hands-free operation - System tray for background operation
+**In Scope:**
 
-**Out of Scope (per** :doc:`Principles </meta/principles>`\ **):** - Cloud sync, telemetry, auto-updates - FLAC compression, MP3/M4A import - Audio playback, streaming transcription - Word timestamps, speaker diarization
+- Record audio from microphone
+- Transcribe using whisper.cpp
+- Store history in SQLite
+- Global hotkeys for hands-free operation
+- System tray for background operation
+
+**Out of Scope (per** :doc:`Principles </meta/principles>`\ **):**
+
+- Cloud sync, telemetry, auto-updates
+- FLAC compression, MP3/M4A import
+- Audio playback, streaming transcription
+- Word timestamps, speaker diarization
 
 1.3 Definitions
 ~~~~~~~~~~~~~~~

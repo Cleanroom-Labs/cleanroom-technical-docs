@@ -340,7 +340,10 @@ macOS    Full    Tested on macOS 10.15+ (Intel and Apple Silicon)
 Windows  Full    Tested on Windows 10/11
 ======== ======= ================================================
 
-**Generated install scripts:** - Linux/macOS: Bash 4.0+ - Windows: PowerShell 5.1+
+**Generated install scripts:**
+
+- Linux/macOS: Bash 4.0+
+- Windows: PowerShell 5.1+
 
 Building
 --------

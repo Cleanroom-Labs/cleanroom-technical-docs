@@ -302,7 +302,24 @@ This architecture provides: - **Clear separation of concerns:** Each stage has a
    include_toolchain = true
    prebuild = false
 
-**Collection Algorithm:** 1. Locate Cargo.toml in source directory 2. If ``vendor = true``: - Execute ``cargo vendor`` to download dependencies - Create ``.cargo/config.toml`` with vendored paths 3. If ``include_toolchain = true``: - Download Rust toolchain installer from static.rust-lang.org - Include in ``rust-installer/`` directory 4. Copy source code and vendor directory to staging 5. If ``prebuild = true``: - Execute ``cargo build --release`` - Include prebuilt binary (deferred to v0.2)
+**Collection Algorithm:**
+
+1. Locate Cargo.toml in source directory
+2. If ``vendor = true``:
+
+   - Execute ``cargo vendor`` to download dependencies
+   - Create ``.cargo/config.toml`` with vendored paths
+
+3. If ``include_toolchain = true``:
+
+   - Download Rust toolchain installer from static.rust-lang.org
+   - Include in ``rust-installer/`` directory
+
+4. Copy source code and vendor directory to staging
+5. If ``prebuild = true``:
+
+   - Execute ``cargo build --release``
+   - Include prebuilt binary (deferred to v0.2)
 
 **Install Steps:**
 
@@ -383,7 +400,17 @@ This architecture provides: - **Clear separation of concerns:** Each stage has a
    required = true
    install_path = "models/base.en.bin"
 
-**Collection Algorithm:** 1. Check cache directory for existing file with matching checksum 2. If not cached: - Download file from URL with progress bar - Support resume via HTTP Range requests - Stream to disk (don’t load entire file in memory) 3. Verify SHA-256 checksum 4. Copy to staging directory
+**Collection Algorithm:**
+
+1. Check cache directory for existing file with matching checksum
+2. If not cached:
+
+   - Download file from URL with progress bar
+   - Support resume via HTTP Range requests
+   - Stream to disk (don't load entire file in memory)
+
+3. Verify SHA-256 checksum
+4. Copy to staging directory
 
 **Install Steps:**
 
@@ -548,18 +575,35 @@ See :doc:`SRS <../requirements/srs>` (Section 3.5) for detailed CLI specificatio
 
 **Decision:** Use TOML format for ``AirGapDeploy.toml``
 
-**Alternatives Considered:** - YAML: Too flexible, whitespace-sensitive - JSON: Not human-friendly for configuration - Custom DSL: Too much complexity
+**Alternatives Considered:**
 
-**Rationale:** - TOML is human-readable and writable - Strongly typed (better validation) - Good Rust ecosystem support (serde, toml crate) - Used by Cargo.toml (familiar to Rust developers)
+- YAML: Too flexible, whitespace-sensitive
+- JSON: Not human-friendly for configuration
+- Custom DSL: Too much complexity
+
+**Rationale:**
+
+- TOML is human-readable and writable
+- Strongly typed (better validation)
+- Good Rust ecosystem support (serde, toml crate)
+- Used by Cargo.toml (familiar to Rust developers)
 
 5.2 Why Build from Source on Air-Gapped System?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Decision:** Build applications on air-gapped system rather than prebuilding
 
-**Alternatives Considered:** - Prebuild binaries for all platforms - Cross-compilation on developer machine
+**Alternatives Considered:**
 
-**Rationale:** - **Trust:** User can inspect source before building - **Flexibility:** Supports different system configurations (ALSA, GPU, etc.) - **Simplicity:** No cross-compilation toolchain setup required - **MVP Scope:** Prebuilding can be added later as optional optimization
+- Prebuild binaries for all platforms
+- Cross-compilation on developer machine
+
+**Rationale:**
+
+- **Trust:** User can inspect source before building
+- **Flexibility:** Supports different system configurations (ALSA, GPU, etc.)
+- **Simplicity:** No cross-compilation toolchain setup required
+- **MVP Scope:** Prebuilding can be added later as optional optimization
 
 **Trade-off:** Requires build tools on air-gapped system, longer installation time
 
@@ -568,9 +612,17 @@ See :doc:`SRS <../requirements/srs>` (Section 3.5) for detailed CLI specificatio
 
 **Decision:** Use trait-based design for components
 
-**Alternatives Considered:** - Enum with variants for each component type - Struct with function pointers
+**Alternatives Considered:**
 
-**Rationale:** - **Extensibility:** Easy to add new component types without modifying core - **Plugin System:** Enables future plugin architecture - **Separation of Concerns:** Each component type is independent module - **Testing:** Can mock components for unit tests
+- Enum with variants for each component type
+- Struct with function pointers
+
+**Rationale:**
+
+- **Extensibility:** Easy to add new component types without modifying core
+- **Plugin System:** Enables future plugin architecture
+- **Separation of Concerns:** Each component type is independent module
+- **Testing:** Can mock components for unit tests
 
 **Trade-off:** Slightly more complex than enum, uses dynamic dispatch
 
@@ -579,9 +631,17 @@ See :doc:`SRS <../requirements/srs>` (Section 3.5) for detailed CLI specificatio
 
 **Decision:** Generate standalone installation scripts
 
-**Alternatives Considered:** - ``airgap-deploy install`` command that must run on air-gapped system - Require airgap-deploy binary on both sides
+**Alternatives Considered:**
 
-**Rationale:** - **Self-contained:** Package includes everything needed, no external dependencies - **Inspectable:** User can review install script before running - **Platform-native:** Bash/PowerShell are standard on target systems - **Flexibility:** User can customize script if needed
+- ``airgap-deploy install`` command that must run on air-gapped system
+- Require airgap-deploy binary on both sides
+
+**Rationale:**
+
+- **Self-contained:** Package includes everything needed, no external dependencies
+- **Inspectable:** User can review install script before running
+- **Platform-native:** Bash/PowerShell are standard on target systems
+- **Flexibility:** User can customize script if needed
 
 **Trade-off:** Less control over installation process, script generation complexity
 
@@ -623,11 +683,23 @@ See :doc:`SRS <../requirements/srs>` (Section 3.5) for detailed CLI specificatio
 6.2 Error Recovery
 ~~~~~~~~~~~~~~~~~~
 
-**Network Errors:** - Retry up to 3 times with exponential backoff - Display clear message with retry attempt number - Suggest checking network connection
+**Network Errors:**
 
-**Checksum Errors:** - Display expected vs actual checksum - Suggest re-downloading file or updating manifest - Do NOT proceed with mismatched checksums
+- Retry up to 3 times with exponential backoff
+- Display clear message with retry attempt number
+- Suggest checking network connection
 
-**IO Errors:** - Display file path and operation that failed - Suggest checking disk space and permissions - Clean up temporary files on failure
+**Checksum Errors:**
+
+- Display expected vs actual checksum
+- Suggest re-downloading file or updating manifest
+- Do NOT proceed with mismatched checksums
+
+**IO Errors:**
+
+- Display file path and operation that failed
+- Suggest checking disk space and permissions
+- Clean up temporary files on failure
 
 6.3 Logging
 ~~~~~~~~~~~
