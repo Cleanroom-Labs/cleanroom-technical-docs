@@ -16,9 +16,13 @@ Primary Use Cases
 
 **Scenario:** Transfer a single large file (e.g., VM image, video file) that exceeds USB drive capacity.
 
-**Key Requirements:** - Split file into chunks - Verify integrity after reconstruction - Resume if interrupted
+**Key Requirements:**
 
-**Workflow:** `workflow-large-file.md <workflow-large-file.md>`__
+- Split file into chunks
+- Verify integrity after reconstruction
+- Resume if interrupted
+
+:doc:`Workflow: Large File Transfer <workflow-large-file>`
 
 --------------
 
@@ -27,9 +31,13 @@ Primary Use Cases
 
 **Scenario:** Transfer a directory containing many files (e.g., dataset, codebase) across air-gap.
 
-**Key Requirements:** - Preserve directory structure - Handle mixed file sizes efficiently - Batch verification
+**Key Requirements:**
 
-**Workflow:** `workflow-large-directory.md <workflow-large-directory.md>`__
+- Preserve directory structure
+- Handle mixed file sizes efficiently
+- Batch verification
+
+:doc:`Workflow: Large Directory Transfer <workflow-large-directory>`
 
 --------------
 
@@ -38,9 +46,13 @@ Primary Use Cases
 
 **Scenario:** Transfer dataset larger than any single USB drive, requiring multiple USB drives.
 
-**Key Requirements:** - Coordinate multiple USBs - Track which chunks are on which USB - Resume with any available USB
+**Key Requirements:**
 
-**Workflow:** `workflow-ollama-model.md <workflow-ollama-model.md>`__ *(Note: to be renamed to workflow-multiple-usb.md)*
+- Coordinate multiple USBs
+- Track which chunks are on which USB
+- Resume with any available USB
+
+:doc:`Workflow: Multi-USB Dataset Transfer <workflow-multiple-usb>`
 
 --------------
 
@@ -68,11 +80,11 @@ Integration with AirGap Deploy
 
 AirGap Transfer is designed to integrate with the AirGap Deploy project for complete air-gap deployment workflows:
 
-- **airgap-deploy:** Orchestrates overall deployment process, prepares packages
-- **airgap-transfer:** Handles chunked data transfer when packages exceed USB capacity
-- **AirGap Whisper:** Example application deployed using airgap-deploy
+- **AirGap Deploy:** Orchestrates overall deployment process, prepares packages
+- **AirGap Transfer:** Handles chunked data transfer when packages exceed USB capacity
+- **AirGap Whisper:** Example application deployed using AirGap Deploy
 
-**See:** `airgap-deploy workflow examples <../../airgap-deploy/use-case-analysis/overview.md>`__
+**See:** :doc:`AirGap Deploy workflow examples <../../airgap-deploy/use-cases/overview>`
 
 --------------
 
@@ -114,6 +126,6 @@ Cross-platform compatibility macOS, Windows, Linux
 See Also
 --------
 
-- `Requirements (SRS) <../requirements/srs.md>`__ - Detailed functional requirements
-- `Design (SDD) <../design/sdd.md>`__ - Architecture and implementation
-- `Development Plan <../development-plan.md>`__ - Implementation roadmap
+- :doc:`Requirements <../requirements/srs>`
+- :doc:`Design <../design/sdd>`
+- :doc:`Development Plan <../development-plan>`
