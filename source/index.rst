@@ -23,6 +23,12 @@ All projects follow strict privacy-first design principles with zero network com
    airgap-deploy/index
    airgap-transfer/index
 
+.. toctree::
+   :maxdepth: 1
+   :caption: Blog
+
+   blog/index
+
 Quick Links
 ===========
 
