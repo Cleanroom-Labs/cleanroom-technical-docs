@@ -145,5 +145,5 @@ Error Scenarios
 Related Documents
 -----------------
 
-- `SRS <../requirements/srs.md>`__ - Directory handling requirements
-- `SDD <../design/sdd.md>`__ - Tar format and structure preservation
+- :doc:`SRS <../requirements/srs>` - Directory handling requirements
+- :doc:`SDD <../design/sdd>` - Tar format and structure preservation

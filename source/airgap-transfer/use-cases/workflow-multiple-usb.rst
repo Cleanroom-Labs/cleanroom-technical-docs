@@ -1,8 +1,6 @@
 Workflow: Multi-USB Dataset Transfer
 ====================================
 
-**Note:** This file will be renamed to ``workflow-multiple-usb.md`` in future updates.
-
 Scenario
 --------
 
@@ -150,15 +148,21 @@ Edge Cases
 User Experience Notes
 ---------------------
 
-**Prompts should be clear and specific:** - ❌ Bad: “Insert next USB” - ✅ Good: “Chunk 2 of 4 complete. Insert USB for chunk 3.”
+**Prompts should be clear and specific:**
 
-**Progress indication:** - Show overall progress: “18GB of 30GB transferred (60%)” - Show chunk progress: “Chunk 3/4: 8GB written”
+- ❌ Bad: “Insert next USB”
+- ✅ Good: “Chunk 2 of 4 complete. Insert USB for chunk 3.”
+
+**Progress indication:**
+
+- Show overall progress: “18GB of 30GB transferred (60%)”
+- Show chunk progress: “Chunk 3/4: 8GB written”
 
 --------------
 
 Related Documents
 -----------------
 
-- `SRS <../requirements/srs.md>`__ - Multi-chunk requirements
-- `SDD <../design/sdd.md>`__ - State management for resume
-- `Development Plan <../development-plan.md>`__ - USB handling milestone
+- :doc:`SRS <../requirements/srs>` - Multi-chunk requirements
+- :doc:`SDD <../design/sdd>` - State management for resume
+- :doc:`Development Plan <../development-plan>` - USB handling milestone

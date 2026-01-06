@@ -7,4 +7,4 @@ Use Cases and Workflows
    overview
    workflow-large-file
    workflow-large-directory
-   workflow-ollama-model
+   workflow-multiple-usb
