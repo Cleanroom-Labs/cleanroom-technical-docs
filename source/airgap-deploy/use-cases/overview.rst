@@ -54,10 +54,10 @@ Gap 1: Post-Installation Configuration
 
 **Install script should:**
 
-1. Build and install whisper.cpp to known location
-2. Copy all models to known location (``{{ install_prefix }}/share/airgap-whisper/models/``)
-3. Generate config file with install prefix
-4. Install AirGap Whisper binary
+Build and install whisper.cpp to known location
+Copy all models to known location (``{{ install_prefix }}/share/airgap-whisper/models/``)
+Generate config file with install prefix
+Install AirGap Whisper binary
 
 **AirGap Whisper runtime auto-discovery:**
 
@@ -181,16 +181,16 @@ Use Case 1: Developer Creating Release (Primary)
 
 **Workflow:**
 
-1. Update ``AirGapDeploy.toml`` with new version
-2. Run CI/CD that executes on Linux, macOS, Windows runners:
+Update ``AirGapDeploy.toml`` with new version
+Run CI/CD that executes on Linux, macOS, Windows runners:
 
    .. code:: yaml
 
       - name: Package for air-gap
         run: airgap-deploy prep --target ${{ matrix.platform }} --output dist/
 
-3. Upload artifacts to GitHub releases
-4. Users download pre-built packages
+Upload artifacts to GitHub releases
+Users download pre-built packages
 
 **Current Plan Support:** ✅ Fully supported (with GitHub Actions)
 
@@ -203,10 +203,10 @@ Use Case 2: End User Installing on Air-Gapped System (Primary)
 
 **Workflow:**
 
-1. Download ``airgap-whisper-linux-x86_64.tar.gz`` via USB
-2. Extract: ``tar -xzf airgap-whisper-linux-x86_64.tar.gz``
-3. Run: ``cd airgap-whisper-linux-x86_64 && ./install.sh``
-4. Install script:
+Download ``airgap-whisper-linux-x86_64.tar.gz`` via USB
+Extract: ``tar -xzf airgap-whisper-linux-x86_64.tar.gz``
+Run: ``cd airgap-whisper-linux-x86_64 && ./install.sh``
+Install script:
 
    - Checks Rust (installs from included installer if missing)
    - Checks ALSA (installs from included .deb if missing)
@@ -215,7 +215,7 @@ Use Case 2: End User Installing on Air-Gapped System (Primary)
    - Installs to ``~/.local/bin``
    - Generates ``~/.config/airgap-whisper/config.toml``
 
-5. Run: ``airgap-whisper``
+Run: ``airgap-whisper``
 
 **Current Plan Support:** ⚠️ Mostly supported, gaps in config generation
 
@@ -228,11 +228,11 @@ Use Case 3: Advanced User Custom Build (Secondary)
 
 **Workflow:**
 
-1. Clone airgap-whisper repo
-2. Edit ``AirGapDeploy.toml`` to include only desired models
-3. Run: ``airgap-deploy prep --target linux-x86_64``
-4. Transfer to air-gapped system
-5. Install as normal
+Clone airgap-whisper repo
+Edit ``AirGapDeploy.toml`` to include only desired models
+Run: ``airgap-deploy prep --target linux-x86_64``
+Transfer to air-gapped system
+Install as normal
 
 **Current Plan Support:** ✅ Fully supported
 
@@ -245,15 +245,15 @@ Use Case 4: Enterprise Deployment (Future)
 
 **Workflow:**
 
-1. Download pre-built packages
-2. Create deployment script:
+Download pre-built packages
+Create deployment script:
 
    .. code:: bash
 
       # Unattended install
       ./install.sh --non-interactive --prefix /opt/airgap-whisper
 
-3. Deploy via configuration management (Ansible, GPO, etc.)
+Deploy via configuration management (Ansible, GPO, etc.)
 
 **Current Plan Support:** ❌ Not supported (no unattended install mode)
 
@@ -709,9 +709,9 @@ Does Current Plan Support AirGap Whisper?
 Recommended Actions
 ~~~~~~~~~~~~~~~~~~~
 
-1. **Immediate (Phase 1-2):** Add optional component support to manifest schema
-2. **Phase 4 Enhancement:** Implement config generation, dependency checks, installation modes
-3. **Documentation:** Create complete AirGap Whisper example in ``examples/airgap-whisper/``
-4. **Testing:** Validate on actual air-gapped VMs before v0.1.0 release
+**Immediate (Phase 1-2):** Add optional component support to manifest schema
+**Phase 4 Enhancement:** Implement config generation, dependency checks, installation modes
+**Documentation:** Create complete AirGap Whisper example in ``examples/airgap-whisper/``
+**Testing:** Validate on actual air-gapped VMs before v0.1.0 release
 
 The foundation is solid, but these enhancements are needed for a smooth AirGap Whisper deployment experience.

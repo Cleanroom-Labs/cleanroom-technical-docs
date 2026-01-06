@@ -39,7 +39,7 @@ Workflow Steps
 Phase 1: Pack on Source Machine
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. **Preview operation**
+**Preview operation**
 
    .. code:: bash
 
@@ -47,7 +47,7 @@ Phase 1: Pack on Source Machine
 
    Shows: 2 chunks needed (32GB + 8GB)
 
-2. **Execute pack**
+**Execute pack**
 
    .. code:: bash
 
@@ -57,7 +57,7 @@ Phase 1: Pack on Source Machine
    - Writes ``chunk_000.tar`` (32GB) to USB #1
    - Progress: “15,000 files packed (30%)”
 
-3. **Swap to USB #2**
+**Swap to USB #2**
 
    - Tool prompts for USB swap
    - Writes ``chunk_001.tar`` (8GB) to USB #2
@@ -72,7 +72,7 @@ Phase 2: Physical Transfer
 Phase 3: Unpack on Destination Machine
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. **Verify chunks**
+**Verify chunks**
 
    .. code:: bash
 
@@ -81,7 +81,7 @@ Phase 3: Unpack on Destination Machine
 
    Confirms both chunks present with valid checksums
 
-2. **Unpack to destination**
+**Unpack to destination**
 
    .. code:: bash
 
@@ -92,7 +92,7 @@ Phase 3: Unpack on Destination Machine
    - Progress: “35,000 files extracted (70%)”
    - Final verification of directory structure
 
-3. **Verify integrity**
+**Verify integrity**
 
    .. code:: bash
 

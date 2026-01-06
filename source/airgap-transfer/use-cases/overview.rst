@@ -11,7 +11,7 @@ This document provides an overview of primary use cases for AirGap Transfer, a t
 Primary Use Cases
 -----------------
 
-1. Large File Transfer
+Large File Transfer
 ~~~~~~~~~~~~~~~~~~~~~~
 
 **Scenario:** Transfer a single large file (e.g., VM image, video file) that exceeds USB drive capacity.
@@ -26,7 +26,7 @@ Primary Use Cases
 
 --------------
 
-2. Large Directory Transfer
+Large Directory Transfer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Scenario:** Transfer a directory containing many files (e.g., dataset, codebase) across air-gap.
@@ -41,7 +41,7 @@ Primary Use Cases
 
 --------------
 
-3. Multiple USB Workflow
+Multiple USB Workflow
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Scenario:** Transfer dataset larger than any single USB drive, requiring multiple USB drives.

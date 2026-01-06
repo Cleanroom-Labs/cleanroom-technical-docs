@@ -8,7 +8,7 @@ AirGap Whisper
 
 --------------
 
-1. Introduction
+Introduction
 ---------------
 
 This SDD describes the architecture and design of AirGap Whisper’s MVP.
@@ -17,11 +17,11 @@ This SDD describes the architecture and design of AirGap Whisper’s MVP.
 
 --------------
 
-2. Architecture Overview
+Architecture Overview
 ------------------------
 
-2.1 System Context
-~~~~~~~~~~~~~~~~~~
+System Context
+~~~~~~~~~~~~~~
 
 ::
 
@@ -55,8 +55,8 @@ This SDD describes the architecture and design of AirGap Whisper’s MVP.
    │   └──────────────┘                                             │
    └────────────────────────────────────────────────────────────────┘
 
-2.2 Design Rationale
-~~~~~~~~~~~~~~~~~~~~
+Design Rationale
+~~~~~~~~~~~~~~~~
 
 +---------------------------------+---------------------------------------------------------+
 | Decision                        | Rationale                                               |
@@ -76,7 +76,7 @@ This SDD describes the architecture and design of AirGap Whisper’s MVP.
 
 --------------
 
-3. File Structure
+File Structure
 -----------------
 
 Per :doc:`Principles </meta/principles>`: **5 Rust files, flat structure. No frontend.**
@@ -97,11 +97,11 @@ Per :doc:`Principles </meta/principles>`: **5 Rust files, flat structure. No fro
 
 --------------
 
-4. Data Design
+Data Design
 --------------
 
-4.1 Database Schema
-~~~~~~~~~~~~~~~~~~~
+Database Schema
+~~~~~~~~~~~~~~~
 
 **2 tables. No indexes. No FTS. No migrations.**
 
@@ -120,8 +120,8 @@ Per :doc:`Principles </meta/principles>`: **5 Rust files, flat structure. No fro
        value TEXT NOT NULL
    );
 
-4.2 Settings Keys
-~~~~~~~~~~~~~~~~~
+Settings Keys
+~~~~~~~~~~~~~
 
 ========================= ======= ================
 Key                       Type    Default
@@ -134,8 +134,8 @@ Key                       Type    Default
 ``max_recording_minutes`` integer 120
 ========================= ======= ================
 
-4.3 Settings Validation
-~~~~~~~~~~~~~~~~~~~~~~~
+Settings Validation
+~~~~~~~~~~~~~~~~~~~
 
 +---------------------------+-----------------------------------------------------------+
 | Setting                   | Validation Rules                                          |
@@ -155,8 +155,8 @@ Key                       Type    Default
 
 **On validation failure:** Show inline error message in settings dialog, prevent save until fixed.
 
-4.4 File Storage
-~~~~~~~~~~~~~~~~
+File Storage
+~~~~~~~~~~~~
 
 ::
 
@@ -167,15 +167,15 @@ Key                       Type    Default
    └── temp/               # Recording in progress
        └── recording.wav
 
-4.5 Schema Migration Strategy
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Schema Migration Strategy
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **MVP approach:** No migrations. Schema is simple and stable.
 
 **If schema changes are needed later:** - Add columns with ALTER TABLE and defaults - Store schema version in ``settings`` table - Run migrations sequentially on startup if version < current - Never delete data during migration - Always add columns with NULL or default values
 
-4.6 Data Retention Policy
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Data Retention Policy
+~~~~~~~~~~~~~~~~~~~~~
 
 **Audio files:**
 
@@ -197,11 +197,11 @@ Key                       Type    Default
 
 --------------
 
-5. Component Design
+Component Design
 -------------------
 
-5.1 audio.rs
-~~~~~~~~~~~~
+audio.rs
+~~~~~~~~
 
 Record WAV from microphone using cpal + hound.
 
@@ -224,8 +224,8 @@ Record WAV from microphone using cpal + hound.
 
    pub fn list_input_devices() -> Result<Vec<AudioDevice>, AudioError>;
 
-5.2 whisper.rs
-~~~~~~~~~~~~~~
+whisper.rs
+~~~~~~~~~~
 
 Shell to whisper.cpp using simple function (no trait).
 
@@ -233,8 +233,8 @@ Shell to whisper.cpp using simple function (no trait).
 
 **Behavior:** - Invokes whisper.cpp with ``--no-timestamps`` flag for clean text output - Parses stdout for transcription text - Returns error on non-zero exit code with stderr message
 
-5.3 db.rs
-~~~~~~~~~
+db.rs
+~~~~~
 
 SQLite CRUD operations.
 
@@ -255,8 +255,8 @@ SQLite CRUD operations.
        pub fn set_setting(&self, key: &str, value: &str) -> Result<(), DbError>;
    }
 
-5.4 tray.rs
-~~~~~~~~~~~
+tray.rs
+~~~~~~~
 
 System tray menu and event handlers.
 
@@ -291,8 +291,8 @@ System tray menu and event handlers.
        // - Quit
    }
 
-5.5 Tray Menu Structure
-~~~~~~~~~~~~~~~~~~~~~~~
+Tray Menu Structure
+~~~~~~~~~~~~~~~~~~~
 
 ::
 
@@ -313,8 +313,8 @@ System tray menu and event handlers.
 
 **Click behavior:** - Left-click tray icon: Toggle recording - Right-click tray icon: Show menu - Click menu item: Copy full transcription to clipboard
 
-5.6 Tray Icon States
-~~~~~~~~~~~~~~~~~~~~
+Tray Icon States
+~~~~~~~~~~~~~~~~
 
 ============ ========== =============
 State        Icon       Color
@@ -328,11 +328,11 @@ Icons should be simple, monochrome-friendly for macOS menu bar.
 
 --------------
 
-6. Interaction Flows
+Interaction Flows
 --------------------
 
-6.1 Record and Transcribe
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Record and Transcribe
+~~~~~~~~~~~~~~~~~~~~~
 
 ::
 
@@ -359,8 +359,8 @@ Icons should be simple, monochrome-friendly for macOS menu bar.
      │  Notification shown  │                           │
      │◄─────────────────────│                           │
 
-6.2 Settings Dialog
-~~~~~~~~~~~~~~~~~~~
+Settings Dialog
+~~~~~~~~~~~~~~~
 
 Native dialog with the following layout:
 
@@ -400,8 +400,8 @@ Native dialog with the following layout:
 
 **Hotkey capture:** - Click [Set] button, dialog shows “Press hotkey…” - User presses key combination - If conflicts with other app hotkey: “Conflicts with Toggle Recording” - If conflicts with system: “May conflict with system shortcut” (warning, not error)
 
-6.3 First-Run Flow
-~~~~~~~~~~~~~~~~~~
+First-Run Flow
+~~~~~~~~~~~~~~
 
 ::
 
@@ -431,8 +431,8 @@ Native dialog with the following layout:
 
 **First-run detection:** - Check if ``whisper_binary_path`` setting exists and is valid - If not, show first-run dialog before tray menu is active - [Continue] disabled until both paths valid - After setup, show “Ready! Press Ctrl+Alt+R to record.”
 
-6.4 History Dialog
-~~~~~~~~~~~~~~~~~~
+History Dialog
+~~~~~~~~~~~~~~
 
 ::
 
@@ -465,7 +465,7 @@ Native dialog with the following layout:
 
 --------------
 
-7. Dependencies
+Dependencies
 ---------------
 
 **8 crates.** Pure Rust, no WebView, no npm, no frontend build.
@@ -474,7 +474,7 @@ See :doc:`Principles </meta/principles>` (Current Minimal Set section) for the a
 
 --------------
 
-8. Security & Privacy
+Security & Privacy
 ---------------------
 
 **Privacy by architecture:** No network code exists in the application. Voice recordings and transcriptions never leave the user’s machine.
@@ -490,11 +490,11 @@ SQL injection     Parameterized queries
 
 --------------
 
-9. Deployment
+Deployment
 -------------
 
-9.1 Air-Gap Support
-~~~~~~~~~~~~~~~~~~~
+Air-Gap Support
+~~~~~~~~~~~~~~~
 
 The application supports deployment on air-gapped systems (no internet access).
 
@@ -502,15 +502,15 @@ The application supports deployment on air-gapped systems (no internet access).
 
 See `README.md Air-Gapped Installation <../../README.md#air-gapped-installation>`__ for complete deployment procedures including whisper.cpp, Rust toolchain, and platform-specific packages.
 
-9.2 Deployment Package
-~~~~~~~~~~~~~~~~~~~~~~
+Deployment Package
+~~~~~~~~~~~~~~~~~~
 
 **Typical deployment structure:** - Application binary (~10-15 MB) - whisper.cpp binary (user-provided or bundled) - Whisper model file (user-provided or bundled) - Setup instructions
 
 See `README.md <../../README.md#air-gapped-installation>`__ for detailed package creation.
 
-9.3 Platform Packages
-~~~~~~~~~~~~~~~~~~~~~
+Platform Packages
+~~~~~~~~~~~~~~~~~
 
 ======== =================== =====================================
 Platform Format              Notes
@@ -520,8 +520,8 @@ Windows  .exe / .msi         Code-signed
 Linux    .deb, .rpm, Flatpak GNOME requires AppIndicator extension
 ======== =================== =====================================
 
-9.4 Release Process
-~~~~~~~~~~~~~~~~~~~
+Release Process
+~~~~~~~~~~~~~~~
 
 **Version numbering:** Semantic versioning (MAJOR.MINOR.PATCH) - MAJOR: Breaking changes - MINOR: New features, backward compatible - PATCH: Bug fixes
 
@@ -538,8 +538,8 @@ Linux    .deb, .rpm, Flatpak GNOME requires AppIndicator extension
    [ ] Create GitHub release with binaries
    [ ] Update download links on website
 
-9.5 Code Signing
-~~~~~~~~~~~~~~~~
+Code Signing
+~~~~~~~~~~~~
 
 +----------------------+-------------------------------------------------+---------------------------------------------+
 | Platform             | Requirements                                    | Notes                                       |
@@ -551,8 +551,8 @@ Linux    .deb, .rpm, Flatpak GNOME requires AppIndicator extension
 | Linux                | Optional GPG signing                            | For package repositories only               |
 +----------------------+-------------------------------------------------+---------------------------------------------+
 
-9.6 Distribution Channels
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Distribution Channels
+~~~~~~~~~~~~~~~~~~~~~
 
 =============== ========== ======================================
 Channel         Platform   Notes
@@ -578,11 +578,11 @@ AUR             Arch Linux Community maintained (future)
 
 --------------
 
-10. Platform Considerations
+Platform Considerations
 ---------------------------
 
-10.1 Build Requirements
-~~~~~~~~~~~~~~~~~~~~~~~
+Build Requirements
+~~~~~~~~~~~~~~~~~~
 
 ======== ========================= =================================
 Platform Toolchain                 System Libraries
@@ -594,8 +594,8 @@ Linux    ``build-essential``       ``libasound2-dev`` (ALSA headers)
 
 All platforms require the Rust toolchain (rustc, cargo).
 
-10.2 Audio Backends
-~~~~~~~~~~~~~~~~~~~
+Audio Backends
+~~~~~~~~~~~~~~
 
 ======== ========= ============================================
 Platform Backend   Notes
@@ -607,8 +607,8 @@ Linux    ALSA      Requires development headers at compile time
 
 The ``cpal`` crate abstracts these differences. Audio code is platform-agnostic.
 
-10.3 System Tray Behavior
-~~~~~~~~~~~~~~~~~~~~~~~~~
+System Tray Behavior
+~~~~~~~~~~~~~~~~~~~~
 
 +-------------------------+-------------------------+----------------------------------------------------+
 | Platform                | Behavior                | Notes                                              |
@@ -624,8 +624,8 @@ The ``cpal`` crate abstracts these differences. Audio code is platform-agnostic.
 
 The ``tray-icon`` crate handles platform differences. Left-click and right-click behavior is consistent.
 
-10.4 Global Hotkeys
-~~~~~~~~~~~~~~~~~~~
+Global Hotkeys
+~~~~~~~~~~~~~~
 
 =============== ======= ==========================
 Platform        Support Notes
@@ -638,8 +638,8 @@ Linux (Wayland) Limited Requires XWayland fallback
 
 **Wayland limitation:** Pure Wayland does not support global hotkey capture by design (security model). Most distributions run XWayland for compatibility, which enables hotkey support.
 
-10.5 whisper.cpp
-~~~~~~~~~~~~~~~~
+whisper.cpp
+~~~~~~~~~~~
 
 whisper.cpp must be compiled or obtained separately for each target platform:
 
@@ -655,30 +655,30 @@ For air-gapped deployment, include pre-compiled whisper.cpp binaries for each ta
 
 --------------
 
-11. Localization Strategy
+Localization Strategy
 -------------------------
 
-11.1 MVP Approach
-~~~~~~~~~~~~~~~~~
+MVP Approach
+~~~~~~~~~~~~
 
 **MVP is English-only.** Localization is deferred until post-MVP based on user demand.
 
 This aligns with :doc:`Principles </meta/principles>`: ship working software first, add features based on actual need.
 
-11.2 Localization-Ready Architecture
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Localization-Ready Architecture
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **String externalization:** Use a strings module instead of hardcoded strings throughout codebase.
 
 **UI text inventory:** ~60 total strings across tray menu, settings, dialogs, notifications, and error messages. Small enough for manual translation.
 
-11.3 Future Localization Approaches
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Future Localization Approaches
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Three options when localization is needed:** 1. **Compile-time:** Separate binary per language (recommended for air-gap simplicity) 2. **Runtime embedded:** All languages in binary, select at runtime (single binary, larger size) 3. **External files:** Locale files in app data (flexible, but not air-gap friendly)
 
-11.4 Localization Priority
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Localization Priority
+~~~~~~~~~~~~~~~~~~~~~
 
 Based on whisper.cpp model availability and likely user base:
 
@@ -695,8 +695,8 @@ Priority Language             Code  Notes
 
 **Note:** Transcription language (whisper.cpp) is independent of UI language. Users can transcribe any language whisper.cpp supports regardless of UI locale.
 
-11.5 What NOT to Localize
-~~~~~~~~~~~~~~~~~~~~~~~~~
+What NOT to Localize
+~~~~~~~~~~~~~~~~~~~~
 
 Log messages, settings keys, file paths, error codes (localize descriptions only), and technical documentation.
 

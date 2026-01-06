@@ -137,13 +137,13 @@ Definition of Done
 
 MVP is complete when:
 
-1. ☐ Press hotkey → recording starts (tray icon changes)
-2. ☐ Press hotkey → notification shows transcription
-3. ☐ Press hotkey → last text copied to clipboard
-4. ☐ Recent transcriptions visible in tray menu
-5. ☐ Click menu item → text copied to clipboard
-6. ☐ Quit and reopen → history preserved
-7. ☐ Use daily for one week without major issues
+☐ Press hotkey → recording starts (tray icon changes)
+☐ Press hotkey → notification shows transcription
+☐ Press hotkey → last text copied to clipboard
+☐ Recent transcriptions visible in tray menu
+☐ Click menu item → text copied to clipboard
+☐ Quit and reopen → history preserved
+☐ Use daily for one week without major issues
 
 --------------
 
@@ -168,10 +168,10 @@ Build it. Use it. Then improve it.
 After MVP
 ---------
 
-1. **Personal Use** — Use it, iterate
-2. **Share** — Post to HN, Reddit
-3. **Sell** — $99 Apple Dev, Gumroad
-4. **Grow** — LLC if revenue exists
+**Personal Use** — Use it, iterate
+**Share** — Post to HN, Reddit
+**Sell** — $99 Apple Dev, Gumroad
+**Grow** — LLC if revenue exists
 
 --------------
 

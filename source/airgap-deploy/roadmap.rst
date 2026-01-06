@@ -282,14 +282,14 @@ Definition of Done
 
 MVP is complete when:
 
-1. ☐ Successfully packages AirGap Whisper for all platforms
-2. ☐ Generated install scripts work on air-gapped VMs
-3. ☐ Package creation completes efficiently for typical applications
-4. ☐ 80%+ code coverage
-5. ☐ Zero clippy warnings
-6. ☐ All licenses compatible with MIT/Apache-2.0
-7. ☐ First-time user can create package quickly and easily
-8. ☐ Documentation covers all use cases
+☐ Successfully packages AirGap Whisper for all platforms
+☐ Generated install scripts work on air-gapped VMs
+☐ Package creation completes efficiently for typical applications
+☐ 80%+ code coverage
+☐ Zero clippy warnings
+☐ All licenses compatible with MIT/Apache-2.0
+☐ First-time user can create package quickly and easily
+☐ Documentation covers all use cases
 
 --------------
 
