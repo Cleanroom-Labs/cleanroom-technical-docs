@@ -7,6 +7,21 @@ Build a deployment tool that makes air-gap packaging simple. Ship it. See what h
 
 --------------
 
+v1.0.0 Release
+--------------
+
+**Release Goal:** This project will reach v1.0.0 as part of a coordinated release with AirGap Whisper and AirGap Transfer.
+
+**v1.0.0 Scope:** The MVP features documented in this roadmap.
+
+**Cross-Project Integration:** v1.0.0 validates the Ollama deployment workflow works end-to-end.
+
+**Release Coordination:** See :doc:`Release Roadmap </meta/release-roadmap>` for cross-project timeline and integration milestones.
+
+**Target Date:** [TBD - see Release Roadmap]
+
+--------------
+
 Current Status
 --------------
 

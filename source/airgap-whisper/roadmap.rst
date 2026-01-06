@@ -7,6 +7,21 @@ Build a transcription app you want to use. Share it with the world. See what hap
 
 --------------
 
+v1.0.0 Release
+--------------
+
+**Release Goal:** This project will reach v1.0.0 as part of a coordinated release with AirGap Deploy and AirGap Transfer.
+
+**v1.0.0 Scope:** The MVP features documented in this roadmap.
+
+**Cross-Project Integration:** v1.0.0 validates the integrated transcription deployment workflow works end-to-end.
+
+**Release Coordination:** See :doc:`Release Roadmap </meta/release-roadmap>` for cross-project timeline and integration milestones.
+
+**Target Date:** [TBD - see Release Roadmap]
+
+--------------
+
 Current Status
 --------------
 

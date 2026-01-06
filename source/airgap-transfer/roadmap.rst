@@ -7,6 +7,21 @@ Build an air-gap file transfer tool you can trust. Ship it. See what happens.
 
 --------------
 
+v1.0.0 Release
+--------------
+
+**Release Goal:** This project will reach v1.0.0 as part of a coordinated release with AirGap Whisper and AirGap Deploy.
+
+**v1.0.0 Scope:** The MVP features documented in this roadmap.
+
+**Cross-Project Integration:** v1.0.0 validates the multi-USB transfer scenario works end-to-end with AirGap Deploy.
+
+**Release Coordination:** See :doc:`Release Roadmap </meta/release-roadmap>` for cross-project timeline and integration milestones.
+
+**Target Date:** [TBD - see Release Roadmap]
+
+--------------
+
 Current Status
 --------------
 
