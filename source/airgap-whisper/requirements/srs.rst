@@ -474,7 +474,8 @@ Non-Functional Requirements
    :style: table
    :sort: id
 
-**Traceable Non-Functional Requirements (sphinx-needs directives):**
+Performance
+~~~~~~~~~~~
 
 .. nfreq:: App Launch Time
    :id: NFR-WHISPER-001
@@ -492,6 +493,176 @@ Non-Functional Requirements
 
    Memory footprint < 100 MB (excluding whisper.cpp)
 
+.. nfreq:: Transcription Performance
+   :id: NFR-WHISPER-007
+   :status: approved
+   :tags: whisper, performance, transcription
+   :priority: should
+
+   Transcription completion time SHALL be within 2x the recording duration
+
+Reliability
+~~~~~~~~~~~
+
+.. nfreq:: Audio File Integrity
+   :id: NFR-WHISPER-008
+   :status: approved
+   :tags: whisper, reliability, audio
+   :priority: must
+
+   The system SHALL verify WAV file integrity before transcription
+
+.. nfreq:: Database Transaction Safety
+   :id: NFR-WHISPER-009
+   :status: approved
+   :tags: whisper, reliability, database
+   :priority: must
+
+   Database operations SHALL use transactions to prevent data loss
+
+.. nfreq:: Graceful Whisper.cpp Failure
+   :id: NFR-WHISPER-010
+   :status: approved
+   :tags: whisper, reliability, error-handling
+   :priority: must
+
+   The system SHALL handle whisper.cpp crashes gracefully without losing audio
+
+.. nfreq:: Hotkey Registration Recovery
+   :id: NFR-WHISPER-011
+   :status: approved
+   :tags: whisper, reliability, hotkeys
+   :priority: should
+
+   The system SHALL detect and recover from hotkey registration failures
+
+Usability
+~~~~~~~~~
+
+.. nfreq:: System Theme Support
+   :id: NFR-WHISPER-006
+   :status: approved
+   :tags: whisper, ui, accessibility
+   :priority: should
+
+   Follow system theme (dark/light)
+
+.. nfreq:: Notification Clarity
+   :id: NFR-WHISPER-012
+   :status: approved
+   :tags: whisper, usability, notifications
+   :priority: must
+
+   System notifications SHALL include clear status and transcription preview
+
+.. nfreq:: Tray Icon State Visibility
+   :id: NFR-WHISPER-013
+   :status: approved
+   :tags: whisper, usability, tray
+   :priority: must
+
+   Tray icon SHALL clearly indicate app state (idle/recording/transcribing)
+
+.. nfreq:: Settings Discoverability
+   :id: NFR-WHISPER-014
+   :status: approved
+   :tags: whisper, usability, settings
+   :priority: should
+
+   Settings dialog SHALL provide clear labels and validation feedback
+
+.. nfreq:: First-Time Setup
+   :id: NFR-WHISPER-015
+   :status: approved
+   :tags: whisper, usability, setup
+   :priority: should
+
+   First-time users SHALL be guided to configure whisper.cpp path via clear prompts
+
+Maintainability
+~~~~~~~~~~~~~~~
+
+.. nfreq:: Test Coverage
+   :id: NFR-WHISPER-016
+   :status: approved
+   :tags: whisper, maintainability, testing
+   :priority: must
+
+   The codebase SHALL achieve at least 80% test coverage
+
+.. nfreq:: API Documentation
+   :id: NFR-WHISPER-017
+   :status: approved
+   :tags: whisper, maintainability, documentation
+   :priority: must
+
+   All public APIs SHALL have rustdoc documentation
+
+.. nfreq:: Clippy Compliance
+   :id: NFR-WHISPER-018
+   :status: approved
+   :tags: whisper, maintainability, code-quality
+   :priority: must
+
+   The code SHALL pass cargo clippy with zero warnings
+
+.. nfreq:: Code Formatting
+   :id: NFR-WHISPER-019
+   :status: approved
+   :tags: whisper, maintainability, code-quality
+   :priority: must
+
+   The code SHALL be formatted with rustfmt
+
+Portability
+~~~~~~~~~~~
+
+.. nfreq:: Platform-Specific Tray Support
+   :id: NFR-WHISPER-020
+   :status: approved
+   :tags: whisper, portability, tray
+   :priority: must
+
+   The system SHALL support native tray icons on macOS, Windows, Linux (GNOME with AppIndicator)
+
+.. nfreq:: Audio Device Compatibility
+   :id: NFR-WHISPER-021
+   :status: approved
+   :tags: whisper, portability, audio
+   :priority: must
+
+   The system SHALL work with standard audio input devices across all platforms
+
+Scalability
+~~~~~~~~~~~
+
+.. nfreq:: Database Growth Handling
+   :id: NFR-WHISPER-022
+   :status: approved
+   :tags: whisper, scalability, database
+   :priority: should
+
+   The system SHALL handle databases with 10,000+ transcriptions without performance degradation
+
+.. nfreq:: Long Audio Support
+   :id: NFR-WHISPER-023
+   :status: approved
+   :tags: whisper, scalability, audio
+   :priority: should
+
+   The system SHALL support audio recordings up to 120 minutes
+
+.. nfreq:: Large Transcription Handling
+   :id: NFR-WHISPER-024
+   :status: approved
+   :tags: whisper, scalability, transcription
+   :priority: should
+
+   The system SHALL handle transcriptions with 50,000+ characters
+
+Security & Privacy
+~~~~~~~~~~~~~~~~~~
+
 .. nfreq:: Privacy Guarantee
    :id: NFR-WHISPER-003
    :status: approved
@@ -499,6 +670,17 @@ Non-Functional Requirements
    :priority: must
 
    All data stays on user's machine; no network calls, no telemetry
+
+.. nfreq:: Local Data Encryption
+   :id: NFR-WHISPER-025
+   :status: approved
+   :tags: whisper, security, database
+   :priority: could
+
+   The system COULD support optional SQLite encryption for sensitive transcriptions
+
+Deployment
+~~~~~~~~~~
 
 .. nfreq:: Offline Functionality
    :id: NFR-WHISPER-004
@@ -515,14 +697,6 @@ Non-Functional Requirements
    :priority: must
 
    Build and run on systems with no internet access
-
-.. nfreq:: System Theme Support
-   :id: NFR-WHISPER-006
-   :status: approved
-   :tags: whisper, ui, accessibility
-   :priority: should
-
-   Follow system theme (dark/light)
 
 --------------
 

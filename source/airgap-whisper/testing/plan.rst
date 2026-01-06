@@ -544,6 +544,195 @@ Recording Tests
 
    Verify app follows system theme (dark/light)
 
+.. test:: Privacy Guarantee Verification
+   :id: TC-NFR-005
+   :status: approved
+   :tags: whisper, privacy, security
+   :tests: NFR-WHISPER-003
+   :priority: critical
+
+   Verify no network calls under any circumstance (monitor with network sniffer)
+
+.. test:: Offline Functionality Test
+   :id: TC-NFR-006
+   :status: approved
+   :tags: whisper, offline
+   :tests: NFR-WHISPER-004
+   :priority: critical
+
+   Verify 100% functionality with network disconnected
+
+.. test:: Transcription Performance
+   :id: TC-NFR-007
+   :status: approved
+   :tags: whisper, performance, transcription
+   :tests: NFR-WHISPER-007
+   :priority: medium
+
+   Verify transcription completes within 2x recording duration
+
+.. test:: Audio File Integrity Check
+   :id: TC-NFR-008
+   :status: approved
+   :tags: whisper, reliability, audio
+   :tests: NFR-WHISPER-008
+   :priority: high
+
+   Verify WAV file integrity verified before transcription
+
+.. test:: Database Transaction Safety
+   :id: TC-NFR-009
+   :status: approved
+   :tags: whisper, reliability, database
+   :tests: NFR-WHISPER-009
+   :priority: high
+
+   Verify database operations use transactions preventing data loss
+
+.. test:: Whisper.cpp Crash Handling
+   :id: TC-NFR-010
+   :status: approved
+   :tags: whisper, reliability, error-handling
+   :tests: NFR-WHISPER-010
+   :priority: high
+
+   Verify whisper.cpp crashes handled gracefully without audio loss
+
+.. test:: Hotkey Registration Recovery
+   :id: TC-NFR-011
+   :status: approved
+   :tags: whisper, reliability, hotkeys
+   :tests: NFR-WHISPER-011
+   :priority: medium
+
+   Verify detection and recovery from hotkey registration failures
+
+.. test:: Notification Clarity
+   :id: TC-NFR-012
+   :status: approved
+   :tags: whisper, usability, notifications
+   :tests: NFR-WHISPER-012
+   :priority: high
+
+   Verify notifications include clear status and transcription preview
+
+.. test:: Tray Icon State Indication
+   :id: TC-NFR-013
+   :status: approved
+   :tags: whisper, usability, tray
+   :tests: NFR-WHISPER-013
+   :priority: high
+
+   Verify tray icon clearly indicates state (idle/recording/transcribing)
+
+.. test:: Settings Dialog Usability
+   :id: TC-NFR-014
+   :status: approved
+   :tags: whisper, usability, settings
+   :tests: NFR-WHISPER-014
+   :priority: medium
+
+   Verify settings dialog provides clear labels and validation feedback
+
+.. test:: First-Time Setup Experience
+   :id: TC-NFR-015
+   :status: approved
+   :tags: whisper, usability, setup
+   :tests: NFR-WHISPER-015
+   :priority: medium
+
+   Verify first-time users guided to configure whisper.cpp path
+
+.. test:: Test Coverage Verification
+   :id: TC-NFR-016
+   :status: approved
+   :tags: whisper, maintainability, testing
+   :tests: NFR-WHISPER-016
+   :priority: high
+
+   Verify codebase achieves ≥80% test coverage via cargo tarpaulin
+
+.. test:: API Documentation Completeness
+   :id: TC-NFR-017
+   :status: approved
+   :tags: whisper, maintainability, documentation
+   :tests: NFR-WHISPER-017
+   :priority: high
+
+   Verify all public APIs have rustdoc documentation
+
+.. test:: Clippy Compliance Check
+   :id: TC-NFR-018
+   :status: approved
+   :tags: whisper, maintainability, code-quality
+   :tests: NFR-WHISPER-018
+   :priority: high
+
+   Verify cargo clippy passes with zero warnings
+
+.. test:: Code Formatting Check
+   :id: TC-NFR-019
+   :status: approved
+   :tags: whisper, maintainability, code-quality
+   :tests: NFR-WHISPER-019
+   :priority: high
+
+   Verify code formatted with rustfmt (cargo fmt --check)
+
+.. test:: Platform-Specific Tray Support
+   :id: TC-NFR-020
+   :status: approved
+   :tags: whisper, portability, tray
+   :tests: NFR-WHISPER-020
+   :priority: high
+
+   Verify native tray icons on macOS, Windows, Linux with GNOME AppIndicator
+
+.. test:: Audio Device Compatibility
+   :id: TC-NFR-021
+   :status: approved
+   :tags: whisper, portability, audio
+   :tests: NFR-WHISPER-021
+   :priority: high
+
+   Verify compatibility with standard audio input devices across platforms
+
+.. test:: Database Growth Performance
+   :id: TC-NFR-022
+   :status: approved
+   :tags: whisper, scalability, database
+   :tests: NFR-WHISPER-022
+   :priority: medium
+
+   Verify performance with 10,000+ transcriptions without degradation
+
+.. test:: Long Audio Recording Support
+   :id: TC-NFR-023
+   :status: approved
+   :tags: whisper, scalability, audio
+   :tests: NFR-WHISPER-023
+   :priority: medium
+
+   Verify support for audio recordings up to 120 minutes
+
+.. test:: Large Transcription Handling
+   :id: TC-NFR-024
+   :status: approved
+   :tags: whisper, scalability, transcription
+   :tests: NFR-WHISPER-024
+   :priority: medium
+
+   Verify handling of transcriptions with 50,000+ characters
+
+.. test:: Optional Database Encryption
+   :id: TC-NFR-025
+   :status: approved
+   :tags: whisper, security, database
+   :tests: NFR-WHISPER-025
+   :priority: low
+
+   Verify optional SQLite encryption for sensitive transcriptions (if implemented)
+
 Transcription Tests
 ~~~~~~~~~~~~~~~~~~~
 
