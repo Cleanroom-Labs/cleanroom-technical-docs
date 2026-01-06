@@ -158,8 +158,6 @@ airgap-deploy provides the following major functions:
 3.1 Manifest Parsing and Validation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**FR-1.1:** The system SHALL parse ``AirGapDeploy.toml`` files using TOML syntax.
-
 .. req:: Parse TOML Manifest Files
    :id: FR-DEPLOY-001
    :status: approved
@@ -167,8 +165,6 @@ airgap-deploy provides the following major functions:
    :priority: must
 
    The system SHALL parse AirGapDeploy.toml files using TOML syntax.
-
-**FR-1.2:** The system SHALL validate manifest structure and required fields before processing.
 
 .. req:: Validate Manifest Structure
    :id: FR-DEPLOY-002
@@ -178,8 +174,6 @@ airgap-deploy provides the following major functions:
 
    The system SHALL validate manifest structure and required fields before processing.
 
-**FR-1.3:** The system SHALL support the following manifest sections: - ``[package]`` - Package metadata (name, version, description) - ``[targets]`` - Target platforms (linux-x86_64, macos-aarch64, windows-x86_64) - ``[install]`` - Installation configuration (method, prefix, mode) - ``[[components]]`` - List of components to include
-
 .. req:: Support Manifest Sections
    :id: FR-DEPLOY-003
    :status: approved
@@ -188,8 +182,6 @@ airgap-deploy provides the following major functions:
 
    The system SHALL support the following manifest sections: ``[package]``, ``[targets]``, ``[install]``, ``[[components]]``
 
-**FR-1.4:** The system SHALL provide clear error messages for invalid manifests, including line numbers and expected values.
-
 .. req:: Clear Manifest Error Messages
    :id: FR-DEPLOY-004
    :status: approved
@@ -197,8 +189,6 @@ airgap-deploy provides the following major functions:
    :priority: must
 
    The system SHALL provide clear error messages for invalid manifests, including line numbers and expected values.
-
-**FR-1.5:** The system SHALL support schema versioning to enable future manifest evolution.
 
 .. req:: Manifest Schema Versioning
    :id: FR-DEPLOY-005
@@ -216,8 +206,6 @@ airgap-deploy provides the following major functions:
 3.2.1 Rust Application Component
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**FR-2.1:** The system SHALL collect Rust application source code from local directories.
-
 .. req:: Collect Rust Application Source
    :id: FR-DEPLOY-006
    :status: approved
@@ -225,8 +213,6 @@ airgap-deploy provides the following major functions:
    :priority: must
 
    The system SHALL collect Rust application source code from local directories.
-
-**FR-2.2:** The system SHALL execute ``cargo vendor`` to download and vendor all Cargo dependencies.
 
 .. req:: Vendor Cargo Dependencies
    :id: FR-DEPLOY-007
@@ -236,8 +222,6 @@ airgap-deploy provides the following major functions:
 
    The system SHALL execute cargo vendor to download and vendor all Cargo dependencies.
 
-**FR-2.3:** The system SHALL optionally include Rust toolchain installer for offline builds.
-
 .. req:: Include Rust Toolchain Installer
    :id: FR-DEPLOY-008
    :status: approved
@@ -246,8 +230,6 @@ airgap-deploy provides the following major functions:
 
    The system SHALL optionally include Rust toolchain installer for offline builds.
 
-**FR-2.4:** The system SHALL generate ``.cargo/config.toml`` to configure vendored dependency usage.
-
 .. req:: Generate Cargo Config
    :id: FR-DEPLOY-009
    :status: approved
@@ -255,8 +237,6 @@ airgap-deploy provides the following major functions:
    :priority: must
 
    The system SHALL generate .cargo/config.toml to configure vendored dependency usage.
-
-**FR-2.5:** The system SHALL support the following configuration options: - ``source`` - Path to Rust project - ``vendor`` - Boolean flag to enable vendoring (default: true) - ``include_toolchain`` - Boolean flag to include Rust installer (default: false) - ``prebuild`` - Boolean flag to prebuild binary (default: false, deferred to v0.2)
 
 .. req:: Rust Component Configuration Options
    :id: FR-DEPLOY-010
@@ -269,8 +249,6 @@ airgap-deploy provides the following major functions:
 3.2.2 External Binary Component
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**FR-2.6:** The system SHALL clone Git repositories for external binaries.
-
 .. req:: Clone Git Repositories
    :id: FR-DEPLOY-011
    :status: approved
@@ -278,8 +256,6 @@ airgap-deploy provides the following major functions:
    :priority: must
 
    The system SHALL clone Git repositories for external binaries.
-
-**FR-2.7:** The system SHALL support specifying Git branch, tag, or commit.
 
 .. req:: Specify Git Version
    :id: FR-DEPLOY-012
@@ -289,8 +265,6 @@ airgap-deploy provides the following major functions:
 
    The system SHALL support specifying Git branch, tag, or commit.
 
-**FR-2.8:** The system SHALL include build instructions in installation scripts.
-
 .. req:: Include Build Instructions
    :id: FR-DEPLOY-013
    :status: approved
@@ -298,8 +272,6 @@ airgap-deploy provides the following major functions:
    :priority: must
 
    The system SHALL include build instructions in installation scripts.
-
-**FR-2.9:** The system SHALL support the following configuration options: - ``name`` - Component name - ``repo`` - Git repository URL - ``branch`` / ``tag`` / ``commit`` - Version specification - ``build_instructions`` - Build command (e.g., "make")
 
 .. req:: External Binary Configuration Options
    :id: FR-DEPLOY-014
@@ -312,8 +284,6 @@ airgap-deploy provides the following major functions:
 3.2.3 Model File Component
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**FR-2.10:** The system SHALL download model files from HTTP/HTTPS URLs.
-
 .. req:: Download Model Files
    :id: FR-DEPLOY-015
    :status: approved
@@ -321,8 +291,6 @@ airgap-deploy provides the following major functions:
    :priority: must
 
    The system SHALL download model files from HTTP/HTTPS URLs.
-
-**FR-2.11:** The system SHALL verify downloaded files using SHA-256 checksums.
 
 .. req:: Verify File Checksums
    :id: FR-DEPLOY-016
@@ -332,8 +300,6 @@ airgap-deploy provides the following major functions:
 
    The system SHALL verify downloaded files using SHA-256 checksums.
 
-**FR-2.12:** The system SHALL display download progress with progress bars.
-
 .. req:: Display Download Progress
    :id: FR-DEPLOY-017
    :status: approved
@@ -342,8 +308,6 @@ airgap-deploy provides the following major functions:
 
    The system SHALL display download progress with progress bars.
 
-**FR-2.13:** The system SHALL support resume capability for interrupted downloads.
-
 .. req:: Resume Interrupted Downloads
    :id: FR-DEPLOY-018
    :status: approved
@@ -351,8 +315,6 @@ airgap-deploy provides the following major functions:
    :priority: should
 
    The system SHALL support resume capability for interrupted downloads.
-
-**FR-2.14:** The system SHALL support the following configuration options: - ``name`` - Model name - ``url`` - Download URL - ``checksum`` - SHA-256 checksum - ``required`` - Boolean flag (default: true) - ``install_path`` - Installation destination
 
 .. req:: Model File Configuration Options
    :id: FR-DEPLOY-019
@@ -365,8 +327,6 @@ airgap-deploy provides the following major functions:
 3.2.4 System Package Component
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**FR-2.15:** The system SHALL detect Linux distribution (Debian, Fedora, Arch).
-
 .. req:: Detect Linux Distribution
    :id: FR-DEPLOY-020
    :status: approved
@@ -374,8 +334,6 @@ airgap-deploy provides the following major functions:
    :priority: could
 
    The system SHALL detect Linux distribution (Debian, Fedora, Arch).
-
-**FR-2.16:** The system SHALL download system packages (.deb, .rpm, etc.) with dependencies.
 
 .. req:: Download System Packages
    :id: FR-DEPLOY-021
@@ -385,8 +343,6 @@ airgap-deploy provides the following major functions:
 
    The system SHALL download system packages (.deb, .rpm, etc.) with dependencies.
 
-**FR-2.17:** The system SHALL include system packages in deployment archive.
-
 .. req:: Include System Packages in Archive
    :id: FR-DEPLOY-022
    :status: approved
@@ -394,8 +350,6 @@ airgap-deploy provides the following major functions:
    :priority: could
 
    The system SHALL include system packages in deployment archive.
-
-**FR-2.18:** The system SHALL configure installation scripts to install system packages.
 
 .. req:: Configure System Package Installation
    :id: FR-DEPLOY-023
@@ -412,8 +366,6 @@ airgap-deploy provides the following major functions:
 3.3 Packaging
 ~~~~~~~~~~~~~
 
-**FR-3.1:** The system SHALL create tar.gz archives for Linux and macOS deployments.
-
 .. req:: Create Tar.gz Archives
    :id: FR-DEPLOY-024
    :status: approved
@@ -421,8 +373,6 @@ airgap-deploy provides the following major functions:
    :priority: must
 
    The system SHALL create tar.gz archives for Linux and macOS deployments.
-
-**FR-3.2:** The system SHALL create zip archives for Windows deployments.
 
 .. req:: Create Zip Archives
    :id: FR-DEPLOY-025
@@ -432,20 +382,6 @@ airgap-deploy provides the following major functions:
 
    The system SHALL create zip archives for Windows deployments.
 
-**FR-3.3:** The system SHALL organize package contents with the following structure:
-
-::
-
-   package-name-version/
-   ├── install.sh / install.ps1    # Installation script
-   ├── README.txt                  # Package documentation
-   ├── airgap-deploy-metadata.json # Package metadata
-   ├── app-source/                 # Application source code
-   ├── vendor/                     # Vendored dependencies
-   ├── external-binaries/          # External binary sources
-   ├── models/                     # Model files
-   └── packages/                   # System packages (if any)
-
 .. req:: Organize Package Directory Structure
    :id: FR-DEPLOY-026
    :status: approved
@@ -453,8 +389,6 @@ airgap-deploy provides the following major functions:
    :priority: must
 
    The system SHALL organize package contents with standardized directory structure.
-
-**FR-3.4:** The system SHALL generate ``airgap-deploy-metadata.json`` with package information: - Package name, version, description - Target platform - Component inventory - Build date - airgap-deploy version
 
 .. req:: Generate Package Metadata
    :id: FR-DEPLOY-027
@@ -464,8 +398,6 @@ airgap-deploy provides the following major functions:
 
    The system SHALL generate airgap-deploy-metadata.json with package information.
 
-**FR-3.5:** The system SHALL generate SHA-256 checksum for the entire package.
-
 .. req:: Generate Package Checksum
    :id: FR-DEPLOY-028
    :status: approved
@@ -473,8 +405,6 @@ airgap-deploy provides the following major functions:
    :priority: must
 
    The system SHALL generate SHA-256 checksum for the entire package.
-
-**FR-3.6:** The system SHALL support configurable compression levels.
 
 .. req:: Configurable Compression Levels
    :id: FR-DEPLOY-029
@@ -489,8 +419,6 @@ airgap-deploy provides the following major functions:
 3.4 Installation Script Generation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**FR-4.1:** The system SHALL generate Bash installation scripts (``install.sh``) for Linux/macOS.
-
 .. req:: Generate Bash Installation Scripts
    :id: FR-DEPLOY-030
    :status: approved
@@ -498,8 +426,6 @@ airgap-deploy provides the following major functions:
    :priority: must
 
    The system SHALL generate Bash installation scripts (install.sh) for Linux/macOS.
-
-**FR-4.2:** The system SHALL generate PowerShell installation scripts (``install.ps1``) for Windows.
 
 .. req:: Generate PowerShell Installation Scripts
    :id: FR-DEPLOY-031
@@ -509,8 +435,6 @@ airgap-deploy provides the following major functions:
 
    The system SHALL generate PowerShell installation scripts (install.ps1) for Windows.
 
-**FR-4.3:** Installation scripts SHALL perform the following steps: 1. Check for required dependencies (compilers, build tools) 2. Display installation plan (dry-run mode) 3. Prompt for installation location (interactive mode) 4. Execute component-specific build/install steps 5. Generate application configuration files 6. Set file permissions and ownership 7. Log all actions to install.log
-
 .. req:: Installation Script Steps
    :id: FR-DEPLOY-032
    :status: approved
@@ -518,8 +442,6 @@ airgap-deploy provides the following major functions:
    :priority: must
 
    Installation scripts SHALL perform dependency checks, display plan, prompt for location, execute builds, configure files, set permissions, and log actions.
-
-**FR-4.4:** Installation scripts SHALL support the following modes: - **Interactive mode:** Prompt user for installation location and options - **Automatic mode:** Use environment variables for unattended installation
 
 .. req:: Installation Script Modes
    :id: FR-DEPLOY-033
@@ -529,8 +451,6 @@ airgap-deploy provides the following major functions:
 
    Installation scripts SHALL support interactive mode and automatic (unattended) mode.
 
-**FR-4.5:** Installation scripts SHALL detect existing installations and offer upgrade path.
-
 .. req:: Detect Existing Installations
    :id: FR-DEPLOY-034
    :status: approved
@@ -539,8 +459,6 @@ airgap-deploy provides the following major functions:
 
    Installation scripts SHALL detect existing installations and offer upgrade path.
 
-**FR-4.6:** Installation scripts SHALL verify sufficient disk space before proceeding.
-
 .. req:: Verify Disk Space
    :id: FR-DEPLOY-035
    :status: approved
@@ -548,8 +466,6 @@ airgap-deploy provides the following major functions:
    :priority: must
 
    Installation scripts SHALL verify sufficient disk space before proceeding.
-
-**FR-4.7:** Installation scripts SHALL provide clear error messages and recovery instructions.
 
 .. req:: Installation Error Messages
    :id: FR-DEPLOY-036
@@ -564,16 +480,6 @@ airgap-deploy provides the following major functions:
 3.5 Command-Line Interface
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**FR-5.1:** The system SHALL provide the following commands:
-
-**``airgap-deploy prep``** - **Purpose:** Prepare deployment package - **Required arguments:** None (reads ``AirGapDeploy.toml`` in current directory) - **Optional arguments:** - ``--manifest <PATH>`` - Path to manifest file - ``--target <PLATFORM>`` - Target platform (linux-x86_64, macos-aarch64, windows-x86_64) - ``--output <PATH>`` - Output file path - ``--include <COMPONENT>`` - Include optional component - ``--dry-run`` - Preview operations without executing - ``--verbose`` - Enable verbose logging
-
-**``airgap-deploy validate``** - **Purpose:** Validate manifest without preparing package - **Required arguments:** None (reads ``AirGapDeploy.toml`` in current directory) - **Optional arguments:** - ``--manifest <PATH>`` - Path to manifest file
-
-**``airgap-deploy init``** - **Purpose:** Create template ``AirGapDeploy.toml`` file - **Optional arguments:** - ``--type <TYPE>`` - Template type (rust-app, python-app, generic)
-
-**``airgap-deploy list-components``** - **Purpose:** Show available built-in component types - **No arguments**
-
 .. req:: CLI Commands
    :id: FR-DEPLOY-037
    :status: approved
@@ -581,8 +487,6 @@ airgap-deploy provides the following major functions:
    :priority: must
 
    The system SHALL provide commands: prep, validate, init, list-components with appropriate arguments.
-
-**FR-5.2:** The system SHALL display colored output for improved readability.
 
 .. req:: Colored CLI Output
    :id: FR-DEPLOY-038
@@ -592,8 +496,6 @@ airgap-deploy provides the following major functions:
 
    The system SHALL display colored output for improved readability.
 
-**FR-5.3:** The system SHALL display progress bars for long-running operations (downloads, compression).
-
 .. req:: Progress Bars
    :id: FR-DEPLOY-039
    :status: approved
@@ -602,8 +504,6 @@ airgap-deploy provides the following major functions:
 
    The system SHALL display progress bars for long-running operations (downloads, compression).
 
-**FR-5.4:** The system SHALL support ``--verbose`` flag for detailed logging.
-
 .. req:: Verbose Logging Flag
    :id: FR-DEPLOY-040
    :status: approved
@@ -611,8 +511,6 @@ airgap-deploy provides the following major functions:
    :priority: must
 
    The system SHALL support --verbose flag for detailed logging.
-
-**FR-5.5:** The system SHALL support ``--help`` flag for all commands.
 
 .. req:: Help Flag
    :id: FR-DEPLOY-041
@@ -627,8 +525,6 @@ airgap-deploy provides the following major functions:
 3.6 Configuration Management
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**FR-6.1:** The system SHALL support global configuration file at ``~/.airgap-deploy/config.toml``.
-
 .. req:: Global Configuration File
    :id: FR-DEPLOY-042
    :status: approved
@@ -637,8 +533,6 @@ airgap-deploy provides the following major functions:
 
    The system SHALL support global configuration file at ~/.airgap-deploy/config.toml.
 
-**FR-6.2:** The system SHALL support the following global configuration options: - ``default_target`` - Default target platform - ``cache_dir`` - Directory for cached downloads - ``proxy`` - HTTP proxy settings (for downloads)
-
 .. req:: Global Configuration Options
    :id: FR-DEPLOY-043
    :status: approved
@@ -646,8 +540,6 @@ airgap-deploy provides the following major functions:
    :priority: should
 
    The system SHALL support global configuration options: default_target, cache_dir, proxy.
-
-**FR-6.3:** Command-line arguments SHALL override global configuration.
 
 .. req:: CLI Overrides Configuration
    :id: FR-DEPLOY-044
@@ -662,8 +554,6 @@ airgap-deploy provides the following major functions:
 3.7 Error Handling and Recovery
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**FR-7.1:** The system SHALL provide clear, actionable error messages for all failure modes.
-
 .. req:: Clear Error Messages
    :id: FR-DEPLOY-045
    :status: approved
@@ -671,8 +561,6 @@ airgap-deploy provides the following major functions:
    :priority: must
 
    The system SHALL provide clear, actionable error messages for all failure modes.
-
-**FR-7.2:** The system SHALL suggest recovery steps for common errors: - Missing dependencies - Network failures - Disk space issues - Invalid manifests
 
 .. req:: Suggest Error Recovery Steps
    :id: FR-DEPLOY-046
@@ -682,8 +570,6 @@ airgap-deploy provides the following major functions:
 
    The system SHALL suggest recovery steps for common errors: missing dependencies, network failures, disk space issues, invalid manifests.
 
-**FR-7.3:** The system SHALL exit with non-zero status codes on errors.
-
 .. req:: Non-Zero Exit Codes
    :id: FR-DEPLOY-047
    :status: approved
@@ -691,8 +577,6 @@ airgap-deploy provides the following major functions:
    :priority: must
 
    The system SHALL exit with non-zero status codes on errors.
-
-**FR-7.4:** The system SHALL log all operations to enable debugging.
 
 .. req:: Operation Logging
    :id: FR-DEPLOY-048
