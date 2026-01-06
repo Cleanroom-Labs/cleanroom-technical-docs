@@ -11,7 +11,7 @@ AirGap Whisper
 Introduction
 ---------------
 
-This test plan covers MVP requirements (FR-001 through FR-036, NFR-001 through NFR-006).
+This test plan covers MVP requirements (:need_count:`type=='req' and 'whisper' in tags` functional requirements, :need_count:`type=='nfreq' and 'whisper' in tags` non-functional requirements).
 
 --------------
 
@@ -916,5 +916,5 @@ Revision History
 +----------------------+--------------+-----------------------------------------------------+
 | Version              | Date         | Description                                         |
 +======================+==============+=====================================================+
-| 1.0.0                | 2026-01-04   | MVP test cases (36 tests covering FR-001 to FR-036) |
+| 1.0.0                | 2026-01-04   | MVP test cases (automated count via sphinx-needs)    |
 +----------------------+--------------+-----------------------------------------------------+

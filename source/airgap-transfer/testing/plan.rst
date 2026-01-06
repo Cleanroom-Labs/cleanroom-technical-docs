@@ -426,6 +426,24 @@ Command Interface Tests
 
    Verify --verify flag enables checksum verification
 
+.. test:: Chunk Size Flag
+   :id: TC-TRANSFER-CLI-006
+   :status: approved
+   :tags: transfer, cli, configuration
+   :tests: FR-TRANSFER-033
+   :priority: medium
+
+   Verify --chunk-size flag allows manual chunk size specification
+
+.. test:: Verbose Flag
+   :id: TC-TRANSFER-CLI-007
+   :status: approved
+   :tags: transfer, cli, logging
+   :tests: FR-TRANSFER-034
+   :priority: medium
+
+   Verify --verbose flag enables detailed output logging
+
 Error Handling Tests
 ~~~~~~~~~~~~~~~~~~~~
 
@@ -501,6 +519,47 @@ Safety Tests
    :priority: high
 
    Verify USB synced before prompting for removal
+
+.. test:: Atomic Operations
+   :id: TC-SAF-004
+   :status: approved
+   :tags: transfer, safety, reliability
+   :tests: FR-TRANSFER-041
+   :priority: high
+
+   Verify operations are atomic where possible (no partial state on failure)
+
+Deployment Tests
+~~~~~~~~~~~~~~~~
+
+.. test:: Offline Build Dependencies
+   :id: TC-TRANSFER-DEP-001
+   :status: approved
+   :tags: transfer, deployment, offline
+   :tests: FR-TRANSFER-042
+   :priority: critical
+
+   Verify all dependencies available for offline build via cargo vendor
+
+.. test:: Internet-Free Build
+   :id: TC-TRANSFER-DEP-002
+   :status: approved
+   :tags: transfer, deployment, offline
+   :tests: FR-TRANSFER-043
+   :priority: critical
+
+   Verify build process works without internet after initial setup
+
+.. test:: Single Static Binary Deployment
+   :id: TC-TRANSFER-DEP-003
+   :status: approved
+   :tags: transfer, deployment
+   :tests: FR-TRANSFER-044
+   :priority: high
+
+   Verify deployment produces single, static binary with no external dependencies
+
+--------------
 
 Non-Functional Tests
 ~~~~~~~~~~~~~~~~~~~~
@@ -758,5 +817,5 @@ Revision History
 +----------------------+--------------+------------------------------------------------------+
 | Version              | Date         | Description                                          |
 +======================+==============+======================================================+
-| 1.0.0                | 2026-01-04   | MVP test cases (35+ tests covering FR-001 to FR-045) |
+| 1.0.0                | 2026-01-04   | MVP test cases (automated count via sphinx-needs)     |
 +----------------------+--------------+------------------------------------------------------+
