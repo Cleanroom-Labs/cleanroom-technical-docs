@@ -440,28 +440,28 @@ Why AirGap Deploy?
 
 AirGap Deploy fills the gap for **lightweight, general-purpose application packaging** for air-gapped systems. While other tools focus on specific deployment targets, AirGap Deploy is designed for desktop applications, simple binaries, and Rust ecosystem projects.
 
-**vs Kubernetes tools** (Zarf, UDS, KOSI):
+**vs Kubernetes tools** (`Zarf <https://github.com/defenseunicorns/zarf>`__, `UDS <https://uds.defenseunicorns.com/>`__, KOSI):
 
 - ✅ **Desktop application focus**: No Kubernetes cluster required
 - ✅ **Simple TOML manifests**: Human-readable, easy to version control
 - ✅ **Minimal infrastructure**: Single Rust binary, no runtime dependencies
 - ✅ **Direct binary deployment**: Native applications, not containerized workloads
 
-**vs container platforms** (Docker, Podman):
+**vs container platforms** (`Docker <https://www.docker.com/>`__, Podman):
 
 - ✅ **No runtime requirements**: No Docker daemon needed on target system
 - ✅ **Native performance**: Direct binary execution, not virtualized
 - ✅ **Rust ecosystem integration**: First-class support for cargo vendoring
 - ✅ **Model file support**: Built-in handling for ML/AI model downloads
 
-**vs enterprise tools** (JFrog, NetBox, Commvault):
+**vs enterprise tools** (`JFrog Artifactory <https://jfrog.com/artifactory/>`__, `Commvault <https://www.commvault.com/>`__):
 
 - ✅ **Free and open source**: No licensing costs or vendor lock-in
 - ✅ **Lightweight**: No heavy infrastructure (Artifactory, registries, databases)
 - ✅ **Simple workflow**: Manifest → package → install script, nothing more
 - ✅ **Developer-friendly**: Designed for release engineers, not enterprise IT
 
-**vs language-specific tools** (pip download, cargo-vendor, conda pack):
+**vs language-specific tools** (`pip download <https://pip.pypa.io/en/stable/cli/pip_download/>`__, `cargo-vendor <https://doc.rust-lang.org/cargo/commands/cargo-vendor.html>`__, `conda pack <https://conda.github.io/conda-pack/>`__):
 
 - ✅ **Multi-component support**: Package apps + binaries + models + packages
 - ✅ **Cross-platform installation scripts**: Bash (Linux/macOS) and PowerShell (Windows)

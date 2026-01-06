@@ -144,14 +144,14 @@ AirGap Transfer is the **only lightweight, open-source, manifest-driven chunking
 - ✅ **Resume capability**: Continue interrupted transfers without starting over
 - ✅ **No human error**: Automated verification prevents forgotten checksums or lost chunks
 
-**vs rsync**:
+**vs rsync** (`rsync <https://rsync.samba.org/>`__):
 
 - ✅ **Multi-USB orchestration**: Automatic chunking for drives that don't fit data
 - ✅ **Air-gap workflow**: Designed for USB-to-USB transfer, not network/mounted filesystems
 - ✅ **Manifest system**: Track chunks across multiple drives
 - ✅ **Complementary tool**: Use rsync for local USB writes, AirGap Transfer for multi-drive orchestration
 
-**vs enterprise backup solutions** (Commvault, Veeam, BigFix):
+**vs enterprise backup solutions** (`Commvault <https://www.commvault.com/>`__, `Veeam <https://www.veeam.com/>`__, `HCL BigFix <https://www.hcltechsw.com/bigfix>`__):
 
 - ✅ **Free and open source**: No licensing costs
 - ✅ **Lightweight**: Single Rust binary, no infrastructure required
