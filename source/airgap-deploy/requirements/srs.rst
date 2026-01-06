@@ -1001,45 +1001,10 @@ airgap-deploy provides the following major functions:
 
 --------------
 
-6. Requirements Traceability
-----------------------------
-
-6.1 Use Case Coverage
-~~~~~~~~~~~~~~~~~~~~~
-
-+------------------------------+--------------------------------------------------------------------------------------------+
-| Use Case                     | Requirements                                                                               |
-+==============================+============================================================================================+
-| AirGap Whisper Deployment    | FR-2.1 to FR-2.5, FR-2.6 to FR-2.9, FR-2.10 to FR-2.14, FR-3.1 to FR-3.6, FR-4.1 to FR-4.7 |
-+------------------------------+--------------------------------------------------------------------------------------------+
-| Ollama Deployment            | FR-2.10 to FR-2.14 (large models), FR-3.1 to FR-3.6, Integration with airgap-transfer      |
-+------------------------------+--------------------------------------------------------------------------------------------+
-| Custom Application Packaging | All FR sections                                                                            |
-+------------------------------+--------------------------------------------------------------------------------------------+
-
-6.2 Design Principles Alignment
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-All requirements align with :doc:`Principles </meta/principles>`:
-
-+---------------------------+--------------------------------------------------+
-| Principle                 | Relevant Requirements                            |
-+===========================+==================================================+
-| **Privacy/Data Locality** | COM-2: No network during installation            |
-+---------------------------+--------------------------------------------------+
-| **Minimal Dependencies**  | NFR-4.1 to NFR-4.4: Clean, maintainable code     |
-+---------------------------+--------------------------------------------------+
-| **Simple Architecture**   | FR-1.1 to FR-1.5: Declarative manifests          |
-+---------------------------+--------------------------------------------------+
-| **Air-gap Ready**         | ALL requirements designed for air-gap deployment |
-+---------------------------+--------------------------------------------------+
-
---------------
-
-7. Appendices
+6. Appendices
 -------------
 
-7.1 Example Manifest
+6.1 Example Manifest
 ~~~~~~~~~~~~~~~~~~~~
 
 .. code:: toml
@@ -1078,7 +1043,7 @@ All requirements align with :doc:`Principles </meta/principles>`:
    install_to = "user"
    mode = "interactive"
 
-7.2 Glossary
+6.2 Glossary
 ~~~~~~~~~~~~
 
 See Section 1.3 for definitions.
