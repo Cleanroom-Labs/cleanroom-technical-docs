@@ -171,13 +171,13 @@ Definition of Done
 
 MVP is complete when:
 
-1. ☐ Pack 10GB dataset into chunks
-2. ☐ Transfer chunks across air-gap (manual USB movement)
-3. ☐ Unpack and verify integrity on destination
-4. ☐ Resume interrupted pack operation
-5. ☐ List chunk inventory shows all expected chunks
-6. ☐ All operations work offline
-7. ☐ Use successfully for one week
+☐ Pack 10GB dataset into chunks
+☐ Transfer chunks across air-gap (manual USB movement)
+☐ Unpack and verify integrity on destination
+☐ Resume interrupted pack operation
+☐ List chunk inventory shows all expected chunks
+☐ All operations work offline
+☐ Use successfully for one week
 
 --------------
 
@@ -203,10 +203,10 @@ Build it. Use it. Then improve it.
 After MVP
 ---------
 
-1. **Personal Use** — Use it for real air-gap transfers
-2. **Integration** — Integrate with AirGap Deploy workflows
-3. **Refine** — Add compression, encryption based on real needs
-4. **Share** — Consider public release if valuable to others
+**Personal Use** — Use it for real air-gap transfers
+**Integration** — Integrate with AirGap Deploy workflows
+**Refine** — Add compression, encryption based on real needs
+**Share** — Consider public release if valuable to others
 
 --------------
 

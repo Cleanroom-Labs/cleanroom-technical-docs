@@ -8,18 +8,18 @@ AirGap Transfer
 
 --------------
 
-1. Introduction
+Introduction
 ---------------
 
 This test plan covers MVP requirements (FR-001 through FR-045, NFR-001 through NFR-006).
 
 --------------
 
-2. Test Strategy
+Test Strategy
 ----------------
 
-2.1 Test Levels
-~~~~~~~~~~~~~~~
+Test Levels
+~~~~~~~~~~~
 
 =========== ====================== ======================
 Level       Scope                  Tools
@@ -29,8 +29,8 @@ Integration Component interactions Rust integration tests
 System      End-to-end workflows   Manual testing
 =========== ====================== ======================
 
-2.2 Features Not Tested
-~~~~~~~~~~~~~~~~~~~~~~~
+Features Not Tested
+~~~~~~~~~~~~~~~~~~~
 
 ===================== ===================
 Feature               Reason
@@ -40,8 +40,8 @@ Filesystem internals  Platform dependency
 Tar format compliance Third-party library
 ===================== ===================
 
-2.3 Test Automation Approach
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Test Automation Approach
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 **MVP:** Manual testing primarily. Unit tests for core logic.
 
@@ -78,11 +78,11 @@ Resume after interruption Requires manual interruption
 
 --------------
 
-3. Test Cases by Category
+Test Cases by Category
 -------------------------
 
-3.1 Pack Operation Tests
-~~~~~~~~~~~~~~~~~~~~~~~~
+Pack Operation Tests
+~~~~~~~~~~~~~~~~~~~~
 
 .. needtable::
    :types: test
@@ -164,8 +164,8 @@ Resume after interruption Requires manual interruption
 
    Verify progress reporting during pack operation
 
-3.2 Unpack Operation Tests
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Unpack Operation Tests
+~~~~~~~~~~~~~~~~~~~~~~
 
 .. needtable::
    :types: test
@@ -229,8 +229,8 @@ Resume after interruption Requires manual interruption
 
    Verify optional chunk deletion after successful unpack
 
-3.3 List Operation Tests
-~~~~~~~~~~~~~~~~~~~~~~~~
+List Operation Tests
+~~~~~~~~~~~~~~~~~~~~
 
 .. needtable::
    :types: test
@@ -276,8 +276,8 @@ Resume after interruption Requires manual interruption
 
    Verify list shows estimated total transfer size
 
-3.4 Integrity Tests
-~~~~~~~~~~~~~~~~~~~
+Integrity Tests
+~~~~~~~~~~~~~~~
 
 .. needtable::
    :types: test
@@ -323,8 +323,8 @@ Resume after interruption Requires manual interruption
 
    Verify final reconstructed file integrity matches original
 
-3.5 State Management Tests
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+State Management Tests
+~~~~~~~~~~~~~~~~~~~~~~
 
 .. needtable::
    :types: test
@@ -370,8 +370,8 @@ Resume after interruption Requires manual interruption
 
    Verify unpack operation can resume after interruption
 
-3.6 Command Interface Tests
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Command Interface Tests
+~~~~~~~~~~~~~~~~~~~~~~~
 
 .. needtable::
    :types: test
@@ -426,8 +426,8 @@ Resume after interruption Requires manual interruption
 
    Verify --verify flag enables checksum verification
 
-3.7 Error Handling Tests
-~~~~~~~~~~~~~~~~~~~~~~~~
+Error Handling Tests
+~~~~~~~~~~~~~~~~~~~~
 
 .. needtable::
    :types: test
@@ -464,8 +464,8 @@ Resume after interruption Requires manual interruption
 
    Verify all error messages clear and actionable
 
-3.8 Safety Tests
-~~~~~~~~~~~~~~~~
+Safety Tests
+~~~~~~~~~~~~
 
 .. needtable::
    :types: test
@@ -502,8 +502,8 @@ Resume after interruption Requires manual interruption
 
    Verify USB synced before prompting for removal
 
-3.9 Non-Functional Tests
-~~~~~~~~~~~~~~~~~~~~~~~~
+Non-Functional Tests
+~~~~~~~~~~~~~~~~~~~~
 
 .. needtable::
    :types: test
@@ -551,11 +551,11 @@ Resume after interruption Requires manual interruption
 
 --------------
 
-4. Test Procedures
+Test Procedures
 ------------------
 
-4.1 Offline Operation Test (TC-NFR-003)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Offline Operation Test (TC-NFR-003)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Preconditions:**
 
@@ -564,15 +564,15 @@ Resume after interruption Requires manual interruption
 
 **Steps:**
 
-1. Disconnect network
-2. Pack 1GB test dataset
-3. Unpack and verify
-4. Check all operations completed
+Disconnect network
+Pack 1GB test dataset
+Unpack and verify
+Check all operations completed
 
 **Pass Criteria:** All operations complete successfully with no network.
 
-4.2 Checksum Verification Test (TC-INT-003)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Checksum Verification Test (TC-INT-003)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Preconditions:**
 
@@ -581,16 +581,16 @@ Resume after interruption Requires manual interruption
 
 **Steps:**
 
-1. Corrupt one chunk file (modify 1 byte)
-2. Run unpack operation
-3. Verify error is reported
-4. Confirm unpack aborts
+Corrupt one chunk file (modify 1 byte)
+Run unpack operation
+Verify error is reported
+Confirm unpack aborts
 
 **Pass Criteria:** Corrupted chunk detected, unpack aborted with clear error.
 
 --------------
 
-5. Pass/Fail Criteria
+Pass/Fail Criteria
 ---------------------
 
 - **All Critical tests must pass** before release

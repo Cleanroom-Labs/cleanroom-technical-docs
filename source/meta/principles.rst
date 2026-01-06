@@ -5,7 +5,7 @@ These principles guide every decision in AirGap Whisper. When in doubt, refer he
 
 --------------
 
-1. Privacy Through Data Locality
+Privacy Through Data Locality
 --------------------------------
 
 **All data stays on the user’s machine. No exceptions.**
@@ -55,7 +55,7 @@ Build dependencies
 
 --------------
 
-2. Minimal Dependencies
+Minimal Dependencies
 -----------------------
 
 **Fewer dependencies = less risk, less complexity, faster builds.**
@@ -78,17 +78,17 @@ Before adding a dependency
 
 Ask:
 
-1. Can I do this with stdlib?
-2. Can I do this with code I write myself (<100 lines)?
-3. Does this crate have network capabilities?
-4. How many transitive dependencies does it add?
-5. Is it actively maintained?
+Can I do this with stdlib?
+Can I do this with code I write myself (<100 lines)?
+Does this crate have network capabilities?
+How many transitive dependencies does it add?
+Is it actively maintained?
 
 If the answer to #1 or #2 is yes, don’t add the dependency.
 
 --------------
 
-3. Simple Architecture
+Simple Architecture
 ----------------------
 
 **Write obvious code. Avoid abstraction until forced.**
@@ -116,8 +116,8 @@ The YAGNI test
 
 Before adding any feature or abstraction:
 
-1. Do I need this right now to make the app work?
-2. Have I needed this exact thing twice already?
+Do I need this right now to make the app work?
+Have I needed this exact thing twice already?
 
 If both answers aren’t “yes”, don’t add it.
 
@@ -131,7 +131,7 @@ Examples
 
 --------------
 
-4. Features We Don’t Build
+Features We Don’t Build
 --------------------------
 
 These are explicitly out of scope, regardless of how useful they might seem:
@@ -168,7 +168,7 @@ If we need any of these later, we add them later. Not before.
 
 --------------
 
-5. Quality Bar
+Quality Bar
 --------------
 
 For MVP

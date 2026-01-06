@@ -8,11 +8,11 @@ AirGap Deploy
 
 --------------
 
-1. Introduction
+Introduction
 ---------------
 
-1.1 Purpose
-~~~~~~~~~~~
+Purpose
+~~~~~~~
 
 This Software Design Document (SDD) describes the architectural and detailed design of **AirGap Deploy**, a command-line tool for packaging applications for air-gapped deployment.
 
@@ -23,8 +23,8 @@ This document is intended for:
 - Future maintainers
 - Contributors developing custom components
 
-1.2 Scope
-~~~~~~~~~
+Scope
+~~~~~
 
 This document covers:
 
@@ -39,13 +39,13 @@ This document does NOT cover:
 - Implementation details (see source code)
 - User documentation (see README)
 
-1.3 Definitions and Acronyms
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Definitions and Acronyms
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 See :doc:`SRS <../requirements/srs>` (Section 1.3) for complete definitions.
 
-1.4 References
-~~~~~~~~~~~~~~
+References
+~~~~~~~~~~
 
 - :doc:`Requirements (SRS) <../requirements/srs>`
 - :doc:`Roadmap <../roadmap>`
@@ -54,11 +54,11 @@ See :doc:`SRS <../requirements/srs>` (Section 1.3) for complete definitions.
 
 --------------
 
-2. System Architecture
+System Architecture
 ----------------------
 
-2.1 Architectural Style
-~~~~~~~~~~~~~~~~~~~~~~~
+Architectural Style
+~~~~~~~~~~~~~~~~~~~
 
 airgap-deploy follows a **pipeline architecture** with distinct stages:
 
@@ -72,8 +72,8 @@ This architecture provides:
 - **Testability:** Each stage can be tested independently
 - **Extensibility:** New component types can be added without modifying core pipeline
 
-2.2 High-Level Architecture
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+High-Level Architecture
+~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
 
@@ -135,8 +135,8 @@ This architecture provides:
                                    │ (installer.rs)  │  │                 │
                                    └─────────────────┘  └─────────────────┘
 
-2.3 Component Descriptions
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Component Descriptions
+~~~~~~~~~~~~~~~~~~~~~~
 
 +------------------------------+------------------------------------------+------------------------------------------------------+
 | Component                    | Responsibility                           | Key Types                                            |
@@ -158,14 +158,14 @@ This architecture provides:
 
 --------------
 
-3. Detailed Design
+Detailed Design
 ------------------
 
-3.1 Core Data Structures
-~~~~~~~~~~~~~~~~~~~~~~~~
+Core Data Structures
+~~~~~~~~~~~~~~~~~~~~
 
-3.1.1 Manifest Structure
-^^^^^^^^^^^^^^^^^^^^^^^^
+Manifest Structure
+^^^^^^^^^^^^^^^^^^
 
 .. code:: rust
 
@@ -229,8 +229,8 @@ This architecture provides:
        Automatic,
    }
 
-3.1.2 Component Trait
-^^^^^^^^^^^^^^^^^^^^^
+Component Trait
+^^^^^^^^^^^^^^^
 
 .. code:: rust
 
@@ -268,8 +268,8 @@ This architecture provides:
        pub checksum: Option<String>,
    }
 
-3.1.3 Install Steps
-^^^^^^^^^^^^^^^^^^^
+Install Steps
+^^^^^^^^^^^^^
 
 .. code:: rust
 
@@ -301,11 +301,11 @@ This architecture provides:
        },
    }
 
-3.2 Component Implementations
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Component Implementations
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-3.2.1 RustAppComponent
-^^^^^^^^^^^^^^^^^^^^^^
+RustAppComponent
+^^^^^^^^^^^^^^^^
 
 **Purpose:** Package Rust applications with vendored dependencies
 
@@ -322,19 +322,19 @@ This architecture provides:
 
 **Collection Algorithm:**
 
-1. Locate Cargo.toml in source directory
-2. If ``vendor = true``:
+Locate Cargo.toml in source directory
+If ``vendor = true``:
 
    - Execute ``cargo vendor`` to download dependencies
    - Create ``.cargo/config.toml`` with vendored paths
 
-3. If ``include_toolchain = true``:
+If ``include_toolchain = true``:
 
    - Download Rust toolchain installer from static.rust-lang.org
    - Include in ``rust-installer/`` directory
 
-4. Copy source code and vendor directory to staging
-5. If ``prebuild = true``:
+Copy source code and vendor directory to staging
+If ``prebuild = true``:
 
    - Execute ``cargo build --release``
    - Include prebuilt binary (deferred to v0.2)
@@ -361,8 +361,8 @@ This architecture provides:
        },
    ]
 
-3.2.2 ExternalBinaryComponent
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ExternalBinaryComponent
+^^^^^^^^^^^^^^^^^^^^^^^
 
 **Purpose:** Include external binaries that need to be built from source
 
@@ -401,8 +401,8 @@ This architecture provides:
        },
    ]
 
-3.2.3 ModelFileComponent
-^^^^^^^^^^^^^^^^^^^^^^^^
+ModelFileComponent
+^^^^^^^^^^^^^^^^^^
 
 **Purpose:** Download large model files with checksum verification
 
@@ -420,15 +420,15 @@ This architecture provides:
 
 **Collection Algorithm:**
 
-1. Check cache directory for existing file with matching checksum
-2. If not cached:
+Check cache directory for existing file with matching checksum
+If not cached:
 
    - Download file from URL with progress bar
    - Support resume via HTTP Range requests
    - Stream to disk (don't load entire file in memory)
 
-3. Verify SHA-256 checksum
-4. Copy to staging directory
+Verify SHA-256 checksum
+Copy to staging directory
 
 **Install Steps:**
 
@@ -446,8 +446,8 @@ This architecture provides:
        },
    ]
 
-3.3 Packaging Algorithm
-~~~~~~~~~~~~~~~~~~~~~~~
+Packaging Algorithm
+~~~~~~~~~~~~~~~~~~~
 
 **Input:** Staging directory with collected components **Output:** Compressed archive (.tar.gz or .zip)
 
@@ -491,8 +491,8 @@ This architecture provides:
       - SHA-256 of final archive
       - Save to package.tar.gz.sha256
 
-3.4 Install Script Template
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Install Script Template
+~~~~~~~~~~~~~~~~~~~~~~~
 
 **Bash Template (install.sh.tera):**
 
@@ -546,16 +546,16 @@ This architecture provides:
 
 --------------
 
-4. Interface Specifications
+Interface Specifications
 ---------------------------
 
-4.1 CLI Interface
-~~~~~~~~~~~~~~~~~
+CLI Interface
+~~~~~~~~~~~~~
 
 See :doc:`SRS <../requirements/srs>` (Section 3.5) for detailed CLI specifications.
 
-4.2 Component Plugin Interface
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Component Plugin Interface
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Future Enhancement:** Plugin system for custom component types
 
@@ -585,11 +585,11 @@ See :doc:`SRS <../requirements/srs>` (Section 3.5) for detailed CLI specificatio
 
 --------------
 
-5. Design Decisions and Rationales
+Design Decisions and Rationales
 ----------------------------------
 
-5.1 Why TOML for Manifests?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Why TOML for Manifests?
+~~~~~~~~~~~~~~~~~~~~~~~
 
 **Decision:** Use TOML format for ``AirGapDeploy.toml``
 
@@ -606,8 +606,8 @@ See :doc:`SRS <../requirements/srs>` (Section 3.5) for detailed CLI specificatio
 - Good Rust ecosystem support (serde, toml crate)
 - Used by Cargo.toml (familiar to Rust developers)
 
-5.2 Why Build from Source on Air-Gapped System?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Why Build from Source on Air-Gapped System?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Decision:** Build applications on air-gapped system rather than prebuilding
 
@@ -625,8 +625,8 @@ See :doc:`SRS <../requirements/srs>` (Section 3.5) for detailed CLI specificatio
 
 **Trade-off:** Requires build tools on air-gapped system, longer installation time
 
-5.3 Why Component Trait Instead of Enums?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Why Component Trait Instead of Enums?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Decision:** Use trait-based design for components
 
@@ -644,8 +644,8 @@ See :doc:`SRS <../requirements/srs>` (Section 3.5) for detailed CLI specificatio
 
 **Trade-off:** Slightly more complex than enum, uses dynamic dispatch
 
-5.4 Why Generate Install Scripts Instead of Installing Directly?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Why Generate Install Scripts Instead of Installing Directly?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Decision:** Generate standalone installation scripts
 
@@ -665,11 +665,11 @@ See :doc:`SRS <../requirements/srs>` (Section 3.5) for detailed CLI specificatio
 
 --------------
 
-6. Error Handling Strategy
+Error Handling Strategy
 --------------------------
 
-6.1 Error Types
-~~~~~~~~~~~~~~~
+Error Types
+~~~~~~~~~~~
 
 .. code:: rust
 
@@ -698,8 +698,8 @@ See :doc:`SRS <../requirements/srs>` (Section 3.5) for detailed CLI specificatio
        ComponentNotFound(String),
    }
 
-6.2 Error Recovery
-~~~~~~~~~~~~~~~~~~
+Error Recovery
+~~~~~~~~~~~~~~
 
 **Network Errors:**
 
@@ -719,8 +719,8 @@ See :doc:`SRS <../requirements/srs>` (Section 3.5) for detailed CLI specificatio
 - Suggest checking disk space and permissions
 - Clean up temporary files on failure
 
-6.3 Logging
-~~~~~~~~~~~
+Logging
+~~~~~~~
 
 **Levels:**
 
@@ -737,11 +737,11 @@ See :doc:`SRS <../requirements/srs>` (Section 3.5) for detailed CLI specificatio
 
 --------------
 
-7. Performance Considerations
+Performance Considerations
 -----------------------------
 
-7.1 Parallel Collection
-~~~~~~~~~~~~~~~~~~~~~~~
+Parallel Collection
+~~~~~~~~~~~~~~~~~~~
 
 **Optimization:** Collect components in parallel using rayon
 
@@ -762,8 +762,8 @@ See :doc:`SRS <../requirements/srs>` (Section 3.5) for detailed CLI specificatio
 
 **Benefit:** Reduces total collection time by 50-70% for manifests with multiple independent components
 
-7.2 Streaming Downloads
-~~~~~~~~~~~~~~~~~~~~~~~
+Streaming Downloads
+~~~~~~~~~~~~~~~~~~~
 
 **Optimization:** Stream large files to disk, don’t load in memory
 
@@ -781,8 +781,8 @@ See :doc:`SRS <../requirements/srs>` (Section 3.5) for detailed CLI specificatio
 
 **Benefit:** Constant memory usage regardless of file size (can handle 50GB+ files)
 
-7.3 Caching
-~~~~~~~~~~~
+Caching
+~~~~~~~
 
 **Optimization:** Cache downloaded files by checksum
 
@@ -801,11 +801,11 @@ See :doc:`SRS <../requirements/srs>` (Section 3.5) for detailed CLI specificatio
 
 --------------
 
-8. Security Considerations
+Security Considerations
 --------------------------
 
-8.1 Checksum Verification
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Checksum Verification
+~~~~~~~~~~~~~~~~~~~~~
 
 **All downloaded files MUST be verified** with SHA-256 checksums:
 
@@ -828,8 +828,8 @@ See :doc:`SRS <../requirements/srs>` (Section 3.5) for detailed CLI specificatio
        Ok(())
    }
 
-8.2 Temporary File Security
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Temporary File Security
+~~~~~~~~~~~~~~~~~~~~~~~
 
 **Temporary files MUST have restrictive permissions:**
 
@@ -850,8 +850,8 @@ See :doc:`SRS <../requirements/srs>` (Section 3.5) for detailed CLI specificatio
        Ok(file)
    }
 
-8.3 No Arbitrary Code Execution
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+No Arbitrary Code Execution
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Manifests MUST NOT allow arbitrary code execution:**
 
@@ -861,11 +861,11 @@ See :doc:`SRS <../requirements/srs>` (Section 3.5) for detailed CLI specificatio
 
 --------------
 
-9. Testing Strategy
+Testing Strategy
 -------------------
 
-9.1 Unit Tests
-~~~~~~~~~~~~~~
+Unit Tests
+~~~~~~~~~~
 
 **Coverage:** Each module (manifest, components, packager, installer)
 
@@ -898,8 +898,8 @@ See :doc:`SRS <../requirements/srs>` (Section 3.5) for detailed CLI specificatio
        }
    }
 
-9.2 Integration Tests
-~~~~~~~~~~~~~~~~~~~~~
+Integration Tests
+~~~~~~~~~~~~~~~~~
 
 **Scenario:** End-to-end package creation and installation
 
@@ -915,8 +915,8 @@ See :doc:`SRS <../requirements/srs>` (Section 3.5) for detailed CLI specificatio
        // Verify installation succeeded
    }
 
-9.3 Platform Testing
-~~~~~~~~~~~~~~~~~~~~
+Platform Testing
+~~~~~~~~~~~~~~~~
 
 **CI Matrix:**
 
@@ -926,16 +926,16 @@ See :doc:`SRS <../requirements/srs>` (Section 3.5) for detailed CLI specificatio
 
 --------------
 
-10. Future Enhancements
+Future Enhancements
 -----------------------
 
-10.1 Plugin System (v2.0)
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Plugin System (v2.0)
+~~~~~~~~~~~~~~~~~~~~
 
 See :doc:`Roadmap <../roadmap>` (Phase 7)
 
-10.2 Pre-built Binaries (v0.2)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Pre-built Binaries (v0.2)
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Add ``prebuild = true`` option to build binaries on developer machine:
 
@@ -949,8 +949,8 @@ Add ``prebuild = true`` option to build binaries on developer machine:
 
 **Requires:** Cross-compilation toolchain setup
 
-10.3 Digital Signatures (v1.1)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Digital Signatures (v1.1)
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Sign packages for verification on air-gapped systems:
 

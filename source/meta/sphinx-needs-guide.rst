@@ -538,8 +538,8 @@ Common Tasks
 Adding a New Requirement
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. **Choose ID:** Next sequential number (e.g., FR-WHISPER-037)
-2. **Add directive to SRS:**
+**Choose ID:** Next sequential number (e.g., FR-WHISPER-037)
+**Add directive to SRS:**
 
    .. code-block:: rst
 
@@ -552,14 +552,14 @@ Adding a New Requirement
 
          The system SHALL [specific requirement].
 
-3. **Build docs:** ``make html``
-4. **Verify:** Check traceability matrix shows new requirement
+**Build docs:** ``make html``
+**Verify:** Check traceability matrix shows new requirement
 
 Adding a New Test Case
 ~~~~~~~~~~~~~~~~~~~~~~
 
-1. **Choose ID:** Sequential in category (e.g., TC-REC-010)
-2. **Add directive to testing plan:**
+**Choose ID:** Sequential in category (e.g., TC-REC-010)
+**Add directive to testing plan:**
 
    .. code-block:: rst
 
@@ -578,19 +578,19 @@ Adding a New Test Case
 
          **Expected:** [Expected result]
 
-3. **Build docs:** ``make html``
-4. **Verify:** Requirement now shows "tested by TC-REC-010"
+**Build docs:** ``make html``
+**Verify:** Requirement now shows "tested by TC-REC-010"
 
 Updating Traceability
 ~~~~~~~~~~~~~~~~~~~~~
 
 When requirements change:
 
-1. Update the requirement directive
-2. Update linked test cases
-3. Update :satisfies: links if use cases changed
-4. Run ``make html`` to regenerate matrices
-5. Check needflow diagrams for accuracy
+Update the requirement directive
+Update linked test cases
+Update :satisfies: links if use cases changed
+Run ``make html`` to regenerate matrices
+Check needflow diagrams for accuracy
 
 Troubleshooting
 ---------------
@@ -621,9 +621,9 @@ Broken Link Error
 
 Check that:
 
-1. The linked ID exists
-2. The ID is spelled correctly
-3. The linked need is in a file that's included in the build
+The linked ID exists
+The ID is spelled correctly
+The linked need is in a file that's included in the build
 
 Missing in Traceability Matrix
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -632,9 +632,9 @@ Missing in Traceability Matrix
 
 **Solutions:**
 
-1. Check ``:filter:`` expression matches need's tags
-2. Check ``:types:`` includes need's directive type
-3. Rebuild with ``make clean && make html``
+Check ``:filter:`` expression matches need's tags
+Check ``:types:`` includes need's directive type
+Rebuild with ``make clean && make html``
 
 Summary
 -------
@@ -651,13 +651,13 @@ Summary
 
 **Workflow:**
 
-1. Write use cases (``.. usecase::``)
-2. Write requirements that satisfy use cases (``:satisfies:``)
-3. Write design specs that implement requirements (``:implements:``)
-4. Write code with doc comments referencing requirements
-5. Write tests that validate requirements (``:tests:``)
-6. Generate matrices to verify coverage
-7. Build docs to validate all links
+Write use cases (``.. usecase::``)
+Write requirements that satisfy use cases (``:satisfies:``)
+Write design specs that implement requirements (``:implements:``)
+Write code with doc comments referencing requirements
+Write tests that validate requirements (``:tests:``)
+Generate matrices to verify coverage
+Build docs to validate all links
 
 **Result:**
 

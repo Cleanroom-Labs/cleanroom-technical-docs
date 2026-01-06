@@ -100,13 +100,13 @@ Using sphinxcontrib-rust
 
 Once code exists, integrate with Sphinx:
 
-1. **Generate Rust docs:**
+**Generate Rust docs:**
 
    .. code-block:: bash
 
       cargo doc --no-deps --document-private-items
 
-2. **Configure sphinxcontrib-rust in conf.py:**
+**Configure sphinxcontrib-rust in conf.py:**
 
    .. code-block:: python
 
@@ -119,13 +119,13 @@ Once code exists, integrate with Sphinx:
           'airgap-whisper': '../airgap-whisper',
       }
 
-3. **Reference Rust items in RST:**
+**Reference Rust items in RST:**
 
    .. code-block:: rst
 
       See :rust:struct:`HotkeyManager` for hotkey management.
 
-4. **Build documentation:**
+**Build documentation:**
 
    .. code-block:: bash
 
@@ -152,11 +152,11 @@ Future Enhancements
 
 When implementation begins:
 
-1. Add ``.. impl::`` directives for each major component
-2. Link implementations to requirements in traceability matrix
-3. Auto-generate API docs with sphinxcontrib-rust
-4. Add code examples to test cases for validation
-5. Update needflow diagrams to include implementation nodes
+Add ``.. impl::`` directives for each major component
+Link implementations to requirements in traceability matrix
+Auto-generate API docs with sphinxcontrib-rust
+Add code examples to test cases for validation
+Update needflow diagrams to include implementation nodes
 
 See Also
 --------

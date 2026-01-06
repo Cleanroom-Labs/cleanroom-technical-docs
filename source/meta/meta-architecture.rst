@@ -71,7 +71,7 @@ Architecture Diagram
 Project Relationships
 ---------------------
 
-1. AirGap Whisper ↔ AirGap Deploy
+AirGap Whisper ↔ AirGap Deploy
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Relationship:** AirGap Whisper is a **reference implementation** and **primary use case** for AirGap Deploy.
@@ -91,7 +91,7 @@ Project Relationships
 
 --------------
 
-2. AirGap Deploy ↔ AirGap Transfer
+AirGap Deploy ↔ AirGap Transfer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Relationship:** AirGap Transfer is an **optional workflow enhancement** for AirGap Deploy.
@@ -131,7 +131,7 @@ Project Relationships
 
 --------------
 
-3. AirGap Whisper ↔ AirGap Transfer
+AirGap Whisper ↔ AirGap Transfer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Relationship:** No direct relationship.
@@ -369,13 +369,13 @@ Journey 1: Developer Releasing AirGap Whisper
 
 **Steps:**
 
-1. **Developer** creates ``AirGapDeploy.toml`` manifest for AirGap Whisper
-2. **Developer** runs ``airgap-deploy prep`` → generates package (~300MB)
-3. Package fits on single USB, no need for airgap-transfer
-4. **Developer** uploads package to GitHub releases
-5. **End user** downloads package, transfers via USB
-6. **End user** extracts and runs ``./install.sh``
-7. **End user** uses AirGap Whisper for transcription
+**Developer** creates ``AirGapDeploy.toml`` manifest for AirGap Whisper
+**Developer** runs ``airgap-deploy prep`` → generates package (~300MB)
+Package fits on single USB, no need for airgap-transfer
+**Developer** uploads package to GitHub releases
+**End user** downloads package, transfers via USB
+**End user** extracts and runs ``./install.sh``
+**End user** uses AirGap Whisper for transcription
 
 **Tools used:** AirGap Deploy (packaging), AirGap Whisper (end use)
 
@@ -390,14 +390,14 @@ Journey 2: Deploying Ollama with Large Models
 
 **Steps:**
 
-1. **Developer** creates ``AirGapDeploy.ollama.toml`` with 3 models
-2. **Developer** runs ``airgap-deploy prep`` → 20GB package
-3. Package exceeds 16GB USB capacity
-4. **Developer** runs ``airgap-transfer pack`` → chunks into 2x 10GB chunks
-5. **Developer** uploads chunks to file server
-6. **User** downloads chunks, transfers with 2x USB drives
-7. **User** runs ``airgap-transfer unpack`` → reconstructs 20GB package
-8. **User** extracts and runs ``./install.sh`` → installs Ollama + models
+**Developer** creates ``AirGapDeploy.ollama.toml`` with 3 models
+**Developer** runs ``airgap-deploy prep`` → 20GB package
+Package exceeds 16GB USB capacity
+**Developer** runs ``airgap-transfer pack`` → chunks into 2x 10GB chunks
+**Developer** uploads chunks to file server
+**User** downloads chunks, transfers with 2x USB drives
+**User** runs ``airgap-transfer unpack`` → reconstructs 20GB package
+**User** extracts and runs ``./install.sh`` → installs Ollama + models
 
 **Tools used:** AirGap Deploy (packaging), AirGap Transfer (chunking), Ollama (end use)
 
@@ -412,14 +412,14 @@ Journey 3: Transferring Research Dataset
 
 **Steps:**
 
-1. **Researcher** has dataset in ``/data/research/``
-2. **Researcher** runs ``airgap-transfer pack /data/research /media/usb1``
-3. Fills USB1 (16GB), prompts for USB2
-4. Continues filling USB2, USB3, …, USB32 (32x 16GB USBs)
-5. Physically transfers USBs to air-gapped system
-6. **Researcher** runs ``airgap-transfer unpack /media/usb1 /data/restored``
-7. Inserts each USB in sequence, airgap-transfer reconstructs dataset
-8. Verifies checksums, data integrity confirmed
+**Researcher** has dataset in ``/data/research/``
+**Researcher** runs ``airgap-transfer pack /data/research /media/usb1``
+Fills USB1 (16GB), prompts for USB2
+Continues filling USB2, USB3, …, USB32 (32x 16GB USBs)
+Physically transfers USBs to air-gapped system
+**Researcher** runs ``airgap-transfer unpack /media/usb1 /data/restored``
+Inserts each USB in sequence, airgap-transfer reconstructs dataset
+Verifies checksums, data integrity confirmed
 
 **Tools used:** AirGap Transfer only (no deployment, no transcription)
 
@@ -482,9 +482,9 @@ Summary
 Three Independent Projects
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. **AirGap Whisper** - End-user application for offline transcription
-2. **AirGap Deploy** - Developer tool for packaging applications
-3. **AirGap Transfer** - Utility for large file transfer
+**AirGap Whisper** - End-user application for offline transcription
+**AirGap Deploy** - Developer tool for packaging applications
+**AirGap Transfer** - Utility for large file transfer
 
 Relationships
 ~~~~~~~~~~~~~

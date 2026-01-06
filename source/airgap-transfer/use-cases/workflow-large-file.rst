@@ -39,7 +39,7 @@ Workflow Steps
 Phase 1: Pack on Source Machine
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. **Connect USB drive #1**
+**Connect USB drive #1**
 
    .. code:: bash
 
@@ -47,7 +47,7 @@ Phase 1: Pack on Source Machine
 
    Preview: Shows 4 chunks needed (3x 16GB + 1x 2GB)
 
-2. **Execute pack operation**
+**Execute pack operation**
 
    .. code:: bash
 
@@ -57,14 +57,14 @@ Phase 1: Pack on Source Machine
    - Generates SHA-256 checksum
    - Updates manifest
 
-3. **Swap USB drives**
+**Swap USB drives**
 
    - Tool prompts: “Insert next USB drive”
    - Eject USB #1 safely
    - Connect USB #2
    - Tool continues with ``chunk_001.tar``
 
-4. **Repeat for remaining chunks**
+**Repeat for remaining chunks**
 
    - USB #3 contains ``chunk_002.tar`` and ``chunk_003.tar``
    - All USBs contain copy of manifest: ``airgap-transfer-manifest.json``
@@ -78,7 +78,7 @@ Phase 2: Physical Transfer
 Phase 3: Unpack on Destination Machine
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. **Connect USB drive #1**
+**Connect USB drive #1**
 
    .. code:: bash
 
@@ -86,12 +86,12 @@ Phase 3: Unpack on Destination Machine
 
    Shows chunks present on this USB (chunk_000)
 
-2. **Connect all USB drives**
+**Connect all USB drives**
 
    - Mount USB #1, #2, #3
    - All chunks now accessible
 
-3. **Execute unpack operation**
+**Execute unpack operation**
 
    .. code:: bash
 

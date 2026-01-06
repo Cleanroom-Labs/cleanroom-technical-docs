@@ -15,10 +15,10 @@ Features
 How It Works
 ------------
 
-1. Press hotkey → start recording (tray icon turns red)
-2. Press hotkey → stop and transcribe with whisper.cpp
-3. Result appears in tray menu
-4. Press hotkey → copy to clipboard
+Press hotkey → start recording (tray icon turns red)
+Press hotkey → stop and transcribe with whisper.cpp
+Result appears in tray menu
+Press hotkey → copy to clipboard
 
 No main window required.
 
@@ -41,9 +41,9 @@ Build from source with Cargo, or use a pre-built binary for your platform.
 First Run
 ~~~~~~~~~
 
-1. The app appears in your system tray (menu bar on macOS)
-2. Right-click and select “Settings”
-3. Set paths to whisper.cpp binary and model file
+The app appears in your system tray (menu bar on macOS)
+Right-click and select “Settings”
+Set paths to whisper.cpp binary and model file
 
 Usage
 -----
@@ -51,10 +51,10 @@ Usage
 Recording
 ~~~~~~~~~
 
-1. Press ``Ctrl+Alt+R`` (or ``⌃⌥R`` on macOS) to start recording
-2. Tray icon turns red while recording
-3. Press the hotkey again to stop and transcribe
-4. Notification shows transcription result
+Press ``Ctrl+Alt+R`` (or ``⌃⌥R`` on macOS) to start recording
+Tray icon turns red while recording
+Press the hotkey again to stop and transcribe
+Notification shows transcription result
 
 Quick Copy
 ~~~~~~~~~~

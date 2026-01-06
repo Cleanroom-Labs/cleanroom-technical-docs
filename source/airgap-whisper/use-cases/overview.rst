@@ -11,7 +11,7 @@ This document provides an overview of primary use cases for AirGap Whisper, an o
 Primary Use Cases
 -----------------
 
-1. Quick Voice Memo
+Quick Voice Memo
 ~~~~~~~~~~~~~~~~~~~
 
 **Scenario:** Capture quick thoughts, reminders, or ideas as text without typing.
@@ -35,7 +35,7 @@ Primary Use Cases
 
 --------------
 
-2. Meeting Notes
+Meeting Notes
 ~~~~~~~~~~~~~~~~
 
 **Scenario:** Transcribe verbal discussion during or after a meeting for documentation.
@@ -59,7 +59,7 @@ Primary Use Cases
 
 --------------
 
-3. Interview Transcription
+Interview Transcription
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Scenario:** Transcribe recorded interviews for analysis or documentation.
@@ -83,7 +83,7 @@ Primary Use Cases
 
 --------------
 
-4. Accessibility - Hands-Free Text Input
+Accessibility - Hands-Free Text Input
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Scenario:** User with mobility limitations needs to input text without keyboard.
@@ -151,10 +151,10 @@ With AirGap Deploy
 
 AirGap Whisper can be deployed to air-gapped systems using AirGap Deploy:
 
-1. Package AirGap Whisper binary with vendored dependencies
-2. Include whisper.cpp source and pre-downloaded models
-3. Transfer via AirGap Transfer if package exceeds USB capacity
-4. Deploy and build on isolated system
+Package AirGap Whisper binary with vendored dependencies
+Include whisper.cpp source and pre-downloaded models
+Transfer via AirGap Transfer if package exceeds USB capacity
+Deploy and build on isolated system
 
 **See:** :doc:`airgap-deploy workflow documentation </airgap-deploy/use-cases/workflow-airgap-whisper>`
 
@@ -199,28 +199,28 @@ User errors              < 5% (clear UI, good defaults)
 User Personas
 -------------
 
-1. Privacy-Conscious Professional
+Privacy-Conscious Professional
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - **Needs:** Secure transcription without cloud services
 - **Environment:** Corporate, government, or security-sensitive
 - **Priority:** Data privacy, air-gap capability
 
-2. Productivity Enthusiast
+Productivity Enthusiast
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - **Needs:** Fast voice-to-text for task capture
 - **Environment:** Personal productivity workflows
 - **Priority:** Speed, convenience, keyboard shortcuts
 
-3. Accessibility User
+Accessibility User
 ~~~~~~~~~~~~~~~~~~~~~
 
 - **Needs:** Alternative text input method
 - **Environment:** Daily computer use with mobility limitations
 - **Priority:** Reliability, customizable controls, accuracy
 
-4. Researcher/Interviewer
+Researcher/Interviewer
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - **Needs:** Transcribe recorded interviews

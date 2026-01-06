@@ -39,13 +39,13 @@ Workflow Steps
 Phase 1: Pack with Multiple USB Swaps
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. **Initial pack command**
+**Initial pack command**
 
    .. code:: bash
 
       airgap-transfer pack ~/ml-models/ /media/usb-drive --chunk-size 8GB
 
-2. **USB swap sequence**
+**USB swap sequence**
 
    - **USB #1:** Writes ``chunk_000.tar`` (8GB)
 
@@ -66,7 +66,7 @@ Phase 1: Pack with Multiple USB Swaps
 
      - Tool: “Pack complete. 4 chunks created.”
 
-3. **Manifest on each USB**
+**Manifest on each USB**
 
    - Each USB contains a copy of ``airgap-transfer-manifest.json``
    - Manifest lists all 4 chunks with checksums
@@ -81,7 +81,7 @@ Phase 2: Physical Transfer
 Phase 3: Unpack on Destination
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. **Check available chunks**
+**Check available chunks**
 
    - Connect USB #1
 
@@ -91,7 +91,7 @@ Phase 3: Unpack on Destination
 
    Shows: chunk_000 available (1 of 4)
 
-2. **Progressive unpack**
+**Progressive unpack**
 
    - Option A: Connect all USBs, unpack once
 
@@ -109,7 +109,7 @@ Phase 3: Unpack on Destination
       # Tool: "Waiting for chunk_001. Insert USB with chunk_001."
       # User swaps to USB #2, tool continues
 
-3. **Verification**
+**Verification**
 
    - Tool verifies each chunk before extraction
    - Final verification after all chunks extracted

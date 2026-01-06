@@ -8,16 +8,16 @@ AirGap Deploy
 
 --------------
 
-1. Introduction
+Introduction
 ---------------
 
-1.1 Purpose
-~~~~~~~~~~~
+Purpose
+~~~~~~~
 
 This Test Plan describes the testing strategy, approach, and test cases for **airgap-deploy**, ensuring the tool reliably packages applications for air-gapped deployment.
 
-1.2 Scope
-~~~~~~~~~
+Scope
+~~~~~
 
 **In Scope:**
 
@@ -33,8 +33,8 @@ This Test Plan describes the testing strategy, approach, and test cases for **ai
 - Load testing (not a server application)
 - Security penetration testing (manual review only)
 
-1.3 References
-~~~~~~~~~~~~~~
+References
+~~~~~~~~~~
 
 - :doc:`Requirements (SRS) <../requirements/srs>`
 - :doc:`Design (SDD) <../design/sdd>`
@@ -43,11 +43,11 @@ This Test Plan describes the testing strategy, approach, and test cases for **ai
 
 --------------
 
-2. Test Strategy
+Test Strategy
 ----------------
 
-2.1 Test Levels
-~~~~~~~~~~~~~~~
+Test Levels
+~~~~~~~~~~~
 
 **Unit Testing:**
 
@@ -73,8 +73,8 @@ This Test Plan describes the testing strategy, approach, and test cases for **ai
 - User workflow testing
 - Reference implementation (AirGap Whisper deployment)
 
-2.2 Test Types
-~~~~~~~~~~~~~~
+Test Types
+~~~~~~~~~~
 
 =============== ======================== ================
 Test Type       Purpose                  Coverage
@@ -87,8 +87,8 @@ Test Type       Purpose                  Coverage
 **Security**    Verify checksums         NFR-6.x from SRS
 =============== ======================== ================
 
-2.3 Test Environment
-~~~~~~~~~~~~~~~~~~~~
+Test Environment
+~~~~~~~~~~~~~~~~
 
 **Development Environment:**
 
@@ -112,11 +112,11 @@ Test Type       Purpose                  Coverage
 
 --------------
 
-3. Test Cases
+Test Cases
 -------------
 
-3.1 Manifest Parsing (FR-1.x)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Manifest Parsing (FR-1.x)
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. test:: Valid Manifest Parsing
    :id: TC-MAN-001
@@ -165,8 +165,8 @@ Test Type       Purpose                  Coverage
 
 --------------
 
-3.2 RustAppComponent (FR-2.1 to FR-2.5)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+RustAppComponent (FR-2.1 to FR-2.5)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. test:: Rust App with Vendoring
    :id: TC-RUST-001
@@ -206,8 +206,8 @@ Test Type       Purpose                  Coverage
 
 --------------
 
-3.3 ExternalBinaryComponent (FR-2.6 to FR-2.9)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ExternalBinaryComponent (FR-2.6 to FR-2.9)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. test:: Git Repository Cloning
    :id: TC-GIT-001
@@ -247,8 +247,8 @@ Test Type       Purpose                  Coverage
 
 --------------
 
-3.4 ModelFileComponent (FR-2.10 to FR-2.14)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ModelFileComponent (FR-2.10 to FR-2.14)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. test:: Model File Download
    :id: TC-MODEL-001
@@ -306,8 +306,8 @@ Test Type       Purpose                  Coverage
 
 --------------
 
-3.5 Packaging (FR-3.1 to FR-3.6)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Packaging (FR-3.1 to FR-3.6)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. test:: Create tar.gz Package
    :id: TC-PKG-001
@@ -356,8 +356,8 @@ Test Type       Purpose                  Coverage
 
 --------------
 
-3.6 Install Script Generation (FR-4.1 to FR-4.7)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Install Script Generation (FR-4.1 to FR-4.7)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. test:: Bash Script Generation
    :id: TC-INSTALL-001
@@ -415,8 +415,8 @@ Test Type       Purpose                  Coverage
 
 --------------
 
-3.7 CLI Interface (FR-5.1 to FR-5.5)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+CLI Interface (FR-5.1 to FR-5.5)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. test:: Prep Command - Default Manifest
    :id: TC-CLI-001
@@ -483,8 +483,8 @@ Test Type       Purpose                  Coverage
 
 --------------
 
-3.8 Error Handling (FR-7.1 to FR-7.4)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Error Handling (FR-7.1 to FR-7.4)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. test:: Network Error with Retry
    :id: TC-ERR-001
@@ -524,8 +524,8 @@ Test Type       Purpose                  Coverage
 
 --------------
 
-3.9 End-to-End Workflows
-~~~~~~~~~~~~~~~~~~~~~~~~
+End-to-End Workflows
+~~~~~~~~~~~~~~~~~~~~
 
 .. test:: AirGap Whisper End-to-End Deployment
    :id: TC-E2E-001
@@ -556,8 +556,8 @@ Test Type       Purpose                  Coverage
 
 --------------
 
-3.10 Performance Tests
-~~~~~~~~~~~~~~~~~~~~~~
+Performance Tests
+~~~~~~~~~~~~~~~~~
 
 .. test:: Package Preparation Time
    :id: TC-PERF-001
@@ -597,8 +597,8 @@ Test Type       Purpose                  Coverage
 
 --------------
 
-3.11 Security Tests
-~~~~~~~~~~~~~~~~~~~
+Security Tests
+~~~~~~~~~~~~~~
 
 .. test:: Checksum Verification Prevents Corruption
    :id: TC-DEPLOY-SEC-001
@@ -638,11 +638,11 @@ Test Type       Purpose                  Coverage
 
 --------------
 
-4. Test Execution
+Test Execution
 -----------------
 
-4.1 Unit Tests
-~~~~~~~~~~~~~~
+Unit Tests
+~~~~~~~~~~
 
 .. code:: bash
 
@@ -654,8 +654,8 @@ Test Type       Purpose                  Coverage
 
    # Target: 80%+ coverage
 
-4.2 Integration Tests
-~~~~~~~~~~~~~~~~~~~~~
+Integration Tests
+~~~~~~~~~~~~~~~~~
 
 .. code:: bash
 
@@ -665,8 +665,8 @@ Test Type       Purpose                  Coverage
    # Run specific integration test
    cargo test --test e2e_whisper_deployment
 
-4.3 CI/CD Testing
-~~~~~~~~~~~~~~~~~
+CI/CD Testing
+~~~~~~~~~~~~~
 
 .. code:: yaml
 
@@ -689,8 +689,8 @@ Test Type       Purpose                  Coverage
          - run: cargo clippy -- -D warnings
          - run: cargo fmt --check
 
-4.4 Air-Gapped VM Testing
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Air-Gapped VM Testing
+~~~~~~~~~~~~~~~~~~~~~
 
 **Setup:**
 
@@ -706,11 +706,11 @@ Test Type       Purpose                  Coverage
 
 --------------
 
-5. Test Metrics
+Test Metrics
 ---------------
 
-5.1 Coverage Metrics
-~~~~~~~~~~~~~~~~~~~~
+Coverage Metrics
+~~~~~~~~~~~~~~~~
 
 ===================== ====== ===============
 Metric                Target Measurement
@@ -720,8 +720,8 @@ Metric                Target Measurement
 **Function coverage** 90%+   cargo tarpaulin
 ===================== ====== ===============
 
-5.2 Quality Metrics
-~~~~~~~~~~~~~~~~~~~
+Quality Metrics
+~~~~~~~~~~~~~~~
 
 ========================== ================ ================
 Metric                     Target           Measurement
@@ -731,8 +731,8 @@ Metric                     Target           Measurement
 **Documentation coverage** 100% public APIs cargo doc
 ========================== ================ ================
 
-5.3 Performance Metrics
-~~~~~~~~~~~~~~~~~~~~~~~
+Performance Metrics
+~~~~~~~~~~~~~~~~~~~
 
 ========================= ======== =========
 Metric                    Target   Test Case
@@ -744,7 +744,7 @@ Metric                    Target   Test Case
 
 --------------
 
-6. Test Schedule
+Test Schedule
 ----------------
 
 Phase 1: Core Infrastructure
@@ -785,11 +785,11 @@ Phase 6: Integration & System
 
 --------------
 
-7. Defect Management
+Defect Management
 --------------------
 
-7.1 Severity Levels
-~~~~~~~~~~~~~~~~~~~
+Severity Levels
+~~~~~~~~~~~~~~~
 
 +---------------------+-------------------------------+-----------------------------+
 | Severity            | Description                   | Example                     |
@@ -803,8 +803,8 @@ Phase 6: Integration & System
 | **Low**             | Minor issue                   | Typo in help text           |
 +---------------------+-------------------------------+-----------------------------+
 
-7.2 Defect Tracking
-~~~~~~~~~~~~~~~~~~~
+Defect Tracking
+~~~~~~~~~~~~~~~
 
 - Use GitHub Issues
 - Label with severity (critical, high, medium, low)
@@ -813,25 +813,25 @@ Phase 6: Integration & System
 
 --------------
 
-8. Test Deliverables
+Test Deliverables
 --------------------
 
-8.1 Test Code
-~~~~~~~~~~~~~
+Test Code
+~~~~~~~~~
 
 - ``tests/`` directory with all test files
 - ``tests/fixtures/`` with test manifests and data
 - ``benches/`` with performance benchmarks
 
-8.2 Test Reports
-~~~~~~~~~~~~~~~~
+Test Reports
+~~~~~~~~~~~~
 
 - CI test results (GitHub Actions)
 - Coverage reports (HTML from tarpaulin)
 - Performance benchmark results
 
-8.3 Test Documentation
-~~~~~~~~~~~~~~~~~~~~~~
+Test Documentation
+~~~~~~~~~~~~~~~~~~
 
 - This test plan
 - Test case documentation (inline in test code)
@@ -839,7 +839,7 @@ Phase 6: Integration & System
 
 --------------
 
-9. Risks and Mitigation
+Risks and Mitigation
 -----------------------
 
 +-------------------------------+---------------------+---------------------------------------------+
@@ -856,7 +856,7 @@ Phase 6: Integration & System
 
 --------------
 
-10. Approval
+Approval
 ------------
 
 Test plan will be approved when:

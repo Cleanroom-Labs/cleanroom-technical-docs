@@ -170,13 +170,13 @@ Using sphinxcontrib-rust
 
 Once code exists, integrate with Sphinx:
 
-1. **Generate Rust docs:**
+**Generate Rust docs:**
 
    .. code-block:: bash
 
       cargo doc --no-deps --document-private-items
 
-2. **Configure sphinxcontrib-rust in conf.py:**
+**Configure sphinxcontrib-rust in conf.py:**
 
    .. code-block:: python
 
@@ -189,14 +189,14 @@ Once code exists, integrate with Sphinx:
           'airgap-transfer': '../airgap-transfer',
       }
 
-3. **Reference Rust items in RST:**
+**Reference Rust items in RST:**
 
    .. code-block:: rst
 
       See :rust:struct:`Chunker` for file chunking.
       See :rust:struct:`Assembler` for chunk reassembly.
 
-4. **Build documentation:**
+**Build documentation:**
 
    .. code-block:: bash
 
@@ -223,11 +223,11 @@ Future Enhancements
 
 When implementation begins:
 
-1. Add ``.. impl::`` directives for each module
-2. Link implementations to requirements in traceability matrix
-3. Auto-generate API docs with sphinxcontrib-rust
-4. Document async operation patterns
-5. Add workflow examples with code snippets
+Add ``.. impl::`` directives for each module
+Link implementations to requirements in traceability matrix
+Auto-generate API docs with sphinxcontrib-rust
+Document async operation patterns
+Add workflow examples with code snippets
 
 See Also
 --------

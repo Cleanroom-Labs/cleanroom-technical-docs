@@ -8,18 +8,18 @@ AirGap Whisper
 
 --------------
 
-1. Introduction
+Introduction
 ---------------
 
 This test plan covers MVP requirements (FR-001 through FR-036, NFR-001 through NFR-006).
 
 --------------
 
-2. Test Strategy
+Test Strategy
 ----------------
 
-2.1 Test Levels
-~~~~~~~~~~~~~~~
+Test Levels
+~~~~~~~~~~~
 
 =========== ====================== ======================
 Level       Scope                  Tools
@@ -29,8 +29,8 @@ Integration Component interactions Rust integration tests
 System      End-to-end workflows   Manual testing
 =========== ====================== ======================
 
-2.2 Features Not Tested
-~~~~~~~~~~~~~~~~~~~~~~~
+Features Not Tested
+~~~~~~~~~~~~~~~~~~~
 
 ===================== ====================
 Feature               Reason
@@ -40,8 +40,8 @@ OS audio APIs         Platform dependency
 SQLite engine         Third-party software
 ===================== ====================
 
-2.3 Test Automation Approach
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Test Automation Approach
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 **MVP:** Manual testing only. Automation deferred until post-MVP stabilization.
 
@@ -88,11 +88,11 @@ Notifications    Platform-specific behavior
 
 --------------
 
-3. Test Cases by Category
+Test Cases by Category
 -------------------------
 
-3.1 Recording Tests
-~~~~~~~~~~~~~~~~~~~
+Recording Tests
+~~~~~~~~~~~~~~~
 
 .. needtable::
    :types: test
@@ -544,8 +544,8 @@ Notifications    Platform-specific behavior
 
    Verify app follows system theme (dark/light)
 
-3.2 Transcription Tests
-~~~~~~~~~~~~~~~~~~~~~~~
+Transcription Tests
+~~~~~~~~~~~~~~~~~~~
 
 .. needtable::
    :types: test
@@ -555,8 +555,8 @@ Notifications    Platform-specific behavior
    :style: table
    :sort: id
 
-3.3 History Tests
-~~~~~~~~~~~~~~~~~
+History Tests
+~~~~~~~~~~~~~
 
 .. needtable::
    :types: test
@@ -566,8 +566,8 @@ Notifications    Platform-specific behavior
    :style: table
    :sort: id
 
-3.4 Output Tests
-~~~~~~~~~~~~~~~~
+Output Tests
+~~~~~~~~~~~~
 
 .. needtable::
    :types: test
@@ -577,8 +577,8 @@ Notifications    Platform-specific behavior
    :style: table
    :sort: id
 
-3.5 Settings Tests
-~~~~~~~~~~~~~~~~~~
+Settings Tests
+~~~~~~~~~~~~~~
 
 .. needtable::
    :types: test
@@ -588,8 +588,8 @@ Notifications    Platform-specific behavior
    :style: table
    :sort: id
 
-3.6 System Tray Tests
-~~~~~~~~~~~~~~~~~~~~~
+System Tray Tests
+~~~~~~~~~~~~~~~~~
 
 .. needtable::
    :types: test
@@ -599,8 +599,8 @@ Notifications    Platform-specific behavior
    :style: table
    :sort: id
 
-3.7 Security Tests
-~~~~~~~~~~~~~~~~~~
+Security Tests
+~~~~~~~~~~~~~~
 
 .. needtable::
    :types: test
@@ -610,8 +610,8 @@ Notifications    Platform-specific behavior
    :style: table
    :sort: id
 
-3.8 Deployment Tests
-~~~~~~~~~~~~~~~~~~~~
+Deployment Tests
+~~~~~~~~~~~~~~~~
 
 .. needtable::
    :types: test
@@ -621,8 +621,8 @@ Notifications    Platform-specific behavior
    :style: table
    :sort: id
 
-3.9 Non-Functional Tests
-~~~~~~~~~~~~~~~~~~~~~~~~
+Non-Functional Tests
+~~~~~~~~~~~~~~~~~~~~
 
 .. needtable::
    :types: test
@@ -634,11 +634,11 @@ Notifications    Platform-specific behavior
 
 --------------
 
-4. Test Procedures
+Test Procedures
 ------------------
 
-4.1 Network Isolation Test (TC-SEC-003)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Network Isolation Test (TC-SEC-003)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Preconditions:** - App installed - Firewall configured to block all app connections
 
@@ -646,8 +646,8 @@ Notifications    Platform-specific behavior
 
 **Pass Criteria:** Zero blocked connection attempts in logs.
 
-4.2 Offline Operation Test (TC-SEC-005)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Offline Operation Test (TC-SEC-005)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Preconditions:** - App installed with configured whisper.cpp - Network disconnected (airplane mode)
 
@@ -655,8 +655,8 @@ Notifications    Platform-specific behavior
 
 **Pass Criteria:** All operations complete successfully.
 
-4.3 Air-Gap Build Test (TC-DEP-002)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Air-Gap Build Test (TC-DEP-002)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Preconditions:** - Fresh clone of repository with vendored dependencies - Network disconnected (airplane mode or air-gapped VM)
 
@@ -712,7 +712,7 @@ The "Tests" column shows which requirements each test case validates (via the :t
 
 --------------
 
-5. Pass/Fail Criteria
+Pass/Fail Criteria
 ---------------------
 
 - **All Critical tests must pass** before release

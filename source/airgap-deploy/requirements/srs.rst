@@ -8,11 +8,11 @@ AirGap Deploy
 
 --------------
 
-1. Introduction
+Introduction
 ---------------
 
-1.1 Purpose
-~~~~~~~~~~~
+Purpose
+~~~~~~~
 
 This Software Requirements Specification (SRS) describes the functional and non-functional requirements for **airgap-deploy**, a command-line tool for packaging applications and their dependencies for deployment on air-gapped systems.
 
@@ -22,8 +22,8 @@ This document is intended for:
 - Release engineers using airgap-deploy to package applications
 - Technical reviewers evaluating the tool's capabilities
 
-1.2 Scope
-~~~~~~~~~
+Scope
+~~~~~
 
 **Product Name:** airgap-deploy
 
@@ -50,8 +50,8 @@ This document is intended for:
 - Automatic updates (contradicts air-gap philosophy)
 - Plugin system (deferred to future version)
 
-1.3 Definitions, Acronyms, and Abbreviations
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Definitions, Acronyms, and Abbreviations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +-----------------------+--------------------------------------------------------------------+
 | Term                  | Definition                                                         |
@@ -75,16 +75,16 @@ This document is intended for:
 | **SHA-256**           | Cryptographic hash function for checksums                          |
 +-----------------------+--------------------------------------------------------------------+
 
-1.4 References
-~~~~~~~~~~~~~~
+References
+~~~~~~~~~~
 
 - IEEE Std 830-1998: IEEE Recommended Practice for Software Requirements Specifications
 - :doc:`Roadmap <../roadmap>` - Implementation roadmap
 - :doc:`Use Case Analysis <../use-cases/overview>` - Detailed workflows
 - :doc:`Meta-Architecture </meta/meta-architecture>` - Project relationships
 
-1.5 Overview
-~~~~~~~~~~~~
+Overview
+~~~~~~~~
 
 This SRS is organized as follows:
 
@@ -95,11 +95,11 @@ This SRS is organized as follows:
 
 --------------
 
-2. Overall Description
+Overall Description
 ----------------------
 
-2.1 Product Perspective
-~~~~~~~~~~~~~~~~~~~~~~~
+Product Perspective
+~~~~~~~~~~~~~~~~~~~
 
 airgap-deploy is a **standalone developer tool** that integrates into existing software development workflows. It operates in two distinct phases:
 
@@ -123,25 +123,25 @@ airgap-deploy is a **standalone developer tool** that integrates into existing s
 - **AirGap Whisper:** Reference implementation and primary use case
 - **CI/CD pipelines:** Integrates with GitHub Actions, GitLab CI for automated package generation
 
-2.2 Product Functions
-~~~~~~~~~~~~~~~~~~~~~
+Product Functions
+~~~~~~~~~~~~~~~~~
 
 airgap-deploy provides the following major functions:
 
-1. **Manifest Parsing** - Parse and validate ``AirGapDeploy.toml`` files
-2. **Component Collection** - Download and collect required components:
+**Manifest Parsing** - Parse and validate ``AirGapDeploy.toml`` files
+**Component Collection** - Download and collect required components:
 
    - Rust applications with vendored dependencies
    - External binaries from Git repositories
    - Model files from URLs with checksum verification
    - System packages (Linux distributions)
 
-3. **Packaging** - Create compressed archives with all components
-4. **Install Script Generation** - Generate platform-specific installation scripts
-5. **CLI Interface** - User-friendly command-line tool with progress reporting
+**Packaging** - Create compressed archives with all components
+**Install Script Generation** - Generate platform-specific installation scripts
+**CLI Interface** - User-friendly command-line tool with progress reporting
 
-2.3 User Characteristics
-~~~~~~~~~~~~~~~~~~~~~~~~
+User Characteristics
+~~~~~~~~~~~~~~~~~~~~
 
 **Primary Users: Application Developers / Release Engineers**
 
@@ -157,8 +157,8 @@ airgap-deploy provides the following major functions:
 - **Frequency of use:** Rare (only during installations/updates)
 - **Environment:** Air-gapped production system
 
-2.4 Constraints
-~~~~~~~~~~~~~~~
+Constraints
+~~~~~~~~~~~
 
 **Regulatory Constraints:**
 
@@ -177,8 +177,8 @@ airgap-deploy provides the following major functions:
 - Declarative manifest format (TOML)
 - Cross-platform compatibility (Linux, macOS, Windows)
 
-2.5 Assumptions and Dependencies
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Assumptions and Dependencies
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Assumptions:**
 
@@ -193,11 +193,11 @@ airgap-deploy provides the following major functions:
 
 --------------
 
-3. Functional Requirements
+Functional Requirements
 --------------------------
 
-3.1 Manifest Parsing and Validation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Manifest Parsing and Validation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. req:: Parse TOML Manifest Files
    :id: FR-DEPLOY-001
@@ -241,11 +241,11 @@ airgap-deploy provides the following major functions:
 
 --------------
 
-3.2 Component Collection
-~~~~~~~~~~~~~~~~~~~~~~~~
+Component Collection
+~~~~~~~~~~~~~~~~~~~~
 
-3.2.1 Rust Application Component
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Rust Application Component
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. req:: Collect Rust Application Source
    :id: FR-DEPLOY-006
@@ -287,8 +287,8 @@ airgap-deploy provides the following major functions:
 
    The system SHALL support configuration options: source, vendor, include_toolchain, prebuild
 
-3.2.2 External Binary Component
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+External Binary Component
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. req:: Clone Git Repositories
    :id: FR-DEPLOY-011
@@ -322,8 +322,8 @@ airgap-deploy provides the following major functions:
 
    The system SHALL support configuration options: name, repo, branch/tag/commit, build_instructions
 
-3.2.3 Model File Component
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+Model File Component
+^^^^^^^^^^^^^^^^^^^^
 
 .. req:: Download Model Files
    :id: FR-DEPLOY-015
@@ -365,8 +365,8 @@ airgap-deploy provides the following major functions:
 
    The system SHALL support configuration options: name, url, checksum, required, install_path
 
-3.2.4 System Package Component
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+System Package Component
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. req:: Detect Linux Distribution
    :id: FR-DEPLOY-020
@@ -404,8 +404,8 @@ airgap-deploy provides the following major functions:
 
 --------------
 
-3.3 Packaging
-~~~~~~~~~~~~~
+Packaging
+~~~~~~~~~
 
 .. req:: Create Tar.gz Archives
    :id: FR-DEPLOY-024
@@ -457,8 +457,8 @@ airgap-deploy provides the following major functions:
 
 --------------
 
-3.4 Installation Script Generation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Installation Script Generation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. req:: Generate Bash Installation Scripts
    :id: FR-DEPLOY-030
@@ -518,8 +518,8 @@ airgap-deploy provides the following major functions:
 
 --------------
 
-3.5 Command-Line Interface
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Command-Line Interface
+~~~~~~~~~~~~~~~~~~~~~~
 
 .. req:: CLI Commands
    :id: FR-DEPLOY-037
@@ -563,8 +563,8 @@ airgap-deploy provides the following major functions:
 
 --------------
 
-3.6 Configuration Management
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Configuration Management
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. req:: Global Configuration File
    :id: FR-DEPLOY-042
@@ -592,8 +592,8 @@ airgap-deploy provides the following major functions:
 
 --------------
 
-3.7 Error Handling and Recovery
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Error Handling and Recovery
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. req:: Clear Error Messages
    :id: FR-DEPLOY-045
@@ -629,11 +629,11 @@ airgap-deploy provides the following major functions:
 
 --------------
 
-4. Non-Functional Requirements
+Non-Functional Requirements
 ------------------------------
 
-4.1 Performance
-~~~~~~~~~~~~~~~
+Performance
+~~~~~~~~~~~
 
 .. nfreq:: Package Preparation Performance
    :id: NFR-DEPLOY-001
@@ -667,8 +667,8 @@ airgap-deploy provides the following major functions:
 
    Installation scripts SHALL complete in less than 20 minutes for typical applications (including build time).
 
-4.2 Reliability
-~~~~~~~~~~~~~~~
+Reliability
+~~~~~~~~~~~
 
 .. nfreq:: Checksum Verification
    :id: NFR-DEPLOY-005
@@ -702,8 +702,8 @@ airgap-deploy provides the following major functions:
 
    The system SHALL handle interruptions gracefully (Ctrl+C, system shutdown).
 
-4.3 Usability
-~~~~~~~~~~~~~
+Usability
+~~~~~~~~~
 
 .. nfreq:: First-Time User Experience
    :id: NFR-DEPLOY-009
@@ -737,8 +737,8 @@ airgap-deploy provides the following major functions:
 
    Progress indicators SHALL be shown for all operations taking longer than 2 seconds.
 
-4.4 Maintainability
-~~~~~~~~~~~~~~~~~~~
+Maintainability
+~~~~~~~~~~~~~~~
 
 .. nfreq:: Test Coverage
    :id: NFR-DEPLOY-013
@@ -772,8 +772,8 @@ airgap-deploy provides the following major functions:
 
    The code SHALL be formatted with rustfmt.
 
-4.5 Portability
-~~~~~~~~~~~~~~~
+Portability
+~~~~~~~~~~~
 
 .. nfreq:: Linux Platform Support
    :id: NFR-DEPLOY-017
@@ -807,8 +807,8 @@ airgap-deploy provides the following major functions:
 
    Generated installation scripts SHALL be compatible with Bash 4.0+ (Linux/macOS) and PowerShell 5.1+ (Windows).
 
-4.6 Security
-~~~~~~~~~~~~
+Security
+~~~~~~~~
 
 .. nfreq:: Verify All Checksums
    :id: NFR-DEPLOY-021
@@ -850,8 +850,8 @@ airgap-deploy provides the following major functions:
 
    Temporary files SHALL be created with restrictive permissions (user-only).
 
-4.7 Scalability
-~~~~~~~~~~~~~~~
+Scalability
+~~~~~~~~~~~
 
 .. nfreq:: Large Package Support
    :id: NFR-DEPLOY-026
@@ -879,11 +879,11 @@ airgap-deploy provides the following major functions:
 
 --------------
 
-5. External Interface Requirements
+External Interface Requirements
 ----------------------------------
 
-5.1 User Interfaces
-~~~~~~~~~~~~~~~~~~~
+User Interfaces
+~~~~~~~~~~~~~~~
 
 .. req:: Command-Line Interface with ANSI Color Support
    :id: FR-DEPLOY-049
@@ -909,8 +909,8 @@ airgap-deploy provides the following major functions:
 
    The system SHALL provide interactive prompts in generated installation scripts.
 
-5.2 Hardware Interfaces
-~~~~~~~~~~~~~~~~~~~~~~~
+Hardware Interfaces
+~~~~~~~~~~~~~~~~~~~
 
 .. req:: Standard Filesystem I/O
    :id: FR-DEPLOY-052
@@ -936,8 +936,8 @@ airgap-deploy provides the following major functions:
 
    The system SHALL support removable media (USB drives) for package transfer (OS-provided).
 
-5.3 Software Interfaces
-~~~~~~~~~~~~~~~~~~~~~~~
+Software Interfaces
+~~~~~~~~~~~~~~~~~~~
 
 .. req:: Cargo Integration for Dependency Vendoring
    :id: FR-DEPLOY-055
@@ -979,8 +979,8 @@ airgap-deploy provides the following major functions:
 
    The system SHALL integrate with airgap-transfer for large package chunking (workflow level, not code level).
 
-5.4 Communications Interfaces
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Communications Interfaces
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. req:: HTTP/HTTPS for Component Downloads
    :id: FR-DEPLOY-060
@@ -1000,11 +1000,11 @@ airgap-deploy provides the following major functions:
 
 --------------
 
-6. Appendices
+Appendices
 -------------
 
-6.1 Example Manifest
-~~~~~~~~~~~~~~~~~~~~
+Example Manifest
+~~~~~~~~~~~~~~~~
 
 .. code:: toml
 
@@ -1042,8 +1042,8 @@ airgap-deploy provides the following major functions:
    install_to = "user"
    mode = "interactive"
 
-6.2 Glossary
-~~~~~~~~~~~~
+Glossary
+~~~~~~~~
 
 See Section 1.3 for definitions.
 

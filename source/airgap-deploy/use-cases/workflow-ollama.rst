@@ -39,8 +39,8 @@ Workflow Steps
 Phase 1: Preparation (Connected Machine)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1.1 Create Deployment Manifest
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Create Deployment Manifest
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: toml
 
@@ -106,8 +106,8 @@ Phase 1: Preparation (Connected Machine)
    """
    install_path = "/etc/systemd/system/ollama.service"
 
-1.2 Prepare Deployment Package
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Prepare Deployment Package
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: bash
 
@@ -121,8 +121,8 @@ Phase 1: Preparation (Connected Machine)
 
    # Output: ollama-deploy-v0.15.0.tar.gz (~4GB)
 
-1.3 Transfer Package
-^^^^^^^^^^^^^^^^^^^^
+Transfer Package
+^^^^^^^^^^^^^^^^
 
 **Option A: Single USB (if package fits)**
 
@@ -150,8 +150,8 @@ Phase 2: Physical Transfer
 Phase 3: Installation (Air-Gapped Machine)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-3.1 Extract Package
-^^^^^^^^^^^^^^^^^^^
+Extract Package
+^^^^^^^^^^^^^^^
 
 .. code:: bash
 
@@ -159,8 +159,8 @@ Phase 3: Installation (Air-Gapped Machine)
    tar -xzf /media/usb/ollama-deploy-v0.15.0.tar.gz
    cd ollama-deploy-v0.15.0
 
-3.2 Review Installation Plan
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Review Installation Plan
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: bash
 
@@ -171,8 +171,8 @@ Phase 3: Installation (Air-Gapped Machine)
    # - What system changes will be made
    # - Required permissions
 
-3.3 Execute Installation
-^^^^^^^^^^^^^^^^^^^^^^^^
+Execute Installation
+^^^^^^^^^^^^^^^^^^^^
 
 .. code:: bash
 
@@ -187,8 +187,8 @@ Phase 3: Installation (Air-Gapped Machine)
    # 6. Install systemd service file
    # 7. Reload systemd daemon
 
-3.4 Verify Installation
-^^^^^^^^^^^^^^^^^^^^^^^
+Verify Installation
+^^^^^^^^^^^^^^^^^^^
 
 .. code:: bash
 
@@ -204,8 +204,8 @@ Phase 3: Installation (Air-Gapped Machine)
    sudo systemctl status ollama
    # Expected: inactive (dead) - not started yet
 
-3.5 Start Ollama Service
-^^^^^^^^^^^^^^^^^^^^^^^^
+Start Ollama Service
+^^^^^^^^^^^^^^^^^^^^
 
 .. code:: bash
 
@@ -219,8 +219,8 @@ Phase 3: Installation (Air-Gapped Machine)
    sudo systemctl status ollama
    # Expected: active (running)
 
-3.6 Test Inference
-^^^^^^^^^^^^^^^^^^
+Test Inference
+^^^^^^^^^^^^^^
 
 .. code:: bash
 

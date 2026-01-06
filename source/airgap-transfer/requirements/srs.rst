@@ -8,16 +8,16 @@ AirGap Transfer
 
 --------------
 
-1. Introduction
+Introduction
 ---------------
 
-1.1 Purpose
-~~~~~~~~~~~
+Purpose
+~~~~~~~
 
 This SRS defines MVP requirements for AirGap Transfer, a command-line utility for safely transferring large files across air-gap boundaries.
 
-1.2 Scope
-~~~~~~~~~
+Scope
+~~~~~
 
 **Product:** AirGap Transfer — a minimal CLI tool for chunked file transfers via removable media.
 
@@ -36,8 +36,8 @@ This SRS defines MVP requirements for AirGap Transfer, a command-line utility fo
 - Real-time synchronization
 - Ollama-specific logic (general-purpose only)
 
-1.3 Definitions
-~~~~~~~~~~~~~~~
+Definitions
+~~~~~~~~~~~
 
 +-----------------------+------------------------------------------------------------------+
 | Term                  | Definition                                                       |
@@ -55,11 +55,11 @@ This SRS defines MVP requirements for AirGap Transfer, a command-line utility fo
 
 --------------
 
-2. Overall Description
+Overall Description
 ----------------------
 
-2.1 Product Perspective
-~~~~~~~~~~~~~~~~~~~~~~~
+Product Perspective
+~~~~~~~~~~~~~~~~~~~
 
 Standalone CLI tool for transferring data across air-gap boundaries using removable media.
 
@@ -67,8 +67,8 @@ All operations occur locally with no network connectivity.
 
 See the :doc:`Software Design Document <../design/sdd>` for architecture diagrams and component details.
 
-2.2 Constraints
-~~~~~~~~~~~~~~~
+Constraints
+~~~~~~~~~~~
 
 ============= ==========================================================
 Constraint    Description
@@ -82,11 +82,11 @@ Media         Works with standard removable media (USB, external drives)
 
 --------------
 
-3. Functional Requirements
+Functional Requirements
 --------------------------
 
-3.1 Pack Operation
-~~~~~~~~~~~~~~~~~~
+Pack Operation
+~~~~~~~~~~~~~~
 
 .. needtable::
    :types: req
@@ -160,8 +160,8 @@ Media         Works with standard removable media (USB, external drives)
 
    Prompt for USB swapping when multiple chunks needed
 
-3.2 Unpack Operation
-~~~~~~~~~~~~~~~~~~~~
+Unpack Operation
+~~~~~~~~~~~~~~~~
 
 .. needtable::
    :types: req
@@ -227,8 +227,8 @@ Media         Works with standard removable media (USB, external drives)
 
    Show progress during reconstruction
 
-3.3 List Operation
-~~~~~~~~~~~~~~~~~~
+List Operation
+~~~~~~~~~~~~~~
 
 .. needtable::
    :types: req
@@ -270,8 +270,8 @@ Media         Works with standard removable media (USB, external drives)
 
    Display estimated total size after reconstruction
 
-3.4 Integrity Verification
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Integrity Verification
+~~~~~~~~~~~~~~~~~~~~~~
 
 .. needtable::
    :types: req
@@ -313,8 +313,8 @@ Media         Works with standard removable media (USB, external drives)
 
    Verify final reconstructed file against original checksum
 
-3.5 State Management
-~~~~~~~~~~~~~~~~~~~~
+State Management
+~~~~~~~~~~~~~~~~
 
 .. needtable::
    :types: req
@@ -356,8 +356,8 @@ Media         Works with standard removable media (USB, external drives)
 
    Support resume for interrupted unpack operations
 
-3.6 Command Interface
-~~~~~~~~~~~~~~~~~~~~~
+Command Interface
+~~~~~~~~~~~~~~~~~
 
 .. needtable::
    :types: req
@@ -423,8 +423,8 @@ Media         Works with standard removable media (USB, external drives)
 
    ``--verbose`` flag for detailed output
 
-3.7 Error Handling
-~~~~~~~~~~~~~~~~~~
+Error Handling
+~~~~~~~~~~~~~~
 
 .. needtable::
    :types: req
@@ -458,8 +458,8 @@ Media         Works with standard removable media (USB, external drives)
 
    Provide clear error messages with suggested actions
 
-3.8 Safety Features
-~~~~~~~~~~~~~~~~~~~
+Safety Features
+~~~~~~~~~~~~~~~
 
 .. needtable::
    :types: req
@@ -501,8 +501,8 @@ Media         Works with standard removable media (USB, external drives)
 
    Atomic operations where possible
 
-3.9 Deployment
-~~~~~~~~~~~~~~
+Deployment
+~~~~~~~~~~
 
 .. needtable::
    :types: req
@@ -538,7 +538,7 @@ Media         Works with standard removable media (USB, external drives)
 
 --------------
 
-4. Non-Functional Requirements
+Non-Functional Requirements
 ------------------------------
 
 .. needtable::
@@ -601,7 +601,7 @@ Media         Works with standard removable media (USB, external drives)
 
 .. _error-handling-1:
 
-5. Error Handling
+Error Handling
 -----------------
 
 +-----------------------------------+--------------------------------------------------------+
