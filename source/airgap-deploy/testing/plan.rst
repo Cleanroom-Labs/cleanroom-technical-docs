@@ -26,9 +26,9 @@ This Test Plan describes the testing strategy, approach, and test cases for **ai
 1.3 References
 ~~~~~~~~~~~~~~
 
-- `Requirements (SRS) <../requirements/srs.md>`__
-- `Design (SDD) <../design/sdd.md>`__
-- `Development Plan <../development-plan.md>`__
+- :doc:`Requirements (SRS) <../requirements/srs>`
+- :doc:`Design (SDD) <../design/sdd>`
+- :doc:`Roadmap <../roadmap>`
 - IEEE 829-2008: IEEE Standard for Software Test Documentation
 
 --------------
@@ -943,18 +943,18 @@ This section demonstrates bidirectional traceability between requirements and te
 Requirements to Tests Matrix
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The following table shows all requirements and their associated test cases.
+The following table shows all requirements and their associated test cases. The "Incoming" column shows which tests validate each requirement.
 
 .. needtable::
-   :types: req, nfreq, test
-   :columns: id, title, status, type
+   :types: req, nfreq
+   :columns: id, title, status, incoming
    :filter: "deploy" in tags
    :style: table
 
-Requirements Coverage
-~~~~~~~~~~~~~~~~~~~~~
+Requirements Coverage Statistics
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This table shows only requirements for AirGap Deploy.
+This table provides an overview of all AirGap Deploy requirements with their priority and status.
 
 .. needtable::
    :types: req, nfreq
@@ -964,7 +964,11 @@ This table shows only requirements for AirGap Deploy.
 
 .. note::
 
-   To see which tests validate each requirement, refer to the Requirements to Tests Matrix above, or check the individual test case definitions throughout this document.
+   **Understanding Traceability:**
+
+   - **Incoming links** show which test cases validate each requirement
+   - **Tests column** (in test tables below) shows which requirements each test validates
+   - This bidirectional linking ensures complete coverage and traceability
 
 Test Cases
 ~~~~~~~~~~

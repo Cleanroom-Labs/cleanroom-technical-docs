@@ -18,10 +18,9 @@ AirGap Whisper is an end-user transcription application that runs entirely offli
    :caption: Planning
 
    roadmap
-   development-plan
 
 .. toctree::
    :maxdepth: 2
-   :caption: Planning
+   :caption: API Reference
 
    api/index

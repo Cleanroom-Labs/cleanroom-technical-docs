@@ -156,7 +156,7 @@ AirGap Whisper can be deployed to air-gapped systems using AirGap Deploy:
 3. Transfer via AirGap Transfer if package exceeds USB capacity
 4. Deploy and build on isolated system
 
-**See:** `airgap-deploy workflow documentation <../../airgap-deploy/use-case-analysis/workflow-airgap-whisper.md>`__
+**See:** :doc:`airgap-deploy workflow documentation </airgap-deploy/use-cases/workflow-airgap-whisper>`
 
 --------------
 
@@ -232,7 +232,7 @@ User Personas
 See Also
 --------
 
-- `Requirements (SRS) <../requirements/srs.md>`__ - Detailed functional requirements
-- `Design (SDD) <../design/sdd.md>`__ - Architecture and implementation
-- `Development Plan <../development-plan.md>`__ - Implementation roadmap
-- `principles.md <../../principles.md>`__ - Design principles guiding all decisions
+- :doc:`Requirements (SRS) <../requirements/srs>` - Detailed functional requirements
+- :doc:`Design (SDD) <../design/sdd>` - Architecture and implementation
+- :doc:`Roadmap <../roadmap>` - Implementation roadmap
+- :doc:`Principles </meta/principles>` - Design principles guiding all decisions

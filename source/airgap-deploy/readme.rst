@@ -327,7 +327,7 @@ For large packages that exceed USB capacity, use airgap-transfer:
    cd ~/deployment/ollama-deploy
    ./install.sh
 
-See `airgap-transfer documentation <../airgap-transfer/README.md>`__ for details.
+See :doc:`airgap-transfer documentation </airgap-transfer/readme>` for details.
 
 Platform Support
 ----------------
@@ -347,7 +347,7 @@ Building
 
 Requires Rust toolchain and platform-specific build tools.
 
-See `Development Plan <development-plan.md>`__ for complete build instructions.
+See :doc:`Roadmap <roadmap>` for complete build instructions.
 
 Documentation
 -------------
@@ -360,9 +360,9 @@ Start Here
 +---------------------------------------------+-------------------------------------+
 | Document                                    | Purpose                             |
 +=============================================+=====================================+
-| `principles.md <../principles.md>`__        | Core design principles (read first) |
+| :doc:`Principles </meta/principles>`        | Core design principles (read first) |
 +---------------------------------------------+-------------------------------------+
-| `project-roadmap.md <project-roadmap.md>`__ | Project status and direction        |
+| :doc:`Roadmap <roadmap>`                    | Project status and direction        |
 +---------------------------------------------+-------------------------------------+
 
 Technical Documentation
@@ -371,11 +371,11 @@ Technical Documentation
 +----------------------------------------------+--------------------------------------------+
 | Document                                     | Purpose                                    |
 +==============================================+============================================+
-| `Requirements (SRS) <requirements/srs.md>`__ | Detailed functional requirements (57 FR)   |
+| :doc:`Requirements (SRS) <requirements/srs>` | Detailed functional requirements (57 FR)   |
 +----------------------------------------------+--------------------------------------------+
-| `Design (SDD) <design/sdd.md>`__             | Architecture, component design, algorithms |
+| :doc:`Design (SDD) <design/sdd>`             | Architecture, component design, algorithms |
 +----------------------------------------------+--------------------------------------------+
-| `Test Plan <testing/plan.md>`__              | Test cases and procedures                  |
+| :doc:`Test Plan <testing/plan>`              | Test cases and procedures                  |
 +----------------------------------------------+--------------------------------------------+
 
 Project Planning
@@ -384,9 +384,9 @@ Project Planning
 +--------------------------------------------+---------------------------------+
 | Document                                   | Purpose                         |
 +============================================+=================================+
-| `Development Plan <development-plan.md>`__ | 7-phase implementation plan     |
+| :doc:`Roadmap <roadmap>`                   | 7-phase implementation plan     |
 +--------------------------------------------+---------------------------------+
-| `Use Case Analysis <use-case-analysis/>`__ | Workflow documentation          |
+| :doc:`Use Case Analysis <use-cases/index>` | Workflow documentation          |
 +--------------------------------------------+---------------------------------+
 
 Meta-Architecture
@@ -395,7 +395,7 @@ Meta-Architecture
 +---------------------------------------------------------------+----------------------------------------------------+
 | Document                                                      | Purpose                                            |
 +===============================================================+====================================================+
-| `Meta-Architecture <../meta-architecture.md>`__               | How airgap-deploy relates to other AirGap projects |
+| :doc:`Meta-Architecture </meta/meta-architecture>`            | How airgap-deploy relates to other AirGap projects |
 +---------------------------------------------------------------+----------------------------------------------------+
 | `Requirements Overview <../meta/requirements-overview.rst>`__ | Project statistics and requirements overview       |
 +---------------------------------------------------------------+----------------------------------------------------+
@@ -430,9 +430,9 @@ Dual-licensed under MIT OR Apache-2.0 (your choice).
 Contributing
 ------------
 
-See `Development Plan <development-plan.md>`__ for architecture and implementation details.
+See :doc:`Roadmap <roadmap>` for architecture and implementation details.
 
 Roadmap
 -------
 
-See `project-roadmap.md <project-roadmap.md>`__ for current status and future plans.
+See :doc:`Roadmap <roadmap>` for current status and future plans.

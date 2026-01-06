@@ -58,9 +58,9 @@ This document is intended for: - Developers implementing airgap-deploy - Release
 ~~~~~~~~~~~~~~
 
 - IEEE Std 830-1998: IEEE Recommended Practice for Software Requirements Specifications
-- `Development Plan <../development-plan.md>`__ - Implementation roadmap
-- `Use Case Analysis <../use-case-analysis/overview.md>`__ - Detailed workflows
-- `Meta-Architecture <../../meta-architecture.md>`__ - Project relationships
+- :doc:`Roadmap <../roadmap>` - Implementation roadmap
+- :doc:`Use Case Analysis <../use-cases/overview>` - Detailed workflows
+- :doc:`Meta-Architecture </meta/meta-architecture>` - Project relationships
 
 1.5 Overview
 ~~~~~~~~~~~~
@@ -81,7 +81,7 @@ airgap-deploy is a **standalone developer tool** that integrates into existing s
 
 **Phase 2 - Installation (Air-Gapped System):** - User transfers package via USB or other physical media - User executes generated installation script - Script builds/installs application from vendored dependencies - No network access required
 
-**Relationship to Other Systems:** - **airgap-transfer:** Optional integration for large packages (see `meta-architecture <../../meta-architecture.md>`__) - **AirGap Whisper:** Reference implementation and primary use case - **CI/CD pipelines:** Integrates with GitHub Actions, GitLab CI for automated package generation
+**Relationship to Other Systems:** - **airgap-transfer:** Optional integration for large packages (see :doc:`meta-architecture </meta/meta-architecture>`) - **AirGap Whisper:** Reference implementation and primary use case - **CI/CD pipelines:** Integrates with GitHub Actions, GitLab CI for automated package generation
 
 2.2 Product Functions
 ~~~~~~~~~~~~~~~~~~~~~
@@ -131,7 +131,7 @@ airgap-deploy provides the following major functions:
 
 **Assumptions:** - Developer has internet access during package preparation - Target air-gapped system has basic build tools (C compiler, make) - Users can physically transfer files via USB or similar media
 
-**Dependencies:** - External: Git, cargo, platform-specific package managers - Rust crates: See `Development Plan <../development-plan.md#dependencies-summary>`__ for complete list
+**Dependencies:** - External: Git, cargo, platform-specific package managers - Rust crates: See :doc:`Roadmap <../roadmap>` (Dependencies Summary) for complete list
 
 --------------
 
@@ -1055,7 +1055,7 @@ airgap-deploy provides the following major functions:
 6.2 Design Principles Alignment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-All requirements align with `principles.md <../../principles.md>`__:
+All requirements align with :doc:`Principles </meta/principles>`:
 
 +---------------------------+--------------------------------------------------+
 | Principle                 | Relevant Requirements                            |

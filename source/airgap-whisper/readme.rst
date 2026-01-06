@@ -72,14 +72,14 @@ Default Hotkeys
 - Toggle recording: ``Ctrl+Alt+R`` (or ``⌃⌥R`` on macOS)
 - Copy last transcription: ``Ctrl+Alt+C`` (or ``⌃⌥C`` on macOS)
 
-See `SRS <requirements/srs.md>`__ for complete hotkey specifications.
+See :doc:`SRS <requirements/srs>` for complete hotkey specifications.
 
 Building
 --------
 
 Requires Rust toolchain and platform-specific build tools (C compiler, audio libraries).
 
-See `Development Plan <development-plan.md>`__ for complete build instructions and architecture details.
+See :doc:`Roadmap <roadmap>` for complete build instructions and architecture details.
 
 Air-Gapped Deployment
 ---------------------
@@ -133,9 +133,9 @@ Start Here
 +---------------------------------------------+-------------------------------------+
 | Document                                    | Purpose                             |
 +=============================================+=====================================+
-| `principles.md <../principles.md>`__        | Core design principles (read first) |
+| :doc:`Principles </meta/principles>`        | Core design principles (read first) |
 +---------------------------------------------+-------------------------------------+
-| `project-roadmap.md <project-roadmap.md>`__ | Project status and direction        |
+| :doc:`Roadmap <roadmap>`                    | Project status and direction        |
 +---------------------------------------------+-------------------------------------+
 
 Technical Documentation
@@ -144,11 +144,11 @@ Technical Documentation
 +----------------------------------------------+-------------------------------------------------+
 | Document                                     | Purpose                                         |
 +==============================================+=================================================+
-| `Requirements (SRS) <requirements/srs.md>`__ | Detailed functional requirements                |
+| :doc:`Requirements (SRS) <requirements/srs>` | Detailed functional requirements                |
 +----------------------------------------------+-------------------------------------------------+
-| `Design (SDD) <design/sdd.md>`__             | Architecture, database schema, component design |
+| :doc:`Design (SDD) <design/sdd>`             | Architecture, database schema, component design |
 +----------------------------------------------+-------------------------------------------------+
-| `Test Plan <testing/plan.md>`__              | Test cases and procedures                       |
+| :doc:`Test Plan <testing/plan>`              | Test cases and procedures                       |
 +----------------------------------------------+-------------------------------------------------+
 | `CLAUDE.md <../CLAUDE.md>`__                 | AI assistant development guidelines             |
 +----------------------------------------------+-------------------------------------------------+
@@ -159,5 +159,5 @@ Project Planning
 +--------------------------------------------+---------------------------------+
 | Document                                   | Purpose                         |
 +============================================+=================================+
-| `Development Plan <development-plan.md>`__ | MVP implementation milestones   |
+| :doc:`Roadmap <roadmap>`                   | MVP implementation milestones   |
 +--------------------------------------------+---------------------------------+

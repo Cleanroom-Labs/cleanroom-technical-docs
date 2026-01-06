@@ -18,7 +18,6 @@ Developer deployment packaging tool for air-gapped Rust development.
    :caption: Planning
 
    roadmap
-   development-plan
 
 .. toctree::
    :maxdepth: 2
