@@ -16,14 +16,28 @@ AirGap Deploy
 
 This Software Design Document (SDD) describes the architectural and detailed design of **AirGap Deploy**, a command-line tool for packaging applications for air-gapped deployment.
 
-This document is intended for: - Developers implementing AirGap Deploy - Code reviewers - Future maintainers - Contributors developing custom components
+This document is intended for:
+
+- Developers implementing AirGap Deploy
+- Code reviewers
+- Future maintainers
+- Contributors developing custom components
 
 1.2 Scope
 ~~~~~~~~~
 
-This document covers: - System architecture and component decomposition - Data structures and algorithms - Interface specifications - Design decisions and rationales
+This document covers:
 
-This document does NOT cover: - Requirements (see :doc:`SRS <../requirements/srs>`) - Implementation details (see source code) - User documentation (see README)
+- System architecture and component decomposition
+- Data structures and algorithms
+- Interface specifications
+- Design decisions and rationales
+
+This document does NOT cover:
+
+- Requirements (see :doc:`SRS <../requirements/srs>`)
+- Implementation details (see source code)
+- User documentation (see README)
 
 1.3 Definitions and Acronyms
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -52,7 +66,11 @@ airgap-deploy follows a **pipeline architecture** with distinct stages:
 
    Input (Manifest) → Parse → Collect → Package → Generate Scripts → Output (Archive)
 
-This architecture provides: - **Clear separation of concerns:** Each stage has a single responsibility - **Testability:** Each stage can be tested independently - **Extensibility:** New component types can be added without modifying core pipeline
+This architecture provides:
+
+- **Clear separation of concerns:** Each stage has a single responsibility
+- **Testability:** Each stage can be tested independently
+- **Extensibility:** New component types can be added without modifying core pipeline
 
 2.2 High-Level Architecture
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -704,9 +722,18 @@ See :doc:`SRS <../requirements/srs>` (Section 3.5) for detailed CLI specificatio
 6.3 Logging
 ~~~~~~~~~~~
 
-**Levels:** - ERROR: Critical failures that prevent completion - WARN: Non-fatal issues that might affect operation - INFO: Normal operational messages (default) - DEBUG: Detailed information for troubleshooting (–verbose) - TRACE: Very detailed, internal state information
+**Levels:**
 
-**Output:** - Console: INFO and above (with colors) - Log file (optional): DEBUG and above
+- ERROR: Critical failures that prevent completion
+- WARN: Non-fatal issues that might affect operation
+- INFO: Normal operational messages (default)
+- DEBUG: Detailed information for troubleshooting (–verbose)
+- TRACE: Very detailed, internal state information
+
+**Output:**
+
+- Console: INFO and above (with colors)
+- Log file (optional): DEBUG and above
 
 --------------
 
@@ -891,7 +918,11 @@ See :doc:`SRS <../requirements/srs>` (Section 3.5) for detailed CLI specificatio
 9.3 Platform Testing
 ~~~~~~~~~~~~~~~~~~~~
 
-**CI Matrix:** - Linux: Ubuntu 20.04, Ubuntu 22.04, Fedora 38 - macOS: macOS 12 (Intel), macOS 14 (Apple Silicon) - Windows: Windows 10, Windows 11
+**CI Matrix:**
+
+- Linux: Ubuntu 20.04, Ubuntu 22.04, Fedora 38
+- macOS: macOS 12 (Intel), macOS 14 (Apple Silicon)
+- Windows: Windows 10, Windows 11
 
 --------------
 

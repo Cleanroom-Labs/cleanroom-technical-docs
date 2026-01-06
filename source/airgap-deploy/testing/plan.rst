@@ -19,9 +19,19 @@ This Test Plan describes the testing strategy, approach, and test cases for **ai
 1.2 Scope
 ~~~~~~~~~
 
-**In Scope:** - Unit tests for all modules - Integration tests for end-to-end workflows - Platform-specific tests (Linux, macOS, Windows) - Performance tests for large packages - Error handling and recovery tests
+**In Scope:**
 
-**Out of Scope:** - GUI testing (no GUI in this application) - Load testing (not a server application) - Security penetration testing (manual review only)
+- Unit tests for all modules
+- Integration tests for end-to-end workflows
+- Platform-specific tests (Linux, macOS, Windows)
+- Performance tests for large packages
+- Error handling and recovery tests
+
+**Out of Scope:**
+
+- GUI testing (no GUI in this application)
+- Load testing (not a server application)
+- Security penetration testing (manual review only)
 
 1.3 References
 ~~~~~~~~~~~~~~
@@ -39,13 +49,29 @@ This Test Plan describes the testing strategy, approach, and test cases for **ai
 2.1 Test Levels
 ~~~~~~~~~~~~~~~
 
-**Unit Testing:** - Test individual functions and modules in isolation - Mock external dependencies (filesystem, network) - Target: 80%+ code coverage
+**Unit Testing:**
 
-**Integration Testing:** - Test component interactions - Test full workflows (manifest → package → install) - Test on real external resources (Git repos, model files)
+- Test individual functions and modules in isolation
+- Mock external dependencies (filesystem, network)
+- Target: 80%+ code coverage
 
-**System Testing:** - Test on actual air-gapped VMs - Test multi-platform deployments - Test error recovery scenarios
+**Integration Testing:**
 
-**Acceptance Testing:** - Verify requirements satisfaction - User workflow testing - Reference implementation (AirGap Whisper deployment)
+- Test component interactions
+- Test full workflows (manifest → package → install)
+- Test on real external resources (Git repos, model files)
+
+**System Testing:**
+
+- Test on actual air-gapped VMs
+- Test multi-platform deployments
+- Test error recovery scenarios
+
+**Acceptance Testing:**
+
+- Verify requirements satisfaction
+- User workflow testing
+- Reference implementation (AirGap Whisper deployment)
 
 2.2 Test Types
 ~~~~~~~~~~~~~~
@@ -64,11 +90,25 @@ Test Type       Purpose                  Coverage
 2.3 Test Environment
 ~~~~~~~~~~~~~~~~~~~~
 
-**Development Environment:** - Local development machines (Linux, macOS, Windows) - Unit tests run on developer machines - Fast feedback loop
+**Development Environment:**
 
-**CI Environment:** - GitHub Actions with matrix builds - Ubuntu 20.04, 22.04 - macOS 12, 14 - Windows 10, 11 - Rust stable, beta
+- Local development machines (Linux, macOS, Windows)
+- Unit tests run on developer machines
+- Fast feedback loop
 
-**Air-Gapped Environment:** - VirtualBox/VMware VMs with no network - Test actual air-gap deployment - Ubuntu 22.04 VM (primary test target)
+**CI Environment:**
+
+- GitHub Actions with matrix builds
+- Ubuntu 20.04, 22.04
+- macOS 12, 14
+- Windows 10, 11
+- Rust stable, beta
+
+**Air-Gapped Environment:**
+
+- VirtualBox/VMware VMs with no network
+- Test actual air-gap deployment
+- Ubuntu 22.04 VM (primary test target)
 
 --------------
 
