@@ -86,23 +86,13 @@ Priority: **M**\ ust / **S**\ hould / **C**\ ould
 3.1 Recording
 ~~~~~~~~~~~~~
 
-+---------+-------------------------+----------------------------------------------------------+
-| ID      | Priority                | Requirement                                              |
-+=========+=========================+==========================================================+
-| FR-001  | M                       | Global hotkey toggles recording (start/stop)             |
-+---------+-------------------------+----------------------------------------------------------+
-| FR-002  | M                       | Tray icon changes color/state when recording             |
-+---------+-------------------------+----------------------------------------------------------+
-| FR-003  | M                       | Audio captured from system default microphone            |
-+---------+-------------------------+----------------------------------------------------------+
-| FR-004  | M                       | Audio saved as WAV (16kHz mono)                          |
-+---------+-------------------------+----------------------------------------------------------+
-| FR-005  | S                       | Tray menu shows recording duration while active          |
-+---------+-------------------------+----------------------------------------------------------+
-| FR-006  | S                       | Configurable recording duration limit (default: 120 min) |
-+---------+-------------------------+----------------------------------------------------------+
-| FR-007  | S                       | Audio input device selection in settings                 |
-+---------+-------------------------+----------------------------------------------------------+
+.. needtable::
+   :types: req
+   :filter: "whisper" in tags and "recording" in tags
+   :columns: id,priority,title
+   :colwidths: 20,20,60
+   :style: table
+   :sort: id
 
 **Traceable Requirements (sphinx-needs directives):**
 
@@ -397,117 +387,92 @@ Priority: **M**\ ust / **S**\ hould / **C**\ ould
 3.2 Transcription
 ~~~~~~~~~~~~~~~~~
 
-+---------+-------------------------+------------------------------------------------------------+
-| ID      | Priority                | Requirement                                                |
-+=========+=========================+============================================================+
-| FR-008  | M                       | On stop, invoke whisper.cpp with configured model          |
-+---------+-------------------------+------------------------------------------------------------+
-| FR-009  | M                       | Parse whisper.cpp stdout for text                          |
-+---------+-------------------------+------------------------------------------------------------+
-| FR-010  | M                       | Show notification with transcription preview on completion |
-+---------+-------------------------+------------------------------------------------------------+
-| FR-011  | M                       | Tray icon indicates transcription in progress              |
-+---------+-------------------------+------------------------------------------------------------+
-| FR-012  | M                       | Handle transcription errors with system notification       |
-+---------+-------------------------+------------------------------------------------------------+
+.. needtable::
+   :types: req
+   :filter: "whisper" in tags and "transcription" in tags
+   :columns: id,priority,title
+   :colwidths: 20,20,60
+   :style: table
+   :sort: id
 
 3.3 History
 ~~~~~~~~~~~
 
-====== ======== ======================================================
-ID     Priority Requirement
-====== ======== ======================================================
-FR-013 M        Save all transcriptions to SQLite
-FR-014 M        Tray menu shows recent transcriptions (newest first)
-FR-015 M        Menu items show: timestamp and text preview
-FR-016 M        Click menu item copies full transcription to clipboard
-FR-017 S        “View History” opens native dialog with full list
-FR-018 S        Delete transcription from history dialog
-====== ======== ======================================================
+.. needtable::
+   :types: req
+   :filter: "whisper" in tags and "history" in tags
+   :columns: id,priority,title
+   :colwidths: 20,20,60
+   :style: table
+   :sort: id
 
 3.4 Output
 ~~~~~~~~~~
 
-====== ======== =====================================================
-ID     Priority Requirement
-====== ======== =====================================================
-FR-019 M        Global hotkey copies most recent transcription
-FR-020 S        Export transcription as .txt file from history dialog
-====== ======== =====================================================
+.. needtable::
+   :types: req
+   :filter: "whisper" in tags and "output" in tags
+   :columns: id,priority,title
+   :colwidths: 20,20,60
+   :style: table
+   :sort: id
 
 3.5 Settings
 ~~~~~~~~~~~~
 
-====== ======== ==================================================
-ID     Priority Requirement
-====== ======== ==================================================
-FR-021 M        “Settings” menu item opens native settings dialog
-FR-022 M        Configure whisper.cpp binary path with file picker
-FR-023 M        Configure model file path with file picker
-FR-024 M        Validate paths exist before save
-FR-025 M        Configure global hotkeys with conflict detection
-FR-026 S        First-run prompt when paths not configured
-====== ======== ==================================================
+.. needtable::
+   :types: req
+   :filter: "whisper" in tags and "settings" in tags
+   :columns: id,priority,title
+   :colwidths: 20,20,60
+   :style: table
+   :sort: id
 
 3.6 System Tray
 ~~~~~~~~~~~~~~~
 
-+---------+-------------------------+----------------------------------------------------------+
-| ID      | Priority                | Requirement                                              |
-+=========+=========================+==========================================================+
-| FR-027  | M                       | Tray icon shows app status (idle/recording/transcribing) |
-+---------+-------------------------+----------------------------------------------------------+
-| FR-028  | M                       | Left-click tray icon toggles recording                   |
-+---------+-------------------------+----------------------------------------------------------+
-| FR-029  | M                       | Right-click shows menu: Recent items, Settings, Quit     |
-+---------+-------------------------+----------------------------------------------------------+
-| FR-030  | M                       | App starts minimized to tray (no main window)            |
-+---------+-------------------------+----------------------------------------------------------+
+.. needtable::
+   :types: req
+   :filter: "whisper" in tags and "tray" in tags
+   :columns: id,priority,title
+   :colwidths: 20,20,60
+   :style: table
+   :sort: id
 
 3.7 Security
 ~~~~~~~~~~~~
 
-====== ======== =======================================
-ID     Priority Requirement
-====== ======== =======================================
-FR-031 M        Sanitize file paths (reject ``..``)
-FR-032 M        Use parameterized database queries
-FR-033 M        No network calls under any circumstance
-====== ======== =======================================
+.. needtable::
+   :types: req
+   :filter: "whisper" in tags and "security" in tags
+   :columns: id,priority,title
+   :colwidths: 20,20,60
+   :style: table
+   :sort: id
 
 3.8 Deployment
 ~~~~~~~~~~~~~~
 
-+---------+-------------------------+----------------------------------------------------------+
-| ID      | Priority                | Requirement                                              |
-+=========+=========================+==========================================================+
-| FR-034  | M                       | All dependencies available for offline build             |
-+---------+-------------------------+----------------------------------------------------------+
-| FR-035  | M                       | Build process works without internet after initial setup |
-+---------+-------------------------+----------------------------------------------------------+
-| FR-036  | S                       | Single-directory deployment (app + whisper.cpp + model)  |
-+---------+-------------------------+----------------------------------------------------------+
+.. needtable::
+   :types: req
+   :filter: "whisper" in tags and "deployment" in tags
+   :columns: id,priority,title
+   :colwidths: 20,20,60
+   :style: table
+   :sort: id
 
 --------------
 
 4. Non-Functional Requirements
 ------------------------------
 
-+----------+------------------------------------+------------------------------------------------------------------+
-| ID       | Requirement                        | Target                                                           |
-+==========+====================================+==================================================================+
-| NFR-001  | App launch time                    | < 2 seconds                                                      |
-+----------+------------------------------------+------------------------------------------------------------------+
-| NFR-002  | Memory footprint                   | < 100 MB (excluding whisper.cpp)                                 |
-+----------+------------------------------------+------------------------------------------------------------------+
-| NFR-003  | Privacy                            | All data stays on user’s machine; no network calls, no telemetry |
-+----------+------------------------------------+------------------------------------------------------------------+
-| NFR-004  | Offline functionality              | 100% functional offline                                          |
-+----------+------------------------------------+------------------------------------------------------------------+
-| NFR-005  | Air-gap deployment                 | Build and run on systems with no internet access                 |
-+----------+------------------------------------+------------------------------------------------------------------+
-| NFR-006  | Theme support                      | Follow system (dark/light)                                       |
-+----------+------------------------------------+------------------------------------------------------------------+
+.. needtable::
+   :types: nfreq
+   :filter: "whisper" in tags
+   :columns: id,priority,title
+   :colwidths: 20,20,60
+   :style: table
+   :sort: id
 
 **Traceable Non-Functional Requirements (sphinx-needs directives):**
 

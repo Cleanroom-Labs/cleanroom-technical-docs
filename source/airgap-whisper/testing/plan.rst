@@ -94,18 +94,13 @@ Notifications    Platform-specific behavior
 3.1 Recording Tests
 ~~~~~~~~~~~~~~~~~~~
 
-========== ================================== =========== ========
-ID         Description                        Requirement Priority
-========== ================================== =========== ========
-TC-REC-001 Hotkey starts recording            FR-001      High
-TC-REC-002 Hotkey stops recording             FR-001      High
-TC-REC-003 Tray icon shows recording state    FR-002      High
-TC-REC-004 Audio captured from default mic    FR-003      High
-TC-REC-005 WAV file created (16kHz mono)      FR-004      High
-TC-REC-006 Tray menu shows recording duration FR-005      Medium
-TC-REC-007 Recording stops at duration limit  FR-006      Medium
-TC-REC-008 Custom audio device works          FR-007      Medium
-========== ================================== =========== ========
+.. needtable::
+   :types: test
+   :filter: id.startswith('TC-REC')
+   :columns: id,title,tests,priority
+   :colwidths: 20,40,20,20
+   :style: table
+   :sort: id
 
 **Traceable Test Cases (sphinx-needs directives):**
 
@@ -552,105 +547,90 @@ TC-REC-008 Custom audio device works          FR-007      Medium
 3.2 Transcription Tests
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-+------------+------------------------------------------+----------------------+-----------------+
-| ID         | Description                              | Requirement          | Priority        |
-+============+==========================================+======================+=================+
-| TC-TRS-001 | whisper.cpp invoked on stop              | FR-008               | High            |
-+------------+------------------------------------------+----------------------+-----------------+
-| TC-TRS-002 | Text extracted from stdout               | FR-009               | High            |
-+------------+------------------------------------------+----------------------+-----------------+
-| TC-TRS-003 | Notification shows transcription preview | FR-010               | High            |
-+------------+------------------------------------------+----------------------+-----------------+
-| TC-TRS-004 | Tray icon shows transcribing state       | FR-011               | Medium          |
-+------------+------------------------------------------+----------------------+-----------------+
-| TC-TRS-005 | Error notification on whisper failure    | FR-012               | High            |
-+------------+------------------------------------------+----------------------+-----------------+
+.. needtable::
+   :types: test
+   :filter: id.startswith('TC-TRS')
+   :columns: id,title,tests,priority
+   :colwidths: 20,40,20,20
+   :style: table
+   :sort: id
 
 3.3 History Tests
 ~~~~~~~~~~~~~~~~~
 
-========== ===================================== =========== ========
-ID         Description                           Requirement Priority
-========== ===================================== =========== ========
-TC-HIS-001 Transcription saved to database       FR-013      High
-TC-HIS-002 Tray menu shows recent items          FR-014      High
-TC-HIS-003 Menu items show timestamp and preview FR-015      Medium
-TC-HIS-004 Click menu item copies to clipboard   FR-016      High
-TC-HIS-005 View History opens native dialog      FR-017      Medium
-TC-HIS-006 Delete transcription from dialog      FR-018      Medium
-========== ===================================== =========== ========
+.. needtable::
+   :types: test
+   :filter: id.startswith('TC-HIS')
+   :columns: id,title,tests,priority
+   :colwidths: 20,40,20,20
+   :style: table
+   :sort: id
 
 3.4 Output Tests
 ~~~~~~~~~~~~~~~~
 
-========== ================================ =========== ========
-ID         Description                      Requirement Priority
-========== ================================ =========== ========
-TC-OUT-001 Hotkey copies last transcription FR-019      High
-TC-OUT-002 Export to .txt file              FR-020      Medium
-========== ================================ =========== ========
+.. needtable::
+   :types: test
+   :filter: id.startswith('TC-OUT')
+   :columns: id,title,tests,priority
+   :colwidths: 20,40,20,20
+   :style: table
+   :sort: id
 
 3.5 Settings Tests
 ~~~~~~~~~~~~~~~~~~
 
-========== ================================== =========== ========
-ID         Description                        Requirement Priority
-========== ================================== =========== ========
-TC-SET-001 Settings menu opens dialog         FR-021      High
-TC-SET-002 Configure whisper path with picker FR-022      High
-TC-SET-003 Configure model path with picker   FR-023      High
-TC-SET-004 Path validation (exists)           FR-024      High
-TC-SET-005 Configure hotkeys                  FR-025      High
-TC-SET-006 First-run prompt appears           FR-026      Medium
-========== ================================== =========== ========
+.. needtable::
+   :types: test
+   :filter: id.startswith('TC-SET')
+   :columns: id,title,tests,priority
+   :colwidths: 20,40,20,20
+   :style: table
+   :sort: id
 
 3.6 System Tray Tests
 ~~~~~~~~~~~~~~~~~~~~~
 
-========== ============================ =========== ========
-ID         Description                  Requirement Priority
-========== ============================ =========== ========
-TC-TRY-001 Tray icon shows status       FR-027      High
-TC-TRY-002 Left-click toggles recording FR-028      High
-TC-TRY-003 Right-click shows menu       FR-029      High
-TC-TRY-004 App starts minimized to tray FR-030      High
-========== ============================ =========== ========
+.. needtable::
+   :types: test
+   :filter: id.startswith('TC-TRY')
+   :columns: id,title,tests,priority
+   :colwidths: 20,40,20,20
+   :style: table
+   :sort: id
 
 3.7 Security Tests
 ~~~~~~~~~~~~~~~~~~
 
-========== ================================= =============== ========
-ID         Description                       Requirement     Priority
-========== ================================= =============== ========
-TC-SEC-001 Path with ``..`` rejected         FR-031          Critical
-TC-SEC-002 SQL injection prevented           FR-032          Critical
-TC-SEC-003 No network calls (firewall test)  FR-033          Critical
-TC-SEC-004 No network calls (packet capture) FR-033          Critical
-TC-SEC-005 App works offline                 FR-033, NFR-004 Critical
-========== ================================= =============== ========
+.. needtable::
+   :types: test
+   :filter: id.startswith('TC-SEC')
+   :columns: id,title,tests,priority
+   :colwidths: 20,40,20,20
+   :style: table
+   :sort: id
 
 3.8 Deployment Tests
 ~~~~~~~~~~~~~~~~~~~~
 
-========== ================================= =========== ========
-ID         Description                       Requirement Priority
-========== ================================= =========== ========
-TC-DEP-001 Cargo vendor directory present    FR-034      High
-TC-DEP-002 Build succeeds without internet   FR-035      Critical
-TC-DEP-003 Single-directory deployment works FR-036      Medium
-========== ================================= =========== ========
+.. needtable::
+   :types: test
+   :filter: id.startswith('TC-DEP')
+   :columns: id,title,tests,priority
+   :colwidths: 20,40,20,20
+   :style: table
+   :sort: id
 
 3.9 Non-Functional Tests
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-========== ========================== =========== =========
-ID         Description                Requirement Target
-========== ========================== =========== =========
-TC-NFR-001 App launch time            NFR-001     < 2 sec
-TC-NFR-002 Memory usage               NFR-002     < 100 MB
-TC-NFR-003 Build on air-gapped system NFR-005     Pass/Fail
-TC-NFR-004 Theme follows system       NFR-006     Pass/Fail
-========== ========================== =========== =========
+.. needtable::
+   :types: test
+   :filter: id.startswith('TC-NFR')
+   :columns: id,title,tests,priority
+   :colwidths: 20,40,20,20
+   :style: table
+   :sort: id
 
 --------------
 
