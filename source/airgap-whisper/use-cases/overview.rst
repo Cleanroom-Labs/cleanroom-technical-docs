@@ -20,9 +20,21 @@ Quick Voice Memo
 
 **Trigger:** Press global hotkey to start recording
 
-**Workflow:** 1. Press ``Ctrl+Alt+R`` to start recording 2. Speak the memo (e.g., “Remember to follow up with client about proposal”) 3. Press ``Ctrl+Alt+R`` to stop and transcribe 4. Review transcription in notification 5. Press ``Ctrl+Alt+C`` to copy to clipboard 6. Paste into notes app, email, or task manager
+**Workflow:**
 
-**Success Criteria:** - Recording captured clearly - Transcription accurate (> 90%) - Available in clipboard within 10 seconds - No data sent over network
+1. Press ``Ctrl+Alt+R`` to start recording
+2. Speak the memo (e.g., "Remember to follow up with client about proposal")
+3. Press ``Ctrl+Alt+R`` to stop and transcribe
+4. Review transcription in notification
+5. Press ``Ctrl+Alt+C`` to copy to clipboard
+6. Paste into notes app, email, or task manager
+
+**Success Criteria:**
+
+- Recording captured clearly
+- Transcription accurate (> 90%)
+- Available in clipboard within 10 seconds
+- No data sent over network
 
 .. usecase:: Quick Voice Memo
    :id: UC-WHISPER-001
@@ -44,9 +56,21 @@ Meeting Notes
 
 **Trigger:** Need to document meeting discussion
 
-**Workflow:** 1. During meeting: press hotkey to start recording 2. Speak meeting notes verbally or record discussion 3. Stop recording when section complete 4. Review transcription in tray menu 5. Copy to meeting notes document 6. Repeat for multiple sections as needed
+**Workflow:**
 
-**Success Criteria:** - Multiple recordings maintained in history - Transcriptions accessible from tray menu - Easy to copy and organize notes - All data stays on local machine
+1. During meeting: press hotkey to start recording
+2. Speak meeting notes verbally or record discussion
+3. Stop recording when section complete
+4. Review transcription in tray menu
+5. Copy to meeting notes document
+6. Repeat for multiple sections as needed
+
+**Success Criteria:**
+
+- Multiple recordings maintained in history
+- Transcriptions accessible from tray menu
+- Easy to copy and organize notes
+- All data stays on local machine
 
 .. usecase:: Meeting Notes
    :id: UC-WHISPER-002
@@ -68,9 +92,20 @@ Interview Transcription
 
 **Trigger:** Have pre-recorded interview audio file
 
-**Workflow:** 1. Play interview audio through system audio 2. Use AirGap Whisper to record system audio output 3. Transcribe in sections (e.g., 5-10 minute chunks) 4. Review and copy each transcription 5. Compile full transcript in document editor
+**Workflow:**
 
-**Success Criteria:** - Handle longer audio segments (up to 2 hours) - Accurate transcription of multiple speakers - History preserved for review and editing - Workflow manageable without technical expertise
+1. Play interview audio through system audio
+2. Use AirGap Whisper to record system audio output
+3. Transcribe in sections (e.g., 5-10 minute chunks)
+4. Review and copy each transcription
+5. Compile full transcript in document editor
+
+**Success Criteria:**
+
+- Handle longer audio segments (up to 2 hours)
+- Accurate transcription of multiple speakers
+- History preserved for review and editing
+- Workflow manageable without technical expertise
 
 .. usecase:: Interview Transcription
    :id: UC-WHISPER-003
@@ -92,9 +127,20 @@ Accessibility - Hands-Free Text Input
 
 **Trigger:** Need to compose text (email, document, message)
 
-**Workflow:** 1. Press accessible hotkey to start recording 2. Dictate text content 3. Stop recording and review transcription 4. Copy transcription to target application 5. Edit as needed using accessibility tools
+**Workflow:**
 
-**Success Criteria:** - Hotkeys customizable for accessibility hardware - Fast transcription turnaround (< 10 seconds) - High accuracy to minimize editing - Reliable offline operation
+1. Press accessible hotkey to start recording
+2. Dictate text content
+3. Stop recording and review transcription
+4. Copy transcription to target application
+5. Edit as needed using accessibility tools
+
+**Success Criteria:**
+
+- Hotkeys customizable for accessibility hardware
+- Fast transcription turnaround (< 10 seconds)
+- High accuracy to minimize editing
+- Reliable offline operation
 
 .. usecase:: Accessibility - Hands-Free Text Input
    :id: UC-WHISPER-004
@@ -151,10 +197,10 @@ With AirGap Deploy
 
 AirGap Whisper can be deployed to air-gapped systems using AirGap Deploy:
 
-Package AirGap Whisper binary with vendored dependencies
-Include whisper.cpp source and pre-downloaded models
-Transfer via AirGap Transfer if package exceeds USB capacity
-Deploy and build on isolated system
+- Package AirGap Whisper binary with vendored dependencies
+- Include whisper.cpp source and pre-downloaded models
+- Transfer via AirGap Transfer if package exceeds USB capacity
+- Deploy and build on isolated system
 
 **See:** :doc:`airgap-deploy workflow documentation </airgap-deploy/use-cases/workflow-airgap-whisper>`
 
