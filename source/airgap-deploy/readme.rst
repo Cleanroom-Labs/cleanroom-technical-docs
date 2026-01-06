@@ -433,6 +433,45 @@ airgap-deploy operates in two distinct phases:
 
 Generated installation scripts are completely offline.
 
+.. _airgap-deploy-readme-competition:
+
+Why AirGap Deploy?
+------------------
+
+AirGap Deploy fills the gap for **lightweight, general-purpose application packaging** for air-gapped systems. While other tools focus on specific deployment targets, AirGap Deploy is designed for desktop applications, simple binaries, and Rust ecosystem projects.
+
+**vs Kubernetes tools** (Zarf, UDS, KOSI):
+
+- ✅ **Desktop application focus**: No Kubernetes cluster required
+- ✅ **Simple TOML manifests**: Human-readable, easy to version control
+- ✅ **Minimal infrastructure**: Single Rust binary, no runtime dependencies
+- ✅ **Direct binary deployment**: Native applications, not containerized workloads
+
+**vs container platforms** (Docker, Podman):
+
+- ✅ **No runtime requirements**: No Docker daemon needed on target system
+- ✅ **Native performance**: Direct binary execution, not virtualized
+- ✅ **Rust ecosystem integration**: First-class support for cargo vendoring
+- ✅ **Model file support**: Built-in handling for ML/AI model downloads
+
+**vs enterprise tools** (JFrog, NetBox, Commvault):
+
+- ✅ **Free and open source**: No licensing costs or vendor lock-in
+- ✅ **Lightweight**: No heavy infrastructure (Artifactory, registries, databases)
+- ✅ **Simple workflow**: Manifest → package → install script, nothing more
+- ✅ **Developer-friendly**: Designed for release engineers, not enterprise IT
+
+**vs language-specific tools** (pip download, cargo-vendor, conda pack):
+
+- ✅ **Multi-component support**: Package apps + binaries + models + packages
+- ✅ **Cross-platform installation scripts**: Bash (Linux/macOS) and PowerShell (Windows)
+- ✅ **Dependency verification**: SHA-256 checksums for all components
+- ✅ **Automated builds**: Installation scripts handle building from source offline
+
+**Unique value proposition:** The only tool designed specifically for packaging Rust applications with ML models (like AirGap Whisper + whisper.cpp + model files) for air-gapped desktop deployment.
+
+**Complementary to Zarf:** Use Zarf for Kubernetes workloads, AirGap Deploy for desktop applications. Both solve air-gap deployment, different targets.
+
 License
 -------
 

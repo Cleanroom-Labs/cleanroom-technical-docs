@@ -100,6 +100,35 @@ AirGap Whisper is **private by architecture**:
 - No update checks or external API calls
 - All audio and transcriptions stay on your machine
 
+.. _airgap-whisper-readme-competition:
+
+Why AirGap Whisper?
+-------------------
+
+AirGap Whisper is the **only cross-platform, open-source, air-gap-ready voice transcription tool** optimized for quick capture workflows in privacy-sensitive environments.
+
+**vs macOS-only tools** (MacWhisper, VoiceInk, Superwhisper):
+
+- ✅ **Cross-platform**: Works on macOS, Windows, and Linux with consistent UX
+- ✅ **Air-gap deployment ready**: Vendored dependencies, no network requirements
+- ✅ **System tray workflow**: Background operation with global hotkeys (no main window)
+- ✅ **Minimal dependencies**: 8 Rust crates vs typical 20-50+ dependencies
+
+**vs cloud-based tools** (Otter.ai, Fireflies, Whisper API):
+
+- ✅ **100% offline**: Zero network code, guaranteed data locality
+- ✅ **No subscriptions**: One-time build, use forever
+- ✅ **Privacy guarantee**: No data leaves your machine, ever
+- ✅ **Works in isolated environments**: Government, healthcare, finance, research
+
+**vs file transcription tools** (Vibe Transcribe, Speech Note):
+
+- ✅ **Quick capture optimized**: Global hotkey workflow for voice memos
+- ✅ **Instant access**: SQLite history with clipboard integration
+- ✅ **Live recording**: Start/stop/transcribe in seconds, not minutes
+
+**Unique positioning:** The only tool designed specifically for quick voice capture in air-gapped environments where data privacy is non-negotiable.
+
 Platform Support
 ----------------
 
