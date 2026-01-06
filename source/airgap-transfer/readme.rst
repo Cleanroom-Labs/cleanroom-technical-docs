@@ -100,7 +100,7 @@ Building
 
 Requires Rust toolchain and platform-specific build tools.
 
-See :doc:`Development Plan <development-plan>` for complete build instructions and architecture details.
+See :doc:`Roadmap <roadmap>` for complete build instructions and architecture details.
 
 Air-Gapped Deployment
 ---------------------
@@ -175,7 +175,7 @@ Project Planning
 +--------------------------------------------+---------------------------------+
 | Document                                   | Purpose                         |
 +============================================+=================================+
-| :doc:`Development Plan <development-plan>` | MVP implementation milestones   |
+| :doc:`Roadmap <roadmap>`                   | MVP implementation milestones   |
 +--------------------------------------------+---------------------------------+
 | :doc:`Use Case Analysis <use-cases/index>` | Workflow documentation          |
 +--------------------------------------------+---------------------------------+

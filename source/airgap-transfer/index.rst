@@ -18,7 +18,6 @@ Large file transfer utility for air-gapped environments.
    :caption: Planning
 
    roadmap
-   development-plan
 
 .. toctree::
    :maxdepth: 2

@@ -165,4 +165,4 @@ Related Documents
 
 - :doc:`SRS <../requirements/srs>` - Multi-chunk requirements
 - :doc:`SDD <../design/sdd>` - State management for resume
-- :doc:`Development Plan <../development-plan>` - USB handling milestone
+- :doc:`Roadmap <../roadmap>` - USB handling milestone
