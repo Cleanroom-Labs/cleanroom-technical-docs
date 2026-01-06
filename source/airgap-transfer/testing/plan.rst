@@ -549,6 +549,159 @@ Non-Functional Tests
 
    Verify functionality on Linux, macOS, Windows
 
+.. test:: Privacy Guarantee Verification
+   :id: TC-TRANSFER-NFR-005
+   :status: approved
+   :tags: transfer, privacy, security
+   :tests: NFR-TRANSFER-003
+   :priority: critical
+
+   Verify no network calls under any circumstance (monitor with network sniffer)
+
+.. test:: Air-Gap Deployment Test
+   :id: TC-TRANSFER-NFR-006
+   :status: approved
+   :tags: transfer, deployment, offline
+   :tests: NFR-TRANSFER-005
+   :priority: critical
+
+   Verify build and execution on air-gapped system with vendored dependencies
+
+.. test:: Checksum Verification Reliability
+   :id: TC-TRANSFER-NFR-007
+   :status: approved
+   :tags: transfer, reliability, integrity
+   :tests: NFR-TRANSFER-007
+   :priority: critical
+
+   Verify all chunks verified with SHA-256 checksums before reconstruction
+
+.. test:: Idempotent Pack Operation
+   :id: TC-TRANSFER-NFR-008
+   :status: approved
+   :tags: transfer, reliability
+   :tests: NFR-TRANSFER-008
+   :priority: high
+
+   Verify running pack operation multiple times produces same output without errors
+
+.. test:: Graceful Interruption Handling
+   :id: TC-TRANSFER-NFR-009
+   :status: approved
+   :tags: transfer, reliability, error-handling
+   :tests: NFR-TRANSFER-009
+   :priority: high
+
+   Verify Ctrl+C during pack/unpack allows resume without data loss
+
+.. test:: Data Corruption Detection
+   :id: TC-TRANSFER-NFR-010
+   :status: approved
+   :tags: transfer, reliability, integrity
+   :tests: NFR-TRANSFER-010
+   :priority: critical
+
+   Verify corrupted chunks detected via checksum mismatch with clear error message
+
+.. test:: Progress Indicator Display
+   :id: TC-TRANSFER-NFR-011
+   :status: approved
+   :tags: transfer, usability, ui
+   :tests: NFR-TRANSFER-011
+   :priority: medium
+
+   Verify progress indicators shown for operations >2 seconds
+
+.. test:: Error Message Clarity
+   :id: TC-TRANSFER-NFR-012
+   :status: approved
+   :tags: transfer, usability, error-handling
+   :tests: NFR-TRANSFER-012
+   :priority: high
+
+   Verify error messages include failure details and suggested fixes
+
+.. test:: Help Text Availability
+   :id: TC-TRANSFER-NFR-013
+   :status: approved
+   :tags: transfer, usability, cli
+   :tests: NFR-TRANSFER-013
+   :priority: high
+
+   Verify --help flag provides comprehensive help for all commands
+
+.. test:: First-Time User Experience
+   :id: TC-TRANSFER-NFR-014
+   :status: approved
+   :tags: transfer, usability
+   :tests: NFR-TRANSFER-014
+   :priority: medium
+
+   Verify new user can transfer file in <5 minutes using provided examples
+
+.. test:: Test Coverage Verification
+   :id: TC-TRANSFER-NFR-015
+   :status: approved
+   :tags: transfer, maintainability, testing
+   :tests: NFR-TRANSFER-015
+   :priority: high
+
+   Verify codebase achieves ≥80% test coverage via cargo tarpaulin
+
+.. test:: API Documentation Completeness
+   :id: TC-TRANSFER-NFR-016
+   :status: approved
+   :tags: transfer, maintainability, documentation
+   :tests: NFR-TRANSFER-016
+   :priority: high
+
+   Verify all public APIs have rustdoc documentation
+
+.. test:: Clippy Compliance Check
+   :id: TC-TRANSFER-NFR-017
+   :status: approved
+   :tags: transfer, maintainability, code-quality
+   :tests: NFR-TRANSFER-017
+   :priority: high
+
+   Verify cargo clippy passes with zero warnings
+
+.. test:: Code Formatting Check
+   :id: TC-TRANSFER-NFR-018
+   :status: approved
+   :tags: transfer, maintainability, code-quality
+   :tests: NFR-TRANSFER-018
+   :priority: high
+
+   Verify code formatted with rustfmt (cargo fmt --check)
+
+.. test:: Large File Support
+   :id: TC-TRANSFER-NFR-019
+   :status: approved
+   :tags: transfer, scalability
+   :tests: NFR-TRANSFER-019
+   :priority: medium
+
+   Verify successful pack/unpack of 100GB file
+
+.. test:: Streaming Architecture Verification
+   :id: TC-TRANSFER-NFR-020
+   :status: approved
+   :tags: transfer, scalability, performance
+   :tests: NFR-TRANSFER-020
+   :priority: high
+
+   Verify files larger than RAM handled via streaming (monitor memory usage)
+
+.. test:: Concurrent Chunk Processing
+   :id: TC-TRANSFER-NFR-021
+   :status: approved
+   :tags: transfer, scalability, performance
+   :tests: NFR-TRANSFER-021
+   :priority: low
+
+   Verify concurrent chunk verification improves performance
+
 --------------
 
 Test Procedures
