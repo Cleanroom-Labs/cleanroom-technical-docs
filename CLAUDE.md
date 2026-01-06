@@ -25,7 +25,6 @@ sphinx-docs/
 │   ├── airgap-whisper/                 # Whisper transcription app
 │   │   ├── readme.rst                  # Project overview
 │   │   ├── roadmap.rst                 # Current status and milestones
-│   │   ├── development-plan.rst        # MVP implementation plan
 │   │   ├── requirements/srs.rst        # Software Requirements Specification (with sphinx-needs directives)
 │   │   ├── design/sdd.rst              # Software Design Document
 │   │   ├── testing/plan.rst            # Test plan with traceability tables
@@ -34,7 +33,6 @@ sphinx-docs/
 │   ├── airgap-deploy/                  # Deployment packaging tool
 │   │   ├── readme.rst
 │   │   ├── roadmap.rst
-│   │   ├── development-plan.rst
 │   │   ├── requirements/srs.rst        # Requirements with sphinx-needs directives
 │   │   ├── design/sdd.rst
 │   │   ├── testing/plan.rst            # Test plan with traceability tables
@@ -43,7 +41,6 @@ sphinx-docs/
 │   ├── airgap-transfer/                # File transfer tool
 │   │   ├── readme.rst
 │   │   ├── roadmap.rst
-│   │   ├── development-plan.rst
 │   │   ├── requirements/srs.rst        # Requirements with sphinx-needs directives
 │   │   ├── design/sdd.rst
 │   │   ├── testing/plan.rst            # Test plan with traceability tables
@@ -101,7 +98,7 @@ This repository contains:
 
 - **Requirements (SRS)** - IEEE 830 simplified format with sphinx-needs directives, defines WHAT to build
 - **Design (SDD)** - IEEE 1016 simplified format, defines HOW to build
-- **Development Plans** - Phase-by-phase implementation roadmaps
+- **Roadmaps** - Phase-by-phase implementation plans and milestones
 - **Use Case Analysis** - Workflow scenarios and examples
 - **Test Plans** - Test cases with traceability links to requirements
 - **Traceability** - Requirements Overview page shows aggregate statistics; detailed traceability in each project's test plan
@@ -125,7 +122,7 @@ When updating documentation:
 2. Add requirement to `source/airgap-whisper/requirements/srs.rst` using `.. req::` directive
 3. Update `source/airgap-whisper/design/sdd.rst` with implementation approach
 4. Add test cases to `source/airgap-whisper/testing/plan.rst` using `.. test::` directive with `:tests:` link
-5. Update `source/airgap-whisper/development-plan.rst` milestones if needed
+5. Update `source/airgap-whisper/roadmap.rst` milestones if needed
 6. Build docs and verify traceability tables update automatically
 
 **Clarifying a use case:**
@@ -170,7 +167,7 @@ Declarative manifests (`AirGapDeploy.toml`) that define:
 
 ### Architecture
 
-See `source/airgap-deploy/development-plan.rst` for the complete 7-phase implementation plan:
+See `source/airgap-deploy/roadmap.rst` for the complete 7-phase implementation plan:
 1. Core Infrastructure
 2. Built-in Components (RustApp, ExternalBinary, ModelFile, SystemPackage)
 3. Collection & Packaging
@@ -267,9 +264,9 @@ This is a **Sphinx documentation repository** that generates professional HTML d
 ### File Organization
 
 - Keep related documents together in project subdirectories
-- Use consistent naming: lowercase with hyphens (e.g., `development-plan.rst`)
+- Use consistent naming: lowercase with hyphens (e.g., `requirements-overview.rst`)
 - Place cross-project documents in `source/meta/`
-- Each project has same structure: readme, roadmap, development-plan, requirements/, design/, testing/, use-cases/
+- Each project has same structure: readme, roadmap, requirements/, design/, testing/, use-cases/
 
 ## Important Notes
 
