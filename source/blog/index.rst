@@ -27,3 +27,10 @@ Topics include:
 - Real-world use cases from government, healthcare, finance, and research
 
 All AirGap projects are open source (MIT/Apache-2.0) and designed with a core principle: **privacy through data locality**.
+
+Foundation Projects
+~~~~~~~~~~~~~~~~~~~
+
+The AirGap suite currently consists of three foundation projects—AirGap Whisper, AirGap Deploy, and AirGap Transfer—that we're actively developing in the near term. These tools demonstrate core patterns for privacy-first, offline computing and may serve as building blocks for future air-gapped projects.
+
+We're open to collaboration and welcome ideas from the community about how to expand the ecosystem of air-gapped computing tools.

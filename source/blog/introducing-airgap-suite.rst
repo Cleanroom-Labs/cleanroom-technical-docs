@@ -29,7 +29,7 @@ The AirGap suite was built to fill this gap.
 Introducing the AirGap Suite
 -----------------------------
 
-The AirGap suite is a collection of three complementary open-source tools designed specifically for computing in isolated, offline environments:
+The AirGap suite is a collection of three foundation projects designed specifically for computing in isolated, offline environments—with room for future expansion as the air-gapped computing ecosystem grows:
 
 **AirGap Whisper** converts your voice to text completely offline, using no cloud services. Press a hotkey, speak your thoughts, and get instant transcription—perfect for quick notes, meeting documentation, or accessibility needs.
 
@@ -40,6 +40,8 @@ The AirGap suite is a collection of three complementary open-source tools design
 What makes this suite unique isn't just that each tool works offline—it's that they're designed from the ground up with a single philosophy: **privacy through data locality**. Your data never leaves your machine. There's no network code, no telemetry, no "phoning home." Everything stays exactly where you put it.
 
 And because all three tools are written in Rust with minimal dependencies, they work consistently across macOS, Windows, and Linux—no virtualization, no cloud accounts, no subscriptions required.
+
+These three projects form the **core foundation** we're actively developing in the near term. They're designed not just as standalone tools, but as building blocks that demonstrate patterns and principles for privacy-first, offline computing.
 
 --------------
 
@@ -125,6 +127,10 @@ Each tool works independently—you can use AirGap Transfer without AirGap Deplo
 
 The technical foundation is consistent across all three: pure Rust for reliability and cross-platform support, minimal dependencies to avoid complexity, and zero network code to guarantee privacy. Everything is open source (MIT/Apache-2.0) with no vendor lock-in.
 
+**A Foundation for the Future**
+
+This integrated architecture isn't just useful today—it demonstrates patterns that can support future air-gapped tools. The principles of privacy through data locality, minimal dependencies, and cross-platform Rust development provide a solid foundation. We're focused on these three projects for now, but the architecture is intentionally designed to support an expanding ecosystem of air-gapped computing tools.
+
 **Learn more**: :doc:`Meta-Architecture </meta/meta-architecture>` | :doc:`Design Principles </meta/principles>`
 
 --------------
@@ -159,10 +165,12 @@ Ready to try it out? Each tool is available as source code and will be available
 
 **AirGap Transfer** (planned): Split large files with ``airgap-transfer pack``, physically transfer USB drives, and reconstruct with ``airgap-transfer unpack``. Crucial when datasets exceed single USB capacity. :doc:`Learn more </airgap-transfer/readme>`
 
-All three projects are open source and welcome contributions. Whether you want to report bugs, suggest features, or contribute code, the community is here to help.
+All three projects are open source and welcome contributions. These foundation tools represent our near-term development focus, but we have ideas for additional air-gapped projects and we're eager to collaborate with others who share the vision of privacy-first computing.
 
-**Questions? Ideas? Contributions?** Check out the documentation, open an issue, or join the conversation. Together, we're building the future of privacy-first, offline-capable computing.
+**Have ideas for air-gapped tools? Want to build on this foundation?** Whether you're interested in contributing to these three projects, proposing new tools that fit the ecosystem, or building your own projects on these principles—the community is here to help. The patterns established by AirGap Whisper, Deploy, and Transfer can serve as a foundation for a broader ecosystem of offline-capable tools.
+
+**Questions? Ideas? Contributions?** Reach out on GitHub or through email. Together, we're building the future of privacy-first, offline-capable computing—one foundation project at a time.
 
 --------------
 
-*The AirGap suite: Privacy through data locality, simplicity through minimal dependencies, and reliability through air-gap-ready design.*
+*The AirGap suite: Three foundation projects demonstrating privacy through data locality, simplicity through minimal dependencies, and reliability through air-gap-ready design. Built for today, designed as a foundation for tomorrow.*
