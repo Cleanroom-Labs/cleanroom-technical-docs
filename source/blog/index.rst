@@ -10,6 +10,9 @@ Articles about the AirGap suite, privacy-first computing, and offline workflows.
    :caption: Recent Posts
 
    introducing-airgap-suite
+   demo-whisper-quick-capture
+   demo-deploy-rust-app
+   demo-transfer-ollama
 
 --------------
 
