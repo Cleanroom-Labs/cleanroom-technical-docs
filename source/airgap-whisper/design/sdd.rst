@@ -1,13 +1,6 @@
 Software Design Document
 ========================
 
-AirGap Whisper
---------------
-
-**Version:** 1.0.0 **Date:** 2026-01-04 **Standard:** IEEE 1016 (simplified for MVP)
-
---------------
-
 Introduction
 ---------------
 
@@ -83,7 +76,7 @@ Per :doc:`Principles </meta/principles>`: **5 Rust files, flat structure. No fro
 
 ::
 
-   whisper-lite/
+   airgap-whisper/
    ├── src/
    │   ├── main.rs       # Entry point, event loop, tray setup
    │   ├── audio.rs      # Record WAV from microphone
@@ -161,7 +154,7 @@ File Storage
 ::
 
    {APP_DATA_DIR}/
-   ├── whisper-lite.db     # SQLite database
+   ├── airgap-whisper.db   # SQLite database
    ├── audio/              # Audio files
    │   └── {uuid}.wav
    └── temp/               # Recording in progress
@@ -191,7 +184,7 @@ Data Retention Policy
 
 **Transcriptions:** - Retained indefinitely until user deletes - Deletion removes database row and associated audio file (if exists) - No automatic cleanup or archival
 
-**Database:** - Single file, no automatic backup - User responsible for backup (copy ``whisper-lite.db``) - No size limits enforced (SQLite handles large datasets)
+**Database:** - Single file, no automatic backup - User responsible for backup (copy ``airgap-whisper.db``) - No size limits enforced (SQLite handles large datasets)
 
 **Cleanup on delete:** Delete audio file if exists, then delete database row.
 
@@ -554,25 +547,25 @@ Code Signing
 Distribution Channels
 ~~~~~~~~~~~~~~~~~~~~~
 
-=============== ========== ======================================
+=============== ========== ==========================================
 Channel         Platform   Notes
-=============== ========== ======================================
+=============== ========== ==========================================
 GitHub Releases All        Primary distribution, free
 Gumroad/Paddle  All        For paid distribution
-Homebrew        macOS      ``brew install whisper-lite`` (future)
+Homebrew        macOS      ``brew install airgap-whisper`` (future)
 AUR             Arch Linux Community maintained (future)
-=============== ========== ======================================
+=============== ========== ==========================================
 
 **GitHub Release structure:**
 
 ::
 
-   whisper-lite-v1.0.0/
-   ├── whisper-lite-v1.0.0-macos-arm64.dmg
-   ├── whisper-lite-v1.0.0-macos-x64.dmg
-   ├── whisper-lite-v1.0.0-windows-x64.msi
-   ├── whisper-lite-v1.0.0-linux-x64.tar.gz
-   ├── whisper-lite-v1.0.0-linux-x64.deb
+   airgap-whisper-v1.0.0/
+   ├── airgap-whisper-v1.0.0-macos-arm64.dmg
+   ├── airgap-whisper-v1.0.0-macos-x64.dmg
+   ├── airgap-whisper-v1.0.0-windows-x64.msi
+   ├── airgap-whisper-v1.0.0-linux-x64.tar.gz
+   ├── airgap-whisper-v1.0.0-linux-x64.deb
    ├── CHANGELOG.md
    └── SHA256SUMS.txt
 
@@ -700,13 +693,3 @@ What NOT to Localize
 
 Log messages, settings keys, file paths, error codes (localize descriptions only), and technical documentation.
 
---------------
-
-Revision History
-----------------
-
-======= ========== =========================================
-Version Date       Description
-======= ========== =========================================
-1.0.0   2026-01-04 MVP architecture (5 Rust files, 2 tables)
-======= ========== =========================================
