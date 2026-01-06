@@ -549,6 +549,9 @@ Non-Functional Requirements
    :style: table
    :sort: id
 
+Performance
+~~~~~~~~~~~
+
 .. nfreq:: Chunk Creation Performance
    :id: NFR-TRANSFER-001
    :status: approved
@@ -565,6 +568,152 @@ Non-Functional Requirements
 
    Memory footprint < 100 MB during streaming operations
 
+Reliability
+~~~~~~~~~~~
+
+.. nfreq:: Checksum Verification Reliability
+   :id: NFR-TRANSFER-007
+   :status: approved
+   :tags: transfer, reliability, integrity
+   :priority: must
+
+   The system SHALL verify all chunks using SHA-256 checksums before reconstruction
+
+.. nfreq:: Idempotent Operations
+   :id: NFR-TRANSFER-008
+   :status: approved
+   :tags: transfer, reliability
+   :priority: must
+
+   Pack and unpack operations SHALL be idempotent (safe to run multiple times)
+
+.. nfreq:: Graceful Interruption Handling
+   :id: NFR-TRANSFER-009
+   :status: approved
+   :tags: transfer, reliability, error-handling
+   :priority: must
+
+   The system SHALL handle interruptions gracefully (Ctrl+C, system shutdown) and allow resume
+
+.. nfreq:: Data Corruption Detection
+   :id: NFR-TRANSFER-010
+   :status: approved
+   :tags: transfer, reliability, integrity
+   :priority: must
+
+   The system SHALL detect and report data corruption via checksum mismatch
+
+Usability
+~~~~~~~~~
+
+.. nfreq:: Clear Progress Indicators
+   :id: NFR-TRANSFER-011
+   :status: approved
+   :tags: transfer, usability, ui
+   :priority: must
+
+   Progress indicators SHALL be shown for all operations taking longer than 2 seconds
+
+.. nfreq:: Detailed Error Messages
+   :id: NFR-TRANSFER-012
+   :status: approved
+   :tags: transfer, usability, error-handling
+   :priority: must
+
+   Error messages SHALL include specific details about the failure and suggested fixes
+
+.. nfreq:: Command Help Text
+   :id: NFR-TRANSFER-013
+   :status: approved
+   :tags: transfer, usability, cli
+   :priority: must
+
+   The CLI SHALL provide help text accessible via --help for all commands
+
+.. nfreq:: First-Time User Experience
+   :id: NFR-TRANSFER-014
+   :status: approved
+   :tags: transfer, usability
+   :priority: should
+
+   First-time users SHALL be able to transfer a file within 5 minutes using provided examples
+
+Maintainability
+~~~~~~~~~~~~~~~
+
+.. nfreq:: Test Coverage
+   :id: NFR-TRANSFER-015
+   :status: approved
+   :tags: transfer, maintainability, testing
+   :priority: must
+
+   The codebase SHALL achieve at least 80% test coverage
+
+.. nfreq:: API Documentation
+   :id: NFR-TRANSFER-016
+   :status: approved
+   :tags: transfer, maintainability, documentation
+   :priority: must
+
+   All public APIs SHALL have rustdoc documentation
+
+.. nfreq:: Clippy Compliance
+   :id: NFR-TRANSFER-017
+   :status: approved
+   :tags: transfer, maintainability, code-quality
+   :priority: must
+
+   The code SHALL pass cargo clippy with zero warnings
+
+.. nfreq:: Code Formatting
+   :id: NFR-TRANSFER-018
+   :status: approved
+   :tags: transfer, maintainability, code-quality
+   :priority: must
+
+   The code SHALL be formatted with rustfmt
+
+Portability
+~~~~~~~~~~~
+
+.. nfreq:: Cross-Platform Support
+   :id: NFR-TRANSFER-006
+   :status: approved
+   :tags: transfer, portability
+   :priority: must
+
+   Support macOS, Windows, Linux
+
+Scalability
+~~~~~~~~~~~
+
+.. nfreq:: Large File Support
+   :id: NFR-TRANSFER-019
+   :status: approved
+   :tags: transfer, scalability
+   :priority: should
+
+   The system SHALL handle files up to 100GB in size
+
+.. nfreq:: Streaming Architecture
+   :id: NFR-TRANSFER-020
+   :status: approved
+   :tags: transfer, scalability, performance
+   :priority: must
+
+   Chunk operations SHALL use streaming architecture to handle files larger than available RAM
+
+.. nfreq:: Concurrent Chunk Processing
+   :id: NFR-TRANSFER-021
+   :status: approved
+   :tags: transfer, scalability, performance
+   :priority: could
+
+   The system SHOULD support concurrent chunk verification to improve performance
+
+Security & Privacy
+~~~~~~~~~~~~~~~~~~
+
 .. nfreq:: Privacy Guarantee
    :id: NFR-TRANSFER-003
    :status: approved
@@ -572,6 +721,9 @@ Non-Functional Requirements
    :priority: must
 
    All data stays on local/removable media; no network calls
+
+Deployment
+~~~~~~~~~~
 
 .. nfreq:: Offline Functionality
    :id: NFR-TRANSFER-004
@@ -588,14 +740,6 @@ Non-Functional Requirements
    :priority: must
 
    Build and run on systems with no internet access
-
-.. nfreq:: Cross-Platform Support
-   :id: NFR-TRANSFER-006
-   :status: approved
-   :tags: transfer, portability
-   :priority: must
-
-   Support macOS, Windows, Linux
 
 --------------
 
