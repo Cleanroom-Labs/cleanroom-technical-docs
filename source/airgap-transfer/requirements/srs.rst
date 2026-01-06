@@ -451,7 +451,7 @@ Error Handling
    Handle missing chunks gracefully
 
 .. req:: Clear Error Messages
-   :id: FR-TRANSFER-038
+   :id: FR-TRANSFER-037
    :status: approved
    :tags: transfer, error-handling, usability
    :priority: must
@@ -470,7 +470,7 @@ Safety Features
    :sort: id
 
 .. req:: Confirm File Overwrite
-   :id: FR-TRANSFER-039
+   :id: FR-TRANSFER-038
    :status: approved
    :tags: transfer, safety, filesystem
    :priority: must
@@ -478,7 +478,7 @@ Safety Features
    Confirm overwrite of existing files
 
 .. req:: Validate Destination Paths
-   :id: FR-TRANSFER-040
+   :id: FR-TRANSFER-039
    :status: approved
    :tags: transfer, safety, validation
    :priority: must
@@ -486,7 +486,7 @@ Safety Features
    Validate destination paths and permissions
 
 .. req:: Sync USB Safely
-   :id: FR-TRANSFER-041
+   :id: FR-TRANSFER-040
    :status: approved
    :tags: transfer, safety, usb
    :priority: must
@@ -494,7 +494,7 @@ Safety Features
    Safely sync USB before prompting for removal
 
 .. req:: Atomic Operations
-   :id: FR-TRANSFER-042
+   :id: FR-TRANSFER-041
    :status: approved
    :tags: transfer, safety, reliability
    :priority: should
@@ -513,7 +513,7 @@ Deployment
    :sort: id
 
 .. req:: Offline Build Dependencies
-   :id: FR-TRANSFER-043
+   :id: FR-TRANSFER-042
    :status: approved
    :tags: transfer, deployment, offline
    :priority: must
@@ -521,7 +521,7 @@ Deployment
    All dependencies available for offline build
 
 .. req:: Internet-Free Build
-   :id: FR-TRANSFER-044
+   :id: FR-TRANSFER-043
    :status: approved
    :tags: transfer, deployment, offline
    :priority: must
@@ -529,7 +529,7 @@ Deployment
    Build process works without internet after initial setup
 
 .. req:: Single, Static Binary Deployment
-   :id: FR-TRANSFER-045
+   :id: FR-TRANSFER-044
    :status: approved
    :tags: transfer, deployment
    :priority: should

@@ -456,10 +456,10 @@ Error Handling Tests
    Verify error when required chunks missing during unpack
 
 .. test:: Clear Error Messages
-   :id: TC-TRANSFER-ERR-004
+   :id: TC-TRANSFER-ERR-003
    :status: approved
    :tags: transfer, error, usability
-   :tests: FR-TRANSFER-038
+   :tests: FR-TRANSFER-037
    :priority: high
 
    Verify all error messages clear and actionable
@@ -479,7 +479,7 @@ Safety Tests
    :id: TC-SAF-001
    :status: approved
    :tags: transfer, safety, overwrite
-   :tests: FR-TRANSFER-039
+   :tests: FR-TRANSFER-038
    :priority: high
 
    Verify confirmation required before overwriting existing files
@@ -488,7 +488,7 @@ Safety Tests
    :id: TC-SAF-002
    :status: approved
    :tags: transfer, safety, validation
-   :tests: FR-TRANSFER-040
+   :tests: FR-TRANSFER-039
    :priority: high
 
    Verify destination paths validated before write
@@ -497,7 +497,7 @@ Safety Tests
    :id: TC-SAF-003
    :status: approved
    :tags: transfer, safety, sync
-   :tests: FR-TRANSFER-041
+   :tests: FR-TRANSFER-040
    :priority: high
 
    Verify USB synced before prompting for removal
