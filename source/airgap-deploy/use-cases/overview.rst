@@ -52,16 +52,28 @@ Gap 1: Post-Installation Configuration
    whisper_path = "{{ install_prefix }}"
    """
 
-**Install script should:** 1. Build and install whisper.cpp to known location 2. Copy all models to known location (``{{ install_prefix }}/share/airgap-whisper/models/``) 3. Generate config file with install prefix 4. Install AirGap Whisper binary
+**Install script should:**
 
-**AirGap Whisper runtime auto-discovery:** - Binary: Search ``whisper_path/bin/`` for ``whisper-main``, ``main``, ``whisper-cli``, etc. - Models: Scan ``whisper_path/share/airgap-whisper/models/*.bin`` - No need for explicit paths in config
+1. Build and install whisper.cpp to known location
+2. Copy all models to known location (``{{ install_prefix }}/share/airgap-whisper/models/``)
+3. Generate config file with install prefix
+4. Install AirGap Whisper binary
+
+**AirGap Whisper runtime auto-discovery:**
+
+- Binary: Search ``whisper_path/bin/`` for ``whisper-main``, ``main``, ``whisper-cli``, etc.
+- Models: Scan ``whisper_path/share/airgap-whisper/models/*.bin``
+- No need for explicit paths in config
 
 Gap 2: Multiple Model Support
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 **Problem:** Users may want different model sizes (tiny, base, small, medium, large).
 
-**Current Plan:** Can list multiple ``[[components]]`` of type ``model-file``, but: - All models included = large package (3+ GB) - No way to make models optional/selectable
+**Current Plan:** Can list multiple ``[[components]]`` of type ``model-file``, but:
+
+- All models included = large package (3+ GB)
+- No way to make models optional/selectable
 
 **Options:**
 
@@ -110,7 +122,11 @@ Gap 3: Cross-Platform Packaging
 
 **Current Plan:** Deferred to v0.2 (cross-compilation).
 
-**Impact:** Developer must: - Run AirGap Deploy on each target platform, OR - Use CI/CD with multiple platform runners, OR - Wait for v0.2
+**Impact:** Developer must:
+
+- Run AirGap Deploy on each target platform, OR
+- Use CI/CD with multiple platform runners, OR
+- Wait for v0.2
 
 **Recommendation:** This is acceptable for v0.1, use GitHub Actions matrix builds.
 
@@ -126,7 +142,12 @@ Gap 4: Installation Locations & Permissions
    [install]
    install_to = "user"  # or "system"
 
-**Questions:** - User install: ``~/.local/bin`` (Linux/macOS), ``%LOCALAPPDATA%\Programs`` (Windows)? - System install: ``/usr/local/bin`` (needs sudo)? - Models: ``~/.local/share/airgap-whisper/models`` or ``/usr/share/airgap-whisper/models``? - Config: ``~/.config/airgap-whisper/config.toml`` or ``/etc/airgap-whisper/config.toml``?
+**Questions:**
+
+- User install: ``~/.local/bin`` (Linux/macOS), ``%LOCALAPPDATA%\Programs`` (Windows)?
+- System install: ``/usr/local/bin`` (needs sudo)?
+- Models: ``~/.local/share/airgap-whisper/models`` or ``/usr/share/airgap-whisper/models``?
+- Config: ``~/.config/airgap-whisper/config.toml`` or ``/etc/airgap-whisper/config.toml``?
 
 **Needed:** Platform-specific path resolution in install scripts.
 
@@ -158,7 +179,18 @@ Use Case 1: Developer Creating Release (Primary)
 
 **Actor:** AirGap Whisper maintainer **Environment:** macOS laptop with internet **Goal:** Create release packages for Linux, macOS, Windows
 
-**Workflow:** 1. Update ``AirGapDeploy.toml`` with new version 2. Run CI/CD that executes on Linux, macOS, Windows runners: ``yaml    - name: Package for air-gap      run: airgap-deploy prep --target ${{ matrix.platform }} --output dist/`` 3. Upload artifacts to GitHub releases 4. Users download pre-built packages
+**Workflow:**
+
+1. Update ``AirGapDeploy.toml`` with new version
+2. Run CI/CD that executes on Linux, macOS, Windows runners:
+
+   .. code:: yaml
+
+      - name: Package for air-gap
+        run: airgap-deploy prep --target ${{ matrix.platform }} --output dist/
+
+3. Upload artifacts to GitHub releases
+4. Users download pre-built packages
 
 **Current Plan Support:** ✅ Fully supported (with GitHub Actions)
 
@@ -169,7 +201,21 @@ Use Case 2: End User Installing on Air-Gapped System (Primary)
 
 **Actor:** Security researcher on air-gapped workstation **Environment:** Ubuntu 22.04 with no internet, ALSA installed **Goal:** Install and run AirGap Whisper
 
-**Workflow:** 1. Download ``airgap-whisper-linux-x86_64.tar.gz`` via USB 2. Extract: ``tar -xzf airgap-whisper-linux-x86_64.tar.gz`` 3. Run: ``cd airgap-whisper-linux-x86_64 && ./install.sh`` 4. Install script: - Checks Rust (installs from included installer if missing) - Checks ALSA (installs from included .deb if missing) - Builds whisper.cpp - Builds airgap-whisper - Installs to ``~/.local/bin`` - Generates ``~/.config/airgap-whisper/config.toml`` 5. Run: ``airgap-whisper``
+**Workflow:**
+
+1. Download ``airgap-whisper-linux-x86_64.tar.gz`` via USB
+2. Extract: ``tar -xzf airgap-whisper-linux-x86_64.tar.gz``
+3. Run: ``cd airgap-whisper-linux-x86_64 && ./install.sh``
+4. Install script:
+
+   - Checks Rust (installs from included installer if missing)
+   - Checks ALSA (installs from included .deb if missing)
+   - Builds whisper.cpp
+   - Builds airgap-whisper
+   - Installs to ``~/.local/bin``
+   - Generates ``~/.config/airgap-whisper/config.toml``
+
+5. Run: ``airgap-whisper``
 
 **Current Plan Support:** ⚠️ Mostly supported, gaps in config generation
 
@@ -180,7 +226,13 @@ Use Case 3: Advanced User Custom Build (Secondary)
 
 **Actor:** Developer customizing AirGap Whisper **Environment:** Arch Linux with internet **Goal:** Create custom package with specific models
 
-**Workflow:** 1. Clone airgap-whisper repo 2. Edit ``AirGapDeploy.toml`` to include only desired models 3. Run: ``airgap-deploy prep --target linux-x86_64`` 4. Transfer to air-gapped system 5. Install as normal
+**Workflow:**
+
+1. Clone airgap-whisper repo
+2. Edit ``AirGapDeploy.toml`` to include only desired models
+3. Run: ``airgap-deploy prep --target linux-x86_64``
+4. Transfer to air-gapped system
+5. Install as normal
 
 **Current Plan Support:** ✅ Fully supported
 
@@ -191,7 +243,17 @@ Use Case 4: Enterprise Deployment (Future)
 
 **Actor:** IT admin deploying to 100 air-gapped workstations **Environment:** Mixed Windows/Linux fleet **Goal:** Automated installation without interaction
 
-**Workflow:** 1. Download pre-built packages 2. Create deployment script: ``bash    # Unattended install    ./install.sh --non-interactive --prefix /opt/airgap-whisper`` 3. Deploy via configuration management (Ansible, GPO, etc.)
+**Workflow:**
+
+1. Download pre-built packages
+2. Create deployment script:
+
+   .. code:: bash
+
+      # Unattended install
+      ./install.sh --non-interactive --prefix /opt/airgap-whisper
+
+3. Deploy via configuration management (Ansible, GPO, etc.)
 
 **Current Plan Support:** ❌ Not supported (no unattended install mode)
 
@@ -241,7 +303,11 @@ Recommendation 1: Add Post-Install Configuration with Auto-Discovery
        "cp target/release/airgap-whisper {{ install_prefix }}/bin/"
    ]
 
-**AirGap Whisper Auto-Discovery:** - Discovers whisper binary by searching ``whisper_path/bin/`` for known names - Discovers all models by scanning ``whisper_path/share/airgap-whisper/models/*.bin`` - No explicit paths needed in config, improving UX
+**AirGap Whisper Auto-Discovery:**
+
+- Discovers whisper binary by searching ``whisper_path/bin/`` for known names
+- Discovers all models by scanning ``whisper_path/share/airgap-whisper/models/*.bin``
+- No explicit paths needed in config, improving UX
 
 **Implementation:** Phase 4 (Install Script Generation)
 
@@ -605,7 +671,13 @@ With this simpler configuration, AirGap Whisper’s runtime logic:
        }
    }
 
-**Benefits:** - User only specifies one path: ``whisper_path`` - All models in models directory are automatically available - No need to update config when adding new models - Binary name detection handles different whisper.cpp versions - Simpler mental model for users
+**Benefits:**
+
+- User only specifies one path: ``whisper_path``
+- All models in models directory are automatically available
+- No need to update config when adding new models
+- Binary name detection handles different whisper.cpp versions
+- Simpler mental model for users
 
 --------------
 
@@ -617,9 +689,22 @@ Does Current Plan Support AirGap Whisper?
 
 **Yes, but with critical gaps:**
 
-✅ **Supported:** - Packaging Rust app with vendored dependencies - Including Rust toolchain - Packaging external binaries (whisper.cpp) - Downloading models with verification - Generating installation scripts - Multi-platform targeting (with CI/CD)
+✅ **Supported:**
 
-❌ **Gaps:** - Post-installation configuration generation - Optional component selection - Dependency verification in install scripts - Interactive vs. automated installation modes - Cross-platform packaging from single system (deferred)
+- Packaging Rust app with vendored dependencies
+- Including Rust toolchain
+- Packaging external binaries (whisper.cpp)
+- Downloading models with verification
+- Generating installation scripts
+- Multi-platform targeting (with CI/CD)
+
+❌ **Gaps:**
+
+- Post-installation configuration generation
+- Optional component selection
+- Dependency verification in install scripts
+- Interactive vs. automated installation modes
+- Cross-platform packaging from single system (deferred)
 
 Recommended Actions
 ~~~~~~~~~~~~~~~~~~~
