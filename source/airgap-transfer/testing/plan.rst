@@ -1,13 +1,6 @@
 Test Plan
 =========
 
-AirGap Transfer
----------------
-
-**Version:** 1.0.0 **Date:** 2026-01-04 **Standard:** IEEE 829 (simplified for MVP)
-
---------------
-
 Introduction
 ---------------
 
@@ -827,13 +820,3 @@ Pass/Fail Criteria
 - **All High priority tests must pass** before release
 - **Medium priority tests:** 90% pass rate acceptable
 
---------------
-
-Revision History
-----------------
-
-+----------------------+--------------+------------------------------------------------------+
-| Version              | Date         | Description                                          |
-+======================+==============+======================================================+
-| 1.0.0                | 2026-01-04   | MVP test cases (automated count via sphinx-needs)     |
-+----------------------+--------------+------------------------------------------------------+
