@@ -1,13 +1,6 @@
 Test Plan
 =========
 
-AirGap Whisper
---------------
-
-**Version:** 1.0.0 **Date:** 2026-01-04 **Standard:** IEEE 829 (simplified for MVP)
-
---------------
-
 Introduction
 ---------------
 
@@ -96,7 +89,7 @@ Recording Tests
 
 .. needtable::
    :types: test
-   :filter: id.startswith('TC-REC')
+   :filter: "whisper" in tags and "recording" in tags
    :columns: id,title,tests,priority
    :colwidths: 20,40,20,20
    :style: table
@@ -176,6 +169,17 @@ Recording Tests
    2. Inspect generated WAV file
 
    **Expected:** 16kHz mono WAV format
+
+Transcription Tests
+~~~~~~~~~~~~~~~~~~~
+
+.. needtable::
+   :types: test
+   :filter: "whisper" in tags and "transcription" in tags
+   :columns: id,title,tests,priority
+   :colwidths: 20,40,20,20
+   :style: table
+   :sort: id
 
 .. test:: Whisper.cpp Invocation
    :id: TC-TRS-001
@@ -274,6 +278,17 @@ Recording Tests
 
    Verify custom audio input device selection works correctly
 
+History Tests
+~~~~~~~~~~~~~
+
+.. needtable::
+   :types: test
+   :filter: "whisper" in tags and "history" in tags
+   :columns: id,title,tests,priority
+   :colwidths: 20,40,20,20
+   :style: table
+   :sort: id
+
 .. test:: Transcription Saved to Database
    :id: TC-HIS-001
    :status: approved
@@ -328,6 +343,17 @@ Recording Tests
 
    Verify transcription can be deleted from history dialog
 
+Output Tests
+~~~~~~~~~~~~
+
+.. needtable::
+   :types: test
+   :filter: "whisper" in tags and "output" in tags
+   :columns: id,title,tests,priority
+   :colwidths: 20,40,20,20
+   :style: table
+   :sort: id
+
 .. test:: Hotkey Copies Last Transcription
    :id: TC-OUT-001
    :status: approved
@@ -345,6 +371,17 @@ Recording Tests
    :priority: medium
 
    Verify transcription can be exported as .txt file from history dialog
+
+Settings Tests
+~~~~~~~~~~~~~~
+
+.. needtable::
+   :types: test
+   :filter: "whisper" in tags and "settings" in tags
+   :columns: id,title,tests,priority
+   :colwidths: 20,40,20,20
+   :style: table
+   :sort: id
 
 .. test:: Settings Dialog Opens
    :id: TC-SET-001
@@ -400,6 +437,17 @@ Recording Tests
 
    Verify first-run prompt appears when paths not configured
 
+System Tray Tests
+~~~~~~~~~~~~~~~~~
+
+.. needtable::
+   :types: test
+   :filter: "whisper" in tags and "tray" in tags
+   :columns: id,title,tests,priority
+   :colwidths: 20,40,20,20
+   :style: table
+   :sort: id
+
 .. test:: Tray Icon Shows Status
    :id: TC-TRY-001
    :status: approved
@@ -435,6 +483,17 @@ Recording Tests
    :priority: high
 
    Verify app starts minimized to tray (no main window)
+
+Security Tests
+~~~~~~~~~~~~~~
+
+.. needtable::
+   :types: test
+   :filter: "whisper" in tags and "security" in tags
+   :columns: id,title,tests,priority
+   :colwidths: 20,40,20,20
+   :style: table
+   :sort: id
 
 .. test:: Path Traversal Rejected
    :id: TC-SEC-001
@@ -481,6 +540,17 @@ Recording Tests
 
    Verify app is 100% functional offline (airplane mode test)
 
+Deployment Tests
+~~~~~~~~~~~~~~~~
+
+.. needtable::
+   :types: test
+   :filter: "whisper" in tags and "deployment" in tags
+   :columns: id,title,tests,priority
+   :colwidths: 20,40,20,20
+   :style: table
+   :sort: id
+
 .. test:: Cargo Vendor Directory Present
    :id: TC-DEP-001
    :status: approved
@@ -507,6 +577,17 @@ Recording Tests
    :priority: medium
 
    Verify single-directory deployment works (app + whisper.cpp + model)
+
+Non-Functional Tests
+~~~~~~~~~~~~~~~~~~~~
+
+.. needtable::
+   :types: test
+   :filter: id.startswith('TC-NFR')
+   :columns: id,title,tests,priority
+   :colwidths: 20,40,20,20
+   :style: table
+   :sort: id
 
 .. test:: App Launch Time
    :id: TC-NFR-001
@@ -733,94 +814,6 @@ Recording Tests
 
    Verify optional SQLite encryption for sensitive transcriptions (if implemented)
 
-Transcription Tests
-~~~~~~~~~~~~~~~~~~~
-
-.. needtable::
-   :types: test
-   :filter: id.startswith('TC-TRS')
-   :columns: id,title,tests,priority
-   :colwidths: 20,40,20,20
-   :style: table
-   :sort: id
-
-History Tests
-~~~~~~~~~~~~~
-
-.. needtable::
-   :types: test
-   :filter: id.startswith('TC-HIS')
-   :columns: id,title,tests,priority
-   :colwidths: 20,40,20,20
-   :style: table
-   :sort: id
-
-Output Tests
-~~~~~~~~~~~~
-
-.. needtable::
-   :types: test
-   :filter: id.startswith('TC-OUT')
-   :columns: id,title,tests,priority
-   :colwidths: 20,40,20,20
-   :style: table
-   :sort: id
-
-Settings Tests
-~~~~~~~~~~~~~~
-
-.. needtable::
-   :types: test
-   :filter: id.startswith('TC-SET')
-   :columns: id,title,tests,priority
-   :colwidths: 20,40,20,20
-   :style: table
-   :sort: id
-
-System Tray Tests
-~~~~~~~~~~~~~~~~~
-
-.. needtable::
-   :types: test
-   :filter: id.startswith('TC-TRY')
-   :columns: id,title,tests,priority
-   :colwidths: 20,40,20,20
-   :style: table
-   :sort: id
-
-Security Tests
-~~~~~~~~~~~~~~
-
-.. needtable::
-   :types: test
-   :filter: id.startswith('TC-SEC')
-   :columns: id,title,tests,priority
-   :colwidths: 20,40,20,20
-   :style: table
-   :sort: id
-
-Deployment Tests
-~~~~~~~~~~~~~~~~
-
-.. needtable::
-   :types: test
-   :filter: id.startswith('TC-DEP')
-   :columns: id,title,tests,priority
-   :colwidths: 20,40,20,20
-   :style: table
-   :sort: id
-
-Non-Functional Tests
-~~~~~~~~~~~~~~~~~~~~
-
-.. needtable::
-   :types: test
-   :filter: id.startswith('TC-NFR')
-   :columns: id,title,tests,priority
-   :colwidths: 20,40,20,20
-   :style: table
-   :sort: id
-
 --------------
 
 Test Procedures
@@ -829,75 +822,54 @@ Test Procedures
 Network Isolation Test (TC-SEC-003)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Preconditions:** - App installed - Firewall configured to block all app connections
+**Preconditions:**
 
-**Steps:** 1. Enable firewall blocking for app 2. Launch app 3. Record audio (30 seconds) 4. Stop and transcribe 5. View history 6. Check firewall logs
+- App installed
+- Firewall configured to block all app connections
+
+**Steps:**
+
+1. Enable firewall blocking for app
+2. Launch app
+3. Record audio (30 seconds)
+4. Stop and transcribe
+5. View history
+6. Check firewall logs
 
 **Pass Criteria:** Zero blocked connection attempts in logs.
 
 Offline Operation Test (TC-SEC-005)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Preconditions:** - App installed with configured whisper.cpp - Network disconnected (airplane mode)
+**Preconditions:**
 
-**Steps:** 1. Disconnect network 2. Launch app 3. Record → transcribe → copy 4. Verify all features work
+- App installed with configured whisper.cpp
+- Network disconnected (airplane mode)
+
+**Steps:**
+
+1. Disconnect network
+2. Launch app
+3. Record → transcribe → copy
+4. Verify all features work
 
 **Pass Criteria:** All operations complete successfully.
 
 Air-Gap Build Test (TC-DEP-002)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Preconditions:** - Fresh clone of repository with vendored dependencies - Network disconnected (airplane mode or air-gapped VM)
+**Preconditions:**
 
-**Steps:** 1. Clone repository to air-gapped system 2. Run ``cargo build --release --offline`` 3. Verify binary is produced
+- Fresh clone of repository with vendored dependencies
+- Network disconnected (airplane mode or air-gapped VM)
+
+**Steps:**
+
+1. Clone repository to air-gapped system
+2. Run ``cargo build --release --offline``
+3. Verify binary is produced
 
 **Pass Criteria:** Build completes successfully with no network access.
-
---------------
-
-Requirements Traceability
--------------------------
-
-This section demonstrates bidirectional traceability between requirements and test cases for AirGap Whisper.
-
-Requirements to Tests Matrix
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The following table shows all requirements and their associated test cases.
-
-.. needtable::
-   :types: req, nfreq, test
-   :columns: id, title, status, type
-   :filter: "whisper" in tags
-   :style: table
-
-Requirements Coverage
-~~~~~~~~~~~~~~~~~~~~~
-
-This table shows only requirements, making it easy to verify coverage completeness.
-
-.. needtable::
-   :types: req, nfreq
-   :columns: id, title, priority, status
-   :filter: "whisper" in tags
-   :style: table
-
-.. note::
-
-   To see which tests validate each requirement, refer to the Requirements to Tests Matrix above, or check the individual test case definitions in Section 3.
-
-Test Cases
-~~~~~~~~~~
-
-This table lists all test cases with their validation links.
-
-.. needtable::
-   :types: test
-   :columns: id, title, priority, status, tests
-   :filter: "whisper" in tags
-   :style: table
-
-The "Tests" column shows which requirements each test case validates (via the :tests: link).
 
 --------------
 
@@ -908,13 +880,3 @@ Pass/Fail Criteria
 - **All High priority tests must pass** before release
 - **Medium priority tests:** 90% pass rate acceptable
 
---------------
-
-Revision History
-----------------
-
-+----------------------+--------------+-----------------------------------------------------+
-| Version              | Date         | Description                                         |
-+======================+==============+=====================================================+
-| 1.0.0                | 2026-01-04   | MVP test cases (automated count via sphinx-needs)    |
-+----------------------+--------------+-----------------------------------------------------+
