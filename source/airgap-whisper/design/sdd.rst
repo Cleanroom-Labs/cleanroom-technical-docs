@@ -13,7 +13,7 @@ AirGap Whisper
 
 This SDD describes the architecture and design of AirGap Whisper’s MVP.
 
-**Guiding document:** `principles.md <../../principles.md>`__
+**Guiding document:** :doc:`Principles </meta/principles>`
 
 --------------
 
@@ -79,7 +79,7 @@ This SDD describes the architecture and design of AirGap Whisper’s MVP.
 3. File Structure
 -----------------
 
-Per `principles.md <../../principles.md>`__: **5 Rust files, flat structure. No frontend.**
+Per :doc:`Principles </meta/principles>`: **5 Rust files, flat structure. No frontend.**
 
 ::
 
@@ -470,7 +470,7 @@ Native dialog with the following layout:
 
 **8 crates.** Pure Rust, no WebView, no npm, no frontend build.
 
-See `PRINCIPLES.md <../../PRINCIPLES.md#current-minimal-set>`__ for the authoritative dependency list with versions.
+See :doc:`Principles </meta/principles>` (Current Minimal Set section) for the authoritative dependency list with versions.
 
 --------------
 
@@ -663,7 +663,7 @@ For air-gapped deployment, include pre-compiled whisper.cpp binaries for each ta
 
 **MVP is English-only.** Localization is deferred until post-MVP based on user demand.
 
-This aligns with `principles.md <../../principles.md>`__: ship working software first, add features based on actual need.
+This aligns with :doc:`Principles </meta/principles>`: ship working software first, add features based on actual need.
 
 11.2 Localization-Ready Architecture
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
