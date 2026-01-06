@@ -11,7 +11,7 @@ AirGap Transfer
 Introduction
 ---------------
 
-This test plan covers MVP requirements (FR-001 through FR-045, NFR-001 through NFR-006).
+This test plan covers MVP requirements (:need_count:`type=='req' and 'transfer' in tags` functional requirements, :need_count:`type=='nfreq' and 'transfer' in tags` non-functional requirements).
 
 --------------
 
@@ -164,6 +164,15 @@ Pack Operation Tests
 
    Verify progress reporting during pack operation
 
+.. test:: USB Swapping Prompt
+   :id: TC-PCK-009
+   :status: approved
+   :tags: transfer, pack, usb, ui
+   :tests: FR-TRANSFER-008
+   :priority: medium
+
+   Verify system prompts for USB swapping when multiple chunks needed
+
 Unpack Operation Tests
 ~~~~~~~~~~~~~~~~~~~~~~
 
@@ -228,6 +237,15 @@ Unpack Operation Tests
    :priority: medium
 
    Verify optional chunk deletion after successful unpack
+
+.. test:: Unpack Progress Display
+   :id: TC-UNP-007
+   :status: approved
+   :tags: transfer, unpack, ui, progress
+   :tests: FR-TRANSFER-015
+   :priority: medium
+
+   Verify progress reporting during file reconstruction
 
 List Operation Tests
 ~~~~~~~~~~~~~~~~~~~~
