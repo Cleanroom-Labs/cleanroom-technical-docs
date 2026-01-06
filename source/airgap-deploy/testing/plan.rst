@@ -749,6 +749,422 @@ Enhanced Installation Feature Tests
 
 --------------
 
+Component Configuration Tests
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. test:: Rust Component Configuration Options
+   :id: TC-DEPLOY-CFG-001
+   :status: approved
+   :tags: deploy, rust, configuration
+   :tests: FR-DEPLOY-010
+   :priority: high
+
+   Verify Rust component supports source, vendor, include_toolchain, prebuild config options
+
+.. test:: External Binary Configuration Options
+   :id: TC-DEPLOY-CFG-002
+   :status: approved
+   :tags: deploy, external-binary, configuration
+   :tests: FR-DEPLOY-014
+   :priority: high
+
+   Verify external binary supports name, repo, branch/tag/commit, build_instructions config options
+
+.. test:: Model File Configuration Options
+   :id: TC-DEPLOY-CFG-003
+   :status: approved
+   :tags: deploy, model, configuration
+   :tests: FR-DEPLOY-019
+   :priority: high
+
+   Verify model file supports name, url, checksum, required, install_path config options
+
+--------------
+
+System Package Component Tests
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. test:: Linux Distribution Detection
+   :id: TC-DEPLOY-SYSPKG-001
+   :status: approved
+   :tags: deploy, system-package, linux
+   :tests: FR-DEPLOY-020
+   :priority: medium
+
+   Verify system detects Linux distribution (Debian, Fedora, Arch)
+
+.. test:: System Package Installation Configuration
+   :id: TC-DEPLOY-SYSPKG-002
+   :status: approved
+   :tags: deploy, system-package, installation
+   :tests: FR-DEPLOY-023
+   :priority: medium
+
+   Verify install scripts configure system package installation commands
+
+--------------
+
+Installation Detection Tests
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. test:: Existing Installation Detection
+   :id: TC-DEPLOY-UPG-001
+   :status: approved
+   :tags: deploy, installation, upgrade
+   :tests: FR-DEPLOY-034
+   :priority: high
+
+   Verify install script detects existing installation and offers upgrade path
+
+--------------
+
+CLI Feature Tests
+~~~~~~~~~~~~~~~~~
+
+.. test:: Colored CLI Output
+   :id: TC-DEPLOY-CLI-001
+   :status: approved
+   :tags: deploy, cli, ui
+   :tests: FR-DEPLOY-038
+   :priority: medium
+
+   Verify CLI displays colored output using ANSI codes
+
+.. test:: Progress Bars for Long Operations
+   :id: TC-DEPLOY-CLI-002
+   :status: approved
+   :tags: deploy, cli, ui, progress
+   :tests: FR-DEPLOY-039, FR-DEPLOY-050
+   :priority: high
+
+   Verify progress bars display for downloads and compression operations
+
+.. test:: Verbose Logging Flag
+   :id: TC-DEPLOY-CLI-003
+   :status: approved
+   :tags: deploy, cli, logging
+   :tests: FR-DEPLOY-040, FR-DEPLOY-048
+   :priority: high
+
+   Verify --verbose flag enables detailed operation logging
+
+--------------
+
+Configuration Management Tests
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. test:: Global Configuration File
+   :id: TC-DEPLOY-GLOBALCFG-001
+   :status: approved
+   :tags: deploy, configuration
+   :tests: FR-DEPLOY-042
+   :priority: medium
+
+   Verify system reads configuration from ~/.airgap-deploy/config.toml
+
+.. test:: Global Configuration Options
+   :id: TC-DEPLOY-GLOBALCFG-002
+   :status: approved
+   :tags: deploy, configuration
+   :tests: FR-DEPLOY-043
+   :priority: medium
+
+   Verify global config supports default_target, cache_dir, proxy options
+
+.. test:: CLI Overrides Configuration
+   :id: TC-DEPLOY-GLOBALCFG-003
+   :status: approved
+   :tags: deploy, configuration, cli
+   :tests: FR-DEPLOY-044
+   :priority: high
+
+   Verify command-line arguments override global configuration values
+
+--------------
+
+Error Handling Tests
+~~~~~~~~~~~~~~~~~~~~
+
+.. test:: Non-Zero Exit Codes on Errors
+   :id: TC-DEPLOY-ERR-005
+   :status: approved
+   :tags: deploy, error-handling, cli
+   :tests: FR-DEPLOY-047
+   :priority: high
+
+   Verify system exits with non-zero status codes on errors
+
+.. test:: Operation Logging for Debugging
+   :id: TC-DEPLOY-ERR-006
+   :status: approved
+   :tags: deploy, logging, debugging
+   :tests: FR-DEPLOY-048
+   :priority: medium
+
+   Verify all operations are logged to enable debugging
+
+--------------
+
+External Interface Tests
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. test:: CLI with ANSI Color Support
+   :id: TC-DEPLOY-EXTIF-001
+   :status: approved
+   :tags: deploy, external-interface, ui, cli
+   :tests: FR-DEPLOY-049
+   :priority: medium
+
+   Verify CLI provides ANSI color support for terminal output
+
+.. test:: Interactive Prompts in Install Scripts
+   :id: TC-DEPLOY-EXTIF-002
+   :status: approved
+   :tags: deploy, external-interface, ui, installation
+   :tests: FR-DEPLOY-051
+   :priority: high
+
+   Verify generated install scripts provide interactive prompts
+
+.. test:: Standard Filesystem I/O
+   :id: TC-DEPLOY-EXTIF-003
+   :status: approved
+   :tags: deploy, external-interface, hardware, filesystem
+   :tests: FR-DEPLOY-052
+   :priority: low
+
+   Verify system uses standard filesystem I/O operations
+
+.. test:: Network Interface for Downloads
+   :id: TC-DEPLOY-EXTIF-004
+   :status: approved
+   :tags: deploy, external-interface, hardware, network
+   :tests: FR-DEPLOY-053, FR-DEPLOY-060
+   :priority: medium
+
+   Verify system uses network interface for component downloads during prep phase
+
+.. test:: Removable Media Support
+   :id: TC-DEPLOY-EXTIF-005
+   :status: approved
+   :tags: deploy, external-interface, hardware, usb
+   :tests: FR-DEPLOY-054
+   :priority: medium
+
+   Verify packages can be transferred via removable media (USB drives)
+
+.. test:: Cargo Integration
+   :id: TC-DEPLOY-EXTIF-006
+   :status: approved
+   :tags: deploy, external-interface, software, cargo, rust
+   :tests: FR-DEPLOY-055
+   :priority: high
+
+   Verify integration with cargo for Rust dependency vendoring
+
+.. test:: Git Integration
+   :id: TC-DEPLOY-EXTIF-007
+   :status: approved
+   :tags: deploy, external-interface, software, git
+   :tests: FR-DEPLOY-056
+   :priority: high
+
+   Verify integration with git for repository cloning
+
+.. test:: HTTP/HTTPS Client Downloads
+   :id: TC-DEPLOY-EXTIF-008
+   :status: approved
+   :tags: deploy, external-interface, software, http
+   :tests: FR-DEPLOY-057
+   :priority: high
+
+   Verify HTTP/HTTPS clients download models and packages
+
+.. test:: System Package Manager Integration
+   :id: TC-DEPLOY-EXTIF-009
+   :status: approved
+   :tags: deploy, external-interface, software, package-manager
+   :tests: FR-DEPLOY-058
+   :priority: medium
+
+   Verify integration with apt, dnf, pacman for system packages
+
+.. test:: AirGap Transfer Workflow Integration
+   :id: TC-DEPLOY-EXTIF-010
+   :status: approved
+   :tags: deploy, external-interface, software, airgap-transfer
+   :tests: FR-DEPLOY-059
+   :priority: low
+
+   Verify workflow-level integration with airgap-transfer for large packages
+
+.. test:: No Network During Installation
+   :id: TC-DEPLOY-EXTIF-011
+   :status: approved
+   :tags: deploy, external-interface, communications, air-gap, offline
+   :tests: FR-DEPLOY-061
+   :priority: critical
+
+   Verify installation phase uses no network communication (enforced by air-gap)
+
+--------------
+
+Reliability NFR Tests
+~~~~~~~~~~~~~~~~~~~~~
+
+.. test:: Idempotent Installation
+   :id: TC-DEPLOY-NFR-001
+   :status: approved
+   :tags: deploy, reliability, installation
+   :tests: NFR-DEPLOY-007
+   :priority: high
+
+   Verify install scripts can be run multiple times safely without side effects
+
+.. test:: Graceful Interruption Handling
+   :id: TC-DEPLOY-NFR-002
+   :status: approved
+   :tags: deploy, reliability, error-handling
+   :tests: NFR-DEPLOY-008
+   :priority: high
+
+   Verify system handles Ctrl+C and system shutdown gracefully
+
+--------------
+
+Usability NFR Tests
+~~~~~~~~~~~~~~~~~~~
+
+.. test:: First-Time User Experience
+   :id: TC-DEPLOY-NFR-003
+   :status: approved
+   :tags: deploy, usability
+   :tests: NFR-DEPLOY-009
+   :priority: medium
+
+   Verify first-time users can create deployment package within 10 minutes using examples
+
+.. test:: Detailed Error Messages
+   :id: TC-DEPLOY-NFR-004
+   :status: approved
+   :tags: deploy, usability, error-handling
+   :tests: NFR-DEPLOY-010
+   :priority: high
+
+   Verify error messages include specific details and suggested fixes
+
+.. test:: Command Help Text
+   :id: TC-DEPLOY-NFR-005
+   :status: approved
+   :tags: deploy, usability, cli, help
+   :tests: NFR-DEPLOY-011
+   :priority: high
+
+   Verify CLI provides help text via --help for all commands
+
+.. test:: Progress Indicators for Long Operations
+   :id: TC-DEPLOY-NFR-006
+   :status: approved
+   :tags: deploy, usability, ui
+   :tests: NFR-DEPLOY-012
+   :priority: medium
+
+   Verify progress indicators show for operations taking longer than 2 seconds
+
+--------------
+
+Maintainability NFR Tests
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. test:: Test Coverage Requirement
+   :id: TC-DEPLOY-NFR-007
+   :status: approved
+   :tags: deploy, maintainability, testing
+   :tests: NFR-DEPLOY-013
+   :priority: high
+
+   Verify codebase achieves at least 80% test coverage
+
+.. test:: API Documentation Requirement
+   :id: TC-DEPLOY-NFR-008
+   :status: approved
+   :tags: deploy, maintainability, documentation
+   :tests: NFR-DEPLOY-014
+   :priority: high
+
+   Verify all public APIs have rustdoc documentation
+
+.. test:: Clippy Compliance
+   :id: TC-DEPLOY-NFR-009
+   :status: approved
+   :tags: deploy, maintainability, code-quality
+   :tests: NFR-DEPLOY-015
+   :priority: high
+
+   Verify code passes cargo clippy with zero warnings
+
+.. test:: Code Formatting
+   :id: TC-DEPLOY-NFR-010
+   :status: approved
+   :tags: deploy, maintainability, code-quality
+   :tests: NFR-DEPLOY-016
+   :priority: high
+
+   Verify code is formatted with rustfmt
+
+--------------
+
+Portability NFR Tests
+~~~~~~~~~~~~~~~~~~~~~
+
+.. test:: Installation Script Compatibility
+   :id: TC-DEPLOY-NFR-011
+   :status: approved
+   :tags: deploy, portability, installation
+   :tests: NFR-DEPLOY-020
+   :priority: high
+
+   Verify install scripts are compatible with Bash 4.0+ and PowerShell 5.1+
+
+--------------
+
+Security NFR Tests
+~~~~~~~~~~~~~~~~~~
+
+.. test:: Confirm Destructive Operations
+   :id: TC-DEPLOY-NFR-012
+   :status: approved
+   :tags: deploy, security, installation
+   :tests: NFR-DEPLOY-023
+   :priority: critical
+
+   Verify install scripts require explicit confirmation before destructive operations
+
+--------------
+
+Scalability NFR Tests
+~~~~~~~~~~~~~~~~~~~~~
+
+.. test:: Multi-Component Manifest Support
+   :id: TC-DEPLOY-NFR-013
+   :status: approved
+   :tags: deploy, scalability
+   :tests: NFR-DEPLOY-027
+   :priority: medium
+
+   Verify system supports manifests with up to 100 components
+
+.. test:: CPU-Scalable Parallelism
+   :id: TC-DEPLOY-NFR-014
+   :status: approved
+   :tags: deploy, scalability, performance
+   :tests: NFR-DEPLOY-028
+   :priority: medium
+
+   Verify parallel collection scales with available CPU cores
+
+--------------
+
 Test Execution
 -----------------
 
