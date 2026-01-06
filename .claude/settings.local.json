@@ -8,7 +8,13 @@
       "Bash(done)",
       "Bash(make html:*)",
       "Bash(grep:*)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Bash(find:*)",
+      "Bash(comm -23:*)",
+      "Bash(for req in FR-TRANSFER-033 FR-TRANSFER-034 FR-TRANSFER-041 FR-TRANSFER-042 FR-TRANSFER-043 FR-TRANSFER-044)",
+      "Bash(do grep -A10 \":id: $req\" source/airgap-transfer/requirements/srs.rst)",
+      "Bash(git add:*)",
+      "Bash(git restore:*)"
     ]
   }
 }

@@ -382,7 +382,7 @@ Technical Documentation
 +----------------------------------------------+--------------------------------------------+
 | Document                                     | Purpose                                    |
 +==============================================+============================================+
-| :doc:`Requirements (SRS) <requirements/srs>` | Detailed functional requirements (:need_count:`type=='req' and 'deploy' in tags` FR, :need_count:`type=='nfreq' and 'deploy' in tags` NFR) |
+| :doc:`Requirements (SRS) <requirements/srs>` | Detailed functional requirements           |
 +----------------------------------------------+--------------------------------------------+
 | :doc:`Design (SDD) <design/sdd>`             | Architecture, component design, algorithms |
 +----------------------------------------------+--------------------------------------------+

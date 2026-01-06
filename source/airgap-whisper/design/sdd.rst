@@ -18,35 +18,35 @@ System Context
 
 ::
 
-   ┌────────────────────────────────────────────────────────────────┐
+   ┌─────────────────────────────────────────────────────────────────┐
    │                    Pure Rust Application                        │
-   ├────────────────────────────────────────────────────────────────┤
+   ├─────────────────────────────────────────────────────────────────┤
    │                                                                 │
-   │   ┌──────────────┐     ┌──────────────┐     ┌──────────────┐  │
-   │   │  System Tray │     │   Hotkeys    │     │    Audio     │  │
-   │   │  (tray-icon) │     │(global-hotkey│     │    (cpal)    │  │
-   │   └──────┬───────┘     └──────┬───────┘     └──────┬───────┘  │
-   │          │                    │                     │          │
-   │          └────────────────────┼─────────────────────┘          │
+   │   ┌──────────────┐     ┌──────────────┐      ┌──────────────┐   │
+   │   │  System Tray │     │   Hotkeys    │      │    Audio     │   │
+   │   │  (tray-icon) │     │(global-hotkey│      │    (cpal)    │   │
+   │   └──────┬───────┘     └──────┬───────┘      └──────┬───────┘   │
+   │          │                    │                     │           │
+   │          └────────────────────┼─────────────────────┘           │
    │                               ▼                                 │
-   │                    ┌──────────────────┐                        │
-   │                    │    Event Loop    │                        │
-   │                    │    (main.rs)     │                        │
-   │                    └────────┬─────────┘                        │
+   │                    ┌──────────────────┐                         │
+   │                    │    Event Loop    │                         │
+   │                    │    (main.rs)     │                         │
+   │                    └────────┬─────────┘                         │
    │                             │                                   │
-   │              ┌──────────────┼──────────────┐                   │
-   │              ▼              ▼              ▼                   │
-   │   ┌──────────────┐  ┌──────────────┐  ┌──────────────┐        │
-   │   │  whisper.rs  │  │    db.rs     │  │  Native      │        │
-   │   │ (subprocess) │  │  (SQLite)    │  │  Dialogs     │        │
-   │   └──────┬───────┘  └──────────────┘  └──────────────┘        │
+   │              ┌──────────────┼──────────────┐                    │
+   │              ▼              ▼              ▼                    │
+   │   ┌──────────────┐  ┌──────────────┐  ┌──────────────┐          │
+   │   │  whisper.rs  │  │    db.rs     │  │  Native      │          │
+   │   │ (subprocess) │  │  (SQLite)    │  │  Dialogs     │          │
+   │   └──────┬───────┘  └──────────────┘  └──────────────┘          │
    │          │                                                      │
    │          ▼                                                      │
-   │   ┌──────────────┐                                             │
-   │   │ whisper.cpp  │                                             │
-   │   │(user-managed)│                                             │
-   │   └──────────────┘                                             │
-   └────────────────────────────────────────────────────────────────┘
+   │   ┌──────────────┐                                              │
+   │   │ whisper.cpp  │                                              │
+   │   │(user-managed)│                                              │
+   │   └──────────────┘                                              │
+   └─────────────────────────────────────────────────────────────────┘
 
 Design Rationale
 ~~~~~~~~~~~~~~~~
@@ -289,18 +289,18 @@ Tray Menu Structure
 
 ::
 
-   ┌─────────────────────────────────────┐
-   │ ● Start Recording                   │  ← or "■ Stop Recording" when active
-   ├─────────────────────────────────────┤
+   ┌───────────────────────────────────────┐
+   │ ● Start Recording                     │  ← or "■ Stop Recording" when active
+   ├───────────────────────────────────────┤
    │   12:34 PM - "Meeting notes about..." │  ← Click to copy, shows preview
    │   11:15 AM - "Remember to call..."    │
    │   Yesterday - "The quarterly..."      │
-   ├─────────────────────────────────────┤
-   │ View History...                     │  ← Opens native dialog
-   │ Settings...                         │  ← Opens native dialog
-   ├─────────────────────────────────────┤
-   │ Quit                                │
-   └─────────────────────────────────────┘
+   ├───────────────────────────────────────┤
+   │ View History...                       │  ← Opens native dialog
+   │ Settings...                           │  ← Opens native dialog
+   ├───────────────────────────────────────┤
+   │ Quit                                  │
+   └───────────────────────────────────────┘
 
 **Recent items:** Show up to 5 most recent transcriptions. Each shows: - Relative timestamp (time if today, “Yesterday”, or date) - Text preview (first ~30 characters, ellipsized)
 
@@ -389,40 +389,54 @@ Native dialog with the following layout:
    │                              [Cancel]  [Save]       │
    └─────────────────────────────────────────────────────┘
 
-**Validation feedback:** - Green checkmark: Valid path/setting - Red X with message: Invalid (e.g., “File not found”, “Not executable”) - Save button disabled until all required fields valid
+**Validation feedback:**
 
-**Hotkey capture:** - Click [Set] button, dialog shows “Press hotkey…” - User presses key combination - If conflicts with other app hotkey: “Conflicts with Toggle Recording” - If conflicts with system: “May conflict with system shortcut” (warning, not error)
+- Green checkmark: Valid path/setting
+- Red X with message: Invalid (e.g., “File not found”, “Not executable”)
+- Save button disabled until all required fields valid
+
+**Hotkey capture:**
+
+- Click [Set] button, dialog shows “Press hotkey…”
+- User presses key combination
+- If conflicts with other app hotkey: “Conflicts with Toggle Recording”
+- If conflicts with system: “May conflict with system shortcut” (warning, not error)
 
 First-Run Flow
 ~~~~~~~~~~~~~~
 
 ::
 
-   ┌─────────────────────────────────────────────────────┐
+   ┌───────────────────────────────────────────────────────┐
    │                   Welcome to AirGap Whisper           │
-   ├─────────────────────────────────────────────────────┤
-   │                                                     │
-   │  To get started, configure your whisper.cpp paths: │
-   │                                                     │
-   │  1. Whisper Binary                                  │
-   │     ┌─────────────────────────────────┐ [Browse]    │
-   │     │                                 │             │
-   │     └─────────────────────────────────┘             │
-   │     ⚠ Required                                      │
-   │                                                     │
-   │  2. Model File                                      │
-   │     ┌─────────────────────────────────┐ [Browse]    │
-   │     │                                 │             │
-   │     └─────────────────────────────────┘             │
-   │     ⚠ Required                                      │
-   │                                                     │
-   │  Need whisper.cpp?                                  │
-   │  https://github.com/ggerganov/whisper.cpp           │
-   │                                                     │
-   │                                        [Continue]   │
-   └─────────────────────────────────────────────────────┘
+   ├───────────────────────────────────────────────────────┤
+   │                                                       │
+   │  To get started, configure your whisper.cpp paths:    │
+   │                                                       │
+   │  1. Whisper Binary                                    │
+   │     ┌─────────────────────────────────┐ [Browse]      │
+   │     │                                 │               │
+   │     └─────────────────────────────────┘               │
+   │     ⚠ Required                                        │
+   │                                                       │
+   │  2. Model File                                        │
+   │     ┌─────────────────────────────────┐ [Browse]      │
+   │     │                                 │               │
+   │     └─────────────────────────────────┘               │
+   │     ⚠ Required                                        │
+   │                                                       │
+   │  Need whisper.cpp?                                    │
+   │  https://github.com/ggerganov/whisper.cpp             │
+   │                                                       │
+   │                                        [Continue]     │
+   └───────────────────────────────────────────────────────┘
 
-**First-run detection:** - Check if ``whisper_binary_path`` setting exists and is valid - If not, show first-run dialog before tray menu is active - [Continue] disabled until both paths valid - After setup, show “Ready! Press Ctrl+Alt+R to record.”
+**First-run detection:**
+
+- Check if ``whisper_binary_path`` setting exists and is valid
+- If not, show first-run dialog before tray menu is active
+- [Continue] disabled until both paths valid
+- After setup, show “Ready! Press Ctrl+Alt+R to record.”
 
 History Dialog
 ~~~~~~~~~~~~~~
@@ -434,27 +448,33 @@ History Dialog
    ├─────────────────────────────────────────────────────┤
    │ ┌─────────────────────────────────────────────────┐ │
    │ │ ● Today, 2:34 PM (1m 23s)                       │ │
-   │ │   Meeting notes about the quarterly review...  │ │
+   │ │   Meeting notes about the quarterly review...   │ │
    │ ├─────────────────────────────────────────────────┤ │
    │ │ ○ Today, 11:15 AM (45s)                         │ │
-   │ │   Remember to call the dentist tomorrow...     │ │
+   │ │   Remember to call the dentist tomorrow...      │ │
    │ ├─────────────────────────────────────────────────┤ │
    │ │ ○ Yesterday, 4:30 PM (2m 10s)                   │ │
-   │ │   The project deadline has been moved to...    │ │
+   │ │   The project deadline has been moved to...     │ │
    │ └─────────────────────────────────────────────────┘ │
    │                                                     │
    │ ─────────────────────────────────────────────────── │
    │ Selected: Today, 2:34 PM                            │
    │ ┌─────────────────────────────────────────────────┐ │
-   │ │ Meeting notes about the quarterly review.      │ │
-   │ │ Sales are up 15% compared to last quarter.     │ │
-   │ │ Action items: update forecast, schedule...     │ │
+   │ │ Meeting notes about the quarterly review.       │ │
+   │ │ Sales are up 15% compared to last quarter.      │ │
+   │ │ Action items: update forecast, schedule...      │ │
    │ └─────────────────────────────────────────────────┘ │
    │                                                     │
    │ [Copy Text]  [Export .txt]  [Delete]        [Close] │
    └─────────────────────────────────────────────────────┘
 
-**Behavior:** - List shows all transcriptions, newest first - Click to select and show full text in preview pane - [Copy Text]: Copy to clipboard, show confirmation - [Export .txt]: Save dialog, default filename from timestamp - [Delete]: Confirm dialog, then remove transcription and audio file
+**Behavior:**
+
+- List shows all transcriptions, newest first
+- Click to select and show full text in preview pane
+- [Copy Text]: Copy to clipboard, show confirmation
+- [Export .txt]: Save dialog, default filename from timestamp
+- [Delete]: Confirm dialog, then remove transcription and audio file
 
 --------------
 
@@ -491,14 +511,23 @@ Air-Gap Support
 
 The application supports deployment on air-gapped systems (no internet access).
 
-**Architecture requirements:** - Pure Rust, no npm, no frontend build step - Vendored dependencies via ``cargo vendor`` - Offline build: ``cargo build --release --offline``
+**Architecture requirements:**
+
+- Pure Rust, no npm, no frontend build step
+- Vendored dependencies via ``cargo vendor``
+- Offline build: ``cargo build --release --offline``
 
 See `README.md Air-Gapped Installation <../../README.md#air-gapped-installation>`__ for complete deployment procedures including whisper.cpp, Rust toolchain, and platform-specific packages.
 
 Deployment Package
 ~~~~~~~~~~~~~~~~~~
 
-**Typical deployment structure:** - Application binary (~10-15 MB) - whisper.cpp binary (user-provided or bundled) - Whisper model file (user-provided or bundled) - Setup instructions
+**Typical deployment structure:**
+
+- Application binary (~10-15 MB)
+- whisper.cpp binary (user-provided or bundled)
+- Whisper model file (user-provided or bundled)
+- Setup instructions
 
 See `README.md <../../README.md#air-gapped-installation>`__ for detailed package creation.
 
@@ -516,11 +545,15 @@ Linux    .deb, .rpm, Flatpak GNOME requires AppIndicator extension
 Release Process
 ~~~~~~~~~~~~~~~
 
-**Version numbering:** Semantic versioning (MAJOR.MINOR.PATCH) - MAJOR: Breaking changes - MINOR: New features, backward compatible - PATCH: Bug fixes
+**Version numbering:** Semantic versioning (MAJOR.MINOR.PATCH)
+
+- MAJOR: Breaking changes
+- MINOR: New features, backward compatible
+- PATCH: Bug fixes
 
 **Release checklist:**
 
-::
+.. code-block:: none
 
    [ ] Update version in Cargo.toml
    [ ] Update CHANGELOG.md
@@ -668,7 +701,11 @@ Localization-Ready Architecture
 Future Localization Approaches
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Three options when localization is needed:** 1. **Compile-time:** Separate binary per language (recommended for air-gap simplicity) 2. **Runtime embedded:** All languages in binary, select at runtime (single binary, larger size) 3. **External files:** Locale files in app data (flexible, but not air-gap friendly)
+**Three options when localization is needed:**
+
+1. **Compile-time:** Separate binary per language (recommended for air-gap simplicity)
+2. **Runtime embedded:** All languages in binary, select at runtime (single binary, larger size)
+3. **External files:** Locale files in app data (flexible, but not air-gap friendly)
 
 Localization Priority
 ~~~~~~~~~~~~~~~~~~~~~

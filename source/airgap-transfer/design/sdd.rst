@@ -1,13 +1,6 @@
 Software Design Document
 ========================
 
-AirGap Transfer
----------------
-
-**Version:** 1.0.0 **Date:** 2026-01-04 **Standard:** IEEE 1016 (simplified for MVP)
-
---------------
-
 Introduction
 ---------------
 
@@ -343,17 +336,6 @@ Platform    Command
 macOS/Linux ``sync`` syscall
 Windows     ``FlushFileBuffers`` API
 =========== ========================
-
---------------
-
-Revision History
-----------------
-
-+----------------------+--------------+-----------------------------------------------------+
-| Version              | Date         | Description                                         |
-+======================+==============+=====================================================+
-| 1.0.0                | 2026-01-04   | MVP architecture (streaming chunker, JSON manifest) |
-+----------------------+--------------+-----------------------------------------------------+
 
 .. _clap: https://docs.rs/clap/latest/clap/
 .. _serde: https://docs.rs/serde/latest/serde/

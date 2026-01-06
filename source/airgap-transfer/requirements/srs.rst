@@ -1,13 +1,6 @@
 Software Requirements Specification
 ===================================
 
-AirGap Transfer
----------------
-
-**Version:** 1.0.0 **Date:** 2026-01-04 **Standard:** IEEE 830 (simplified for MVP)
-
---------------
-
 Introduction
 ---------------
 
@@ -797,13 +790,3 @@ Chunk Naming Convention
 - Format: ``chunk_XXX.tar`` where XXX is zero-padded chunk index
 - Manifest: ``airgap-transfer-manifest.json``
 
---------------
-
-Revision History
-----------------
-
-+----------------------+--------------+----------------------------------------------------+
-| Version              | Date         | Description                                        |
-+======================+==============+====================================================+
-| 1.0.0                | 2026-01-04   | MVP requirements (automated count via sphinx-needs)   |
-+----------------------+--------------+----------------------------------------------------+

@@ -1,13 +1,6 @@
 Test Plan
 =========
 
-AirGap Deploy
--------------
-
-**Version:** 1.0.0 **Date:** 2026-01-04 **Standard:** IEEE 829-2008
-
---------------
-
 Introduction
 ---------------
 
