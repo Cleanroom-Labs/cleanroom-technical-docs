@@ -8,8 +8,8 @@ Overview
 
 The workflow has two sides:
 
-1. **Developer Side** (Connected System) - Creating release packages
-2. **User Side** (Air-Gapped System) - Installing from package
+**Developer Side** (Connected System) - Creating release packages
+**User Side** (Air-Gapped System) - Installing from package
 
 .. usecase:: AirGap Whisper Deployment Workflow
    :id: UC-DEPLOY-001
@@ -222,10 +222,10 @@ Step 4: Create Release
 Step 5: Verify Release
 ~~~~~~~~~~~~~~~~~~~~~~
 
-1. Go to GitHub Releases page
-2. Verify all three platform packages are attached
-3. Download and spot-check one package
-4. Update release notes if needed
+Go to GitHub Releases page
+Verify all three platform packages are attached
+Download and spot-check one package
+Update release notes if needed
 
 --------------
 
@@ -250,9 +250,9 @@ Step 1: Download Package
 
 **On connected system:**
 
-1. Go to https://github.com/yourusername/airgap-whisper/releases
-2. Download package for target platform
-3. Copy to USB drive
+Go to https://github.com/yourusername/airgap-whisper/releases
+Download package for target platform
+Copy to USB drive
 
 **Package sizes:**
 
@@ -328,7 +328,7 @@ Step 6: Installation Process (Interactive Mode)
 
 The install script will:
 
-1. **Check dependencies:**
+**Check dependencies:**
 
    ::
 
@@ -343,7 +343,7 @@ The install script will:
 
       All dependencies satisfied.
 
-2. **Prompt for installation location:**
+**Prompt for installation location:**
 
    ::
 
@@ -352,7 +352,7 @@ The install script will:
 
    Press Enter for default, or specify custom path like ``/opt/airgap-whisper``
 
-3. **Install Rust toolchain (if needed):**
+**Install Rust toolchain (if needed):**
 
    ::
 
@@ -360,7 +360,7 @@ The install script will:
       This may take a few minutes...
       ✓ Rust installed to ~/.local
 
-4. **Build whisper.cpp:**
+**Build whisper.cpp:**
 
    ::
 
@@ -368,7 +368,7 @@ The install script will:
       gcc -O3 -std=c11 ...
       ✓ whisper.cpp built successfully
 
-5. **Build AirGap Whisper:**
+**Build AirGap Whisper:**
 
    ::
 
@@ -376,7 +376,7 @@ The install script will:
       Compiling airgap-whisper v0.1.0
       ✓ AirGap Whisper built successfully
 
-6. **Install files:**
+**Install files:**
 
    ::
 
@@ -388,7 +388,7 @@ The install script will:
 
       ✓ Installation complete!
 
-7. **Summary:**
+**Summary:**
 
    ::
 
@@ -571,22 +571,22 @@ When a new version of AirGap Whisper is released:
 Developer Side
 ~~~~~~~~~~~~~~
 
-1. Update version in ``Cargo.toml`` and ``AirGapDeploy.toml``
-2. Update CHANGELOG.md
-3. Create git tag: ``git tag v0.2.0``
-4. Push tag: ``git push origin v0.2.0``
-5. GitHub Actions creates new release automatically
+Update version in ``Cargo.toml`` and ``AirGapDeploy.toml``
+Update CHANGELOG.md
+Create git tag: ``git tag v0.2.0``
+Push tag: ``git push origin v0.2.0``
+GitHub Actions creates new release automatically
 
 User Side
 ~~~~~~~~~
 
-1. Download new package from releases
+Download new package from releases
 
-2. Transfer to air-gapped system
+Transfer to air-gapped system
 
-3. Run installation script (will upgrade existing installation)
+Run installation script (will upgrade existing installation)
 
-4. Install script detects existing installation:
+Install script detects existing installation:
 
    ::
 
@@ -597,11 +597,11 @@ User Side
 
       Upgrade? [Y/n]:
 
-5. Backs up config and models
+Backs up config and models
 
-6. Installs new version
+Installs new version
 
-7. Restores config and models
+Restores config and models
 
 --------------
 

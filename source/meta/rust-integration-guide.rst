@@ -8,10 +8,10 @@ Overview
 
 The AirGap Project Suite uses a multi-layered documentation approach:
 
-1. **Requirements** (sphinx-needs ``:req:`` directives)
-2. **Design** (Software Design Documents)
-3. **API Reference** (auto-generated from Rust doc comments)
-4. **Tests** (sphinx-needs ``:test:`` directives)
+**Requirements** (sphinx-needs ``:req:`` directives)
+**Design** (Software Design Documents)
+**API Reference** (auto-generated from Rust doc comments)
+**Tests** (sphinx-needs ``:test:`` directives)
 
 This creates bidirectional traceability at every level.
 
@@ -282,27 +282,27 @@ Best Practices
 Documentation Quality
 ~~~~~~~~~~~~~~~~~~~~~
 
-1. **Write for users, not compilers:** Explain the "why" not just the "what"
-2. **Include examples:** Show common usage patterns
-3. **Document errors:** Explain when and why functions can fail
-4. **Link to requirements:** Always use ``# Implements`` sections
-5. **Keep it updated:** Update docs when code changes
+**Write for users, not compilers:** Explain the "why" not just the "what"
+**Include examples:** Show common usage patterns
+**Document errors:** Explain when and why functions can fail
+**Link to requirements:** Always use ``# Implements`` sections
+**Keep it updated:** Update docs when code changes
 
 Traceability Maintenance
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. **One requirement per implementation:** Don't mix unrelated requirements in one impl directive
-2. **Update all layers:** When requirements change, update design, code, and tests
-3. **Verify links:** Use needflow diagrams to visualize traceability
-4. **Check coverage:** Ensure all requirements have implementations and tests
+**One requirement per implementation:** Don't mix unrelated requirements in one impl directive
+**Update all layers:** When requirements change, update design, code, and tests
+**Verify links:** Use needflow diagrams to visualize traceability
+**Check coverage:** Ensure all requirements have implementations and tests
 
 Code Organization
 ~~~~~~~~~~~~~~~~~
 
-1. **Module per feature:** Organize code by functional area
-2. **Public API surface:** Only expose what's necessary
-3. **Internal documentation:** Use ``--document-private-items`` for internal docs
-4. **Consistent naming:** Match module names to design document sections
+**Module per feature:** Organize code by functional area
+**Public API surface:** Only expose what's necessary
+**Internal documentation:** Use ``--document-private-items`` for internal docs
+**Consistent naming:** Match module names to design document sections
 
 Troubleshooting
 ---------------
@@ -314,10 +314,10 @@ Rust Docs Not Appearing
 
 **Solutions:**
 
-1. Verify ``rust_crates`` paths in ``conf.py`` are correct
-2. Ensure ``cargo doc`` completed successfully
-3. Check that ``target/doc/`` directories exist
-4. Rebuild with ``make clean && make html``
+Verify ``rust_crates`` paths in ``conf.py`` are correct
+Ensure ``cargo doc`` completed successfully
+Check that ``target/doc/`` directories exist
+Rebuild with ``make clean && make html``
 
 Broken Cross-References
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -326,10 +326,10 @@ Broken Cross-References
 
 **Solutions:**
 
-1. Verify the struct name is spelled correctly
-2. Ensure the struct is ``pub`` (sphinxcontrib-rust only documents public items)
-3. Check that the crate name matches ``rust_crates`` configuration
-4. Rebuild Rust docs with ``cargo doc --no-deps``
+Verify the struct name is spelled correctly
+Ensure the struct is ``pub`` (sphinxcontrib-rust only documents public items)
+Check that the crate name matches ``rust_crates`` configuration
+Rebuild Rust docs with ``cargo doc --no-deps``
 
 Missing Requirement Links
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -338,10 +338,10 @@ Missing Requirement Links
 
 **Solutions:**
 
-1. Use exact requirement IDs (e.g., ``FR-WHISPER-001`` not ``FR-001``)
-2. Add ``.. impl::`` directives in RST files to formalize the link
-3. Update traceability matrix with implementation nodes
-4. Verify sphinx-needs is processing the impl directives
+Use exact requirement IDs (e.g., ``FR-WHISPER-001`` not ``FR-001``)
+Add ``.. impl::`` directives in RST files to formalize the link
+Update traceability matrix with implementation nodes
+Verify sphinx-needs is processing the impl directives
 
 Examples
 --------

@@ -8,7 +8,7 @@ AirGap Transfer
 
 --------------
 
-1. Introduction
+Introduction
 ---------------
 
 This SDD describes the architecture and design of AirGap Transfer’s MVP.
@@ -17,11 +17,11 @@ This SDD describes the architecture and design of AirGap Transfer’s MVP.
 
 --------------
 
-2. Architecture Overview
+Architecture Overview
 ------------------------
 
-2.1 System Context
-~~~~~~~~~~~~~~~~~~
+System Context
+~~~~~~~~~~~~~~
 
 ::
 
@@ -47,8 +47,8 @@ This SDD describes the architecture and design of AirGap Transfer’s MVP.
    │       └───────────────┘                                │
    └────────────────────────────────────────────────────────┘
 
-2.2 Design Rationale
-~~~~~~~~~~~~~~~~~~~~
+Design Rationale
+~~~~~~~~~~~~~~~~
 
 ====================== ==============================================
 Decision               Rationale
@@ -63,7 +63,7 @@ No compression         Simplicity, defer to post-MVP
 
 --------------
 
-3. File Structure
+File Structure
 -----------------
 
 Per `principles.md <../../principles.md>`__: **Flat structure, minimal modules**
@@ -88,11 +88,11 @@ Per `principles.md <../../principles.md>`__: **Flat structure, minimal modules**
 
 --------------
 
-4. Data Design
+Data Design
 --------------
 
-4.1 Manifest Structure
-~~~~~~~~~~~~~~~~~~~~~~
+Manifest Structure
+~~~~~~~~~~~~~~~~~~
 
 **Single JSON file per transfer operation**
 
@@ -118,16 +118,16 @@ Per `principles.md <../../principles.md>`__: **Flat structure, minimal modules**
      "last_updated_utc": "2026-01-04T12:15:00Z"
    }
 
-4.2 Chunk File Format
-~~~~~~~~~~~~~~~~~~~~~
+Chunk File Format
+~~~~~~~~~~~~~~~~~
 
 - **Format:** tar archive (standard Unix format)
 - **Naming:** ``chunk_XXX.tar`` (zero-padded, 3-digit index)
 - **Size:** Fixed size (except final chunk which may be smaller)
 - **Contents:** Raw file data, preserving directory structure
 
-4.3 State Persistence
-~~~~~~~~~~~~~~~~~~~~~
+State Persistence
+~~~~~~~~~~~~~~~~~
 
 **Manifest file location:**
 
@@ -137,11 +137,11 @@ Per `principles.md <../../principles.md>`__: **Flat structure, minimal modules**
 
 --------------
 
-5. Component Design
+Component Design
 -------------------
 
-5.1 CLI Parser (main.rs)
-~~~~~~~~~~~~~~~~~~~~~~~~
+CLI Parser (main.rs)
+~~~~~~~~~~~~~~~~~~~~
 
 **Command structure:**
 
@@ -156,8 +156,8 @@ Per `principles.md <../../principles.md>`__: **Flat structure, minimal modules**
 
 **Global options:** ``--dry-run``, ``--verbose``, ``--verify``, ``--chunk-size``
 
-5.2 Chunker (chunker.rs)
-~~~~~~~~~~~~~~~~~~~~~~~~
+Chunker (chunker.rs)
+~~~~~~~~~~~~~~~~~~~~
 
 **Core responsibility:** Streaming chunk creation and reconstruction
 
@@ -174,8 +174,8 @@ Per `principles.md <../../principles.md>`__: **Flat structure, minimal modules**
 - Extract tar chunks sequentially to destination
 - Reconstruct original directory structure
 
-5.3 Verifier (verifier.rs)
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Verifier (verifier.rs)
+~~~~~~~~~~~~~~~~~~~~~~
 
 **Core responsibility:** Cryptographic integrity verification
 
@@ -185,8 +185,8 @@ Per `principles.md <../../principles.md>`__: **Flat structure, minimal modules**
 - Verify chunk checksum matches manifest
 - Report verification failures with details
 
-5.4 Manifest (manifest.rs)
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Manifest (manifest.rs)
+~~~~~~~~~~~~~~~~~~~~~~
 
 **Core responsibility:** Metadata persistence and state management
 
@@ -197,8 +197,8 @@ Per `principles.md <../../principles.md>`__: **Flat structure, minimal modules**
 - Read and validate manifest during unpack
 - Support resume by tracking completion status
 
-5.5 USB Handler (usb.rs)
-~~~~~~~~~~~~~~~~~~~~~~~~
+USB Handler (usb.rs)
+~~~~~~~~~~~~~~~~~~~~
 
 **Core responsibility:** Removable media detection and capacity checks
 
@@ -211,11 +211,11 @@ Per `principles.md <../../principles.md>`__: **Flat structure, minimal modules**
 
 --------------
 
-6. Interaction Flows
+Interaction Flows
 --------------------
 
-6.1 Pack Operation
-~~~~~~~~~~~~~~~~~~
+Pack Operation
+~~~~~~~~~~~~~~
 
 ::
 
@@ -239,8 +239,8 @@ Per `principles.md <../../principles.md>`__: **Flat structure, minimal modules**
     │ "Complete: 2 chunks"   │                        │
     │◄───────────────────────│                        │
 
-6.2 Unpack Operation
-~~~~~~~~~~~~~~~~~~~~
+Unpack Operation
+~~~~~~~~~~~~~~~~
 
 ::
 
@@ -260,7 +260,7 @@ Per `principles.md <../../principles.md>`__: **Flat structure, minimal modules**
 
 --------------
 
-7. Dependencies
+Dependencies
 ---------------
 
 **Minimal crates:** Target ≤10 direct dependencies
@@ -277,7 +277,7 @@ See :doc:`Principles <../../meta/principles>` for dependency guidelines.
 
 --------------
 
-8. Security & Privacy
+Security & Privacy
 ---------------------
 
 **Privacy by architecture:** No network code exists in the application.
@@ -293,11 +293,11 @@ Malicious chunks  Verify checksums before extraction
 
 --------------
 
-9. Deployment
+Deployment
 -------------
 
-9.1 Air-Gap Support
-~~~~~~~~~~~~~~~~~~~
+Air-Gap Support
+~~~~~~~~~~~~~~~
 
 The application supports deployment on air-gapped systems (no internet access).
 
@@ -307,8 +307,8 @@ The application supports deployment on air-gapped systems (no internet access).
 - Vendored dependencies via ``cargo vendor``
 - Offline build: ``cargo build --release --offline``
 
-9.2 Platform Packages
-~~~~~~~~~~~~~~~~~~~~~
+Platform Packages
+~~~~~~~~~~~~~~~~~
 
 ======== ================== =================================
 Platform Format             Notes
@@ -320,11 +320,11 @@ Linux    Binary + .deb/.rpm Static binary preferred
 
 --------------
 
-10. Platform Considerations
+Platform Considerations
 ---------------------------
 
-10.1 USB Detection
-~~~~~~~~~~~~~~~~~~
+USB Detection
+~~~~~~~~~~~~~
 
 ======== ================================
 Platform Approach
@@ -334,8 +334,8 @@ Linux    ``/media/$USER/*`` or ``/mnt/*``
 Windows  DriveInfo API via WinAPI
 ======== ================================
 
-10.2 Filesystem Sync
-~~~~~~~~~~~~~~~~~~~~
+Filesystem Sync
+~~~~~~~~~~~~~~~
 
 =========== ========================
 Platform    Command

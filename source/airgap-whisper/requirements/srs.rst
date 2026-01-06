@@ -8,16 +8,16 @@ AirGap Whisper
 
 --------------
 
-1. Introduction
+Introduction
 ---------------
 
-1.1 Purpose
-~~~~~~~~~~~
+Purpose
+~~~~~~~
 
 This SRS defines MVP requirements for AirGap Whisper, an offline audio transcription app.
 
-1.2 Scope
-~~~~~~~~~
+Scope
+~~~~~
 
 **Product:** AirGap Whisper — a minimal desktop app for voice-to-text using whisper.cpp.
 
@@ -36,8 +36,8 @@ This SRS defines MVP requirements for AirGap Whisper, an offline audio transcrip
 - Audio playback, streaming transcription
 - Word timestamps, speaker diarization
 
-1.3 Definitions
-~~~~~~~~~~~~~~~
+Definitions
+~~~~~~~~~~~
 
 +-----------------------+--------------------------------------------------------------------+
 | Term                  | Definition                                                         |
@@ -49,18 +49,18 @@ This SRS defines MVP requirements for AirGap Whisper, an offline audio transcrip
 
 --------------
 
-2. Overall Description
+Overall Description
 ----------------------
 
-2.1 Product Perspective
-~~~~~~~~~~~~~~~~~~~~~~~
+Product Perspective
+~~~~~~~~~~~~~~~~~~~
 
 Standalone desktop app that shells out to user-installed whisper.cpp. All processing occurs locally with no network connectivity.
 
 See :doc:`SDD <../design/sdd>` for architecture diagrams and component details.
 
-2.2 Constraints
-~~~~~~~~~~~~~~~
+Constraints
+~~~~~~~~~~~
 
 +---------------------------------+---------------------------------------------------------------+
 | Constraint                      | Description                                                   |
@@ -78,13 +78,13 @@ See :doc:`SDD <../design/sdd>` for architecture diagrams and component details.
 
 --------------
 
-3. Functional Requirements
+Functional Requirements
 --------------------------
 
 Priority: **M**\ ust / **S**\ hould / **C**\ ould
 
-3.1 Recording
-~~~~~~~~~~~~~
+Recording
+~~~~~~~~~
 
 .. needtable::
    :types: req
@@ -152,8 +152,8 @@ Priority: **M**\ ust / **S**\ hould / **C**\ ould
 
    Audio input device selection in settings
 
-3.2 Transcription
-~~~~~~~~~~~~~~~~~
+Transcription
+~~~~~~~~~~~~~
 
 .. needtable::
    :types: req
@@ -203,8 +203,8 @@ Priority: **M**\ ust / **S**\ hould / **C**\ ould
 
    Handle transcription errors with system notification
 
-3.3 History
-~~~~~~~~~~~
+History
+~~~~~~~
 
 .. needtable::
    :types: req
@@ -262,8 +262,8 @@ Priority: **M**\ ust / **S**\ hould / **C**\ ould
 
    Delete transcription from history dialog
 
-3.4 Output
-~~~~~~~~~~
+Output
+~~~~~~
 
 .. needtable::
    :types: req
@@ -289,8 +289,8 @@ Priority: **M**\ ust / **S**\ hould / **C**\ ould
 
    Export transcription as .txt file from history dialog
 
-3.5 Settings
-~~~~~~~~~~~~
+Settings
+~~~~~~~~
 
 .. needtable::
    :types: req
@@ -348,8 +348,8 @@ Priority: **M**\ ust / **S**\ hould / **C**\ ould
 
    First-run prompt when paths not configured
 
-3.6 System Tray
-~~~~~~~~~~~~~~~
+System Tray
+~~~~~~~~~~~
 
 .. needtable::
    :types: req
@@ -391,8 +391,8 @@ Priority: **M**\ ust / **S**\ hould / **C**\ ould
 
    App starts minimized to tray (no main window)
 
-3.7 Security
-~~~~~~~~~~~~
+Security
+~~~~~~~~
 
 .. needtable::
    :types: req
@@ -426,8 +426,8 @@ Priority: **M**\ ust / **S**\ hould / **C**\ ould
 
    No network calls under any circumstance
 
-3.8 Deployment
-~~~~~~~~~~~~~~
+Deployment
+~~~~~~~~~~
 
 .. needtable::
    :types: req
@@ -463,7 +463,7 @@ Priority: **M**\ ust / **S**\ hould / **C**\ ould
 
 --------------
 
-4. Non-Functional Requirements
+Non-Functional Requirements
 ------------------------------
 
 .. needtable::
@@ -526,7 +526,7 @@ Priority: **M**\ ust / **S**\ hould / **C**\ ould
 
 --------------
 
-5. Error Handling
+Error Handling
 -----------------
 
 +-----------------------------------+--------------------------------------------------------+
