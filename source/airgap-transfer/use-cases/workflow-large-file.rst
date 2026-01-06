@@ -130,5 +130,5 @@ Error                Cause                 Recovery
 Related Documents
 -----------------
 
-- `SRS <../requirements/srs.md>`__ - Pack/Unpack requirements
-- `SDD <../design/sdd.md>`__ - Chunking architecture
+- :doc:`SRS <../requirements/srs>` - Pack/Unpack requirements
+- :doc:`SDD <../design/sdd>` - Chunking architecture
