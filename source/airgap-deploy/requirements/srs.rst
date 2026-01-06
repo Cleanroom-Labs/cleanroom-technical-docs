@@ -886,40 +886,118 @@ airgap-deploy provides the following major functions:
 5.1 User Interfaces
 ~~~~~~~~~~~~~~~~~~~
 
-**UI-1:** Command-line interface with ANSI color support
+.. req:: Command-Line Interface with ANSI Color Support
+   :id: FR-DEPLOY-049
+   :status: approved
+   :tags: deploy, external-interface, ui, cli
+   :priority: must
 
-**UI-2:** Progress bars for long-running operations (using indicatif crate)
+   The system SHALL provide a command-line interface with ANSI color support.
 
-**UI-3:** Interactive prompts in generated installation scripts
+.. req:: Progress Bars for Long-Running Operations
+   :id: FR-DEPLOY-050
+   :status: approved
+   :tags: deploy, external-interface, ui, progress
+   :priority: must
+
+   The system SHALL display progress bars for long-running operations (using indicatif crate).
+
+.. req:: Interactive Prompts in Installation Scripts
+   :id: FR-DEPLOY-051
+   :status: approved
+   :tags: deploy, external-interface, ui, installation
+   :priority: must
+
+   The system SHALL provide interactive prompts in generated installation scripts.
 
 5.2 Hardware Interfaces
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-**HW-1:** Standard filesystem I/O (no special hardware requirements)
+.. req:: Standard Filesystem I/O
+   :id: FR-DEPLOY-052
+   :status: approved
+   :tags: deploy, external-interface, hardware, filesystem
+   :priority: must
 
-**HW-2:** Network interface for downloading components during prep phase
+   The system SHALL use standard filesystem I/O (no special hardware requirements).
 
-**HW-3:** Removable media support (USB drives) for package transfer (OS-provided)
+.. req:: Network Interface for Component Downloads
+   :id: FR-DEPLOY-053
+   :status: approved
+   :tags: deploy, external-interface, hardware, network
+   :priority: must
+
+   The system SHALL use network interface for downloading components during prep phase.
+
+.. req:: Removable Media Support
+   :id: FR-DEPLOY-054
+   :status: approved
+   :tags: deploy, external-interface, hardware, usb
+   :priority: must
+
+   The system SHALL support removable media (USB drives) for package transfer (OS-provided).
 
 5.3 Software Interfaces
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-**SW-1:** Integration with ``cargo`` for Rust dependency vendoring
+.. req:: Cargo Integration for Dependency Vendoring
+   :id: FR-DEPLOY-055
+   :status: approved
+   :tags: deploy, external-interface, software, cargo, rust
+   :priority: must
 
-**SW-2:** Integration with ``git`` for cloning external repositories
+   The system SHALL integrate with ``cargo`` for Rust dependency vendoring.
 
-**SW-3:** HTTP/HTTPS clients for downloading models and packages
+.. req:: Git Integration for Repository Cloning
+   :id: FR-DEPLOY-056
+   :status: approved
+   :tags: deploy, external-interface, software, git
+   :priority: must
 
-**SW-4:** Integration with system package managers (apt, dnf, pacman) for SystemPackageComponent
+   The system SHALL integrate with ``git`` for cloning external repositories.
 
-**SW-5:** Integration with airgap-transfer for large package chunking (workflow level, not code level)
+.. req:: HTTP/HTTPS Clients for Downloads
+   :id: FR-DEPLOY-057
+   :status: approved
+   :tags: deploy, external-interface, software, http
+   :priority: must
+
+   The system SHALL use HTTP/HTTPS clients for downloading models and packages.
+
+.. req:: System Package Manager Integration
+   :id: FR-DEPLOY-058
+   :status: approved
+   :tags: deploy, external-interface, software, package-manager
+   :priority: should
+
+   The system SHALL integrate with system package managers (apt, dnf, pacman) for SystemPackageComponent.
+
+.. req:: AirGap Transfer Integration
+   :id: FR-DEPLOY-059
+   :status: approved
+   :tags: deploy, external-interface, software, airgap-transfer
+   :priority: could
+
+   The system SHALL integrate with airgap-transfer for large package chunking (workflow level, not code level).
 
 5.4 Communications Interfaces
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**COM-1:** HTTP/HTTPS for downloading components (preparation phase only)
+.. req:: HTTP/HTTPS for Component Downloads
+   :id: FR-DEPLOY-060
+   :status: approved
+   :tags: deploy, external-interface, communications, http, network
+   :priority: must
 
-**COM-2:** No network communication during installation phase (enforced by air-gap)
+   The system SHALL use HTTP/HTTPS for downloading components (preparation phase only).
+
+.. req:: No Network During Installation
+   :id: FR-DEPLOY-061
+   :status: approved
+   :tags: deploy, external-interface, communications, air-gap, offline
+   :priority: must
+
+   The system SHALL NOT use network communication during installation phase (enforced by air-gap).
 
 --------------
 
