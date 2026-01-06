@@ -3,10 +3,10 @@ Requirements Overview
 
 This document provides an aggregate overview of requirements, test cases, and traceability across the AirGap Project Suite using sphinx-needs. When implementation begins, this overview will expand to include:
 
-- **Use Cases** (:usecase:) → Requirements
-- **Requirements** (:req:, :nfreq:) → Test Cases
-- **Requirements** → Implementation (:impl:)
-- **Design Specifications** (:spec:) → Implementation
+- **Use Cases** (``:usecase:``) → Requirements
+- **Requirements** (``:req:``, ``:nfreq:``) → Test Cases
+- **Requirements** → Implementation (``:impl:``)
+- **Design Specifications** (``:spec:``) → Implementation
 
 The full traceability chain will look like:
 
