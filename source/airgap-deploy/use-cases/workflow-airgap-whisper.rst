@@ -6,7 +6,10 @@ This document describes the complete end-to-end workflow for packaging and deplo
 Overview
 --------
 
-The workflow has two sides: 1. **Developer Side** (Connected System) - Creating release packages 2. **User Side** (Air-Gapped System) - Installing from package
+The workflow has two sides:
+
+1. **Developer Side** (Connected System) - Creating release packages
+2. **User Side** (Air-Gapped System) - Installing from package
 
 .. usecase:: AirGap Whisper Deployment Workflow
    :id: UC-DEPLOY-001
@@ -245,9 +248,17 @@ Prerequisites
 Step 1: Download Package
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-**On connected system:** 1. Go to https://github.com/yourusername/airgap-whisper/releases 2. Download package for target platform 3. Copy to USB drive
+**On connected system:**
 
-**Package sizes:** - Linux: ~300 MB (includes Rust toolchain, whisper.cpp source, base.en model) - macOS: ~350 MB - Windows: ~400 MB
+1. Go to https://github.com/yourusername/airgap-whisper/releases
+2. Download package for target platform
+3. Copy to USB drive
+
+**Package sizes:**
+
+- Linux: ~300 MB (includes Rust toolchain, whisper.cpp source, base.en model)
+- macOS: ~350 MB
+- Windows: ~400 MB
 
 Step 2: Transfer to Air-Gapped System
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -445,7 +456,12 @@ For automated deployments (enterprise, CI/CD, etc.):
    # Windows
    $env:MODE="automatic"; $env:INSTALL_PREFIX="C:\Program Files\AirGap Whisper"; .\install.ps1
 
-Non-interactive mode: - Uses default settings - No prompts - Logs to ``install.log`` - Exits with code 0 on success, non-zero on failure
+Non-interactive mode:
+
+- Uses default settings
+- No prompts
+- Logs to ``install.log``
+- Exits with code 0 on success, non-zero on failure
 
 --------------
 
@@ -538,7 +554,12 @@ macOS ARM      All              ~350 MB         ~900 MB
 Windows x86_64 All              ~400 MB         ~1.0 GB
 ============== ================ =============== ==============
 
-**Note:** Sizes include: - AirGap Whisper source + vendored Rust dependencies (~100 MB) - Rust toolchain installer (~150 MB compressed, ~500 MB extracted) - whisper.cpp source (~10 MB) - base.en model (~140 MB)
+**Note:** Sizes include:
+
+- AirGap Whisper source + vendored Rust dependencies (~100 MB)
+- Rust toolchain installer (~150 MB compressed, ~500 MB extracted)
+- whisper.cpp source (~10 MB)
+- base.en model (~140 MB)
 
 --------------
 
@@ -587,6 +608,14 @@ User Side
 Summary
 -------
 
-This workflow enables: - **Developers:** Create multi-platform air-gap packages with single command - **Users:** Install with single script, minimal interaction - **Enterprises:** Automated deployment with non-interactive mode - **Upgrades:** Smooth version updates preserving user data
+This workflow enables:
 
-The complete process from “create release” to “user running application” takes approximately: - Developer: 5-10 minutes (mostly automated via CI/CD) - User: 10-20 minutes (mostly building whisper.cpp and AirGap Whisper)
+- **Developers:** Create multi-platform air-gap packages with single command
+- **Users:** Install with single script, minimal interaction
+- **Enterprises:** Automated deployment with non-interactive mode
+- **Upgrades:** Smooth version updates preserving user data
+
+The complete process from "create release" to "user running application" takes approximately:
+
+- Developer: 5-10 minutes (mostly automated via CI/CD)
+- User: 10-20 minutes (mostly building whisper.cpp and AirGap Whisper)

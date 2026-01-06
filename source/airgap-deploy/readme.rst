@@ -17,9 +17,17 @@ How It Works
 
 Deploy any application to air-gapped systems in two phases:
 
-**Phase 1 - Preparation (Connected System):** 1. Create ``AirGapDeploy.toml`` manifest defining your application 2. Run ``airgap-deploy prep`` to download and package everything 3. Transfer package via USB or other physical media
+**Phase 1 - Preparation (Connected System):**
 
-**Phase 2 - Installation (Air-Gapped System):** 1. Extract package on air-gapped system 2. Run generated ``install.sh`` (or ``install.ps1`` on Windows) 3. Installation script builds and installs everything offline
+1. Create ``AirGapDeploy.toml`` manifest defining your application
+2. Run ``airgap-deploy prep`` to download and package everything
+3. Transfer package via USB or other physical media
+
+**Phase 2 - Installation (Air-Gapped System):**
+
+1. Extract package on air-gapped system
+2. Run generated ``install.sh`` (or ``install.ps1`` on Windows)
+3. Installation script builds and installs everything offline
 
 No network required on the air-gapped system.
 

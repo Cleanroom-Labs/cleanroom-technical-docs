@@ -16,7 +16,11 @@ AirGap Deploy
 
 This Software Requirements Specification (SRS) describes the functional and non-functional requirements for **airgap-deploy**, a command-line tool for packaging applications and their dependencies for deployment on air-gapped systems.
 
-This document is intended for: - Developers implementing airgap-deploy - Release engineers using airgap-deploy to package applications - Technical reviewers evaluating the tool’s capabilities
+This document is intended for:
+
+- Developers implementing airgap-deploy
+- Release engineers using airgap-deploy to package applications
+- Technical reviewers evaluating the tool's capabilities
 
 1.2 Scope
 ~~~~~~~~~
@@ -82,7 +86,12 @@ This document is intended for: - Developers implementing airgap-deploy - Release
 1.5 Overview
 ~~~~~~~~~~~~
 
-This SRS is organized as follows: - **Section 2:** Overall description of the product - **Section 3:** Functional requirements - **Section 4:** Non-functional requirements - **Section 5:** External interface requirements
+This SRS is organized as follows:
+
+- **Section 2:** Overall description of the product
+- **Section 3:** Functional requirements
+- **Section 4:** Non-functional requirements
+- **Section 5:** External interface requirements
 
 --------------
 
@@ -94,11 +103,25 @@ This SRS is organized as follows: - **Section 2:** Overall description of the pr
 
 airgap-deploy is a **standalone developer tool** that integrates into existing software development workflows. It operates in two distinct phases:
 
-**Phase 1 - Preparation (Connected System):** - Developer creates ``AirGapDeploy.toml`` manifest - airgap-deploy collects application source, dependencies, models, binaries - Generates deployment package (.tar.gz or .zip) - Generates installation scripts (install.sh, install.ps1)
+**Phase 1 - Preparation (Connected System):**
 
-**Phase 2 - Installation (Air-Gapped System):** - User transfers package via USB or other physical media - User executes generated installation script - Script builds/installs application from vendored dependencies - No network access required
+- Developer creates ``AirGapDeploy.toml`` manifest
+- airgap-deploy collects application source, dependencies, models, binaries
+- Generates deployment package (.tar.gz or .zip)
+- Generates installation scripts (install.sh, install.ps1)
 
-**Relationship to Other Systems:** - **airgap-transfer:** Optional integration for large packages (see :doc:`meta-architecture </meta/meta-architecture>`) - **AirGap Whisper:** Reference implementation and primary use case - **CI/CD pipelines:** Integrates with GitHub Actions, GitLab CI for automated package generation
+**Phase 2 - Installation (Air-Gapped System):**
+
+- User transfers package via USB or other physical media
+- User executes generated installation script
+- Script builds/installs application from vendored dependencies
+- No network access required
+
+**Relationship to Other Systems:**
+
+- **airgap-transfer:** Optional integration for large packages (see :doc:`meta-architecture </meta/meta-architecture>`)
+- **AirGap Whisper:** Reference implementation and primary use case
+- **CI/CD pipelines:** Integrates with GitHub Actions, GitLab CI for automated package generation
 
 2.2 Product Functions
 ~~~~~~~~~~~~~~~~~~~~~
@@ -137,18 +160,37 @@ airgap-deploy provides the following major functions:
 2.4 Constraints
 ~~~~~~~~~~~~~~~
 
-**Regulatory Constraints:** - Must comply with open-source licensing (MIT OR Apache-2.0) - No export-controlled cryptography beyond SHA-256
+**Regulatory Constraints:**
 
-**Technical Constraints:** - Requires Rust toolchain for building airgap-deploy itself - Preparation phase requires internet access (by design) - Installation phase must work completely offline - Package size limited by available storage media
+- Must comply with open-source licensing (MIT OR Apache-2.0)
+- No export-controlled cryptography beyond SHA-256
 
-**Design Constraints:** - Command-line interface only (no GUI) - Declarative manifest format (TOML) - Cross-platform compatibility (Linux, macOS, Windows)
+**Technical Constraints:**
+
+- Requires Rust toolchain for building airgap-deploy itself
+- Preparation phase requires internet access (by design)
+- Installation phase must work completely offline
+- Package size limited by available storage media
+
+**Design Constraints:**
+
+- Command-line interface only (no GUI)
+- Declarative manifest format (TOML)
+- Cross-platform compatibility (Linux, macOS, Windows)
 
 2.5 Assumptions and Dependencies
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Assumptions:** - Developer has internet access during package preparation - Target air-gapped system has basic build tools (C compiler, make) - Users can physically transfer files via USB or similar media
+**Assumptions:**
 
-**Dependencies:** - External: Git, cargo, platform-specific package managers - Rust crates: See :doc:`Roadmap <../roadmap>` (Dependencies Summary) for complete list
+- Developer has internet access during package preparation
+- Target air-gapped system has basic build tools (C compiler, make)
+- Users can physically transfer files via USB or similar media
+
+**Dependencies:**
+
+- External: Git, cargo, platform-specific package managers
+- Rust crates: See :doc:`Roadmap <../roadmap>` (Dependencies Summary) for complete list
 
 --------------
 
