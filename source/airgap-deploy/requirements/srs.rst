@@ -21,13 +21,30 @@ This document is intended for: - Developers implementing airgap-deploy - Release
 1.2 Scope
 ~~~~~~~~~
 
-**Product Name:** airgap-deploy **Product Purpose:** Simplify the packaging and installation of software on air-gapped systems
+**Product Name:** airgap-deploy
 
-**Benefits:** - Declarative manifest-based packaging (no custom scripts) - Cross-platform support (Linux, macOS, Windows) - Automated dependency collection and vendoring - Generated installation scripts for air-gapped deployment
+**Product Purpose:** Simplify the packaging and installation of software on air-gapped systems
 
-**Goals:** - Enable developers to package any application for air-gap deployment with a single TOML manifest - Reduce manual effort in preparing air-gap packages from days to minutes - Ensure reproducible, verifiable deployments
+**Benefits:**
 
-**Out of Scope (v1.0):** - GUI interface (CLI only) - Network-based distribution mechanisms - Digital signature/verification (future enhancement) - Automatic updates (contradicts air-gap philosophy) - Plugin system (deferred to future version)
+- Declarative manifest-based packaging (no custom scripts)
+- Cross-platform support (Linux, macOS, Windows)
+- Automated dependency collection and vendoring
+- Generated installation scripts for air-gapped deployment
+
+**Goals:**
+
+- Enable developers to package any application for air-gap deployment with a single TOML manifest
+- Reduce manual effort in preparing air-gap packages from days to minutes
+- Ensure reproducible, verifiable deployments
+
+**Out of Scope (v1.0):**
+
+- GUI interface (CLI only)
+- Network-based distribution mechanisms
+- Digital signature/verification (future enhancement)
+- Automatic updates (contradicts air-gap philosophy)
+- Plugin system (deferred to future version)
 
 1.3 Definitions, Acronyms, and Abbreviations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
