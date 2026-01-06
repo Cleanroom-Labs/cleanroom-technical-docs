@@ -23,19 +23,19 @@ This document is intended for: - Developers implementing AirGap Deploy - Code re
 
 This document covers: - System architecture and component decomposition - Data structures and algorithms - Interface specifications - Design decisions and rationales
 
-This document does NOT cover: - Requirements (see `SRS <../requirements/srs.md>`__) - Implementation details (see source code) - User documentation (see README)
+This document does NOT cover: - Requirements (see :doc:`SRS <../requirements/srs>`) - Implementation details (see source code) - User documentation (see README)
 
 1.3 Definitions and Acronyms
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-See `SRS Section 1.3 <../requirements/srs.md#13-definitions-acronyms-and-abbreviations>`__ for complete definitions.
+See :doc:`SRS <../requirements/srs>` (Section 1.3) for complete definitions.
 
 1.4 References
 ~~~~~~~~~~~~~~
 
-- `Requirements (SRS) <../requirements/srs.md>`__
-- `Development Plan <../development-plan.md>`__
-- `Use Case Analysis <../use-case-analysis/overview.md>`__
+- :doc:`Requirements (SRS) <../requirements/srs>`
+- :doc:`Roadmap <../roadmap>`
+- :doc:`Use Case Analysis <../use-cases/overview>`
 - IEEE 1016-2009: IEEE Standard for Information Technology—Systems Design—Software Design Descriptions
 
 --------------
@@ -507,7 +507,7 @@ This architecture provides: - **Clear separation of concerns:** Each stage has a
 4.1 CLI Interface
 ~~~~~~~~~~~~~~~~~
 
-See `SRS Section 3.5 <../requirements/srs.md#35-command-line-interface>`__ for detailed CLI specifications.
+See :doc:`SRS <../requirements/srs>` (Section 3.5) for detailed CLI specifications.
 
 4.2 Component Plugin Interface
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -536,7 +536,7 @@ See `SRS Section 3.5 <../requirements/srs.md#35-command-line-interface>`__ for d
        }
    }
 
-**Note:** Plugin system deferred to post-v1.0 (see `Development Plan Phase 7 <../development-plan.md#phase-7-plugin-system-optional>`__)
+**Note:** Plugin system deferred to post-v1.0 (see :doc:`Roadmap <../roadmap>` Phase 7)
 
 --------------
 
@@ -829,7 +829,7 @@ See `SRS Section 3.5 <../requirements/srs.md#35-command-line-interface>`__ for d
 10.1 Plugin System (v2.0)
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-See `Development Plan Phase 7 <../development-plan.md#phase-7-plugin-system-optional>`__
+See :doc:`Roadmap <../roadmap>` (Phase 7)
 
 10.2 Pre-built Binaries (v0.2)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

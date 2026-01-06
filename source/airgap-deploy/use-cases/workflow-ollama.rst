@@ -296,7 +296,7 @@ Integration Points
 With airgap-transfer
 ~~~~~~~~~~~~~~~~~~~~
 
-For large deployments (multiple models > USB capacity, see `airgap-transfer workflows <../../airgap-transfer/use-case-analysis/overview.md>`__):
+For large deployments (multiple models > USB capacity, see :doc:`airgap-transfer workflows </airgap-transfer/use-cases/overview>`):
 
 .. code:: bash
 
@@ -372,7 +372,7 @@ Post-Deployment Verification
 Related Documents
 -----------------
 
-- `airgap-deploy Overview <overview.md>`__ - General deployment workflow and gap analysis
-- `airgap-transfer <../../airgap-transfer/use-case-analysis/overview.md>`__ - Large file transfer use cases
-- `AirGap Whisper Workflow <workflow-airgap-whisper.md>`__ - Similar deployment workflow
-- `principles.md <../../principles.md>`__ - Design principles for all AirGap tools
+- :doc:`airgap-deploy Overview <overview>` - General deployment workflow and gap analysis
+- :doc:`airgap-transfer </airgap-transfer/use-cases/overview>` - Large file transfer use cases
+- :doc:`AirGap Whisper Workflow <workflow-airgap-whisper>` - Similar deployment workflow
+- :doc:`Principles </meta/principles>` - Design principles for all AirGap tools

@@ -23,7 +23,7 @@ This SRS defines MVP requirements for AirGap Whisper, an offline audio transcrip
 
 **In Scope:** - Record audio from microphone - Transcribe using whisper.cpp - Store history in SQLite - Global hotkeys for hands-free operation - System tray for background operation
 
-**Out of Scope (per** `principles.md <../../principles.md>`__\ **):** - Cloud sync, telemetry, auto-updates - FLAC compression, MP3/M4A import - Audio playback, streaming transcription - Word timestamps, speaker diarization
+**Out of Scope (per** :doc:`Principles </meta/principles>`\ **):** - Cloud sync, telemetry, auto-updates - FLAC compression, MP3/M4A import - Audio playback, streaming transcription - Word timestamps, speaker diarization
 
 1.3 Definitions
 ~~~~~~~~~~~~~~~
@@ -46,7 +46,7 @@ This SRS defines MVP requirements for AirGap Whisper, an offline audio transcrip
 
 Standalone desktop app that shells out to user-installed whisper.cpp. All processing occurs locally with no network connectivity.
 
-See `SDD <../design/sdd.md>`__ for architecture diagrams and component details.
+See :doc:`SDD <../design/sdd>` for architecture diagrams and component details.
 
 2.2 Constraints
 ~~~~~~~~~~~~~~~
