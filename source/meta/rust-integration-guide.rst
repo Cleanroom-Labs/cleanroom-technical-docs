@@ -428,8 +428,8 @@ generate professional API documentation with full requirement traceability.
 See Also
 --------
 
-- :doc:`/airgap-whisper/api/index` - AirGap Whisper API placeholder
-- :doc:`/airgap-deploy/api/index` - AirGap Deploy API placeholder
-- :doc:`/airgap-transfer/api/index` - AirGap Transfer API placeholder
+- :doc:`airgap-whisper:api/index` - AirGap Whisper API placeholder
+- :doc:`airgap-deploy:api/index` - AirGap Deploy API placeholder
+- :doc:`airgap-transfer:api/index` - AirGap Transfer API placeholder
 - :doc:`/meta/requirements-overview` - Project statistics and requirements overview
 - `sphinxcontrib-rust documentation <https://sphinx-contrib-rust.readthedocs.io/>`_

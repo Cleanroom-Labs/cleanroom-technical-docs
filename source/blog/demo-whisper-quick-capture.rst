@@ -38,7 +38,7 @@ Press a global hotkey → speak your thought → press the hotkey again → your
 
 It's like having a private assistant that never leaves your computer.
 
-For detailed technical specifications, see the :doc:`AirGap Whisper README </airgap-whisper/readme>`. This post focuses on how it works in practice.
+For detailed technical specifications, see the :doc:`AirGap Whisper README <airgap-whisper:readme>`. This post focuses on how it works in practice.
 
 --------------
 
@@ -130,8 +130,8 @@ After installation, configure the paths to your whisper.cpp binary and model fil
 
 **Want to learn more?**
 
-- :doc:`AirGap Whisper README </airgap-whisper/readme>` - Full project overview
-- :doc:`AirGap Whisper Use Cases </airgap-whisper/use-cases/overview>` - Detailed workflow scenarios
+- :doc:`AirGap Whisper README <airgap-whisper:readme>` - Full project overview
+- :doc:`AirGap Whisper Use Cases <airgap-whisper:use-cases/overview>` - Detailed workflow scenarios
 - :doc:`Introducing the AirGap Suite </blog/introducing-airgap-suite>` - How all three projects work together
 
 --------------

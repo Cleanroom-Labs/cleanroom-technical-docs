@@ -19,9 +19,9 @@ These three projects represent our near-term development focus and demonstrate c
    :maxdepth: 2
    :caption: Projects
 
-   ../airgap-whisper-docs/source/index
-   ../airgap-deploy-docs/source/index
-   ../airgap-transfer-docs/source/index
+   projects/whisper
+   projects/deploy
+   projects/transfer
 
 .. toctree::
    :maxdepth: 1
@@ -39,9 +39,9 @@ Quick Links
 
 **Requirements:**
 
-- :doc:`AirGap Whisper <../airgap-whisper-docs/source/requirements/srs>`
-- :doc:`AirGap Deploy <../airgap-deploy-docs/source/requirements/srs>`
-- :doc:`AirGap Transfer <../airgap-transfer-docs/source/requirements/srs>`
+- `AirGap Whisper </airgap-whisper/requirements/srs.html>`_
+- `AirGap Deploy </airgap-deploy/requirements/srs.html>`_
+- `AirGap Transfer </airgap-transfer/requirements/srs.html>`_
 
 **Traceability:**
 

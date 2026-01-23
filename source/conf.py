@@ -209,10 +209,13 @@ html_additional_pages = {}
 # Output file base name for HTML help builder
 htmlhelp_basename = 'AirGapSuitedoc'
 
-# -- Intersphinx mapping (for future code docs) -----------------------------
+# -- Intersphinx mapping (for cross-project references) ---------------------
 
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3', None),
+    'airgap-whisper': ('../airgap-whisper-docs/build/html/', None),
+    'airgap-deploy': ('../airgap-deploy-docs/build/html/', None),
+    'airgap-transfer': ('../airgap-transfer-docs/build/html/', None),
 }
 
 # -- LaTeX/PDF output (optional - for printable docs) -----------------------

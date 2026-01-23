@@ -51,7 +51,7 @@ Create a deployment manifest → run the prep command → transfer the package �
 
 It's like having a deployment engineer who never forgets anything.
 
-For detailed technical specifications, see the :doc:`AirGap Deploy README </airgap-deploy/readme>`. This post focuses on the workflow.
+For detailed technical specifications, see the :doc:`AirGap Deploy README <airgap-deploy:readme>`. This post focuses on the workflow.
 
 --------------
 
@@ -180,8 +180,8 @@ AirGap Deploy will be available as part of the v1.0.0 release of the AirGap suit
 
 **Want to learn more?**
 
-- :doc:`AirGap Deploy README </airgap-deploy/readme>` - Full project overview
-- :doc:`Ollama Deployment Workflow </airgap-deploy/use-cases/workflow-ollama>` - Detailed technical example
+- :doc:`AirGap Deploy README <airgap-deploy:readme>` - Full project overview
+- :doc:`Ollama Deployment Workflow <airgap-deploy:use-cases/workflow-ollama>` - Detailed technical example
 - :doc:`Introducing the AirGap Suite </blog/introducing-airgap-suite>` - How all three projects work together
 
 --------------
