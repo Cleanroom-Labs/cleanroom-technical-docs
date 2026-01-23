@@ -39,9 +39,9 @@ Quick Links
 
 **Requirements:**
 
-- `AirGap Whisper </airgap-whisper/requirements/srs.html>`_
-- `AirGap Deploy </airgap-deploy/requirements/srs.html>`_
-- `AirGap Transfer </airgap-transfer/requirements/srs.html>`_
+- `AirGap Whisper <airgap-whisper/requirements/srs.html>`_
+- `AirGap Deploy <airgap-deploy/requirements/srs.html>`_
+- `AirGap Transfer <airgap-transfer/requirements/srs.html>`_
 
 **Traceability:**
 
