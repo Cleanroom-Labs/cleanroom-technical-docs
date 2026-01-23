@@ -25,9 +25,9 @@ This section provides an aggregate overview of all sphinx-needs directives acros
 
    For detailed per-project traceability tables showing which tests validate each requirement, see each project's Test Plan:
 
-   - :doc:`/airgap-whisper/testing/plan` (AirGap Whisper Traceability)
-   - :doc:`/airgap-deploy/testing/plan` (AirGap Deploy Traceability)
-   - :doc:`/airgap-transfer/testing/plan` (AirGap Transfer Traceability)
+   - :doc:`airgap-whisper:testing/plan` (AirGap Whisper Traceability)
+   - :doc:`airgap-deploy:testing/plan` (AirGap Deploy Traceability)
+   - :doc:`airgap-transfer:testing/plan` (AirGap Transfer Traceability)
 
 AirGap Whisper
 ~~~~~~~~~~~~~~
