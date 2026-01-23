@@ -13,7 +13,7 @@ This is a **Sphinx documentation repository** for the **AirGap project suite** -
 ## Project Structure
 
 ```
-sphinx-docs/
+technical-docs/
 ├── source/
 │   ├── meta/                           # Cross-project documentation
 │   │   ├── principles.rst              # Core design principles (READ THIS FIRST)
@@ -85,12 +85,31 @@ This repository uses **reStructuredText (.rst)** and **Sphinx** for professional
 ### Building Documentation
 
 ```bash
-cd sphinx-docs
+# First-time setup (if virtual environment doesn't exist)
+python3 -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+
+# Building documentation
 make html          # Build HTML documentation
 make clean         # Clean build artifacts
+make help          # Show all available build targets
 ```
 
-Generated documentation appears in `build/html/index.html`
+Generated documentation appears in `build/html/index.html`.
+
+**Note:** The virtual environment is stored in `.venv/` and is excluded from git.
+
+### GitHub Actions Deployment
+
+Documentation is automatically built and deployed to GitHub Pages when changes are pushed to `main`:
+
+- **Workflow:** `.github/workflows/sphinx-docs.yml`
+- **Triggers:** Push to main branch (when `source/**`, `requirements.txt`, or `Makefile` changes)
+- **Deploy target:** GitHub Pages (requires repository Settings > Pages > Source set to "GitHub Actions")
+- **Build dependencies:** Python 3.11, Graphviz (for needflow diagrams)
+
+The workflow runs `make html` and deploys `build/html/` to GitHub Pages. Check the Actions tab for build status and errors.
 
 ### Document Types
 
@@ -114,6 +133,12 @@ When updating documentation:
 5. **Use sphinx-needs directives** - For requirements (`:req:`), test cases (`:test:`), use cases (`:usecase:`)
 6. **Update traceability** - Test cases should link to requirements via `:tests:` field
 7. **Build and verify** - Run `make html` to ensure no errors
+8. **Check warnings** - Sphinx warnings indicate broken links, missing references, or syntax errors
+
+**Common build errors:**
+- `WARNING: undefined label` - Missing or incorrect `:ref:` target
+- `WARNING: unknown document` - Incorrect `:doc:` path (use relative paths)
+- `WARNING: duplicate label` - Need IDs must be unique across all projects
 
 ### Common Tasks
 
@@ -250,9 +275,18 @@ This is a **Sphinx documentation repository** that generates professional HTML d
 ### Build System
 
 - **Sphinx** - Documentation generator
-- **sphinx-needs** - Requirements traceability extension
+- **sphinx-needs** - Requirements traceability extension (critical for traceability matrices)
 - **sphinx_rtd_theme** - Read the Docs theme
-- **Python 3.x** - Required for Sphinx
+- **myst-parser** - Markdown support (optional, RST preferred)
+- **Graphviz** - Required for needflow diagrams and visualizations
+- **Python 3.11+** - Required for Sphinx
+
+### Dependencies
+
+See `requirements.txt` for exact versions. Key dependencies:
+- `Sphinx>=7.0.0,<8.0.0`
+- `sphinx-needs>=6.3.0` (traceability directives)
+- `graphviz>=0.20.0` (diagram generation)
 
 ### Git Workflow
 
