@@ -8,11 +8,11 @@ AirGap Transfer is a tool for efficiently transferring large files and directori
 Quick Links
 -----------
 
-* `View Full Documentation </airgap-transfer/index.html>`_
-* `Requirements Specification </airgap-transfer/requirements/srs.html>`_
-* `Design Document </airgap-transfer/design/sdd.html>`_
-* `Implementation Roadmap </airgap-transfer/roadmap.html>`_
-* `Use Cases </airgap-transfer/use-cases/index.html>`_
+* `View Full Documentation <../airgap-transfer/index.html>`_
+* `Requirements Specification <../airgap-transfer/requirements/srs.html>`_
+* `Design Document <../airgap-transfer/design/sdd.html>`_
+* `Implementation Roadmap <../airgap-transfer/roadmap.html>`_
+* `Use Cases <../airgap-transfer/use-cases/index.html>`_
 
 Key Features
 ------------

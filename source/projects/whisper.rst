@@ -8,11 +8,11 @@ AirGap Whisper is an end-user desktop application for offline audio transcriptio
 Quick Links
 -----------
 
-* `View Full Documentation </airgap-whisper/index.html>`_
-* `Requirements Specification </airgap-whisper/requirements/srs.html>`_
-* `Design Document </airgap-whisper/design/sdd.html>`_
-* `Implementation Roadmap </airgap-whisper/roadmap.html>`_
-* `Use Cases </airgap-whisper/use-cases/overview.html>`_
+* `View Full Documentation <../airgap-whisper/index.html>`_
+* `Requirements Specification <../airgap-whisper/requirements/srs.html>`_
+* `Design Document <../airgap-whisper/design/sdd.html>`_
+* `Implementation Roadmap <../airgap-whisper/roadmap.html>`_
+* `Use Cases <../airgap-whisper/use-cases/overview.html>`_
 
 Key Features
 ------------
