@@ -1,0 +1,196 @@
+name: Deploy Tagged Release
+
+on:
+  push:
+    tags:
+      - 'v*'           # Release tags (e.g., v1.0.0)
+      - 'v*-rc.*'      # Release candidate tags (e.g., v1.0.0-rc.1)
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages-${{ github.ref_name }}"
+  cancel-in-progress: false
+
+jobs:
+  determine-environment:
+    runs-on: ubuntu-latest
+    outputs:
+      environment: ${{ steps.env.outputs.environment }}
+      is_release_candidate: ${{ steps.env.outputs.is_release_candidate }}
+
+    steps:
+    - name: Determine deployment environment
+      id: env
+      run: |
+        TAG_NAME="${GITHUB_REF#refs/tags/}"
+        echo "Tag: $TAG_NAME"
+
+        if [[ $TAG_NAME == *-rc.* ]]; then
+          echo "environment=preview" >> $GITHUB_OUTPUT
+          echo "is_release_candidate=true" >> $GITHUB_OUTPUT
+          echo "Deploying to PREVIEW environment"
+        else
+          echo "environment=production" >> $GITHUB_OUTPUT
+          echo "is_release_candidate=false" >> $GITHUB_OUTPUT
+          echo "Deploying to PRODUCTION environment"
+        fi
+
+  build:
+    needs: determine-environment
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository with submodules
+      uses: actions/checkout@v4
+      with:
+        submodules: recursive
+        fetch-depth: 0
+
+    - name: Verify tag exists on submodules
+      run: |
+        TAG_NAME="${GITHUB_REF#refs/tags/}"
+        echo "Checking if submodules have matching tags..."
+        echo ""
+
+        for submodule in airgap-whisper-docs airgap-deploy-docs airgap-transfer-docs; do
+          cd $submodule
+
+          # Check if this tag exists
+          if git rev-parse "$TAG_NAME" >/dev/null 2>&1; then
+            echo "✓ $submodule has tag $TAG_NAME"
+            COMMIT=$(git rev-parse "$TAG_NAME")
+            echo "  Commit: $COMMIT"
+          else
+            echo "⚠️  $submodule does not have tag $TAG_NAME (using current commit)"
+            COMMIT=$(git rev-parse HEAD)
+            echo "  Commit: $COMMIT"
+          fi
+
+          cd ..
+        done
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+        cache: 'pip'
+        cache-dependency-path: 'requirements.txt'
+
+    - name: Install Graphviz
+      run: sudo apt-get update && sudo apt-get install -y graphviz
+
+    - name: Install Python dependencies
+      run: pip install -r requirements.txt
+
+    - name: Build individual project documentation
+      run: |
+        echo "Building individual project docs for intersphinx..."
+        for project in airgap-whisper-docs airgap-deploy-docs airgap-transfer-docs; do
+          echo ""
+          echo "Building $project..."
+          cd $project
+
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          fi
+
+          sphinx-build -M html source build
+
+          if [ ! -f build/html/index.html ]; then
+            echo "ERROR: Build failed for $project"
+            exit 1
+          fi
+
+          echo "✓ $project built successfully"
+          cd ..
+        done
+
+    - name: Build master Sphinx documentation
+      run: |
+        echo "Building master documentation for ${GITHUB_REF#refs/tags/}..."
+        make html
+
+    - name: Add version badge to docs
+      run: |
+        TAG_NAME="${GITHUB_REF#refs/tags/}"
+        IS_RC="${{ needs.determine-environment.outputs.is_release_candidate }}"
+
+        # Add version info to index page
+        cd build/html
+
+        if [ "$IS_RC" = "true" ]; then
+          BADGE_COLOR="orange"
+          BADGE_TEXT="Release Candidate"
+        else
+          BADGE_COLOR="blue"
+          BADGE_TEXT="Release"
+        fi
+
+        echo "<div style='background: $BADGE_COLOR; color: white; padding: 10px; text-align: center;'>" >> index.html.new
+        echo "  <strong>$BADGE_TEXT: $TAG_NAME</strong>" >> index.html.new
+        echo "</div>" >> index.html.new
+        cat index.html >> index.html.new
+        mv index.html.new index.html
+
+        cd ../..
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: build/html
+
+  deploy-production:
+    needs: [determine-environment, build]
+    if: needs.determine-environment.outputs.is_release_candidate == 'false'
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages-production
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+    - name: Deploy to GitHub Pages (Production)
+      id: deployment
+      uses: actions/deploy-pages@v4
+
+    - name: Create release summary
+      run: |
+        TAG_NAME="${GITHUB_REF#refs/tags/}"
+        echo "# 🚀 Release Deployed: $TAG_NAME"
+        echo ""
+        echo "Production documentation deployed successfully!"
+        echo ""
+        echo "**URL:** ${{ steps.deployment.outputs.page_url }}"
+        echo "**Tag:** $TAG_NAME"
+        echo "**Commit:** $GITHUB_SHA"
+
+  deploy-preview:
+    needs: [determine-environment, build]
+    if: needs.determine-environment.outputs.is_release_candidate == 'true'
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages-preview
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+    - name: Deploy to GitHub Pages (Preview)
+      id: deployment
+      uses: actions/deploy-pages@v4
+
+    - name: Create preview summary
+      run: |
+        TAG_NAME="${GITHUB_REF#refs/tags/}"
+        echo "# 🔍 Preview Deployed: $TAG_NAME"
+        echo ""
+        echo "Release candidate documentation deployed to preview environment!"
+        echo ""
+        echo "**URL:** ${{ steps.deployment.outputs.page_url }}"
+        echo "**Tag:** $TAG_NAME"
+        echo "**Commit:** $GITHUB_SHA"
+        echo ""
+        echo "⚠️  This is a preview deployment. Final release will deploy to production."
