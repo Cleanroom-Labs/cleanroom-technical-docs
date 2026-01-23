@@ -86,33 +86,24 @@ jobs:
     - name: Install Python dependencies
       run: pip install -r requirements.txt
 
-    - name: Build individual project documentation
+    - name: Build all documentation (projects + master)
       run: |
-        echo "Building individual project docs for intersphinx..."
-        for project in airgap-whisper-docs airgap-deploy-docs airgap-transfer-docs; do
-          echo ""
-          echo "Building $project..."
-          cd $project
+        echo "Building all documentation for ${GITHUB_REF#refs/tags/}..."
+        echo ""
 
-          if [ -f requirements.txt ]; then
-            pip install -r requirements.txt
-          fi
+        # Use the Makefile which handles building projects + master + copying
+        make html
 
-          sphinx-build -M html source build
-
-          if [ ! -f build/html/index.html ]; then
-            echo "ERROR: Build failed for $project"
+        # Verify project docs were copied
+        echo ""
+        echo "Verifying project documentation..."
+        for project in airgap-whisper airgap-deploy airgap-transfer; do
+          if [ ! -f build/html/$project/index.html ]; then
+            echo "ERROR: $project docs not found in master build"
             exit 1
           fi
-
-          echo "✓ $project built successfully"
-          cd ..
+          echo "✓ $project documentation present"
         done
-
-    - name: Build master Sphinx documentation
-      run: |
-        echo "Building master documentation for ${GITHUB_REF#refs/tags/}..."
-        make html
 
     - name: Add version badge to docs
       run: |
