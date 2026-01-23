@@ -5,13 +5,21 @@ on:
     branches: [main]
     paths:
       - 'source/**'
+      - 'shared/**'
       - 'requirements.txt'
       - 'Makefile'
       - '.github/workflows/sphinx-docs.yml'
+      - 'airgap-whisper-docs/**'
+      - 'airgap-deploy-docs/**'
+      - 'airgap-transfer-docs/**'
   pull_request:
     branches: [main]
     paths:
       - 'source/**'
+      - 'shared/**'
+      - 'airgap-whisper-docs/**'
+      - 'airgap-deploy-docs/**'
+      - 'airgap-transfer-docs/**'
   workflow_dispatch:
 
 permissions:
@@ -29,8 +37,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
+    - name: Checkout repository with submodules
       uses: actions/checkout@v4
+      with:
+        submodules: recursive
+        fetch-depth: 0  # Full history for proper submodule resolution
+
+    - name: Verify submodules
+      run: |
+        echo "Checking submodule status..."
+        git submodule status
+
+        echo ""
+        echo "Verifying all submodules are initialized..."
+        for submodule in airgap-whisper-docs airgap-deploy-docs airgap-transfer-docs; do
+          if [ ! -d "$submodule/.git" ]; then
+            echo "ERROR: Submodule $submodule not initialized"
+            exit 1
+          fi
+          echo "✓ $submodule initialized"
+        done
 
     - name: Set up Python
       uses: actions/setup-python@v5
@@ -45,8 +71,72 @@ jobs:
     - name: Install Python dependencies
       run: pip install -r requirements.txt
 
-    - name: Build Sphinx documentation
-      run: make html
+    - name: Build individual project documentation
+      run: |
+        echo "Building individual project docs for intersphinx..."
+        for project in airgap-whisper-docs airgap-deploy-docs airgap-transfer-docs; do
+          echo ""
+          echo "Building $project..."
+          cd $project
+
+          # Install project-specific dependencies
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          fi
+
+          # Build the project docs
+          sphinx-build -M html source build
+
+          # Verify build
+          if [ ! -f build/html/index.html ]; then
+            echo "ERROR: Build failed for $project"
+            exit 1
+          fi
+
+          echo "✓ $project built successfully"
+          cd ..
+        done
+
+    - name: Build master Sphinx documentation
+      run: |
+        echo "Building master documentation..."
+        make html
+
+        # Verify no warnings
+        echo ""
+        echo "Checking for build warnings..."
+        make html 2>&1 | tee build.log
+        if grep -i "warning" build.log; then
+          echo "⚠️  Build completed with warnings (review recommended)"
+        else
+          echo "✓ Build completed with no warnings"
+        fi
+
+    - name: Verify cross-references
+      run: |
+        echo "Checking intersphinx references..."
+        cd build/html
+
+        # Check that project docs are referenced correctly
+        if ! grep -r "airgap-whisper" . >/dev/null 2>&1; then
+          echo "⚠️  Warning: No references to airgap-whisper found"
+        else
+          echo "✓ airgap-whisper references found"
+        fi
+
+        if ! grep -r "airgap-deploy" . >/dev/null 2>&1; then
+          echo "⚠️  Warning: No references to airgap-deploy found"
+        else
+          echo "✓ airgap-deploy references found"
+        fi
+
+        if ! grep -r "airgap-transfer" . >/dev/null 2>&1; then
+          echo "⚠️  Warning: No references to airgap-transfer found"
+        else
+          echo "✓ airgap-transfer references found"
+        fi
+
+        cd ../..
 
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
@@ -66,3 +156,9 @@ jobs:
     - name: Deploy to GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v4
+
+    - name: Report deployment
+      if: success()
+      run: |
+        echo "✓ Documentation deployed successfully"
+        echo "URL: ${{ steps.deployment.outputs.page_url }}"
