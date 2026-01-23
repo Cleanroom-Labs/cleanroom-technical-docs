@@ -9,6 +9,7 @@ Articles about the AirGap suite, privacy-first computing, and offline workflows.
    :maxdepth: 1
    :caption: Recent Posts
 
+   why-air-gapping
    introducing-airgap-suite
    demo-whisper-quick-capture
    demo-deploy-rust-app
