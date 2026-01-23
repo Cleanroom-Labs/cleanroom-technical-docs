@@ -40,7 +40,7 @@ This is where the AirGap suite shines through integration. AirGap Deploy package
 
 Package with Deploy → chunk with Transfer → physically transfer USB drives → reconstruct with Transfer → install with Deploy's generated script. Everything is automated. Nothing is manual. No human error.
 
-For technical details, see the :doc:`Ollama Deployment Workflow </airgap-deploy/use-cases/workflow-ollama>` documentation. This post focuses on the end-to-end experience.
+For technical details, see the :doc:`Ollama Deployment Workflow <airgap-deploy:use-cases/workflow-ollama>` documentation. This post focuses on the end-to-end experience.
 
 --------------
 
@@ -170,9 +170,9 @@ AirGap Transfer and AirGap Deploy will be available as part of the v1.0.0 releas
 
 **Want to learn more?**
 
-- :doc:`AirGap Transfer README </airgap-transfer/readme>` - Full project overview and CLI reference
-- :doc:`AirGap Deploy README </airgap-deploy/readme>` - Packaging system documentation
-- :doc:`Ollama Deployment Workflow </airgap-deploy/use-cases/workflow-ollama>` - Detailed technical walkthrough
+- :doc:`AirGap Transfer README <airgap-transfer:readme>` - Full project overview and CLI reference
+- :doc:`AirGap Deploy README <airgap-deploy:readme>` - Packaging system documentation
+- :doc:`Ollama Deployment Workflow <airgap-deploy:use-cases/workflow-ollama>` - Detailed technical walkthrough
 - :doc:`Introducing the AirGap Suite </blog/introducing-airgap-suite>` - Complete suite overview
 
 **Other demo posts:**

@@ -60,7 +60,7 @@ The application runs silently in your system tray with no main window cluttering
 
 It's the only cross-platform, open-source, air-gap-ready voice transcription tool designed specifically for quick capture workflows in privacy-sensitive environments.
 
-**Learn more**: :doc:`AirGap Whisper README </airgap-whisper/readme>` | :ref:`Competitive Analysis <airgap-whisper-readme-competition>`
+**Learn more**: :doc:`AirGap Whisper README <airgap-whisper:readme>` | :ref:`Competitive Analysis <airgap-whisper-readme-competition>`
 
 --------------
 
@@ -85,7 +85,7 @@ AirGap Deploy is lightweight (single Rust binary), declarative (human-readable T
 
 It's the only tool designed specifically for packaging Rust applications with ML models for air-gapped desktop deployment.
 
-**Learn more**: :doc:`AirGap Deploy README </airgap-deploy/readme>` | :ref:`Competitive Analysis <airgap-deploy-readme-competition>`
+**Learn more**: :doc:`AirGap Deploy README <airgap-deploy:readme>` | :ref:`Competitive Analysis <airgap-deploy-readme-competition>`
 
 --------------
 
@@ -104,7 +104,7 @@ This is different from rsync (which is excellent for local synchronization but d
 
 AirGap Transfer provides enterprise-grade verification and resume capability without enterprise complexity or cost. It's free, open source, and works with any USB storage on any platform.
 
-**Learn more**: :doc:`AirGap Transfer README </airgap-transfer/readme>` | :ref:`Competitive Analysis <airgap-transfer-readme-competition>`
+**Learn more**: :doc:`AirGap Transfer README <airgap-transfer:readme>` | :ref:`Competitive Analysis <airgap-transfer-readme-competition>`
 
 --------------
 
@@ -159,11 +159,11 @@ Getting Started
 
 Ready to try it out? Each tool is available as source code and will be available as pre-built binaries once development is complete.
 
-**AirGap Whisper** (in development): Build from source with Cargo, configure whisper.cpp path, and start transcribing with global hotkeys. Perfect for anyone who takes notes by voice or needs accessibility features. :doc:`Get started </airgap-whisper/readme>`
+**AirGap Whisper** (in development): Build from source with Cargo, configure whisper.cpp path, and start transcribing with global hotkeys. Perfect for anyone who takes notes by voice or needs accessibility features. :doc:`Get started <airgap-whisper:readme>`
 
-**AirGap Deploy** (planned): Create a TOML manifest, run ``airgap-deploy prep``, and generate deployment packages for air-gapped systems. Essential for releasing applications to offline environments. :doc:`Learn more </airgap-deploy/readme>`
+**AirGap Deploy** (planned): Create a TOML manifest, run ``airgap-deploy prep``, and generate deployment packages for air-gapped systems. Essential for releasing applications to offline environments. :doc:`Learn more <airgap-deploy:readme>`
 
-**AirGap Transfer** (planned): Split large files with ``airgap-transfer pack``, physically transfer USB drives, and reconstruct with ``airgap-transfer unpack``. Crucial when datasets exceed single USB capacity. :doc:`Learn more </airgap-transfer/readme>`
+**AirGap Transfer** (planned): Split large files with ``airgap-transfer pack``, physically transfer USB drives, and reconstruct with ``airgap-transfer unpack``. Crucial when datasets exceed single USB capacity. :doc:`Learn more <airgap-transfer:readme>`
 
 All three projects are open source and welcome contributions. These foundation tools represent our near-term development focus, but we have ideas for additional air-gapped projects and we're eager to collaborate with others who share the vision of privacy-first computing.
 

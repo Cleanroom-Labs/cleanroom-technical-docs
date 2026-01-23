@@ -79,7 +79,7 @@ AirGap Whisper ↔ AirGap Deploy
 **How they relate:**
 
 - AirGap Deploy packages AirGap Whisper (with dependencies) for air-gapped systems
-- Deployment workflow documented in :doc:`/airgap-deploy/use-cases/workflow-airgap-whisper`
+- Deployment workflow documented in :doc:`airgap-deploy:use-cases/workflow-airgap-whisper`
 - AirGap Whisper's ``AirGapDeploy.toml`` defines packaging requirements
 
 **Independence:**
@@ -433,12 +433,12 @@ Documented Integration
 
 **AirGap Deploy workflows mention AirGap Transfer:**
 
-- :doc:`/airgap-deploy/use-cases/workflow-ollama` - Shows chunking large Ollama packages
-- :doc:`/airgap-deploy/use-cases/workflow-airgap-whisper` - Notes option for large packages
+- :doc:`airgap-deploy:use-cases/workflow-ollama` - Shows chunking large Ollama packages
+- :doc:`airgap-deploy:use-cases/workflow-airgap-whisper` - Notes option for large packages
 
 **AirGap Transfer docs mention AirGap Deploy:**
 
-- :doc:`/airgap-transfer/use-cases/overview` - Lists integration with deployment workflows
+- :doc:`airgap-transfer:use-cases/overview` - Lists integration with deployment workflows
 
 **Cross-references maintained** in use case documentation.
 
