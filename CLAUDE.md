@@ -90,6 +90,9 @@ python3 -m venv .venv
 source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 
+# Subsequent sessions (activate existing environment)
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+
 # Building documentation
 make html          # Build HTML documentation
 make clean         # Clean build artifacts
@@ -98,7 +101,7 @@ make help          # Show all available build targets
 
 Generated documentation appears in `build/html/index.html`.
 
-**Note:** The virtual environment is stored in `.venv/` and is excluded from git.
+**Note:** The virtual environment is stored in `.venv/` and is excluded from git. If using direnv (detected via `.envrc`), the virtual environment activates automatically when entering the directory.
 
 ### GitHub Actions Deployment
 
@@ -108,8 +111,9 @@ Documentation is automatically built and deployed to GitHub Pages when changes a
 - **Triggers:** Push to main branch (when `source/**`, `requirements.txt`, or `Makefile` changes)
 - **Deploy target:** GitHub Pages (requires repository Settings > Pages > Source set to "GitHub Actions")
 - **Build dependencies:** Python 3.11, Graphviz (for needflow diagrams)
+- **Deployment URL pattern:** `https://[username].github.io/[repo-name]/`
 
-The workflow runs `make html` and deploys `build/html/` to GitHub Pages. Check the Actions tab for build status and errors.
+The workflow runs `make html` and deploys `build/html/` to GitHub Pages. The build and deploy are separate jobs - PRs only build (don't deploy) to catch errors early. Check the Actions tab for build status and errors.
 
 ### Document Types
 
@@ -284,9 +288,12 @@ This is a **Sphinx documentation repository** that generates professional HTML d
 ### Dependencies
 
 See `requirements.txt` for exact versions. Key dependencies:
-- `Sphinx>=7.0.0,<8.0.0`
-- `sphinx-needs>=6.3.0` (traceability directives)
-- `graphviz>=0.20.0` (diagram generation)
+- `Sphinx>=7.0.0,<8.0.0` - Documentation generator
+- `sphinx-rtd-theme>=3.0.0` - Read the Docs theme
+- `sphinx-needs>=6.3.0` - Traceability directives (`:req:`, `:test:`, `:usecase:`)
+- `graphviz>=0.20.0` - Diagram generation (also requires system Graphviz: `brew install graphviz` on macOS)
+- `myst-parser>=3.0.0` - Optional Markdown support
+- `sphinxcontrib-rust>=1.0.0` - Future Rust API documentation support
 
 ### Git Workflow
 
