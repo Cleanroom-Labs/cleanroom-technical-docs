@@ -1,31 +1,21 @@
-Meta Documentation
-==================
+Project Overview
+================
 
-Cross-project documentation covering principles, architecture, and traceability for the entire AirGap Project Suite.
+Cross-project documentation covering principles, architecture, and guidance for the AirGap Project Suite.
 
 .. toctree::
    :maxdepth: 2
-   :caption: Foundation
+   :caption: Philosophy & Vision
 
    principles
    meta-architecture
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Release Planning
-
    release-roadmap
 
 .. toctree::
    :maxdepth: 2
-   :caption: Requirements
+   :caption: Developer Reference
 
    requirements-overview
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Implementation Guides
-
-   rust-integration-guide
    sphinx-needs-guide
+   rust-integration-guide
 
