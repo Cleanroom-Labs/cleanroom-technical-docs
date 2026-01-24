@@ -90,6 +90,10 @@ html_sidebars = {
 html_title = 'AirGap Suite Documentation'
 html_short_title = 'AirGap Docs'
 
+# Override shared settings for main docs
+html_show_sourcelink = True
+html_theme_options['style_external_links'] = True
+
 # Additional HTML context
 html_context = {
     'display_github': True,
