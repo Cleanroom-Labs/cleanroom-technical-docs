@@ -23,12 +23,6 @@ These three projects represent our near-term development focus and demonstrate c
    projects/deploy
    projects/transfer
 
-.. toctree::
-   :maxdepth: 1
-   :caption: Blog
-
-   blog/index
-
 Quick Links
 ===========
 
