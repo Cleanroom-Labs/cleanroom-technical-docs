@@ -90,10 +90,8 @@ html_sidebars = {
 html_title = 'AirGap Suite Documentation'
 html_short_title = 'AirGap Docs'
 
-# Override shared settings for main docs
-html_static_path = ['_static']  # Use local _static, not sphinx-theme/_static
-html_show_sourcelink = True
-html_theme_options['style_external_links'] = True
+# Override shared static path for main docs (use local _static directory)
+html_static_path = ['_static']
 
 # Additional HTML context
 html_context = {
