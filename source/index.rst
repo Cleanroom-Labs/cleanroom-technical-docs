@@ -11,7 +11,7 @@ These three projects represent our near-term development focus and demonstrate c
 
 .. toctree::
    :maxdepth: 2
-   :caption: Meta Documentation
+   :caption: Project Overview
 
    meta/index
 
