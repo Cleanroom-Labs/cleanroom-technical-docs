@@ -1,0 +1,17 @@
+{# Extends the Read the Docs theme layout to add a top navigation bar #}
+{% extends "!layout.html" %}
+
+{% block extrabody %}
+<nav class="site-nav-bar">
+    <div class="site-nav-container">
+        <a href="/" class="site-nav-brand">Cleanroom Labs</a>
+        <div class="site-nav-links">
+            <a href="/about" class="site-nav-link">About</a>
+            <a href="/donate" class="site-nav-link">Donate</a>
+            <a href="/blog" class="site-nav-link">Blog</a>
+            <a href="/docs/index.html" class="site-nav-link site-nav-current">Docs</a>
+        </div>
+    </div>
+</nav>
+{{ super() }}
+{% endblock %}
