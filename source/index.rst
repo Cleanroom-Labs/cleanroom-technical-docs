@@ -21,12 +21,12 @@ These three projects represent our near-term development focus and demonstrate c
    meta/rust-integration-guide
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Projects
 
-   projects/whisper
-   projects/deploy
    projects/transfer
+   projects/deploy
+   projects/whisper
 
 Quick Links
 ===========
