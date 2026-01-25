@@ -6,7 +6,7 @@ This guide explains how to integrate auto-generated Rust API documentation with 
 Overview
 --------
 
-The AirGap Project Suite uses a multi-layered documentation approach:
+The Cleanroom Labs technical documentation uses a multi-layered documentation approach:
 
 **Requirements** (sphinx-needs ``:req:`` directives)
 **Design** (Software Design Documents)
@@ -347,7 +347,7 @@ Examples
 --------
 
 Complete Example: Cleanroom Whisper Audio Module
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Rust Code (src/audio/recorder.rs):**
 

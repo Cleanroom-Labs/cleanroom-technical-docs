@@ -2,7 +2,7 @@ sphinx-needs Usage Guide
 ========================
 
 This guide explains how to use `sphinx-needs`_ for requirements engineering and
-traceability in the AirGap Project Suite documentation.
+traceability in the Cleanroom Labs technical documentation.
 
 What is sphinx-needs?
 ---------------------

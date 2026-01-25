@@ -1,6 +1,6 @@
 # Configuration file for the Sphinx documentation builder.
 #
-# AirGap Project Suite Documentation
+# Cleanroom Labs Technical Documentation
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
 import sys
@@ -12,7 +12,7 @@ from theme_config import *
 
 # -- Project information -----------------------------------------------------
 
-project = 'AirGap Project Suite'
+project = 'Technical Documentation'
 copyright = '2026, Cleanroom Labs'
 author = 'Cleanroom Labs'
 version = '1.0.0'
@@ -87,8 +87,8 @@ html_sidebars = {
 
 # -- HTML output options -----------------------------------------------------
 
-html_title = 'AirGap Suite Documentation'
-html_short_title = 'AirGap Docs'
+html_title = 'Technical Documentation'
+html_short_title = 'Tech Docs'
 
 # Override shared static path for main docs (use local _static directory)
 html_static_path = ['_static']

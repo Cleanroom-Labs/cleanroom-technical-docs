@@ -1,7 +1,7 @@
 Requirements Overview
 =====================
 
-This document provides an aggregate overview of requirements, test cases, and traceability across the AirGap Project Suite using sphinx-needs. When implementation begins, this overview will expand to include:
+This document provides an aggregate overview of requirements, test cases, and traceability across the Cleanroom Labs technical documentation using sphinx-needs. When implementation begins, this overview will expand to include:
 
 - **Use Cases** (``:usecase:``) → Requirements
 - **Requirements** (``:req:``, ``:nfreq:``) → Test Cases
@@ -30,7 +30,7 @@ This section provides an aggregate overview of all sphinx-needs directives acros
    - :doc:`airgap-transfer:testing/plan` (AirGap Transfer Traceability)
 
 Cleanroom Whisper
-~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~
 
 ================= ======================================================================================
 Category          Count

@@ -21,7 +21,7 @@ v1.0.0 Release Criteria
 -----------------------
 
 Cleanroom Whisper v1.0.0
-~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Definition of Done:**
 

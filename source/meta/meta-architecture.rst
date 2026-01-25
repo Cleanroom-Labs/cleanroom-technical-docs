@@ -1,7 +1,7 @@
 Meta-Architecture
 =================
 
-**Purpose:** Document relationships, boundaries, and dependencies between the three AirGap projects
+**Purpose:** Document relationships, boundaries, and dependencies between the three Cleanroom Labs projects
 
 --------------
 
@@ -10,15 +10,15 @@ Project Overview
 
 The AirGap suite consists of three independent but complementary projects:
 
-+---------------------+----------------------+---------------------------------------------+-----------------------------------------------------------+
-| Project             | Type                 | Purpose                                     | Primary Users                                             |
-+=====================+======================+=============================================+===========================================================+
-| **Cleanroom Whisper**  | End-user application | Offline audio transcription                 | Privacy-conscious users, researchers, accessibility users |
-+---------------------+----------------------+---------------------------------------------+-----------------------------------------------------------+
-| **AirGap Deploy**   | Developer tool       | Package applications for air-gap deployment | Developers, maintainers, release engineers                |
-+---------------------+----------------------+---------------------------------------------+-----------------------------------------------------------+
-| **AirGap Transfer** | Utility              | Transfer large files across air-gaps        | IT staff, users with large datasets                       |
-+---------------------+----------------------+---------------------------------------------+-----------------------------------------------------------+
++-----------------------+----------------------+---------------------------------------------+-----------------------------------------------------------+
+| Project               | Type                 | Purpose                                     | Primary Users                                             |
++=======================+======================+=============================================+===========================================================+
+| **Cleanroom Whisper** | End-user application | Offline audio transcription                 | Privacy-conscious users, researchers, accessibility users |
++-----------------------+----------------------+---------------------------------------------+-----------------------------------------------------------+
+| **AirGap Deploy**     | Developer tool       | Package applications for air-gap deployment | Developers, maintainers, release engineers                |
++-----------------------+----------------------+---------------------------------------------+-----------------------------------------------------------+
+| **AirGap Transfer**   | Utility              | Transfer large files across air-gaps        | IT staff, users with large datasets                       |
++-----------------------+----------------------+---------------------------------------------+-----------------------------------------------------------+
 
 --------------
 
@@ -28,7 +28,7 @@ Architecture Diagram
 .. code-block:: none
 
    ┌───────────────────────────────────────────────────────────────────────────────┐
-   │                             AirGap Project Suite                              │
+   │                         Cleanroom Labs Project Suite                          │
    └───────────────────────────────────────────────────────────────────────────────┘
 
    ┌─────────────────────┐      ┌─────────────────────┐      ┌─────────────────────┐
@@ -79,7 +79,7 @@ Cleanroom Whisper ↔ AirGap Deploy
 **How they relate:**
 
 - AirGap Deploy packages Cleanroom Whisper (with dependencies) for air-gapped systems
-- Deployment workflow documented in :doc:`airgap-deploy:use-cases/workflow-cleanroom-whisper`
+- Deployment workflow documented in :doc:`airgap-deploy:use-cases/workflow-airgap-whisper`
 - Cleanroom Whisper's ``AirGapDeploy.toml`` defines packaging requirements
 
 **Independence:**
@@ -220,7 +220,7 @@ Project Boundaries
 ------------------
 
 Cleanroom Whisper
-~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~
 
 **Scope:**
 
@@ -302,7 +302,7 @@ Each project serves a distinct audience with a unique value proposition:
 .. _cleanroom-whisper-1:
 
 Cleanroom Whisper
-~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~
 
 **Value:** “Private, offline audio transcription you can trust”
 
@@ -361,7 +361,7 @@ User Journeys
 -------------
 
 Journey 1: Developer Releasing Cleanroom Whisper
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Actors:** Cleanroom Whisper maintainer, end user
 
@@ -434,7 +434,7 @@ Documented Integration
 **AirGap Deploy workflows mention AirGap Transfer:**
 
 - :doc:`airgap-deploy:use-cases/workflow-ollama` - Shows chunking large Ollama packages
-- :doc:`airgap-deploy:use-cases/workflow-cleanroom-whisper` - Notes option for large packages
+- :doc:`airgap-deploy:use-cases/workflow-airgap-whisper` - Notes option for large packages
 
 **AirGap Transfer docs mention AirGap Deploy:**
 
@@ -462,17 +462,17 @@ Design Principles Alignment
 
 All three projects follow the same core principles from :doc:`/meta/principles`:
 
-+---------------------------+-----------------------------+-------------------------------------+--------------------------+
-| Principle                 | Cleanroom Whisper              | AirGap Deploy                       | AirGap Transfer          |
-+===========================+=============================+=====================================+==========================+
-| **Privacy/Data Locality** | ✅ No network code          | ✅ No network in generated packages | ✅ No network code       |
-+---------------------------+-----------------------------+-------------------------------------+--------------------------+
-| **Minimal Dependencies**  | ✅ ~10 crates               | ✅ Essential packaging crates only  | ✅ Minimal stdlib usage  |
-+---------------------------+-----------------------------+-------------------------------------+--------------------------+
-| **Simple Architecture**   | ✅ Flat structure, ~5 files | ✅ Clear component separation       | ✅ Single responsibility |
-+---------------------------+-----------------------------+-------------------------------------+--------------------------+
-| **Air-gap Ready**         | ✅ Vendored deps            | ✅ Entire purpose                   | ✅ Designed for air-gaps |
-+---------------------------+-----------------------------+-------------------------------------+--------------------------+
++---------------------------+-------------------------------+-------------------------------------+--------------------------+
+| Principle                 | Cleanroom Whisper             | AirGap Deploy                       | AirGap Transfer          |
++===========================+===============================+=====================================+==========================+
+| **Privacy/Data Locality** | ✅ No network code            | ✅ No network in generated packages | ✅ No network code       |
++---------------------------+-------------------------------+-------------------------------------+--------------------------+
+| **Minimal Dependencies**  | ✅ ~10 crates                 | ✅ Essential packaging crates only  | ✅ Minimal stdlib usage  |
++---------------------------+-------------------------------+-------------------------------------+--------------------------+
+| **Simple Architecture**   | ✅ Flat structure, ~5 files   | ✅ Clear component separation       | ✅ Single responsibility |
++---------------------------+-------------------------------+-------------------------------------+--------------------------+
+| **Air-gap Ready**         | ✅ Vendored deps              | ✅ Entire purpose                   | ✅ Designed for air-gaps |
++---------------------------+-------------------------------+-------------------------------------+--------------------------+
 
 --------------
 
