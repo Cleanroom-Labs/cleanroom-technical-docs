@@ -1,21 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(for version in 0.8.1 0.8.0 0.7.1)",
-      "Bash(do echo '=== sphinxcontrib-rust $version ===')",
-      "Bash(pip index:*)",
-      "Bash(python3 -c \"import urllib.request, json; print\\(json.loads\\(urllib.request.urlopen\\(''''https://pypi.org/pypi/sphinxcontrib-rust/$version/json''''\\).read\\(\\)\\)[''''info''''][''''requires_dist'''']\\)\")",
-      "Bash(done)",
-      "Bash(make html:*)",
-      "Bash(grep:*)",
-      "Bash(cat:*)",
-      "Bash(find:*)",
-      "Bash(comm -23:*)",
-      "Bash(for req in FR-TRANSFER-033 FR-TRANSFER-034 FR-TRANSFER-041 FR-TRANSFER-042 FR-TRANSFER-043 FR-TRANSFER-044)",
-      "Bash(do grep -A10 \":id: $req\" source/airgap-transfer/requirements/srs.rst)",
       "Bash(git add:*)",
-      "Bash(git restore:*)",
-      "Bash(xargs:*)"
+      "Bash(make html:*)",
+      "Bash(pip index:*)"
     ]
   }
 }
