@@ -6,8 +6,8 @@
 import sys
 import os
 
-# Add cleanroom-design-system submodule to path (local to this repo)
-sys.path.insert(0, os.path.abspath('cleanroom-design-system'))
+# Add cleanroom-theme submodule to path (local to this repo)
+sys.path.insert(0, os.path.abspath('cleanroom-theme'))
 from theme_config import *
 
 # -- Project information -----------------------------------------------------
