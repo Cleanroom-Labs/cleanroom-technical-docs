@@ -1,7 +1,7 @@
-AirGap Project Suite Documentation
-===================================
+Technical Documentation
+=======================
 
-Welcome to the AirGap Project Suite documentation. This suite consists of three **foundation Rust projects** designed for secure, air-gapped environments, with room for future expansion:
+Welcome to the Cleanroom Labs technical documentation. This documentation covers three **foundation Rust projects** designed for secure, air-gapped environments, with room for future expansion:
 
 - **Cleanroom Whisper**: End-user transcription application
 - **AirGap Deploy**: Developer deployment packaging tool

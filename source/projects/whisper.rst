@@ -1,5 +1,5 @@
 Cleanroom Whisper
-==============
+=================
 
 **Offline Audio Transcription Application**
 
