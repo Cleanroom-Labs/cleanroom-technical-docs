@@ -1,7 +1,7 @@
-Project Overview
-================
+Cross-Project Documentation
+===========================
 
-Cross-project documentation covering principles, architecture, and guidance for the AirGap Project Suite.
+Cross-project documentation covering principles, architecture, and guidance for the Cleanroom Labs technical documentation.
 
 .. toctree::
    :maxdepth: 2
