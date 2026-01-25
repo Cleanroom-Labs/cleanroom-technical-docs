@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a **Sphinx documentation repository** for the **AirGap project suite** - a collection of tools for deploying and using software in air-gapped (offline) environments. The repository contains planning documents, requirements, design specifications, and use case analyses for three related projects:
 
-1. **AirGap Whisper** - Offline audio transcription app using whisper.cpp
+1. **Cleanroom Whisper** - Offline audio transcription app using whisper.cpp
 2. **AirGap Deploy** - Universal Rust tool for preparing software deployments for air-gapped systems
 3. **AirGap Transfer** - Tool for transferring files to air-gapped systems
 
@@ -22,7 +22,7 @@ technical-docs/
 │   │   ├── rust-integration-guide.rst  # Future Rust API integration
 │   │   └── sphinx-needs-guide.rst      # How to use sphinx-needs
 │   │
-│   ├── airgap-whisper/                 # Whisper transcription app
+│   ├── cleanroom-whisper/                 # Whisper transcription app
 │   │   ├── readme.rst                  # Project overview
 │   │   ├── roadmap.rst                 # Current status and milestones
 │   │   ├── requirements/srs.rst        # Software Requirements Specification (with sphinx-needs directives)
@@ -68,7 +68,7 @@ technical-docs/
 - **No network code** in applications (no `std::net`, `tokio::net`, `hyper`, `reqwest`)
 - **Vendored dependencies** for air-gapped builds
 - **Pure Rust** where possible, minimal system dependencies
-- **Flat file structure** (e.g., 5 files max for AirGap Whisper)
+- **Flat file structure** (e.g., 5 files max for Cleanroom Whisper)
 - **No WebView/GUI frameworks** - Use system tray and native APIs
 
 ## Working with Sphinx Documentation
@@ -146,12 +146,12 @@ When updating documentation:
 
 ### Common Tasks
 
-**Adding a new feature to AirGap Whisper:**
+**Adding a new feature to Cleanroom Whisper:**
 1. Check if it violates principles in `source/meta/principles.rst` (section: "Features We Don't Build")
-2. Add requirement to `source/airgap-whisper/requirements/srs.rst` using `.. req::` directive
-3. Update `source/airgap-whisper/design/sdd.rst` with implementation approach
-4. Add test cases to `source/airgap-whisper/testing/plan.rst` using `.. test::` directive with `:tests:` link
-5. Update `source/airgap-whisper/roadmap.rst` milestones if needed
+2. Add requirement to `source/cleanroom-whisper/requirements/srs.rst` using `.. req::` directive
+3. Update `source/cleanroom-whisper/design/sdd.rst` with implementation approach
+4. Add test cases to `source/cleanroom-whisper/testing/plan.rst` using `.. test::` directive with `:tests:` link
+5. Update `source/cleanroom-whisper/roadmap.rst` milestones if needed
 6. Build docs and verify traceability tables update automatically
 
 **Clarifying a use case:**
@@ -160,7 +160,7 @@ When updating documentation:
 3. Reference specific technical components from SDD
 4. Optionally add `.. usecase::` directive for traceability
 
-## AirGap Whisper Specifics
+## Cleanroom Whisper Specifics
 
 ### Architecture
 
@@ -172,7 +172,7 @@ When updating documentation:
 
 ### MVP Development Status
 
-Check `source/airgap-whisper/roadmap.rst` for current milestone status.
+Check `source/cleanroom-whisper/roadmap.rst` for current milestone status.
 
 ### Key Technologies
 

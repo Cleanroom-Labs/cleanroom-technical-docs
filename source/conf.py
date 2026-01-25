@@ -130,7 +130,7 @@ htmlhelp_basename = 'AirGapSuitedoc'
 
 # Extend the base intersphinx_mapping from theme_config
 intersphinx_mapping.update({
-    'airgap-whisper': ('../airgap-whisper-docs/build/html/', None),
+    'cleanroom-whisper': ('../cleanroom-whisper-docs/build/html/', None),
     'airgap-deploy': ('../airgap-deploy-docs/build/html/', None),
     'airgap-transfer': ('../airgap-transfer-docs/build/html/', None),
 })

@@ -1,5 +1,5 @@
-[submodule "airgap-whisper-docs"]
-	path = airgap-whisper-docs
+[submodule "cleanroom-whisper-docs"]
+	path = cleanroom-whisper-docs
 	url = /Users/andfranklin/Projects/airgap-whisper-docs
 [submodule "airgap-deploy-docs"]
 	path = airgap-deploy-docs

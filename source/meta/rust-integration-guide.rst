@@ -87,7 +87,7 @@ Document modules with file-level comments:
 
 .. code-block:: rust
 
-   //! Audio recording module for AirGap Whisper.
+   //! Audio recording module for Cleanroom Whisper.
    //!
    //! This module provides cross-platform audio capture capabilities
    //! using ALSA (Linux), CoreAudio (macOS), and WASAPI (Windows).
@@ -135,7 +135,7 @@ The sphinxcontrib-rust extension is already enabled. Configure crate paths:
    # sphinxcontrib-rust configuration
    rust_crates = {
        # Relative paths from sphinx-docs to Rust project roots
-       'airgap-whisper': '../../airgap-whisper',
+       'cleanroom-whisper': '../../cleanroom-whisper',
        'airgap-deploy': '../../airgap-deploy',
        'airgap-transfer': '../../airgap-transfer',
    }
@@ -151,7 +151,7 @@ Generate Rust docs for each project:
 .. code-block:: bash
 
    # From each Rust project directory
-   cd /path/to/airgap-whisper
+   cd /path/to/cleanroom-whisper
    cargo doc --no-deps --document-private-items
 
    cd /path/to/airgap-deploy
@@ -245,7 +245,7 @@ Local Build with Rust Docs
 .. code-block:: bash
 
    # 1. Generate Rust docs for all projects
-   for project in airgap-whisper airgap-deploy airgap-transfer; do
+   for project in cleanroom-whisper airgap-deploy airgap-transfer; do
        cd /path/to/$project
        cargo doc --no-deps --document-private-items
    done
@@ -269,7 +269,7 @@ The existing GitHub Actions workflow can be extended to build Rust docs:
 
    - name: Generate Rust documentation
      run: |
-       cd ../airgap-whisper && cargo doc --no-deps
+       cd ../cleanroom-whisper && cargo doc --no-deps
        cd ../airgap-deploy && cargo doc --no-deps
        cd ../airgap-transfer && cargo doc --no-deps
 
@@ -346,7 +346,7 @@ Verify sphinx-needs is processing the impl directives
 Examples
 --------
 
-Complete Example: AirGap Whisper Audio Module
+Complete Example: Cleanroom Whisper Audio Module
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Rust Code (src/audio/recorder.rs):**
@@ -369,7 +369,7 @@ Complete Example: AirGap Whisper Audio Module
    /// # Example
    ///
    /// ```no_run
-   /// use airgap_whisper::audio::AudioRecorder;
+   /// use cleanroom_whisper::audio::AudioRecorder;
    ///
    /// let recorder = AudioRecorder::new()?;
    /// recorder.start_recording()?;
@@ -381,7 +381,7 @@ Complete Example: AirGap Whisper Audio Module
        buffer: AudioBuffer,
    }
 
-**RST Documentation (source/airgap-whisper/api/audio.rst):**
+**RST Documentation (source/cleanroom-whisper/api/audio.rst):**
 
 .. code-block:: rst
 
@@ -428,7 +428,7 @@ generate professional API documentation with full requirement traceability.
 See Also
 --------
 
-- :doc:`airgap-whisper:api/index` - AirGap Whisper API placeholder
+- :doc:`cleanroom-whisper:api/index` - Cleanroom Whisper API placeholder
 - :doc:`airgap-deploy:api/index` - AirGap Deploy API placeholder
 - :doc:`airgap-transfer:api/index` - AirGap Transfer API placeholder
 - :doc:`/meta/requirements-overview` - Project statistics and requirements overview
