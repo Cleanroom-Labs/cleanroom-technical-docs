@@ -29,50 +29,7 @@ templates_path = ['_templates']
 
 # -- sphinx-needs configuration (project-specific types) --------------------
 
-needs_types = [
-    {
-        'directive': 'usecase',
-        'title': 'Use Case',
-        'prefix': 'UC-',
-        'color': '#BFD8D2',
-        'style': 'node'
-    },
-    {
-        'directive': 'req',
-        'title': 'Requirement',
-        'prefix': 'FR-',
-        'color': '#FEDCD2',
-        'style': 'node'
-    },
-    {
-        'directive': 'nfreq',
-        'title': 'Non-Functional Requirement',
-        'prefix': 'NFR-',
-        'color': '#DF744A',
-        'style': 'node'
-    },
-    {
-        'directive': 'spec',
-        'title': 'Design Specification',
-        'prefix': 'DS-',
-        'color': '#DCB239',
-        'style': 'node'
-    },
-    {
-        'directive': 'test',
-        'title': 'Test Case',
-        'prefix': 'TC-',
-        'color': '#84B39D',
-        'style': 'node'
-    },
-    {
-        'directive': 'impl',
-        'title': 'Implementation',
-        'prefix': 'IMPL-',
-        'color': '#00A8B5',
-        'style': 'node'
-    }
-]
+needs_types = make_needs_types()
 
 # -- Sidebar configuration ---------------------------------------------------
 
