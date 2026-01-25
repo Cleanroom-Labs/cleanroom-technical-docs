@@ -41,7 +41,7 @@ AirGap Deploy follows the :doc:`/meta/principles` established for all AirGap pro
 Example Use Cases
 -----------------
 
-* Deploy AirGap Whisper with whisper.cpp models
+* Deploy Cleanroom Whisper with whisper.cpp models
 * Deploy Ollama with language models
 * Deploy custom Rust applications with vendored dependencies
 

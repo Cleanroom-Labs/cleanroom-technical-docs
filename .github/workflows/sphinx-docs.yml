@@ -9,7 +9,7 @@ on:
       - 'requirements.txt'
       - 'Makefile'
       - '.github/workflows/sphinx-docs.yml'
-      - 'airgap-whisper-docs/**'
+      - 'cleanroom-whisper-docs/**'
       - 'airgap-deploy-docs/**'
       - 'airgap-transfer-docs/**'
   pull_request:
@@ -17,7 +17,7 @@ on:
     paths:
       - 'source/**'
       - 'shared/**'
-      - 'airgap-whisper-docs/**'
+      - 'cleanroom-whisper-docs/**'
       - 'airgap-deploy-docs/**'
       - 'airgap-transfer-docs/**'
   workflow_dispatch:
@@ -50,7 +50,7 @@ jobs:
 
         echo ""
         echo "Verifying all submodules are initialized..."
-        for submodule in airgap-whisper-docs airgap-deploy-docs airgap-transfer-docs; do
+        for submodule in cleanroom-whisper-docs airgap-deploy-docs airgap-transfer-docs; do
           if [ ! -d "$submodule/.git" ]; then
             echo "ERROR: Submodule $submodule not initialized"
             exit 1
@@ -91,7 +91,7 @@ jobs:
         # Verify project docs were copied
         echo ""
         echo "Verifying project documentation..."
-        for project in airgap-whisper airgap-deploy airgap-transfer; do
+        for project in cleanroom-whisper airgap-deploy airgap-transfer; do
           if [ ! -f build/html/$project/index.html ]; then
             echo "ERROR: $project docs not found in master build"
             exit 1
@@ -105,10 +105,10 @@ jobs:
         cd build/html
 
         # Check that project docs are referenced correctly
-        if ! grep -r "airgap-whisper" . >/dev/null 2>&1; then
-          echo "⚠️  Warning: No references to airgap-whisper found"
+        if ! grep -r "cleanroom-whisper" . >/dev/null 2>&1; then
+          echo "⚠️  Warning: No references to cleanroom-whisper found"
         else
-          echo "✓ airgap-whisper references found"
+          echo "✓ cleanroom-whisper references found"
         fi
 
         if ! grep -r "airgap-deploy" . >/dev/null 2>&1; then

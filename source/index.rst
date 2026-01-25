@@ -3,7 +3,7 @@ AirGap Project Suite Documentation
 
 Welcome to the AirGap Project Suite documentation. This suite consists of three **foundation Rust projects** designed for secure, air-gapped environments, with room for future expansion:
 
-- **AirGap Whisper**: End-user transcription application
+- **Cleanroom Whisper**: End-user transcription application
 - **AirGap Deploy**: Developer deployment packaging tool
 - **AirGap Transfer**: Large file transfer utility
 
@@ -33,7 +33,7 @@ Quick Links
 
 **Requirements:**
 
-- `AirGap Whisper <airgap-whisper/requirements/srs.html>`_
+- `Cleanroom Whisper <cleanroom-whisper/requirements/srs.html>`_
 - `AirGap Deploy <airgap-deploy/requirements/srs.html>`_
 - `AirGap Transfer <airgap-transfer/requirements/srs.html>`_
 

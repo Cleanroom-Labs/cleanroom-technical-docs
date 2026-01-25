@@ -9,7 +9,7 @@ SOURCEDIR     = source
 BUILDDIR      = build
 
 # Project submodules
-PROJECTS = airgap-whisper-docs airgap-deploy-docs airgap-transfer-docs
+PROJECTS = cleanroom-whisper-docs airgap-deploy-docs airgap-transfer-docs
 
 # Put it first so that "make" without argument is like "make help".
 help:

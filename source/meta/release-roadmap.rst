@@ -20,12 +20,12 @@ Individual projects may have independent patch releases (v1.0.1, v1.0.2) for bug
 v1.0.0 Release Criteria
 -----------------------
 
-AirGap Whisper v1.0.0
+Cleanroom Whisper v1.0.0
 ~~~~~~~~~~~~~~~~~~~~~
 
 **Definition of Done:**
 
-- All MVP features implemented (see :doc:`Whisper Roadmap <airgap-whisper:roadmap>`)
+- All MVP features implemented (see :doc:`Whisper Roadmap <cleanroom-whisper:roadmap>`)
 - Cross-platform support (macOS, Windows, Linux)
 - SQLite history storage working
 - Global hotkeys functional
@@ -161,7 +161,7 @@ Individual Project Roadmaps
 
 For detailed MVP implementation plans, see:
 
-- :doc:`AirGap Whisper Roadmap <airgap-whisper:roadmap>`
+- :doc:`Cleanroom Whisper Roadmap <cleanroom-whisper:roadmap>`
 - :doc:`AirGap Deploy Roadmap <airgap-deploy:roadmap>`
 - :doc:`AirGap Transfer Roadmap <airgap-transfer:roadmap>`
 
