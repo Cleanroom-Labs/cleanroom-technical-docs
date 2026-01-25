@@ -90,9 +90,6 @@ html_sidebars = {
 html_title = 'Technical Documentation'
 html_short_title = 'Tech Docs'
 
-# Override shared static path for main docs (use local _static directory)
-html_static_path = ['_static']
-
 # Additional HTML context
 html_context = {
     'display_github': True,
