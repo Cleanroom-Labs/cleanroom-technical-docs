@@ -7,6 +7,6 @@
 [submodule "airgap-transfer-docs"]
 	path = airgap-transfer-docs
 	url = /Users/andfranklin/Projects/airgap-transfer-docs
-[submodule "source/cleanroom-design-system"]
-	path = source/cleanroom-design-system
-	url = /Users/andfranklin/Projects/cleanroom-design-system
+[submodule "source/cleanroom-theme"]
+	path = source/cleanroom-theme
+	url = /Users/andfranklin/Projects/cleanroom-theme
