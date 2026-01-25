@@ -1,6 +1,6 @@
 [submodule "cleanroom-whisper-docs"]
 	path = cleanroom-whisper-docs
-	url = /home/user/Projects/airgap-whisper-docs
+	url = /home/user/Projects/cleanroom-whisper-docs
 [submodule "airgap-deploy-docs"]
 	path = airgap-deploy-docs
 	url = /home/user/Projects/airgap-deploy-docs
