@@ -13,7 +13,7 @@ The AirGap suite consists of three independent but complementary projects:
 +---------------------+----------------------+---------------------------------------------+-----------------------------------------------------------+
 | Project             | Type                 | Purpose                                     | Primary Users                                             |
 +=====================+======================+=============================================+===========================================================+
-| **AirGap Whisper**  | End-user application | Offline audio transcription                 | Privacy-conscious users, researchers, accessibility users |
+| **Cleanroom Whisper**  | End-user application | Offline audio transcription                 | Privacy-conscious users, researchers, accessibility users |
 +---------------------+----------------------+---------------------------------------------+-----------------------------------------------------------+
 | **AirGap Deploy**   | Developer tool       | Package applications for air-gap deployment | Developers, maintainers, release engineers                |
 +---------------------+----------------------+---------------------------------------------+-----------------------------------------------------------+
@@ -32,7 +32,7 @@ Architecture Diagram
    └───────────────────────────────────────────────────────────────────────────────┘
 
    ┌─────────────────────┐      ┌─────────────────────┐      ┌─────────────────────┐
-   │   AirGap Whisper    │      │   AirGap Deploy     │      │  AirGap Transfer    │
+   │   Cleanroom Whisper    │      │   AirGap Deploy     │      │  AirGap Transfer    │
    │                     │      │                     │      │                     │
    │  End-User App       │      │  Developer Tool     │      │  Utility            │
    │  ┌──────────────┐   │      │  ┌──────────────┐   │      │  ┌──────────────┐   │
@@ -62,7 +62,7 @@ Architecture Diagram
                                 └─────────────────────┘
 
    Legend:
-     (1) AirGap Whisper is packaged using AirGap Deploy for air-gap deployment
+     (1) Cleanroom Whisper is packaged using AirGap Deploy for air-gap deployment
      (2) If package exceeds USB capacity, workflow suggests AirGap Transfer
      (3) AirGap Transfer handles chunked file transfer
 
@@ -71,21 +71,21 @@ Architecture Diagram
 Project Relationships
 ---------------------
 
-AirGap Whisper ↔ AirGap Deploy
+Cleanroom Whisper ↔ AirGap Deploy
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Relationship:** AirGap Whisper is a **reference implementation** and **primary use case** for AirGap Deploy.
+**Relationship:** Cleanroom Whisper is a **reference implementation** and **primary use case** for AirGap Deploy.
 
 **How they relate:**
 
-- AirGap Deploy packages AirGap Whisper (with dependencies) for air-gapped systems
-- Deployment workflow documented in :doc:`airgap-deploy:use-cases/workflow-airgap-whisper`
-- AirGap Whisper's ``AirGapDeploy.toml`` defines packaging requirements
+- AirGap Deploy packages Cleanroom Whisper (with dependencies) for air-gapped systems
+- Deployment workflow documented in :doc:`airgap-deploy:use-cases/workflow-cleanroom-whisper`
+- Cleanroom Whisper's ``AirGapDeploy.toml`` defines packaging requirements
 
 **Independence:**
 
-- AirGap Whisper can be built/deployed manually without AirGap Deploy
-- AirGap Deploy can package any application, not just AirGap Whisper
+- Cleanroom Whisper can be built/deployed manually without AirGap Deploy
+- AirGap Deploy can package any application, not just Cleanroom Whisper
 
 **Code dependencies:** None (no compile-time or runtime dependency)
 
@@ -131,15 +131,15 @@ AirGap Deploy ↔ AirGap Transfer
 
 --------------
 
-AirGap Whisper ↔ AirGap Transfer
+Cleanroom Whisper ↔ AirGap Transfer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Relationship:** No direct relationship.
 
 **Indirect connection:**
 
-- If AirGap Whisper is packaged with large models, the deployment package might need AirGap Transfer
-- AirGap Whisper mentioned in AirGap Transfer docs as example use case
+- If Cleanroom Whisper is packaged with large models, the deployment package might need AirGap Transfer
+- Cleanroom Whisper mentioned in AirGap Transfer docs as example use case
 
 **Code dependencies:** None
 
@@ -153,7 +153,7 @@ Compile-Time Dependencies
 
 .. code-block:: none
 
-   AirGap Whisper dependencies:
+   Cleanroom Whisper dependencies:
      - whisper.cpp (external, build-time)
      - Rust crates: ~10 direct dependencies
      - NO dependency on AirGap Deploy or AirGap Transfer
@@ -161,11 +161,11 @@ Compile-Time Dependencies
    AirGap Deploy dependencies:
      - Rust crates: reqwest, serde, toml, tar, etc.
      - Dependency on AirGap Transfer
-     - NO dependency on AirGap Whisper or AirGap Transfer
+     - NO dependency on Cleanroom Whisper or AirGap Transfer
 
    AirGap Transfer dependencies:
      - Rust crates: sha2, minimal stdlib usage
-     - NO dependency on AirGap Whisper or AirGap Deploy
+     - NO dependency on Cleanroom Whisper or AirGap Deploy
 
 **Result:** ✅ **Zero circular dependencies**.
 
@@ -176,7 +176,7 @@ Runtime Dependencies
 
 .. code-block:: none
 
-   AirGap Whisper runtime:
+   Cleanroom Whisper runtime:
      - Requires whisper.cpp binary (external process)
      - Requires at least one Whisper model file
      - NO runtime dependency on other AirGap tools
@@ -198,10 +198,10 @@ Workflow Dependencies
 
 .. code-block:: none
 
-   Developer deploying AirGap Whisper:
+   Developer deploying Cleanroom Whisper:
      1. Use AirGap Deploy to create package
      2. (Optional) Use AirGap Transfer if package is large
-     3. Install AirGap Whisper on air-gapped system
+     3. Install Cleanroom Whisper on air-gapped system
 
    User transferring large dataset:
      1. Use AirGap Transfer directly
@@ -210,7 +210,7 @@ Workflow Dependencies
    Developer deploying other applications:
      1. Use AirGap Deploy with custom manifest
      2. (Optional) Use AirGap Transfer if needed
-     3. NO connection to AirGap Whisper
+     3. NO connection to Cleanroom Whisper
 
 **Result:** ✅ **Workflow integration is optional** - Tools complement each other but work independently.
 
@@ -219,7 +219,7 @@ Workflow Dependencies
 Project Boundaries
 ------------------
 
-AirGap Whisper
+Cleanroom Whisper
 ~~~~~~~~~~~~~~
 
 **Scope:**
@@ -264,7 +264,7 @@ AirGap Deploy
 **Boundaries:**
 
 - Developer tool, not end-user application
-- Generic packaging framework, not AirGap Whisper-specific
+- Generic packaging framework, not Cleanroom Whisper-specific
 - Does NOT include chunking logic (delegates to AirGap Transfer)
 
 --------------
@@ -289,7 +289,7 @@ AirGap Transfer
 **Boundaries:**
 
 - Utility for file transfer, not a packaging framework
-- Generic, not specific to AirGap Whisper or deployment workflows
+- Generic, not specific to Cleanroom Whisper or deployment workflows
 - Single responsibility: move large data across air-gaps safely
 
 --------------
@@ -299,9 +299,9 @@ Value Propositions
 
 Each project serves a distinct audience with a unique value proposition:
 
-.. _airgap-whisper-1:
+.. _cleanroom-whisper-1:
 
-AirGap Whisper
+Cleanroom Whisper
 ~~~~~~~~~~~~~~
 
 **Value:** “Private, offline audio transcription you can trust”
@@ -360,24 +360,24 @@ AirGap Transfer
 User Journeys
 -------------
 
-Journey 1: Developer Releasing AirGap Whisper
+Journey 1: Developer Releasing Cleanroom Whisper
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Actors:** AirGap Whisper maintainer, end user
+**Actors:** Cleanroom Whisper maintainer, end user
 
 **Scenario:** Create a release package for end users to install on air-gapped systems
 
 **Steps:**
 
-**Developer** creates ``AirGapDeploy.toml`` manifest for AirGap Whisper
+**Developer** creates ``AirGapDeploy.toml`` manifest for Cleanroom Whisper
 **Developer** runs ``airgap-deploy prep`` → generates package (~300MB)
 Package fits on single USB, no need for airgap-transfer
 **Developer** uploads package to GitHub releases
 **End user** downloads package, transfers via USB
 **End user** extracts and runs ``./install.sh``
-**End user** uses AirGap Whisper for transcription
+**End user** uses Cleanroom Whisper for transcription
 
-**Tools used:** AirGap Deploy (packaging), AirGap Whisper (end use)
+**Tools used:** AirGap Deploy (packaging), Cleanroom Whisper (end use)
 
 --------------
 
@@ -434,7 +434,7 @@ Documented Integration
 **AirGap Deploy workflows mention AirGap Transfer:**
 
 - :doc:`airgap-deploy:use-cases/workflow-ollama` - Shows chunking large Ollama packages
-- :doc:`airgap-deploy:use-cases/workflow-airgap-whisper` - Notes option for large packages
+- :doc:`airgap-deploy:use-cases/workflow-cleanroom-whisper` - Notes option for large packages
 
 **AirGap Transfer docs mention AirGap Deploy:**
 
@@ -447,13 +447,13 @@ Documented Integration
 No Integration (By Design)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**AirGap Whisper does NOT integrate with the other tools:**
+**Cleanroom Whisper does NOT integrate with the other tools:**
 
 - No awareness of AirGap Deploy or AirGap Transfer
 - Can be packaged manually, with AirGap Deploy, or by other means
 - Maintains complete independence
 
-**This is intentional:** AirGap Whisper is an end-user application with its own value, not a component of a larger system.
+**This is intentional:** Cleanroom Whisper is an end-user application with its own value, not a component of a larger system.
 
 --------------
 
@@ -463,7 +463,7 @@ Design Principles Alignment
 All three projects follow the same core principles from :doc:`/meta/principles`:
 
 +---------------------------+-----------------------------+-------------------------------------+--------------------------+
-| Principle                 | AirGap Whisper              | AirGap Deploy                       | AirGap Transfer          |
+| Principle                 | Cleanroom Whisper              | AirGap Deploy                       | AirGap Transfer          |
 +===========================+=============================+=====================================+==========================+
 | **Privacy/Data Locality** | ✅ No network code          | ✅ No network in generated packages | ✅ No network code       |
 +---------------------------+-----------------------------+-------------------------------------+--------------------------+
@@ -498,7 +498,7 @@ Why the AirGap Suite?
 
    Developer (Connected System)
      ↓
-     1. Create AirGap Whisper deployment manifest
+     1. Create Cleanroom Whisper deployment manifest
      2. Run airgap-deploy prep → packages app + whisper.cpp + models (~300-400MB)
      3. Package exceeds USB capacity → use airgap-transfer pack to chunk
      4. Transfer USB drives to air-gapped system
@@ -506,7 +506,7 @@ Why the AirGap Suite?
    Air-Gapped User
      1. Run airgap-transfer unpack to reconstruct package
      2. Run ./install.sh from AirGap Deploy package
-     3. Use AirGap Whisper for offline transcription
+     3. Use Cleanroom Whisper for offline transcription
 
 This complete workflow has **no equivalent** in the open source or commercial space.
 
@@ -530,7 +530,7 @@ All three projects share these differentiators:
 
 **3. Minimal Dependencies**
 
-- ✅ AirGap Whisper: 8 Rust crates
+- ✅ Cleanroom Whisper: 8 Rust crates
 - ✅ AirGap Deploy: Essential packaging crates only
 - ✅ AirGap Transfer: Minimal stdlib usage
 - ✅ Compare to typical apps: 20-50+ dependencies
@@ -554,7 +554,7 @@ vs Competition
 
 **Individual Project Comparisons** (detailed analysis with competitors):
 
-- **AirGap Whisper**: See :ref:`competitive analysis <airgap-whisper-readme-competition>`
+- **Cleanroom Whisper**: See :ref:`competitive analysis <cleanroom-whisper-readme-competition>`
 
   - vs macOS-only tools (MacWhisper, VoiceInk, Superwhisper)
   - vs cloud services (Otter.ai, Fireflies, Whisper API)
@@ -650,7 +650,7 @@ Summary
 Three Independent Projects
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**AirGap Whisper** - End-user application for offline transcription
+**Cleanroom Whisper** - End-user application for offline transcription
 **AirGap Deploy** - Developer tool for packaging applications
 **AirGap Transfer** - Utility for large file transfer
 

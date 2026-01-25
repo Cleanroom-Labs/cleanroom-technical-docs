@@ -1,7 +1,7 @@
 Design Principles
 =================
 
-These principles guide every decision in AirGap Whisper. When in doubt, refer here.
+These principles guide every decision in Cleanroom Whisper. When in doubt, refer here.
 
 --------------
 

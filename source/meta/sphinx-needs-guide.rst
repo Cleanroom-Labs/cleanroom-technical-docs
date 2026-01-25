@@ -412,10 +412,10 @@ ID Naming Conventions
 
 **Examples:**
 
-- ``FR-WHISPER-001`` - AirGap Whisper functional requirement #1
+- ``FR-WHISPER-001`` - Cleanroom Whisper functional requirement #1
 - ``NFR-DEPLOY-005`` - AirGap Deploy non-functional requirement #5
 - ``TC-TRANSFER-CLI-003`` - AirGap Transfer CLI test #3
-- ``UC-WHISPER-001`` - AirGap Whisper use case #1
+- ``UC-WHISPER-001`` - Cleanroom Whisper use case #1
 
 **Rules:**
 
