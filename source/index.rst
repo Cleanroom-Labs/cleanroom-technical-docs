@@ -11,9 +11,14 @@ These three projects represent our near-term development focus and demonstrate c
 
 .. toctree::
    :maxdepth: 2
-   :caption: Project Overview
+   :caption: Cross-Project Documentation
 
-   meta/index
+   meta/principles
+   meta/meta-architecture
+   meta/release-roadmap
+   meta/requirements-overview
+   meta/sphinx-needs-guide
+   meta/rust-integration-guide
 
 .. toctree::
    :maxdepth: 2
