@@ -1,47 +1,100 @@
 /* ============================================================================
-   AirGap Project Suite - Custom Sphinx Theme
-   Professional documentation styling for IEEE-compliant technical docs
+   Cleanroom Design System - Sphinx Theme
+   Auto-generated from design tokens - DO NOT EDIT DIRECTLY
+   Edit tokens/colors.js and run: npm run build:sphinx-css
    ============================================================================ */
+
+:root {
+  --color-slate-950: #030712;
+  --color-slate-900: #111827;
+  --color-slate-800: #1f2937;
+  --color-slate-700: #374151;
+  --color-slate-600: #4b5563;
+  --color-content-bg: #0f172a;
+  --color-code-bg: #1e293b;
+  --color-docs-content-bg: #ffffff;
+  --color-docs-code-bg: #f8fafc;
+  --color-docs-text-primary: #1e293b;
+  --color-docs-text-secondary: #334155;
+  --color-docs-text-muted: #64748b;
+  --color-docs-code-text: #1e293b;
+  --color-docs-border: #e2e8f0;
+  --color-text-primary: #f9fafb;
+  --color-text-secondary: #d1d5db;
+  --color-text-muted: #9ca3af;
+  --color-code-text: #e2e8f0;
+  --color-emerald: #10b981;
+  --color-emerald-light: #34d399;
+  --color-emerald-dark: #059669;
+  --color-emerald-glow: #10b98133;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  --color-info: #3b82f6;
+  --color-success: #10b981;
+  --color-purple: #8b5cf6;
+  --color-yellow: #eab308;
+  --color-orange: #f97316;
+  --color-blue: #60a5fa;
+  --color-violet: #a78bfa;
+  --color-syntax-comment: #6b7280;
+  --color-syntax-keyword: #c084fc;
+  --color-syntax-string: #34d399;
+  --color-syntax-function: #60a5fa;
+  --color-syntax-number: #fbbf24;
+  --color-syntax-name: #e2e8f0;
+  --color-syntax-operator: #d1d5db;
+}
 
 /* ============================================================================
    Layout and Typography
    ============================================================================ */
 
-/* IEEE standard document styling with improved readability */
 .document {
     max-width: 980px;
     line-height: 1.7;
 }
 
-/* Better font stack for code and technical content */
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+}
+
+/* Content area - light theme for readability */
+.wy-nav-content {
+    background: var(--color-docs-content-bg) !important;
+}
+
+.wy-nav-content-wrap {
+    background: var(--color-docs-content-bg) !important;
 }
 
 code, pre, .highlight {
-    font-family: "Monaco", "Menlo", "Ubuntu Mono", "Consolas", "source-code-pro", monospace;
+    font-family: Monaco, Menlo, Ubuntu Mono, Consolas, source-code-pro, monospace;
     font-size: 0.9em;
 }
 
-/* Improved headings hierarchy */
+/* Headings - dark text on light background */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--color-docs-text-primary);
+}
+
 h1 {
-    border-bottom: 3px solid #2980b9;
+    border-bottom: 3px solid var(--color-emerald);
     padding-bottom: 0.3em;
     margin-top: 1.5em;
     font-size: 2.2em;
 }
 
-/* Match RTD theme specificity for h2 (.rst-content h2) */
 .rst-content h2 {
-    border-bottom: 2px solid #6ab0de;
+    border-bottom: 2px solid var(--color-emerald);
     padding-bottom: 0.2em;
     margin-top: 2em !important;
     margin-bottom: 1em !important;
     font-size: 1.8em;
+    color: var(--color-docs-text-primary);
 }
 
 h3 {
-    color: #2c3e50;
+    color: var(--color-docs-text-primary);
     margin-top: 1.2em;
     font-size: 1.4em;
 }
@@ -57,7 +110,6 @@ h3 {
     margin-bottom: 0.5em;
 }
 
-/* Remove paragraph margins inside simple list items to prevent double-spacing */
 .rst-content section ul.simple li > p,
 .rst-content section ol.simple li > p,
 .rst-content .section ul.simple li > p,
@@ -65,13 +117,10 @@ h3 {
     margin-bottom: 0;
 }
 
-/* Toctree caption spacing (e.g., "Project Overview", "Projects")
-   Use direct child selector to match RTD theme specificity */
 .rst-content .toctree-wrapper > p.caption {
     margin-top: 2em !important;
 }
 
-/* Section spacing */
 .rst-content section {
     margin-top: 2em;
 }
@@ -80,22 +129,22 @@ h3 {
    sphinx-needs Directive Styling
    ============================================================================ */
 
-/* Highlight requirement IDs */
 .needs_head {
     font-weight: bold;
     font-size: 1.1em;
-    color: #2c3e50;
+    color: var(--color-docs-text-primary);
 }
 
 .needs_id {
-    font-family: "Monaco", "Menlo", monospace;
-    background-color: #f8f9fa;
+    font-family: Monaco, Menlo, Ubuntu Mono, Consolas, source-code-pro, monospace;
+    background-color: var(--color-docs-code-bg);
+    border: 1px solid var(--color-docs-border);
     padding: 2px 6px;
     border-radius: 3px;
     font-size: 0.95em;
+    color: var(--color-docs-code-text);
 }
 
-/* Traceability matrix styling */
 .needstable {
     width: 100%;
     border-collapse: collapse;
@@ -104,30 +153,32 @@ h3 {
 }
 
 .needstable th {
-    background: linear-gradient(to bottom, #4a6fa5 0%, #2c5282 100%);
-    color: white;
+    background: var(--color-docs-code-bg);
+    color: var(--color-docs-text-primary);
     padding: 12px;
     text-align: left;
     font-weight: 600;
+    border: 1px solid var(--color-docs-border);
 }
 
 .needstable td {
     padding: 10px 12px;
-    border-bottom: 1px solid #e1e4e8;
+    border-bottom: 1px solid var(--color-docs-border);
+    color: var(--color-docs-text-secondary);
 }
 
 .needstable tr:hover {
-    background-color: #f6f8fa;
+    background-color: var(--color-docs-code-bg);
 }
 
 .needstable tr:nth-child(even) {
-    background-color: #fafbfc;
+    background-color: rgba(248, 250, 252, 0.5);
 }
 
 /* Use case highlighting */
 .usecase {
-    border-left: 5px solid #3b82c4;
-    background: linear-gradient(to right, #e8f4f8 0%, transparent 100%);
+    border-left: 5px solid var(--color-info);
+    background: linear-gradient(to right, rgba(59, 130, 246, 0.08) 0%, transparent 100%);
     padding: 15px;
     padding-left: 20px;
     margin-bottom: 20px;
@@ -136,13 +187,13 @@ h3 {
 }
 
 .usecase .needs_head {
-    color: #2563eb;
+    color: #2563eb;  /* blue-600 for light bg */
 }
 
 /* Requirement highlighting */
 .req, .nfreq {
-    border-left: 5px solid #f97316;
-    background: linear-gradient(to right, #fff7ed 0%, transparent 100%);
+    border-left: 5px solid var(--color-orange);
+    background: linear-gradient(to right, rgba(249, 115, 22, 0.08) 0%, transparent 100%);
     padding: 15px;
     padding-left: 20px;
     margin-bottom: 15px;
@@ -151,13 +202,13 @@ h3 {
 }
 
 .req .needs_head, .nfreq .needs_head {
-    color: #ea580c;
+    color: #ea580c;  /* orange-600 for light bg */
 }
 
 /* Test case highlighting */
 .test {
-    border-left: 5px solid #10b981;
-    background: linear-gradient(to right, #ecfdf5 0%, transparent 100%);
+    border-left: 5px solid var(--color-emerald);
+    background: linear-gradient(to right, rgba(16, 185, 129, 0.08) 0%, transparent 100%);
     padding: 15px;
     padding-left: 20px;
     margin-bottom: 15px;
@@ -166,13 +217,13 @@ h3 {
 }
 
 .test .needs_head {
-    color: #059669;
+    color: var(--color-emerald-dark);
 }
 
 /* Implementation highlighting */
 .impl {
-    border-left: 5px solid #8b5cf6;
-    background: linear-gradient(to right, #f5f3ff 0%, transparent 100%);
+    border-left: 5px solid var(--color-purple);
+    background: linear-gradient(to right, rgba(139, 92, 246, 0.08) 0%, transparent 100%);
     padding: 15px;
     padding-left: 20px;
     margin-bottom: 15px;
@@ -181,13 +232,13 @@ h3 {
 }
 
 .impl .needs_head {
-    color: #7c3aed;
+    color: #7c3aed;  /* violet-600 for light bg */
 }
 
 /* Design specification highlighting */
 .spec {
-    border-left: 5px solid #eab308;
-    background: linear-gradient(to right, #fefce8 0%, transparent 100%);
+    border-left: 5px solid var(--color-yellow);
+    background: linear-gradient(to right, rgba(234, 179, 8, 0.08) 0%, transparent 100%);
     padding: 15px;
     padding-left: 20px;
     margin-bottom: 15px;
@@ -196,7 +247,7 @@ h3 {
 }
 
 .spec .needs_head {
-    color: #ca8a04;
+    color: #ca8a04;  /* yellow-600 for light bg */
 }
 
 /* ============================================================================
@@ -205,8 +256,8 @@ h3 {
 
 .highlight {
     border-radius: 4px;
-    border: 1px solid #e1e4e8;
-    background-color: #f6f8fa;
+    border: 1px solid var(--color-docs-border);
+    background-color: var(--color-docs-code-bg);
     padding: 1em;
     margin: 1em 0;
     overflow-x: auto;
@@ -217,17 +268,27 @@ h3 {
     padding: 0;
     background-color: transparent;
     border: none;
+    color: var(--color-docs-code-text);
 }
 
 /* Inline code */
 code.literal {
-    background-color: #f6f8fa;
-    border: 1px solid #e1e4e8;
+    background-color: var(--color-docs-code-bg);
+    border: 1px solid var(--color-docs-border);
     border-radius: 3px;
     padding: 0.2em 0.4em;
-    color: #24292e;
+    color: #be185d;  /* pink-700 for inline code */
     font-size: 0.9em;
 }
+
+/* Syntax highlighting - light theme colors */
+.highlight .c, .highlight .c1, .highlight .cm { color: #6b7280; }  /* gray-500 comments */
+.highlight .k, .highlight .kn, .highlight .kd { color: #7c3aed; }  /* violet-600 keywords */
+.highlight .s, .highlight .s1, .highlight .s2 { color: #059669; }  /* emerald-600 strings */
+.highlight .n, .highlight .na, .highlight .nb { color: #1e293b; }  /* slate-800 names */
+.highlight .nf { color: #2563eb; }  /* blue-600 functions */
+.highlight .o, .highlight .p { color: #334155; }  /* slate-700 operators */
+.highlight .mi, .highlight .mf { color: #d97706; }  /* amber-600 numbers */
 
 /* ============================================================================
    Admonitions (Notes, Warnings, etc.)
@@ -238,26 +299,38 @@ code.literal {
     padding: 12px;
     margin: 1.5em 0;
     border-left: 4px solid;
+    color: var(--color-docs-text-secondary);
 }
 
 .admonition.note {
-    background-color: #e8f4f8;
-    border-left-color: #3b82c4;
+    background-color: rgba(16, 185, 129, 0.08);
+    border-left-color: var(--color-emerald);
 }
 
 .admonition.warning {
-    background-color: #fff4e6;
-    border-left-color: #f59e0b;
+    background-color: rgba(245, 158, 11, 0.08);
+    border-left-color: var(--color-warning);
 }
 
 .admonition.important {
-    background-color: #fef2f2;
-    border-left-color: #ef4444;
+    background-color: rgba(239, 68, 68, 0.08);
+    border-left-color: var(--color-danger);
+}
+
+.admonition.tip {
+    background-color: rgba(16, 185, 129, 0.08);
+    border-left-color: var(--color-emerald);
+}
+
+.admonition.danger {
+    background-color: rgba(239, 68, 68, 0.08);
+    border-left-color: var(--color-danger);
 }
 
 .admonition-title {
     font-weight: 700;
     margin-bottom: 0.5em;
+    color: var(--color-docs-text-primary);
 }
 
 /* ============================================================================
@@ -266,53 +339,76 @@ code.literal {
 
 table.docutils {
     border-collapse: collapse;
-    border: 1px solid #e1e4e8;
+    border: 1px solid var(--color-docs-border);
     margin: 1.5em 0;
     width: 100%;
 }
 
 table.docutils th {
-    background-color: #f6f8fa;
-    border: 1px solid #e1e4e8;
+    background-color: var(--color-docs-code-bg);
+    border: 1px solid var(--color-docs-border);
     padding: 10px;
     text-align: left;
     font-weight: 600;
+    color: var(--color-docs-text-primary);
 }
 
 table.docutils td {
-    border: 1px solid #e1e4e8;
+    border: 1px solid var(--color-docs-border);
     padding: 10px;
+    color: var(--color-docs-text-secondary);
 }
 
 table.docutils tr:hover {
-    background-color: #fafbfc;
+    background-color: var(--color-docs-code-bg);
 }
 
 /* ============================================================================
    Navigation and Sidebar
    ============================================================================ */
 
-/* Sidebar improvements */
 .wy-nav-side {
-    background-color: #1f2937;  /* gray-800 - matches website */
+    background-color: var(--color-slate-800);
 }
 
 .wy-side-nav-search {
-    background-color: #111827;  /* gray-900 - matches website */
+    background-color: var(--color-slate-900);
 }
 
-.wy-menu-vertical a {
-    color: #d1d5db;
+.wy-menu-vertical a,
+.wy-menu-vertical a:visited {
+    color: var(--color-text-secondary);
 }
 
 .wy-menu-vertical a:hover {
-    background-color: #374151;  /* gray-700 - matches website */
+    background-color: var(--color-slate-700);
     color: #ffffff;
 }
 
 .wy-menu-vertical li.current > a {
-    background-color: #2563eb;  /* blue-600 - matches website */
+    background-color: var(--color-emerald);
     color: #ffffff;
+}
+
+/* Keep sidebar dark for expanded/current toctree sections */
+.wy-menu-vertical li.current {
+    background: var(--color-slate-800) !important;
+}
+
+.wy-menu-vertical li.toctree-l1.current > ul,
+.wy-menu-vertical li.toctree-l2.current > ul,
+.wy-menu-vertical li.toctree-l3.current > ul {
+    background: var(--color-slate-800) !important;
+}
+
+.wy-menu-vertical li.toctree-l2,
+.wy-menu-vertical li.toctree-l3,
+.wy-menu-vertical li.toctree-l4 {
+    background: var(--color-slate-800) !important;
+}
+
+.wy-menu-vertical .caption {
+    color: var(--color-emerald);
 }
 
 /* Breadcrumbs */
@@ -321,7 +417,19 @@ table.docutils tr:hover {
 }
 
 .wy-breadcrumbs li {
-    color: #6b7280;
+    color: var(--color-docs-text-muted);
+}
+
+.wy-breadcrumbs a {
+    color: var(--color-emerald-dark);
+}
+
+.wy-breadcrumbs-aside a {
+    color: var(--color-docs-text-muted);
+}
+
+.wy-breadcrumbs-aside a:hover {
+    color: var(--color-emerald-dark);
 }
 
 /* ============================================================================
@@ -360,27 +468,27 @@ table.docutils tr:hover {
    Links and Cross-References
    ============================================================================ */
 
+/* Links in content area - darker for light bg */
 a {
-    color: #2563eb;
+    color: var(--color-emerald-dark);
     text-decoration: none;
 }
 
 a:hover {
-    color: #1d4ed8;
+    color: var(--color-emerald);
     text-decoration: underline;
 }
 
 a.reference.internal {
-    border-bottom: 1px dotted #93c5fd;
+    border-bottom: 1px dotted var(--color-emerald);
 }
 
-/* Remove dotted underlines from sidebar links */
 .wy-menu-vertical a.reference.internal {
     border-bottom: none;
 }
 
 a.reference.external::after {
-    content: " ↗";
+    content: " \2197";
     font-size: 0.8em;
     opacity: 0.6;
 }
@@ -391,7 +499,7 @@ a.reference.external::after {
 
 /* Download links */
 a.download {
-    background-color: #10b981;
+    background-color: var(--color-emerald);
     color: white;
     padding: 6px 12px;
     border-radius: 4px;
@@ -400,7 +508,7 @@ a.download {
 }
 
 a.download:hover {
-    background-color: #059669;
+    background-color: var(--color-emerald-dark);
     text-decoration: none;
 }
 
@@ -416,7 +524,7 @@ a.download:hover {
 
 /* Status badges */
 .status-approved {
-    background-color: #10b981;
+    background-color: var(--color-emerald);
     color: white;
     padding: 3px 8px;
     border-radius: 3px;
@@ -425,7 +533,7 @@ a.download:hover {
 }
 
 .status-pending {
-    background-color: #f59e0b;
+    background-color: var(--color-warning);
     color: white;
     padding: 3px 8px;
     border-radius: 3px;
@@ -434,7 +542,7 @@ a.download:hover {
 }
 
 .status-rejected {
-    background-color: #ef4444;
+    background-color: var(--color-danger);
     color: white;
     padding: 3px 8px;
     border-radius: 3px;
@@ -446,12 +554,37 @@ a.download:hover {
    Top Navigation Bar
    ============================================================================ */
 
-/* Override link colors in nav bar (Tailwind handles the rest) */
 .site-nav-bar a,
 .site-nav-bar a:link,
 .site-nav-bar a:visited,
 .site-nav-bar a:active {
+    color: var(--color-text-secondary) !important;
+    border-bottom: none !important;
+}
+
+.site-nav-bar .nav-brand,
+.site-nav-bar .nav-brand:link,
+.site-nav-bar .nav-brand:visited,
+.site-nav-bar .nav-brand:active {
     color: #ffffff !important;
+}
+
+.site-nav-bar a:hover {
+    color: var(--color-emerald-light) !important;
+    text-decoration: none !important;
+}
+
+/* Sidebar search input */
+.wy-side-nav-search input[type="text"] {
+    background-color: var(--color-code-bg);
+    border: 1px solid var(--color-slate-700);
+    border-radius: 4px;
+    box-shadow: none;
+    color: var(--color-text-secondary);
+}
+
+.wy-side-nav-search input[type="text"]::placeholder {
+    color: var(--color-syntax-comment);
 }
 
 /* Remove vertical separators between sidebar sections */
@@ -477,9 +610,9 @@ a.download:hover {
 
 /* Mobile nav adjustments */
 @media screen and (max-width: 768px) {
-    /* Adjust mobile menu button position */
     .wy-nav-top {
         top: 48px;
+        background-color: var(--color-slate-800);
     }
 
     .wy-nav-side {
@@ -490,6 +623,71 @@ a.download:hover {
     .wy-nav-content-wrap {
         margin-top: 48px;
     }
+}
+
+/* RST content text colors - dark on light */
+.rst-content p,
+.rst-content li,
+.rst-content dd,
+.rst-content dt {
+    color: var(--color-docs-text-secondary);
+}
+
+.rst-content strong {
+    color: var(--color-docs-text-primary);
+}
+
+/* Footer styling */
+footer {
+    color: var(--color-text-muted);
+}
+
+footer a {
+    color: var(--color-emerald);
+}
+
+/* Version selector / RTD badge */
+.rst-versions {
+    background-color: var(--color-slate-900);
+    color: var(--color-text-secondary);
+}
+
+.rst-versions a {
+    color: var(--color-emerald);
+}
+
+/* Toctree caption (section titles in sidebar) */
+.wy-menu-vertical p.caption {
+    color: var(--color-emerald);
+}
+
+/* Nested toctree items - keep dark backgrounds */
+.wy-menu-vertical li.toctree-l2 a,
+.wy-menu-vertical li.toctree-l2 a:visited,
+.wy-menu-vertical li.toctree-l3 a,
+.wy-menu-vertical li.toctree-l3 a:visited,
+.wy-menu-vertical li.toctree-l4 a,
+.wy-menu-vertical li.toctree-l4 a:visited {
+    color: var(--color-text-secondary);
+    background: transparent !important;
+}
+
+.wy-menu-vertical li.toctree-l2.current > a,
+.wy-menu-vertical li.toctree-l3.current > a {
+    background-color: rgba(16, 185, 129, 0.2) !important;
+    color: var(--color-emerald-light);
+}
+
+/* Ensure current item children stay dark */
+.wy-menu-vertical li.current ul {
+    background: var(--color-slate-800) !important;
+}
+
+/* Definition lists */
+.rst-content dl dt {
+    background-color: var(--color-docs-code-bg);
+    border-top: 3px solid var(--color-emerald);
+    color: var(--color-docs-text-primary);
 }
 
 /* ============================================================================
