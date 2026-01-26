@@ -1,7 +1,7 @@
 Design Principles
 =================
 
-These principles guide every decision in Cleanroom Whisper. When in doubt, refer here.
+These principles guide every decision across all Cleanroom Labs projects. When in doubt, refer here.
 
 --------------
 
@@ -10,7 +10,8 @@ Privacy Through Data Locality
 
 **All data stays on the user’s machine. No exceptions.**
 
-Your voice recordings and transcriptions are private by design — they never leave your computer. This isn’t a policy; it’s enforced by architecture.
+Your data is private by design — it never leaves your computer without your
+explicit consent. This isn't a policy; it's enforced by architecture.
 
 What this means
 ~~~~~~~~~~~~~~~
@@ -43,7 +44,7 @@ Air-gap deployment
 The app must be deployable on air-gapped systems (no internet access ever). This requires:
 
 - **Vendored dependencies:** All Cargo crates checked into repo
-- **Self-contained binary:** Single executable plus whisper.cpp and model
+- **Self-contained binary:** Single executable with all required assets bundled
 - **No phone-home:** No license checks, update checks, or telemetry
 
 Build once with internet, deploy anywhere without. No npm, no frontend build step.
@@ -126,8 +127,8 @@ Examples
 
 - **Avoid:** Trait abstractions for single implementations
 - **Prefer:** Simple functions
-- **Avoid:** Multiple format support (WAV, FLAC, MP3, M4A)
-- **Prefer:** Single format (WAV only)
+- **Avoid:** Multiple format support (e.g., WAV, FLAC, MP3, M4A)
+- **Prefer:** Single format (e.g., WAV only)
 
 --------------
 
