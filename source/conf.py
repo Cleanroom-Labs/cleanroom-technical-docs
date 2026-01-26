@@ -25,7 +25,7 @@ release = '1.0.0'
 
 # -- Templates path ----------------------------------------------------------
 
-templates_path = ['_templates']
+# templates_path = ['_templates']  # Use theme's templates from theme_config.py
 
 # -- sphinx-needs configuration (project-specific types) --------------------
 
