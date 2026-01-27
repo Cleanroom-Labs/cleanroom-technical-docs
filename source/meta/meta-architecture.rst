@@ -369,13 +369,13 @@ Journey 1: Developer Releasing Cleanroom Whisper
 
 **Steps:**
 
-**Developer** creates ``AirGapDeploy.toml`` manifest for Cleanroom Whisper
-**Developer** runs ``airgap-deploy prep`` → generates package (~300MB)
-Package fits on single USB, no need for airgap-transfer
-**Developer** uploads package to GitHub releases
-**End user** downloads package, transfers via USB
-**End user** extracts and runs ``./install.sh``
-**End user** uses Cleanroom Whisper for transcription
+#. **Developer** creates ``AirGapDeploy.toml`` manifest for Cleanroom Whisper
+#. **Developer** runs ``airgap-deploy prep`` → generates package (~300MB)
+#. Package fits on single USB, no need for airgap-transfer
+#. **Developer** uploads package to GitHub releases
+#. **End user** downloads package, transfers via USB
+#. **End user** extracts and runs ``./install.sh``
+#. **End user** uses Cleanroom Whisper for transcription
 
 **Tools used:** AirGap Deploy (packaging), Cleanroom Whisper (end use)
 
@@ -390,14 +390,14 @@ Journey 2: Deploying Ollama with Large Models
 
 **Steps:**
 
-**Developer** creates ``AirGapDeploy.ollama.toml`` with 3 models
-**Developer** runs ``airgap-deploy prep`` → 20GB package
-Package exceeds 16GB USB capacity
-**Developer** runs ``airgap-transfer pack`` → chunks into 2x 10GB chunks
-**Developer** uploads chunks to file server
-**User** downloads chunks, transfers with 2x USB drives
-**User** runs ``airgap-transfer unpack`` → reconstructs 20GB package
-**User** extracts and runs ``./install.sh`` → installs Ollama + models
+#. **Developer** creates ``AirGapDeploy.ollama.toml`` with 3 models
+#. **Developer** runs ``airgap-deploy prep`` → 20GB package
+#. Package exceeds 16GB USB capacity
+#. **Developer** runs ``airgap-transfer pack`` → chunks into 2x 10GB chunks
+#. **Developer** uploads chunks to file server
+#. **User** downloads chunks, transfers with 2x USB drives
+#. **User** runs ``airgap-transfer unpack`` → reconstructs 20GB package
+#. **User** extracts and runs ``./install.sh`` → installs Ollama + models
 
 **Tools used:** AirGap Deploy (packaging), AirGap Transfer (chunking), Ollama (end use)
 
@@ -412,14 +412,14 @@ Journey 3: Transferring Research Dataset
 
 **Steps:**
 
-**Researcher** has dataset in ``/data/research/``
-**Researcher** runs ``airgap-transfer pack /data/research /media/usb1``
-Fills USB1 (16GB), prompts for USB2
-Continues filling USB2, USB3, …, USB32 (32x 16GB USBs)
-Physically transfers USBs to air-gapped system
-**Researcher** runs ``airgap-transfer unpack /media/usb1 /data/restored``
-Inserts each USB in sequence, airgap-transfer reconstructs dataset
-Verifies checksums, data integrity confirmed
+#. **Researcher** has dataset in ``/data/research/``
+#. **Researcher** runs ``airgap-transfer pack /data/research /media/usb1``
+#. Fills USB1 (16GB), prompts for USB2
+#. Continues filling USB2, USB3, …, USB32 (32x 16GB USBs)
+#. Physically transfers USBs to air-gapped system
+#. **Researcher** runs ``airgap-transfer unpack /media/usb1 /data/restored``
+#. Inserts each USB in sequence, airgap-transfer reconstructs dataset
+#. Verifies checksums, data integrity confirmed
 
 **Tools used:** AirGap Transfer only (no deployment, no transcription)
 
