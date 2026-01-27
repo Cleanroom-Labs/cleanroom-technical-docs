@@ -16,6 +16,17 @@ The full traceability chain will look like:
       ↓           ↓             ↓              ↓              ↓
    UC-XXX   →   FR-XXX    →   DS-XXX    →   IMPL-XXX     →  TC-XXX
 
+.. Import needs from subprojects for aggregation (built first by Makefile)
+
+.. needimport:: ../../cleanroom-whisper-docs/build/html/needs.json
+   :hide:
+
+.. needimport:: ../../airgap-deploy-docs/build/html/needs.json
+   :hide:
+
+.. needimport:: ../../airgap-transfer-docs/build/html/needs.json
+   :hide:
+
 Project Statistics
 ------------------
 
