@@ -43,7 +43,7 @@ technical-docs/
 │   │   ├── principles.rst             # Core design principles (READ THIS FIRST)
 │   │   ├── meta-architecture.rst      # Project relationships and dependencies
 │   │   ├── release-roadmap.rst        # Release planning and milestones
-│   │   ├── traceability-dashboard.rst # Aggregate statistics and traceability
+│   │   ├── specification-overview.rst # Aggregate statistics and traceability
 │   │   ├── rust-integration-guide.rst # Future Rust API integration
 │   │   └── sphinx-needs-guide.rst     # How to use sphinx-needs
 │   │
@@ -337,4 +337,4 @@ If you need to understand why something is designed a certain way:
 3. Then check the SRS (Software Requirements Specification) in `requirements/srs.rst`
 4. Then check the SDD (Software Design Document) in `design/sdd.rst`
 5. If still unclear, review the use case analysis documents in `use-cases/`
-6. Check `source/meta/traceability-dashboard.rst` for aggregate statistics and traceability overview
+6. Check `source/meta/specification-overview.rst` for aggregate statistics and traceability overview
