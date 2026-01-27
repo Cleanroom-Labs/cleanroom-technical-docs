@@ -16,7 +16,7 @@ These three projects represent our near-term development focus and demonstrate c
    meta/principles
    meta/meta-architecture
    meta/release-roadmap
-   meta/traceability-dashboard
+   meta/specification-overview
 
 .. toctree::
    :maxdepth: 2
@@ -47,9 +47,9 @@ Quick Links
 - `AirGap Deploy <airgap-deploy/requirements/srs.html>`_
 - `AirGap Transfer <airgap-transfer/requirements/srs.html>`_
 
-**Traceability:**
+**Specification Overview:**
 
-- :doc:`meta/traceability-dashboard` - Project statistics and traceability overview
+- :doc:`meta/specification-overview` - Project statistics and traceability overview
 
 Indices and tables
 ==================
