@@ -1,5 +1,5 @@
-AirGap Deploy
-=============
+AirGap Deploy |status-active|
+=============================
 
 **Universal Deployment Packaging Tool**
 

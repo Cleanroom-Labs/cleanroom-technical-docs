@@ -1,5 +1,5 @@
-AirGap Transfer
-===============
+AirGap Transfer |status-active|
+===============================
 
 **Large File Transfer Utility**
 

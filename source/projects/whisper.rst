@@ -1,5 +1,5 @@
-Cleanroom Whisper
-=================
+Cleanroom Whisper |status-planned|
+==================================
 
 **Offline Audio Transcription Application**
 
