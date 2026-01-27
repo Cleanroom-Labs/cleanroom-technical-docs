@@ -32,7 +32,7 @@ Architecture Diagram
    └───────────────────────────────────────────────────────────────────────────────┘
 
    ┌─────────────────────┐      ┌─────────────────────┐      ┌─────────────────────┐
-   │   Cleanroom Whisper    │      │   AirGap Deploy     │      │  AirGap Transfer    │
+   │  Cleanroom Whisper  │      │   AirGap Deploy     │      │  AirGap Transfer    │
    │                     │      │                     │      │                     │
    │  End-User App       │      │  Developer Tool     │      │  Utility            │
    │  ┌──────────────┐   │      │  ┌──────────────┐   │      │  ┌──────────────┐   │
