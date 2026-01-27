@@ -14,45 +14,55 @@ This is a **Sphinx documentation repository** for the **AirGap project suite** -
 
 ```
 technical-docs/
-├── source/
-│   ├── meta/                           # Cross-project documentation
-│   │   ├── principles.rst              # Core design principles (READ THIS FIRST)
-│   │   ├── meta-architecture.rst       # Project relationships and dependencies
-│   │   ├── requirements-overview.rst   # Aggregate statistics and traceability overview
-│   │   ├── rust-integration-guide.rst  # Future Rust API integration
-│   │   └── sphinx-needs-guide.rst      # How to use sphinx-needs
-│   │
-│   ├── cleanroom-whisper/                 # Whisper transcription app
-│   │   ├── readme.rst                  # Project overview
-│   │   ├── roadmap.rst                 # Current status and milestones
-│   │   ├── requirements/srs.rst        # Software Requirements Specification (with sphinx-needs directives)
-│   │   ├── design/sdd.rst              # Software Design Document
-│   │   ├── testing/plan.rst            # Test plan with traceability tables
-│   │   └── use-cases/overview.rst      # Use case workflows
-│   │
-│   ├── airgap-deploy/                  # Deployment packaging tool
-│   │   ├── readme.rst
-│   │   ├── roadmap.rst
-│   │   ├── requirements/srs.rst        # Requirements with sphinx-needs directives
-│   │   ├── design/sdd.rst
-│   │   ├── testing/plan.rst            # Test plan with traceability tables
-│   │   └── use-cases/                  # Deployment workflows
-│   │
-│   ├── airgap-transfer/                # File transfer tool
-│   │   ├── readme.rst
-│   │   ├── roadmap.rst
-│   │   ├── requirements/srs.rst        # Requirements with sphinx-needs directives
-│   │   ├── design/sdd.rst
-│   │   ├── testing/plan.rst            # Test plan with traceability tables
-│   │   └── use-cases/                  # Transfer workflows
-│   │
-│   ├── conf.py                         # Sphinx configuration
-│   └── index.rst                       # Documentation home page
+├── cleanroom-whisper-docs/            # Submodule: Whisper transcription app docs
+│   ├── readme.rst                     # Project overview
+│   ├── roadmap.rst                    # Current status and milestones
+│   ├── requirements/srs.rst           # Software Requirements Specification
+│   ├── design/sdd.rst                 # Software Design Document
+│   ├── testing/plan.rst               # Test plan with traceability
+│   └── use-cases/                     # Use case workflows
 │
-├── Makefile                            # Build commands (make html, make clean)
-├── requirements.txt                    # Python dependencies for Sphinx
-└── build/html/                         # Generated HTML documentation
+├── airgap-deploy-docs/                # Submodule: Deployment packaging tool docs
+│   ├── readme.rst
+│   ├── roadmap.rst
+│   ├── requirements/srs.rst
+│   ├── design/sdd.rst
+│   ├── testing/plan.rst
+│   └── use-cases/
+│
+├── airgap-transfer-docs/              # Submodule: File transfer tool docs
+│   ├── readme.rst
+│   ├── roadmap.rst
+│   ├── requirements/srs.rst
+│   ├── design/sdd.rst
+│   ├── testing/plan.rst
+│   └── use-cases/
+│
+├── source/
+│   ├── meta/                          # Cross-project documentation
+│   │   ├── principles.rst             # Core design principles (READ THIS FIRST)
+│   │   ├── meta-architecture.rst      # Project relationships and dependencies
+│   │   ├── release-roadmap.rst        # Release planning and milestones
+│   │   ├── requirements-overview.rst  # Aggregate statistics and traceability
+│   │   ├── rust-integration-guide.rst # Future Rust API integration
+│   │   └── sphinx-needs-guide.rst     # How to use sphinx-needs
+│   │
+│   ├── projects/                      # Landing pages for each project
+│   │   ├── whisper.rst                # Cleanroom Whisper landing page
+│   │   ├── deploy.rst                 # AirGap Deploy landing page
+│   │   └── transfer.rst               # AirGap Transfer landing page
+│   │
+│   ├── cleanroom-theme/               # Submodule: Theme configuration
+│   ├── conf.py                        # Sphinx configuration
+│   └── index.rst                      # Documentation home page
+│
+├── PROJECT_TEMPLATE.md                # Template for creating new project docs
+├── Makefile                           # Build commands (make html, make clean)
+├── requirements.txt                   # Python dependencies for Sphinx
+└── build/html/                        # Generated HTML documentation
 ```
+
+**Note:** Project documentation is in separate submodules at root level, not inside `source/`. The `source/projects/` directory contains landing pages that link to the project submodules.
 
 ## Core Design Philosophy
 
