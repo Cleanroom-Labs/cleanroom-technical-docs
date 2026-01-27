@@ -431,5 +431,5 @@ See Also
 - :doc:`cleanroom-whisper:api/index` - Cleanroom Whisper API placeholder
 - :doc:`airgap-deploy:api/index` - AirGap Deploy API placeholder
 - :doc:`airgap-transfer:api/index` - AirGap Transfer API placeholder
-- :doc:`/meta/requirements-overview` - Project statistics and requirements overview
+- :doc:`/meta/traceability-dashboard` - Project statistics and traceability overview
 - `sphinxcontrib-rust documentation <https://sphinx-contrib-rust.readthedocs.io/>`_

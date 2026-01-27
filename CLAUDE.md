@@ -43,7 +43,7 @@ technical-docs/
 │   │   ├── principles.rst             # Core design principles (READ THIS FIRST)
 │   │   ├── meta-architecture.rst      # Project relationships and dependencies
 │   │   ├── release-roadmap.rst        # Release planning and milestones
-│   │   ├── requirements-overview.rst  # Aggregate statistics and traceability
+│   │   ├── traceability-dashboard.rst # Aggregate statistics and traceability
 │   │   ├── rust-integration-guide.rst # Future Rust API integration
 │   │   └── sphinx-needs-guide.rst     # How to use sphinx-needs
 │   │
@@ -315,7 +315,7 @@ See `requirements.txt` for exact versions. Key dependencies:
 ### File Organization
 
 - Keep related documents together in project subdirectories
-- Use consistent naming: lowercase with hyphens (e.g., `requirements-overview.rst`)
+- Use consistent naming: lowercase with hyphens (e.g., `traceability-dashboard.rst`)
 - Place cross-project documents in `source/meta/`
 - Each project has same structure: readme, roadmap, requirements/, design/, testing/, use-cases/
 
@@ -337,4 +337,4 @@ If you need to understand why something is designed a certain way:
 3. Then check the SRS (Software Requirements Specification) in `requirements/srs.rst`
 4. Then check the SDD (Software Design Document) in `design/sdd.rst`
 5. If still unclear, review the use case analysis documents in `use-cases/`
-6. Check `source/meta/requirements-overview.rst` for aggregate statistics and traceability overview
+6. Check `source/meta/traceability-dashboard.rst` for aggregate statistics and traceability overview

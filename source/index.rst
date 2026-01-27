@@ -16,7 +16,12 @@ These three projects represent our near-term development focus and demonstrate c
    meta/principles
    meta/meta-architecture
    meta/release-roadmap
-   meta/requirements-overview
+   meta/traceability-dashboard
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Developer Resources
+
    meta/sphinx-needs-guide
    meta/rust-integration-guide
 
@@ -44,7 +49,7 @@ Quick Links
 
 **Traceability:**
 
-- :doc:`meta/requirements-overview` - Project statistics and requirements overview
+- :doc:`meta/traceability-dashboard` - Project statistics and traceability overview
 
 Indices and tables
 ==================
