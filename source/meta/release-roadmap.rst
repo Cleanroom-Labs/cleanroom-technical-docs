@@ -25,7 +25,7 @@ AirGap Transfer v1.0.0
 
 **Definition of Done:**
 
-- All MVP features implemented (see :doc:`Transfer Roadmap <airgap-transfer:roadmap>`)
+- All MVP features implemented (see `Transfer Roadmap <../airgap-transfer/roadmap.html>`_)
 - Pack/unpack/list operations working
 - SHA-256 verification functional
 - Resume capability working
@@ -45,7 +45,7 @@ AirGap Deploy v1.0.0
 
 **Definition of Done:**
 
-- All MVP components implemented (see :doc:`Deploy Roadmap <airgap-deploy:roadmap>`)
+- All MVP components implemented (see `Deploy Roadmap <../airgap-deploy/roadmap.html>`_)
 - Core components: RustApp, ExternalBinary, ModelFile working
 - Manifest validation working
 - Install script generation (Linux/macOS Bash, Windows PowerShell)
@@ -67,7 +67,7 @@ Cleanroom Whisper v1.0.0
 
 **Definition of Done:**
 
-- All MVP features implemented (see :doc:`Whisper Roadmap <cleanroom-whisper:roadmap>`)
+- All MVP features implemented (see `Whisper Roadmap <../cleanroom-whisper/roadmap.html>`_)
 - Cross-platform support (macOS, Windows, Linux)
 - SQLite history storage working
 - Global hotkeys functional
@@ -162,9 +162,9 @@ Individual Project Roadmaps
 
 For detailed MVP implementation plans, see:
 
-- :doc:`AirGap Transfer Roadmap <airgap-transfer:roadmap>`
-- :doc:`AirGap Deploy Roadmap <airgap-deploy:roadmap>`
-- :doc:`Cleanroom Whisper Roadmap <cleanroom-whisper:roadmap>`
+- `AirGap Transfer Roadmap <../airgap-transfer/roadmap.html>`_
+- `AirGap Deploy Roadmap <../airgap-deploy/roadmap.html>`_
+- `Cleanroom Whisper Roadmap <../cleanroom-whisper/roadmap.html>`_
 
 Each roadmap documents:
 
