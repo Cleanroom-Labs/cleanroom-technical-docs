@@ -55,6 +55,7 @@ html_context = {
     'github_version': 'main',
     'conf_py_path': '/sphinx-docs/source/',
 }
+setup_project_icon(project, html_context)
 
 # Favicon and logo (placeholders - can be added later)
 # html_favicon = '_static/favicon.ico'
