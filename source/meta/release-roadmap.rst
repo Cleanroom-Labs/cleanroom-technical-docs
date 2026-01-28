@@ -1,7 +1,7 @@
 Release Roadmap
 ===============
 
-This document coordinates release planning across the three AirGap foundation projects: Whisper, Deploy, and Transfer.
+This document coordinates release planning across the three foundation projects: Cleanroom Whisper, AirGap Deploy, and AirGap Transfer.
 
 Release Philosophy
 ------------------
@@ -11,7 +11,8 @@ The AirGap suite follows a **synchronized release strategy** for major versions:
 - **v1.0.0**: Coordinated release across all three projects
 - **Scope**: Minimum Viable Product (MVP) for each project
 - **Goal**: Demonstrate integrated workflows (e.g., Deploy → Transfer → Install)
-- **Timeline**: [TBD - add when development begins]
+- **Target Date**: June 30, 2026
+- **Development Window**: February 3 - June 27, 2026 (22 weeks)
 
 Individual projects may have independent patch releases (v1.0.1, v1.0.2) for bug fixes, but major feature releases (v1.1, v2.0) will be coordinated.
 
@@ -72,7 +73,7 @@ Cleanroom Whisper v1.0.0
 - SQLite history storage working
 - Global hotkeys functional
 - System tray integration complete
-- Documentation complete (README, SRS, SDD, Test Plan)
+- Documentation complete
 
 **Deliverables:**
 
@@ -106,44 +107,86 @@ This end-to-end workflow must work for v1.0.0 release:
 - Cross-platform compatibility (test on macOS, Linux, Windows)
 - Process documented in demo blog post
 
-**Status:** [Not Started]
+**Status:** Not Started
+**Target Validation Date:** June 20, 2026
 
 --------------
 
 v1.0.0 Release Timeline
 -----------------------
 
-.. note::
-   This timeline will be updated as development progresses.
+**Development Schedule (22 weeks: Feb 3 - June 27, 2026)**
 
-**Phase 1: MVP Development** (Status: [TBD])
+.. list-table::
+   :header-rows: 1
+   :widths: 10 30 15 25
 
-- Start Date: [TBD]
-- Goal: Complete all MVP features for all three projects
-- Milestone: All roadmap checkboxes complete
+   * - Phase
+     - Project
+     - Duration
+     - Dates
+   * - 1
+     - AirGap Transfer MVP
+     - 8 weeks
+     - Feb 3 - Mar 28
+   * - 2
+     - AirGap Deploy MVP
+     - 8 weeks
+     - Mar 31 - May 23
+   * - 3
+     - Cleanroom Whisper MVP
+     - 5 weeks
+     - May 26 - June 27
+   * - 4
+     - Integration Testing
+     - 2 weeks
+     - June 16 - June 27 (overlap)
+   * - 5
+     - v1.0.0 Release
+     - \-
+     - Week of June 30, 2026
+
+**Time Budget:** ~15 hours/week average development time
+
+--------------
+
+**Phase 1: MVP Development** (Status: Not Started)
+
+- **Dates:** February 3 - June 27, 2026
+- **Goal:** Complete all MVP features for all three projects
+- **Milestone:** All roadmap checkboxes complete
+- **Project Order:**
+
+  1. AirGap Transfer (Feb 3 - Mar 28) - Foundation for file transfer
+  2. AirGap Deploy (Mar 31 - May 23) - Packaging tool
+  3. Cleanroom Whisper (May 26 - June 27) - Transcription app
 
 **Phase 2: Integration Testing** (Status: Not Started)
 
-- Start Date: [After Phase 1]
-- Goal: Validate Ollama deployment workflow end-to-end
-- Milestone: Integration scenario passes on all platforms
+- **Dates:** June 16 - June 27, 2026 (overlaps with Whisper M4-M6)
+- **Goal:** Validate Ollama deployment workflow end-to-end
+- **Milestone:** Integration scenario passes on all platforms
+- **Key Validation:** June 20, 2026 - Ollama deployment scenario validated
 
 **Phase 3: Documentation and Content** (Status: In Progress - Planning)
 
-- Demo blog posts written (can be parallel with Phase 1-2)
+- **Parallel with development**
+- **Complete by:** June 23, 2026
+- Demo blog posts written
 - User documentation reviewed
 - Release notes drafted
 
 **Phase 4: Release Preparation** (Status: Not Started)
 
-- Pre-built binaries created for all platforms
+- **Dates:** June 23 - June 27, 2026
+- Pre-built binaries created for all platforms (target: June 25)
 - GitHub releases prepared
 - Blog posts finalized
 - Marketing materials ready (if applicable)
 
 **Phase 5: Coordinated Launch** (Status: Not Started)
 
-- Target Date: [TBD]
+- **Target Date:** June 30, 2026
 - All three projects release v1.0.0 simultaneously
 - Blog posts published (intro + 3 demos)
 - Announcement on relevant channels
@@ -151,6 +194,7 @@ v1.0.0 Release Timeline
 
 **Phase 6: Post-Launch** (Status: Not Started)
 
+- **Dates:** July 2026 onwards
 - Monitor for bug reports
 - Patch releases as needed (v1.0.1, v1.0.2, etc.)
 - Community feedback incorporation
