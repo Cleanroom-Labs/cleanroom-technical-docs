@@ -15,8 +15,8 @@ These three projects represent our near-term development focus and demonstrate c
 
    meta/principles
    meta/meta-architecture
-   meta/release-roadmap
    meta/specification-overview
+   meta/release-roadmap
 
 .. toctree::
    :maxdepth: 2

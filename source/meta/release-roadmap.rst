@@ -20,23 +20,24 @@ Individual projects may have independent patch releases (v1.0.1, v1.0.2) for bug
 v1.0.0 Release Criteria
 -----------------------
 
-Cleanroom Whisper v1.0.0
-~~~~~~~~~~~~~~~~~~~~~~~~
+AirGap Transfer v1.0.0
+~~~~~~~~~~~~~~~~~~~~~~
 
 **Definition of Done:**
 
-- All MVP features implemented (see :doc:`Whisper Roadmap <cleanroom-whisper:roadmap>`)
-- Cross-platform support (macOS, Windows, Linux)
-- SQLite history storage working
-- Global hotkeys functional
-- System tray integration complete
-- Documentation complete (README, SRS, SDD, Test Plan)
+- All MVP features implemented (see :doc:`Transfer Roadmap <airgap-transfer:roadmap>`)
+- Pack/unpack/list operations working
+- SHA-256 verification functional
+- Resume capability working
+- Cross-platform support
+- Documentation complete
+- Integration with Deploy validated (Ollama scenario)
 
 **Deliverables:**
 
 - Source code on GitHub
-- Pre-built binaries for all platforms
-- Demo blog post
+- Pre-built binary
+- Demo blog post (Ollama + models scenario)
 - User documentation
 
 AirGap Deploy v1.0.0
@@ -60,24 +61,24 @@ AirGap Deploy v1.0.0
 - Manifest templates
 - User documentation
 
-AirGap Transfer v1.0.0
-~~~~~~~~~~~~~~~~~~~~~~
+
+Cleanroom Whisper v1.0.0
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Definition of Done:**
 
-- All MVP features implemented (see :doc:`Transfer Roadmap <airgap-transfer:roadmap>`)
-- Pack/unpack/list operations working
-- SHA-256 verification functional
-- Resume capability working
-- Cross-platform support
-- Documentation complete
-- Integration with Deploy validated (Ollama scenario)
+- All MVP features implemented (see :doc:`Whisper Roadmap <cleanroom-whisper:roadmap>`)
+- Cross-platform support (macOS, Windows, Linux)
+- SQLite history storage working
+- Global hotkeys functional
+- System tray integration complete
+- Documentation complete (README, SRS, SDD, Test Plan)
 
 **Deliverables:**
 
 - Source code on GitHub
-- Pre-built binary
-- Demo blog post (Ollama + models scenario)
+- Pre-built binaries for all platforms
+- Demo blog post
 - User documentation
 
 --------------
@@ -161,9 +162,9 @@ Individual Project Roadmaps
 
 For detailed MVP implementation plans, see:
 
-- :doc:`Cleanroom Whisper Roadmap <cleanroom-whisper:roadmap>`
-- :doc:`AirGap Deploy Roadmap <airgap-deploy:roadmap>`
 - :doc:`AirGap Transfer Roadmap <airgap-transfer:roadmap>`
+- :doc:`AirGap Deploy Roadmap <airgap-deploy:roadmap>`
+- :doc:`Cleanroom Whisper Roadmap <cleanroom-whisper:roadmap>`
 
 Each roadmap documents:
 
