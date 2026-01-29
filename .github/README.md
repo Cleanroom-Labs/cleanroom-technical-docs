@@ -40,7 +40,7 @@ To enable GitHub Pages for this repository:
 Before pushing, test the build locally:
 
 ```bash
-cd sphinx-docs
+cd cleanroom-technical-docs
 make html
 ```
 
