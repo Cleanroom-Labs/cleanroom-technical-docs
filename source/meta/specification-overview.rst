@@ -8,6 +8,10 @@ Artifact Types
 
 Each project's documentation is organized around five artifact types that serve distinct roles in the development process:
 
+.. raw:: html
+
+   <div style="margin-top: 1.5em;"></div>
+
 **Use Case** (``:usecase:``)
    Describes a goal a user wants to accomplish and the scenario in which they accomplish it. Use cases capture *who* needs *what* and *why*, without prescribing implementation details. They are the starting point for identifying what the software must do.
 
