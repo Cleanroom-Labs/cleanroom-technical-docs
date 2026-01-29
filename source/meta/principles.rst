@@ -79,11 +79,11 @@ Before adding a dependency
 
 Ask:
 
-Can I do this with stdlib?
-Can I do this with code I write myself (<100 lines)?
-Does this crate have network capabilities?
-How many transitive dependencies does it add?
-Is it actively maintained?
+1. Can I do this with stdlib?
+2. Can I do this with code I write myself (<100 lines)?
+3. Does this crate have network capabilities?
+4. How many transitive dependencies does it add?
+5. Is it actively maintained?
 
 If the answer to #1 or #2 is yes, don’t add the dependency.
 
@@ -117,8 +117,8 @@ The YAGNI test
 
 Before adding any feature or abstraction:
 
-Do I need this right now to make the app work?
-Have I needed this exact thing twice already?
+- Do I need this right now to make the app work?
+- Have I needed this exact thing twice already?
 
 If both answers aren’t “yes”, don’t add it.
 
@@ -182,8 +182,6 @@ For MVP
 Not required for MVP
 ~~~~~~~~~~~~~~~~~~~~
 
-- Tests (add when stabilizing)
-- Documentation (code is small enough to read)
+- Extensive Documentation (code is small enough to read)
 - Error recovery (show error, user retries)
-- Accessibility (add after core works)
 - Performance optimization (make it work first)
