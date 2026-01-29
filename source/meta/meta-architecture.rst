@@ -73,7 +73,7 @@ Cleanroom Whisper ↔ AirGap Deploy
 **How they relate:**
 
 - AirGap Deploy packages Cleanroom Whisper (with dependencies) for air-gapped systems
-- Deployment workflow documented in :doc:`airgap-deploy:use-cases/workflow-airgap-whisper`
+- Deployment use case documented in :doc:`airgap-deploy:use-cases/use-case-airgap-whisper`
 - Cleanroom Whisper's ``AirGapDeploy.toml`` defines packaging requirements
 
 **Independence:**
@@ -95,7 +95,7 @@ AirGap Deploy ↔ AirGap Transfer
 - When AirGap Deploy creates packages larger than USB capacity, workflows suggest using AirGap Transfer
 - AirGap Transfer chunks the deployment package for multi-USB transfer
 - Integration is at the **workflow level**, not code level
-- Workflow documented in :doc:`airgap-deploy:use-cases/workflow-ollama`
+- Use case documented in :doc:`airgap-deploy:use-cases/use-case-ollama`
 
 **Example workflow:**
 
@@ -137,10 +137,10 @@ Cleanroom Whisper ↔ AirGap Transfer
 
 **Code dependencies:** None
 
-Use Cases and Workflows
------------------------
+Use Cases
+---------
 
-Each project defines detailed use cases and workflow documents. For a full understanding
+Each project defines detailed use cases. For a full understanding
 of how these tools are envisioned to work — individually and together — explore the
 use case documentation below.
 
@@ -172,8 +172,8 @@ AirGap Transfer     :need_count:`type=='usecase' and 'transfer' in tags`
 
 **Explore the full use case documentation:**
 
-- :doc:`airgap-transfer:use-cases/index` — File transfer workflows
-- :doc:`airgap-deploy:use-cases/index` — Deployment packaging workflows
+- :doc:`airgap-transfer:use-cases/index` — File transfer use cases
+- :doc:`airgap-deploy:use-cases/index` — Deployment packaging use cases
 - :doc:`cleanroom-whisper:use-cases/index` — Transcription application use cases
 
 Dependency Analysis
