@@ -24,7 +24,8 @@ project-name-docs/
 
 ## conf.py Template
 
-See the shared theme configuration in `../shared/theme-config.py` for available settings.
+See the shared theme configuration in the nested theme submodule:
+`source/cleanroom-theme/theme_config.py` (and the repo-level `cleanroom-technical-docs/source/cleanroom-theme/` copy).
 
 Project conf.py should import shared configuration:
 
@@ -38,10 +39,7 @@ Project conf.py should import shared configuration:
 
 ## requirements.txt
 
-Reference shared extensions:
-```
--r ../shared/extensions.txt
-```
+Keep dependencies aligned with the aggregator baseline in `cleanroom-technical-docs/requirements.txt`.
 
 Add project-specific dependencies below if needed.
 

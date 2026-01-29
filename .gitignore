@@ -1,6 +1,7 @@
 # Sphinx build outputs
 build/
 _build/
+build.log
 
 # Python
 __pycache__/
