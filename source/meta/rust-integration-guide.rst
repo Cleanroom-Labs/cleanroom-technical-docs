@@ -8,10 +8,10 @@ Overview
 
 The Cleanroom Labs technical documentation uses a multi-layered documentation approach:
 
-**Requirements** (sphinx-needs ``:req:`` directives)
-**Design** (Software Design Documents)
-**API Reference** (auto-generated from Rust doc comments)
-**Tests** (sphinx-needs ``:test:`` directives)
+- **Requirements** (sphinx-needs ``:req:`` directives)
+- **Design** (Software Design Documents)
+- **API Reference** (auto-generated from Rust doc comments)
+- **Tests** (sphinx-needs ``:test:`` directives)
 
 This creates bidirectional traceability at every level.
 
@@ -282,27 +282,27 @@ Best Practices
 Documentation Quality
 ~~~~~~~~~~~~~~~~~~~~~
 
-**Write for users, not compilers:** Explain the "why" not just the "what"
-**Include examples:** Show common usage patterns
-**Document errors:** Explain when and why functions can fail
-**Link to requirements:** Always use ``# Implements`` sections
-**Keep it updated:** Update docs when code changes
+- **Write for users, not compilers:** Explain the "why" not just the "what"
+- **Include examples:** Show common usage patterns
+- **Document errors:** Explain when and why functions can fail
+- **Link to requirements:** Always use ``# Implements`` sections
+- **Keep it updated:** Update docs when code changes
 
 Traceability Maintenance
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-**One requirement per implementation:** Don't mix unrelated requirements in one impl directive
-**Update all layers:** When requirements change, update design, code, and tests
-**Verify links:** Use needflow diagrams to visualize traceability
-**Check coverage:** Ensure all requirements have implementations and tests
+- **One requirement per implementation:** Don't mix unrelated requirements in one impl directive
+- **Update all layers:** When requirements change, update design, code, and tests
+- **Verify links:** Use needflow diagrams to visualize traceability
+- **Check coverage:** Ensure all requirements have implementations and tests
 
 Code Organization
 ~~~~~~~~~~~~~~~~~
 
-**Module per feature:** Organize code by functional area
-**Public API surface:** Only expose what's necessary
-**Internal documentation:** Use ``--document-private-items`` for internal docs
-**Consistent naming:** Match module names to design document sections
+- **Module per feature:** Organize code by functional area
+- **Public API surface:** Only expose what's necessary
+- **Internal documentation:** Use ``--document-private-items`` for internal docs
+- **Consistent naming:** Match module names to design document sections
 
 Troubleshooting
 ---------------
@@ -314,10 +314,10 @@ Rust Docs Not Appearing
 
 **Solutions:**
 
-Verify ``rust_crates`` paths in ``conf.py`` are correct
-Ensure ``cargo doc`` completed successfully
-Check that ``target/doc/`` directories exist
-Rebuild with ``make clean && make html``
+- Verify ``rust_crates`` paths in ``conf.py`` are correct
+- Ensure ``cargo doc`` completed successfully
+- Check that ``target/doc/`` directories exist
+- Rebuild with ``make clean && make html``
 
 Broken Cross-References
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -326,10 +326,10 @@ Broken Cross-References
 
 **Solutions:**
 
-Verify the struct name is spelled correctly
-Ensure the struct is ``pub`` (sphinxcontrib-rust only documents public items)
-Check that the crate name matches ``rust_crates`` configuration
-Rebuild Rust docs with ``cargo doc --no-deps``
+- Verify the struct name is spelled correctly
+- Ensure the struct is ``pub`` (sphinxcontrib-rust only documents public items)
+- Check that the crate name matches ``rust_crates`` configuration
+- Rebuild Rust docs with ``cargo doc --no-deps``
 
 Missing Requirement Links
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -338,10 +338,10 @@ Missing Requirement Links
 
 **Solutions:**
 
-Use exact requirement IDs (e.g., ``FR-WHISPER-001`` not ``FR-001``)
-Add ``.. impl::`` directives in RST files to formalize the link
-Update traceability matrix with implementation nodes
-Verify sphinx-needs is processing the impl directives
+- Use exact requirement IDs (e.g., ``FR-WHISPER-001`` not ``FR-001``)
+- Add ``.. impl::`` directives in RST files to formalize the link
+- Update traceability matrix with implementation nodes
+- Verify sphinx-needs is processing the impl directives
 
 Examples
 --------
@@ -417,10 +417,10 @@ Summary
 
 The Rust API integration provides:
 
-✅ **Bidirectional traceability** from requirements to code
-✅ **Auto-generated API docs** from Rust doc comments
-✅ **Searchable cross-references** between Sphinx and Rust docs
-✅ **Complete documentation** in a single unified system
+- ✅ **Bidirectional traceability** from requirements to code
+- ✅ **Auto-generated API docs** from Rust doc comments
+- ✅ **Searchable cross-references** between Sphinx and Rust docs
+- ✅ **Complete documentation** in a single unified system
 
 When implementation begins, this infrastructure is ready to automatically
 generate professional API documentation with full requirement traceability.
