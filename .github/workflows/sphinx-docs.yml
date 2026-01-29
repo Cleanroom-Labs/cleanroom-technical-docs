@@ -77,11 +77,21 @@ jobs:
         # Use the Makefile which handles building projects + master + copying
         make html 2>&1 | tee build.log
 
-        # Verify no warnings
+        # Fail on warnings except known intersphinx inventory fetch warnings.
         echo ""
         echo "Checking for build warnings..."
-        if grep -i "warning" build.log; then
-          echo "⚠️  Build completed with warnings (review recommended)"
+        WARNINGS_ALL="$(grep -E 'WARNING:' build.log || true)"
+        WARNINGS_NON_IGNORED="$(echo "$WARNINGS_ALL" | grep -viE 'failed to reach any of the inventories|intersphinx inventory' || true)"
+
+        if [ -n "$WARNINGS_NON_IGNORED" ]; then
+          echo "❌ Build completed with warnings:"
+          echo "$WARNINGS_NON_IGNORED"
+          exit 1
+        fi
+
+        if [ -n "$WARNINGS_ALL" ]; then
+          echo "ℹ️  Build produced intersphinx inventory warnings (ignored):"
+          echo "$WARNINGS_ALL"
         else
           echo "✓ Build completed with no warnings"
         fi

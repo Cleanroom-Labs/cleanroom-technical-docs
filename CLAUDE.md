@@ -142,6 +142,7 @@ When updating documentation:
 6. **Update traceability** - Test cases should link to requirements via `:tests:` field
 7. **Build and verify** - Run `make html` to ensure no errors
 8. **Check warnings** - Sphinx warnings indicate broken links, missing references, or syntax errors
+   - Exception: intersphinx inventory fetch warnings may occur when offline or before the docs are deployed; treat these as informational
 
 **Common build errors:**
 - `WARNING: undefined label` - Missing or incorrect `:ref:` target
