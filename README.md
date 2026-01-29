@@ -6,17 +6,32 @@ Aggregated Sphinx documentation for all AirGap projects.
 
 ```
 cleanroom-technical-docs/
-├── shared/                      # Shared theme configuration
-│   ├── theme-config.py         # Common Sphinx settings
-│   └── extensions.txt          # Shared dependencies
-├── source/                      # Master documentation
-│   ├── index.rst               # Master landing page
-│   ├── conf.py                 # Master Sphinx config
-│   └── _static/
-│       └── custom.css          # Shared styling
-├── project-1-docs/             # Submodule (project docs)
-├── project-2-docs/             # Submodule (project docs)
-└── project-3-docs/             # Submodule (project docs)
+├── source/                              # Master documentation
+│   ├── index.rst                        # Master landing page
+│   ├── conf.py                          # Master Sphinx config
+│   ├── meta/                            # Cross-project documentation
+│   │   ├── principles.rst               # Core design principles
+│   │   ├── meta-architecture.rst        # Project relationships
+│   │   ├── specification-overview.rst   # Aggregate statistics
+│   │   ├── release-roadmap.rst          # Release planning
+│   │   ├── rust-integration-guide.rst   # Future Rust API integration
+│   │   └── sphinx-needs-guide.rst       # sphinx-needs usage guide
+│   ├── projects/                        # Landing pages for each project
+│   │   ├── whisper.rst
+│   │   ├── deploy.rst
+│   │   └── transfer.rst
+│   └── cleanroom-theme/                 # Submodule: shared theme config
+│       ├── theme_config.py              # Common Sphinx settings
+│       ├── tokens/                      # Design tokens (colors, nav)
+│       ├── css/                         # Generated CSS
+│       ├── icons/                       # Project icon SVGs
+│       ├── sphinx/                      # Templates and static assets
+│       └── scripts/                     # Build and validation scripts
+├── cleanroom-whisper-docs/              # Submodule: Whisper docs
+├── airgap-deploy-docs/                  # Submodule: Deploy docs
+├── airgap-transfer-docs/                # Submodule: Transfer docs
+├── Makefile                             # Build commands
+└── requirements.txt                     # Python dependencies
 ```
 
 ## Quick Start
@@ -55,7 +70,7 @@ git submodule status
 
 ## Shared Theme Configuration
 
-All project documentation imports the shared theme from `shared/theme-config.py`.
+All project documentation imports the shared theme from the `cleanroom-theme` submodule. Each project has its own copy of the submodule at `source/cleanroom-theme/`.
 
 ### Using Shared Theme in Project Docs
 
@@ -65,8 +80,8 @@ Each project's `source/conf.py` should include:
 import sys
 import os
 
-# Add shared config to path
-sys.path.insert(0, os.path.abspath('../../shared'))
+# Add cleanroom-theme submodule to path (local to this repo)
+sys.path.insert(0, os.path.abspath('cleanroom-theme'))
 
 # Import all shared settings
 from theme_config import *
@@ -78,33 +93,42 @@ copyright = '2024, Cleanroom Labs'
 
 # Extend shared extensions if needed
 extensions.extend([
-    'sphinx.ext.viewcode',  # Example project-specific extension
+    'sphinx.ext.viewcode',
 ])
 
-# Add project-specific intersphinx mapping
-intersphinx_mapping.update({
-    'project2': ('https://cleanroomlabs.dev/docs/project-2/', None),
-})
+# Configure sphinx-needs types with project prefix
+needs_types = make_needs_types('YOURPROJECT-')
 ```
 
 ## Adding a New Project
 
-1. Create the project documentation repository
-2. Add it as a submodule:
+1. Create the project documentation repository locally
+2. Add it as a submodule (using local path):
    ```bash
-   git submodule add <repo-url> <project-name>-docs
+   git submodule add /path/to/local/project-docs <project-name>-docs
    ```
-3. Update `source/index.rst` to include the project
-4. Configure the project's `conf.py` to use shared theme
-5. Build and verify
+3. Add the `cleanroom-theme` submodule inside the new project's `source/` directory
+4. Update `source/index.rst` to include the project
+5. Configure the project's `conf.py` to use shared theme (see above)
+6. Build and verify
 
 ## Cross-Project References
+
+The master `source/conf.py` maps intersphinx to local build paths:
+
+```python
+intersphinx_mapping.update({
+    'cleanroom-whisper': ('../cleanroom-whisper-docs/build/html/', None),
+    'airgap-deploy': ('../airgap-deploy-docs/build/html/', None),
+    'airgap-transfer': ('../airgap-transfer-docs/build/html/', None),
+})
+```
 
 Use Sphinx intersphinx for cross-references:
 
 ```rst
-See :doc:`project2:installation` for details.
-Reference :class:`project3:ClassName` for API.
+See :doc:`cleanroom-whisper:requirements/srs` for details.
+See :doc:`airgap-deploy:design/sdd` for architecture.
 ```
 
 ## Development

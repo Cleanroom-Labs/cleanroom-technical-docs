@@ -13,30 +13,24 @@ This is a **Sphinx documentation repository** for the **AirGap project suite** -
 ## Project Structure
 
 ```
-technical-docs/
+cleanroom-technical-docs/
 ├── cleanroom-whisper-docs/            # Submodule: Whisper transcription app docs
-│   ├── readme.rst                     # Project overview
-│   ├── roadmap.rst                    # Current status and milestones
-│   ├── requirements/srs.rst           # Software Requirements Specification
-│   ├── design/sdd.rst                 # Software Design Document
-│   ├── testing/plan.rst               # Test plan with traceability
-│   └── use-cases/                     # Use case workflows
+│   └── source/
+│       ├── conf.py                    # Imports shared theme from cleanroom-theme/
+│       ├── index.rst
+│       ├── readme.rst                 # Project overview
+│       ├── roadmap.md                 # Current status and milestones
+│       ├── requirements/srs.rst       # Software Requirements Specification
+│       ├── design/sdd.rst             # Software Design Document
+│       ├── testing/plan.rst           # Test plan with traceability
+│       ├── use-cases/                 # Use case workflows
+│       └── cleanroom-theme/           # Nested submodule: shared theme
 │
 ├── airgap-deploy-docs/                # Submodule: Deployment packaging tool docs
-│   ├── readme.rst
-│   ├── roadmap.rst
-│   ├── requirements/srs.rst
-│   ├── design/sdd.rst
-│   ├── testing/plan.rst
-│   └── use-cases/
+│   └── source/                        # (same structure as above)
 │
 ├── airgap-transfer-docs/              # Submodule: File transfer tool docs
-│   ├── readme.rst
-│   ├── roadmap.rst
-│   ├── requirements/srs.rst
-│   ├── design/sdd.rst
-│   ├── testing/plan.rst
-│   └── use-cases/
+│   └── source/                        # (same structure as above)
 │
 ├── source/
 │   ├── meta/                          # Cross-project documentation
@@ -62,7 +56,7 @@ technical-docs/
 └── build/html/                        # Generated HTML documentation
 ```
 
-**Note:** Project documentation is in separate submodules at root level, not inside `source/`. The `source/projects/` directory contains landing pages that link to the project submodules.
+**Note:** Project documentation is in separate submodules at root level, not inside `source/`. Each submodule contains its own `source/` directory with a nested `cleanroom-theme/` submodule. The `source/projects/` directory in the master repo contains landing pages that link to the project submodules.
 
 ## Core Design Philosophy
 
@@ -158,14 +152,14 @@ When updating documentation:
 
 **Adding a new feature to Cleanroom Whisper:**
 1. Check if it violates principles in `source/meta/principles.rst` (section: "Features We Don't Build")
-2. Add requirement to `source/cleanroom-whisper/requirements/srs.rst` using `.. req::` directive
-3. Update `source/cleanroom-whisper/design/sdd.rst` with implementation approach
-4. Add test cases to `source/cleanroom-whisper/testing/plan.rst` using `.. test::` directive with `:tests:` link
-5. Update `source/cleanroom-whisper/roadmap.rst` milestones if needed
+2. Add requirement to `cleanroom-whisper-docs/source/requirements/srs.rst` using `.. req::` directive
+3. Update `cleanroom-whisper-docs/source/design/sdd.rst` with implementation approach
+4. Add test cases to `cleanroom-whisper-docs/source/testing/plan.rst` using `.. test::` directive with `:tests:` link
+5. Update `cleanroom-whisper-docs/source/roadmap.md` milestones if needed
 6. Build docs and verify traceability tables update automatically
 
 **Clarifying a use case:**
-1. Read existing use case analyses in relevant project's `use-cases/` directory
+1. Read existing use case analyses in the relevant project submodule's `source/use-cases/` directory
 2. Follow the same structure (Overview, Workflow, Technical Details, Success Criteria)
 3. Reference specific technical components from SDD
 4. Optionally add `.. usecase::` directive for traceability
@@ -182,7 +176,7 @@ When updating documentation:
 
 ### MVP Development Status
 
-Check `source/cleanroom-whisper/roadmap.rst` for current milestone status.
+Check `cleanroom-whisper-docs/source/roadmap.md` for current milestone status.
 
 ### Key Technologies
 
@@ -206,7 +200,7 @@ Declarative manifests (`AirGapDeploy.toml`) that define:
 
 ### Architecture
 
-See `source/airgap-deploy/roadmap.rst` for the complete 7-phase implementation plan:
+See `airgap-deploy-docs/source/roadmap.md` for the complete 7-phase implementation plan:
 1. Core Infrastructure
 2. Built-in Components (RustApp, ExternalBinary, ModelFile, SystemPackage)
 3. Collection & Packaging
