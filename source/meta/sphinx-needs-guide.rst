@@ -28,6 +28,17 @@ Why Use sphinx-needs?
 - ✅ **Maintainable:** Changes propagate automatically
 - ✅ **Standards-Compliant:** Supports IEEE requirements engineering practices
 
+Documentation Standards
+-----------------------
+
+Each project's technical documents are loosely modeled on IEEE standards for structure and content guidance:
+
+- **SRS** (Software Requirements Specification) — informed by `IEEE 830-1998 <https://standards.ieee.org/standard/830-1998.html>`_
+- **SDD** (Software Design Document) — informed by `IEEE 1016-2009 <https://standards.ieee.org/standard/1016-2009.html>`_
+- **Test Plan** — informed by `IEEE 829-2008 <https://standards.ieee.org/standard/829-2008.html>`_
+
+These standards serve as structural guides, not strict compliance targets. The projects adopt the general document outline (Introduction, Scope, Definitions, etc.) while keeping content lean and MVP-focused.
+
 Available Directive Types
 --------------------------
 
@@ -670,5 +681,7 @@ See Also
 - :doc:`/meta/rust-integration-guide` - Link code to requirements
 - `sphinx-needs Documentation <https://sphinx-needs.readthedocs.io/>`_
 - `IEEE 830-1998 <https://standards.ieee.org/standard/830-1998.html>`_ - Requirements specification standard
+- `IEEE 1016-2009 <https://standards.ieee.org/standard/1016-2009.html>`_ - Software design description standard
+- `IEEE 829-2008 <https://standards.ieee.org/standard/829-2008.html>`_ - Software test documentation standard
 
 .. _sphinx-needs: https://sphinx-needs.readthedocs.io/en/stable/
