@@ -16,6 +16,7 @@ These three projects represent our near-term development focus and demonstrate c
    meta/principles
    meta/meta-architecture
    meta/specification-overview
+   meta/competitive-landscape
    meta/release-roadmap
 
 .. toctree::
