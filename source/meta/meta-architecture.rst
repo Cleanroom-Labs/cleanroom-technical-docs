@@ -73,7 +73,7 @@ Cleanroom Whisper ↔ AirGap Deploy
 **How they relate:**
 
 - AirGap Deploy packages Cleanroom Whisper (with dependencies) for air-gapped systems
-- Deployment use case documented in :doc:`airgap-deploy:use-cases/use-case-airgap-whisper`
+- Deployment use case documented in :doc:`airgap-deploy:use-cases/use-case-cleanroom-whisper`
 - Cleanroom Whisper's ``AirGapDeploy.toml`` defines packaging requirements
 
 **Independence:**
@@ -324,5 +324,4 @@ AirGap Transfer
 - ❌ Application packaging (that's AirGap Deploy)
 - ❌ Deployment orchestration (users combine tools in workflows)
 - ❌ Audio transcription or other application features
-
 
