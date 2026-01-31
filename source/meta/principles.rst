@@ -107,7 +107,6 @@ Do                             Don’t
 ============================== ===================================
 Write functions                Create traits you’ll implement once
 Use concrete types             Use generics for “flexibility”
-Copy small code                Create abstractions for DRY
 Handle errors where they occur Create error hierarchies
 Use ``String``                 Create newtype wrappers
 ============================== ===================================
@@ -167,8 +166,6 @@ These are explicitly out of scope, regardless of how useful they might seem:
 
 If we need any of these later, we add them later. Not before.
 
---------------
-
 Design Principles Alignment
 ----------------------------
 
@@ -186,8 +183,6 @@ All three projects follow the core principles above:
 | **Air-gap Ready**         | ✅ Designed for air-gaps | ✅ Entire purpose                   | ✅ Vendored deps              |
 +---------------------------+--------------------------+-------------------------------------+-------------------------------+
 
---------------
-
 Quality Bar
 --------------
 
@@ -195,12 +190,12 @@ For MVP
 ~~~~~~~
 
 - **Works:** Core flow functions without crashing
-- **Usable:** You can use it daily without frustration
+- **Usable:** It can be used on a daily basis without frustration
 - **Stable:** No data loss
 
 Not required for MVP
 ~~~~~~~~~~~~~~~~~~~~
 
-- Extensive Documentation (code is small enough to read)
-- Error recovery (show error, user retries)
 - Performance optimization (make it work first)
+- Fully, fleshed-out requirements and corresponding implementation
+- Comprehensive test suite covering all branches aside from the happy paths
