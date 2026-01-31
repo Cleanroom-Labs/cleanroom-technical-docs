@@ -70,10 +70,13 @@ Cleanroom Whisper ↔ AirGap Deploy
 
 **Relationship:** Cleanroom Whisper is a **reference implementation** and **primary use case** for AirGap Deploy.
 
+.. raw:: html
+
+   <div style="margin-top: 1.5em;"></div>
+
 **How they relate:**
 
 - AirGap Deploy packages Cleanroom Whisper (with dependencies) for air-gapped systems
-- Deployment use case documented in :doc:`airgap-deploy:use-cases/use-case-cleanroom-whisper`
 - Cleanroom Whisper's ``AirGapDeploy.toml`` defines packaging requirements
 
 **Independence:**
@@ -90,12 +93,15 @@ AirGap Deploy ↔ AirGap Transfer
 
 **Relationship:** AirGap Transfer is an **optional workflow enhancement** for AirGap Deploy.
 
+.. raw:: html
+
+   <div style="margin-top: 1.5em;"></div>
+
 **How they relate:**
 
 - When AirGap Deploy creates packages larger than USB capacity, workflows suggest using AirGap Transfer
 - AirGap Transfer chunks the deployment package for multi-USB transfer
 - Integration is at the **workflow level**, not code level
-- Use case documented in :doc:`airgap-deploy:use-cases/use-case-ollama`
 
 **Example workflow:**
 
@@ -130,10 +136,13 @@ Cleanroom Whisper ↔ AirGap Transfer
 
 **Relationship:** No direct relationship.
 
+.. raw:: html
+
+   <div style="margin-top: 1.5em;"></div>
+
 **Indirect connection:**
 
 - If Cleanroom Whisper is packaged with large models, the deployment package might need AirGap Transfer
-- AirGap Transfer docs list integration with deployment workflows: :doc:`airgap-transfer:use-cases/overview`
 
 **Code dependencies:** None
 
@@ -198,8 +207,6 @@ Compile-Time Dependencies
      - Rust crates: sha2, minimal stdlib usage
      - NO dependency on Cleanroom Whisper or AirGap Deploy
 
-**Result:** ✅ **Zero circular dependencies**.
-
 Runtime Dependencies
 ~~~~~~~~~~~~~~~~~~~~
 
@@ -218,7 +225,7 @@ Runtime Dependencies
      - NO runtime dependencies on other AirGap tools
      - Pure Rust, uses only stdlib
 
-**Result:** ✅ **Zero runtime dependencies** - Each project runs independently.
+**Zero runtime dependencies** - Each project runs independently.
 
 Workflow Dependencies
 ~~~~~~~~~~~~~~~~~~~~~
@@ -239,7 +246,7 @@ Workflow Dependencies
      2. (Optional) Use AirGap Transfer if needed
      3. NO connection to Cleanroom Whisper
 
-**Result:** ✅ **Workflow integration is optional** - Tools complement each other but work independently.
+**Workflow integration is optional** - Tools complement each other but work independently.
 
 Project Boundaries
 ------------------
@@ -249,13 +256,17 @@ Project Boundaries
 Cleanroom Whisper
 ~~~~~~~~~~~~~~~~~
 
-**Value:** "Private, offline audio transcription you can trust"
+**Value:** Private, offline audio transcription
 
 **Target audience:** Privacy-conscious professionals, government/military users, researchers handling sensitive data, accessibility users
 
 **Alternative to:** Cloud transcription services (Google, AWS Transcribe, Whisper API)
 
 **Differentiator:** Complete offline operation, no data leaves your machine
+
+.. raw:: html
+
+   <div style="margin-top: 1.5em;"></div>
 
 **Scope:**
 
@@ -276,7 +287,7 @@ Cleanroom Whisper
 AirGap Deploy
 ~~~~~~~~~~~~~
 
-**Value:** "Deploy any application to air-gapped systems with one manifest"
+**Value:** Deploy any application to air-gapped systems with one manifest
 
 **Target audience:** Developers releasing software for air-gapped use, DevOps/release engineers, open-source maintainers targeting security-sensitive users
 
@@ -284,26 +295,32 @@ AirGap Deploy
 
 **Differentiator:** Declarative manifests, cross-platform, handles complex dependencies
 
+.. raw:: html
+
+   <div style="margin-top: 1.5em;"></div>
+
 **Scope:**
 
 - ✅ Parse deployment manifests (TOML)
 - ✅ Collect application components (source, binaries, models)
-- ✅ Generate installation scripts (Bash, PowerShell)
+- ✅ Configurable and/or customizable installation routines (TBD)
 - ✅ Package for air-gap deployment
-- ✅ Generic, works for any application
+- ✅ Generic, and can be extended to work for a wide variety of applications
 
 **Out of scope:**
 
 - ❌ Large file chunking/transfer (suggest AirGap Transfer in workflows)
-- ❌ Application-specific logic (remains generic)
+- ❌ Comprehensive application-specific logic (remains generic and extensible)
 - ❌ Runtime dependencies on specific applications
+
+Ideally, the applications that could be deployed would include those that are implemented in a variety of languages and leverage a whole host of build systems. For the MVP, it's sufficient to only implement a preliminary framework that can be extended to eventually include a variety of such applications and the behavior that's required to deploy Cleanroom Whisper.
 
 .. _AirGap Transfer-1:
 
 AirGap Transfer
 ~~~~~~~~~~~~~~~
 
-**Value:** "Safely transfer multi-GB datasets across air-gaps"
+**Value:** Safely transfer multi-GB datasets across air-gaps
 
 **Target audience:** IT staff managing air-gapped infrastructure, users with large datasets (models, backups), anyone working with data that exceeds USB capacity
 
@@ -311,10 +328,14 @@ AirGap Transfer
 
 **Differentiator:** Built-in verification, resume capability, simple CLI
 
+.. raw:: html
+
+   <div style="margin-top: 1.5em;"></div>
+
 **Scope:**
 
 - ✅ Chunk large files/directories
-- ✅ SHA-256 verification
+- ✅ Checksum verification
 - ✅ Resume interrupted transfers
 - ✅ Reconstruct files on destination
 - ✅ Generic, works for any large data

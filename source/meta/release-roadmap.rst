@@ -3,6 +3,8 @@ Release Roadmap
 
 This document coordinates release planning across the three foundation projects: Cleanroom Whisper, AirGap Deploy, and AirGap Transfer.
 
+--------------
+
 Release Philosophy
 ------------------
 
