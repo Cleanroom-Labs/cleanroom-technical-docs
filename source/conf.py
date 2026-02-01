@@ -100,15 +100,15 @@ intersphinx_mapping.update({
 
 needs_external_needs = [
     {
-        'base_url': '/docs/cleanroom-whisper/',
+        'base_url': '/docs/whisper/',
         'json_path': os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'whisper', 'build', 'html', 'needs.json'),
     },
     {
-        'base_url': '/docs/airgap-deploy/',
+        'base_url': '/docs/deploy/',
         'json_path': os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'deploy', 'build', 'html', 'needs.json'),
     },
     {
-        'base_url': '/docs/airgap-transfer/',
+        'base_url': '/docs/transfer/',
         'json_path': os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'transfer', 'build', 'html', 'needs.json'),
     },
 ]
