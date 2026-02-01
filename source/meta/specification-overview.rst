@@ -70,13 +70,13 @@ In practice, this sequence is not strictly followed. Requirements and design spe
 
 .. Import needs from subprojects for aggregation (built first by Makefile)
 
-.. needimport:: ../../cleanroom-whisper-docs/build/html/needs.json
+.. needimport:: ../../whisper/build/html/needs.json
    :hide:
 
-.. needimport:: ../../airgap-deploy-docs/build/html/needs.json
+.. needimport:: ../../deploy/build/html/needs.json
    :hide:
 
-.. needimport:: ../../airgap-transfer-docs/build/html/needs.json
+.. needimport:: ../../transfer/build/html/needs.json
    :hide:
 
 Project Statistics
