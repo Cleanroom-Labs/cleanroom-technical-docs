@@ -1,9 +1,7 @@
 Release Roadmap
 ===============
 
-This document coordinates release planning across the three foundation projects: Cleanroom Whisper, AirGap Deploy, and AirGap Transfer.
-
---------------
+This document coordinates release planning across the three foundation projects: AirGap Deploy, AirGap Transfer, and Cleanroom Whisper.
 
 Release Philosophy
 ------------------
@@ -13,15 +11,33 @@ The AirGap suite follows a **synchronized release strategy** for major versions:
 - **v1.0.0**: Coordinated release across all three projects
 - **Scope**: Minimum Viable Product (MVP) for each project
 - **Goal**: Demonstrate integrated workflows (e.g., Deploy → Transfer → Install)
-- **Target Date**: June 30, 2026
-- **Development Window**: February 3 - June 27, 2026 (22 weeks)
+- **Development Window**: 12 months, organized into 6 milestones
 
 Individual projects may have independent patch releases (v1.0.1, v1.0.2) for bug fixes, but major feature releases (v1.1, v2.0) will be coordinated.
 
---------------
-
 v1.0.0 Release Criteria
 -----------------------
+
+AirGap Deploy v1.0.0
+~~~~~~~~~~~~~~~~~~~~
+
+**Definition of Done:**
+
+- All MVP features implemented (see `Deploy Roadmap <../airgap-deploy/roadmap.html>`_)
+- Core components: RustApp, ExternalBinary, ModelFile working
+- Manifest validation working
+- Install script generation (Linux/macOS Bash, Windows PowerShell)
+- Cross-platform packaging support
+- Documentation complete
+- Ollama deployment workflow validated
+
+**Deliverables:**
+
+- Source code on GitHub
+- Pre-built binary
+- Demo blog post (Ollama scenario)
+- Manifest templates
+- User documentation
 
 AirGap Transfer v1.0.0
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -43,28 +59,6 @@ AirGap Transfer v1.0.0
 - Demo blog post (Ollama + models scenario)
 - User documentation
 
-AirGap Deploy v1.0.0
-~~~~~~~~~~~~~~~~~~~~
-
-**Definition of Done:**
-
-- All MVP components implemented (see `Deploy Roadmap <../airgap-deploy/roadmap.html>`_)
-- Core components: RustApp, ExternalBinary, ModelFile working
-- Manifest validation working
-- Install script generation (Linux/macOS Bash, Windows PowerShell)
-- Cross-platform packaging support
-- Documentation complete
-- Ollama deployment workflow validated
-
-**Deliverables:**
-
-- Source code on GitHub
-- Pre-built binary
-- Demo blog post (Ollama scenario)
-- Manifest templates
-- User documentation
-
-
 Cleanroom Whisper v1.0.0
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -83,8 +77,6 @@ Cleanroom Whisper v1.0.0
 - Pre-built binaries for all platforms
 - Demo blog post
 - User documentation
-
---------------
 
 Cross-Project Integration Milestones
 -------------------------------------
@@ -110,106 +102,79 @@ This end-to-end workflow must work for v1.0.0 release:
 - Process documented in demo blog post
 
 **Status:** Not Started
-**Target Validation Date:** June 20, 2026
+**Target:** Milestone 6
 
---------------
+v1.0.0 Milestone Plan
+----------------------
 
-v1.0.0 Release Timeline
------------------------
-
-**Development Schedule (22 weeks: Feb 3 - June 27, 2026)**
+Development is organized into 6 milestones over 12 months. The order front-loads foundational work (AirGap Deploy) since downstream projects depend on its packaging capabilities.
 
 .. list-table::
    :header-rows: 1
-   :widths: 10 30 15 25
+   :widths: 12 12 76
 
-   * - Phase
-     - Project
-     - Duration
-     - Dates
-   * - 1
-     - AirGap Transfer MVP
-     - 8 weeks
-     - Feb 3 - Mar 28
-   * - 2
-     - AirGap Deploy MVP
-     - 8 weeks
-     - Mar 31 - May 23
-   * - 3
-     - Cleanroom Whisper MVP
-     - 5 weeks
-     - May 26 - June 27
-   * - 4
-     - Integration Testing
-     - 2 weeks
-     - June 16 - June 27 (overlap)
-   * - 5
-     - v1.0.0 Release
-     - \-
-     - Week of June 30, 2026
+   * - Milestone
+     - Target
+     - Deliverables
+   * - M1
+     - Month 2
+     - Specification refinement complete; AirGap Deploy core infrastructure (manifest parsing, component abstractions, CLI skeleton)
+   * - M2
+     - Month 4
+     - AirGap Deploy Rust packaging complete (cargo vendoring, toolchain bundling, install script generation)
+   * - M3
+     - Month 6
+     - AirGap Deploy complete (external binaries, model files); AirGap Transfer core started
+   * - M4
+     - Month 8
+     - AirGap Transfer complete (chunking, verification, multi-USB recovery)
+   * - M5
+     - Month 10
+     - Cleanroom Whisper MVP complete (system tray, hotkeys, transcription, history)
+   * - M6
+     - Month 12
+     - Cross-platform testing, integration validation (Deploy → Whisper workflow), documentation
 
-**Time Budget:** ~15 hours/week average development time
+Milestone Details
+~~~~~~~~~~~~~~~~~
 
---------------
+**M1: Foundations** (Status: Not Started)
 
-**Phase 1: MVP Development** (Status: Not Started)
+- **Goal:** Refine specifications across all projects; stand up AirGap Deploy core
+- **Key outputs:** Finalized SRS/SDD for all projects, working manifest parser, CLI skeleton
 
-- **Dates:** February 3 - June 27, 2026
-- **Goal:** Complete all MVP features for all three projects
-- **Milestone:** All roadmap checkboxes complete
-- **Project Order:**
+**M2: Deploy Packaging** (Status: Not Started)
 
-  1. AirGap Transfer (Feb 3 - Mar 28) - Foundation for file transfer
-  2. AirGap Deploy (Mar 31 - May 23) - Packaging tool
-  3. Cleanroom Whisper (May 26 - June 27) - Transcription app
+- **Goal:** Complete Rust application packaging pipeline
+- **Key outputs:** Cargo vendoring, toolchain bundling, install script generation for Linux/macOS/Windows
 
-**Phase 2: Integration Testing** (Status: Not Started)
+**M3: Deploy Complete + Transfer Started** (Status: Not Started)
 
-- **Dates:** June 16 - June 27, 2026 (overlaps with Whisper M4-M6)
-- **Goal:** Validate Ollama deployment workflow end-to-end
-- **Milestone:** Integration scenario passes on all platforms
-- **Key Validation:** June 20, 2026 - Ollama deployment scenario validated
+- **Goal:** Finish AirGap Deploy (external binaries, model files); begin AirGap Transfer
+- **Key outputs:** AirGap Deploy v1.0.0-rc, AirGap Transfer scaffolding
 
-**Phase 3: Documentation and Content** (Status: In Progress - Planning)
+**M4: Transfer Complete** (Status: Not Started)
 
-- **Parallel with development**
-- **Complete by:** June 23, 2026
-- Demo blog posts written
-- User documentation reviewed
-- Release notes drafted
+- **Goal:** Complete AirGap Transfer with chunking, verification, and recovery
+- **Key outputs:** AirGap Transfer v1.0.0-rc
 
-**Phase 4: Release Preparation** (Status: Not Started)
+**M5: Whisper MVP** (Status: Not Started)
 
-- **Dates:** June 23 - June 27, 2026
-- Pre-built binaries created for all platforms (target: June 25)
-- GitHub releases prepared
-- Blog posts finalized
-- Marketing materials ready (if applicable)
+- **Goal:** Complete Cleanroom Whisper with system tray, hotkeys, transcription, and history
+- **Key outputs:** Cleanroom Whisper v1.0.0-rc
 
-**Phase 5: Coordinated Launch** (Status: Not Started)
+**M6: Integration & Release** (Status: Not Started)
 
-- **Target Date:** June 30, 2026
-- All three projects release v1.0.0 simultaneously
-- Blog posts published (intro + 3 demos)
-- Announcement on relevant channels
-- YouTube videos (if time permits)
-
-**Phase 6: Post-Launch** (Status: Not Started)
-
-- **Dates:** July 2026 onwards
-- Monitor for bug reports
-- Patch releases as needed (v1.0.1, v1.0.2, etc.)
-- Community feedback incorporation
-
---------------
+- **Goal:** Cross-platform testing, integration validation, documentation, coordinated launch
+- **Key outputs:** All three projects release v1.0.0 simultaneously, blog posts, demo content
 
 Individual Project Roadmaps
 ----------------------------
 
 For detailed MVP implementation plans, see:
 
-- `AirGap Transfer Roadmap <../airgap-transfer/roadmap.html>`_
 - `AirGap Deploy Roadmap <../airgap-deploy/roadmap.html>`_
+- `AirGap Transfer Roadmap <../airgap-transfer/roadmap.html>`_
 - `Cleanroom Whisper Roadmap <../cleanroom-whisper/roadmap.html>`_
 
 Each roadmap documents:
@@ -219,3 +184,14 @@ Each roadmap documents:
 - Definition of done
 - What's NOT in MVP (deferred features)
 - Progress tracking
+
+Progress Log
+~~~~~~~~~~~~
+
+========== ================================================================
+Date       Activity
+========== ================================================================
+2026-01-28 Created release roadmap and coordinated project specifications
+2026-01-31 Restructured from 22-week/5-phase plan to 6-milestone/12-month plan
+========== ================================================================
+

@@ -18,6 +18,8 @@ These three projects represent our near-term development focus and demonstrate c
    meta/specification-overview
    meta/competitive-landscape
    meta/release-roadmap
+   meta/scope-and-limitations
+   meta/licensing
 
 .. toctree::
    :maxdepth: 2
@@ -25,6 +27,7 @@ These three projects represent our near-term development focus and demonstrate c
 
    meta/sphinx-needs-guide
    meta/rust-integration-guide
+   meta/developer-guidelines
 
 .. toctree::
    :maxdepth: 1

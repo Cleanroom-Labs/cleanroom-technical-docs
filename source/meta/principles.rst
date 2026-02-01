@@ -174,13 +174,13 @@ All three projects follow the core principles above:
 +---------------------------+--------------------------+-------------------------------------+-------------------------------+
 | Principle                 | AirGap Transfer          | AirGap Deploy                       | Cleanroom Whisper             |
 +===========================+==========================+=====================================+===============================+
-| **Privacy/Data Locality** | ✅ No network code       | ✅ No network in generated packages | ✅ No network code            |
+| **Privacy/Data Locality** | No network code          | No network in generated packages    | No network code               |
 +---------------------------+--------------------------+-------------------------------------+-------------------------------+
-| **Minimal Dependencies**  | ✅ Minimal stdlib usage  | ✅ Essential packaging crates only  | ✅ ~10 crates                 |
+| **Minimal Dependencies**  | Minimal stdlib usage     | Essential packaging crates only     | ~10 crates                    |
 +---------------------------+--------------------------+-------------------------------------+-------------------------------+
-| **Simple Architecture**   | ✅ Single responsibility | ✅ Clear component separation       | ✅ Flat structure, ~5 files   |
+| **Simple Architecture**   | Single responsibility    | Clear component separation          | Flat structure, ~5 files      |
 +---------------------------+--------------------------+-------------------------------------+-------------------------------+
-| **Air-gap Ready**         | ✅ Designed for air-gaps | ✅ Entire purpose                   | ✅ Vendored deps              |
+| **Air-gap Ready**         | Designed for air-gaps    | Entire purpose                      | Vendored deps                 |
 +---------------------------+--------------------------+-------------------------------------+-------------------------------+
 
 Quality Bar
