@@ -258,11 +258,11 @@ Cleanroom Whisper
 
 **Value:** Private, offline audio transcription
 
-**Target audience:** Privacy-conscious professionals, government/military users, researchers handling sensitive data, accessibility users
+.. raw:: html
 
-**Alternative to:** Cloud transcription services (Google, AWS Transcribe, Whisper API)
+   <div style="margin-top: 1.5em;"></div>
 
-**Differentiator:** Complete offline operation, no data leaves your machine
+See Cleanroom Whisper's :doc:`cleanroom-whisper:readme` for competitive positioning and target audience.
 
 .. raw:: html
 
@@ -270,17 +270,17 @@ Cleanroom Whisper
 
 **Scope:**
 
-- ✅ Audio recording and transcription
-- ✅ System tray interface
-- ✅ Hotkey management
-- ✅ Transcription history (SQLite)
-- ✅ Privacy-focused, offline-first
+- Audio recording and transcription
+- System tray interface
+- Hotkey management
+- Transcription history (SQLite)
+- Privacy-focused, offline-first
 
 **Out of scope:**
 
-- ❌ Deployment packaging (that's AirGap Deploy)
-- ❌ File transfer utilities (that's AirGap Transfer)
-- ❌ Network communication (violates privacy principle)
+- Deployment packaging (that's AirGap Deploy)
+- File transfer utilities (that's AirGap Transfer)
+- Network communication (violates privacy principle)
 
 .. _AirGap Deploy-1:
 
@@ -289,11 +289,11 @@ AirGap Deploy
 
 **Value:** Deploy any application to air-gapped systems with one manifest
 
-**Target audience:** Developers releasing software for air-gapped use, DevOps/release engineers, open-source maintainers targeting security-sensitive users
+.. raw:: html
 
-**Alternative to:** Manual packaging, custom deployment scripts per application
+   <div style="margin-top: 1.5em;"></div>
 
-**Differentiator:** Declarative manifests, cross-platform, handles complex dependencies
+See AirGap Deploy's :doc:`airgap-deploy:readme` for competitive positioning and target audience.
 
 .. raw:: html
 
@@ -301,19 +301,19 @@ AirGap Deploy
 
 **Scope:**
 
-- ✅ Parse deployment manifests (TOML)
-- ✅ Collect application components (source, binaries, models)
-- ✅ Configurable and/or customizable installation routines (TBD)
-- ✅ Package for air-gap deployment
-- ✅ Generic, and can be extended to work for a wide variety of applications
+- Parse deployment manifests (TOML)
+- Collect application components (source, binaries, models)
+- Configurable and/or customizable installation routines (TBD)
+- Package for air-gap deployment
+- Generic, and can be extended to work for a wide variety of applications
 
 **Out of scope:**
 
-- ❌ Large file chunking/transfer (suggest AirGap Transfer in workflows)
-- ❌ Comprehensive application-specific logic (remains generic and extensible)
-- ❌ Runtime dependencies on specific applications
+- Large file chunking/transfer (suggest AirGap Transfer in workflows)
+- Comprehensive application-specific logic (remains generic and extensible)
+- Runtime dependencies on specific applications
 
-Ideally, the applications that could be deployed would include those that are implemented in a variety of languages and leverage a whole host of build systems. For the MVP, it's sufficient to only implement a preliminary framework that can be extended to eventually include a variety of such applications and the behavior that's required to deploy Cleanroom Whisper.
+AirGap Deploy's architecture is designed to support applications across multiple languages and build systems. For the MVP, the scope is limited to a framework that can deploy Cleanroom Whisper and similar Rust applications, with extension points for additional language ecosystems in future releases.
 
 .. _AirGap Transfer-1:
 
@@ -322,11 +322,11 @@ AirGap Transfer
 
 **Value:** Safely transfer multi-GB datasets across air-gaps
 
-**Target audience:** IT staff managing air-gapped infrastructure, users with large datasets (models, backups), anyone working with data that exceeds USB capacity
+.. raw:: html
 
-**Alternative to:** Manual chunking with ``split``, complex rsync workflows, proprietary tools
+   <div style="margin-top: 1.5em;"></div>
 
-**Differentiator:** Built-in verification, resume capability, simple CLI
+See AirGap Transfer's :doc:`airgap-transfer:readme` for competitive positioning and target audience.
 
 .. raw:: html
 
@@ -334,15 +334,15 @@ AirGap Transfer
 
 **Scope:**
 
-- ✅ Chunk large files/directories
-- ✅ Checksum verification
-- ✅ Resume interrupted transfers
-- ✅ Reconstruct files on destination
-- ✅ Generic, works for any large data
+- Chunk large files/directories
+- Checksum verification
+- Resume interrupted transfers
+- Reconstruct files on destination
+- Generic, works for any large data
 
 **Out of scope:**
 
-- ❌ Application packaging (that's AirGap Deploy)
-- ❌ Deployment orchestration (users combine tools in workflows)
-- ❌ Audio transcription or other application features
+- Application packaging (that's AirGap Deploy)
+- Deployment orchestration (users combine tools in workflows)
+- Audio transcription or other application features
 

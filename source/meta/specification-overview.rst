@@ -6,7 +6,7 @@ This document provides an aggregate overview of requirements, test cases, and tr
 Artifact Types
 --------------
 
-Each project's documentation is organized around five artifact types that serve distinct roles in the development process.
+Each project's documentation is organized around five artifact types that serve distinct roles in the development process. The structure draws on IEEE 830 (SRS) for requirements, IEEE 1016 (SDD) for design specifications, and IEEE 829 for test documentation, adapted to the scale of these projects.
 
 .. raw:: html
 
@@ -64,7 +64,9 @@ In practice, this sequence is not strictly followed. Requirements and design spe
 
    <div style="margin-top: 1.5em;"></div>
 
-Currently, the projects track use cases, requirements, loose descriptions of design specifications, and preliminary test plans with some identified cases. Implementation traceability will be added as the software is developed. The design specifications may be formalized as the projects mature.
+.. note::
+
+   Currently, the projects track use cases, requirements, loose descriptions of design specifications, and preliminary test plans with some identified cases. Implementation traceability will be added as the software is developed. The design specifications may be formalized as the projects mature.
 
 .. Import needs from subprojects for aggregation (built first by Makefile)
 
