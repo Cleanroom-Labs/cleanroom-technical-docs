@@ -13,10 +13,10 @@ This is a **Sphinx documentation repository** for the **AirGap project suite** -
 ## Project Structure
 
 ```
-cleanroom-technical-docs/
-├── cleanroom-whisper-docs/            # Submodule: Whisper transcription app docs
+technical-docs/
+├── whisper-docs/            # Submodule: Whisper transcription app docs
 │   └── source/
-│       ├── conf.py                    # Imports shared theme from cleanroom-theme/
+│       ├── conf.py                    # Imports shared theme from theme/
 │       ├── index.rst
 │       ├── readme.rst                 # Project overview
 │       ├── roadmap.md                 # Current status and milestones
@@ -24,12 +24,12 @@ cleanroom-technical-docs/
 │       ├── design/sdd.rst             # Software Design Document
 │       ├── testing/plan.rst           # Test plan with traceability
 │       ├── use-cases/                 # Use case workflows
-│       └── cleanroom-theme/           # Nested submodule: shared theme
+│       └── theme/           # Nested submodule: shared theme
 │
-├── airgap-deploy-docs/                # Submodule: Deployment packaging tool docs
+├── deploy-docs/                # Submodule: Deployment packaging tool docs
 │   └── source/                        # (same structure as above)
 │
-├── airgap-transfer-docs/              # Submodule: File transfer tool docs
+├── transfer-docs/              # Submodule: File transfer tool docs
 │   └── source/                        # (same structure as above)
 │
 ├── source/
@@ -46,7 +46,7 @@ cleanroom-technical-docs/
 │   │   ├── deploy.rst                 # AirGap Deploy landing page
 │   │   └── transfer.rst               # AirGap Transfer landing page
 │   │
-│   ├── cleanroom-theme/               # Submodule: Theme configuration
+│   ├── theme/               # Submodule: Theme configuration
 │   ├── conf.py                        # Sphinx configuration
 │   └── index.rst                      # Documentation home page
 │
@@ -56,7 +56,7 @@ cleanroom-technical-docs/
 └── build/html/                        # Generated HTML documentation
 ```
 
-**Note:** Project documentation is in separate submodules at root level, not inside `source/`. Each submodule contains its own `source/` directory with a nested `cleanroom-theme/` submodule. The `source/projects/` directory in the master repo contains landing pages that link to the project submodules.
+**Note:** Project documentation is in separate submodules at root level, not inside `source/`. Each submodule contains its own `source/` directory with a nested `theme/` submodule. The `source/projects/` directory in the master repo contains landing pages that link to the project submodules.
 
 ## Core Design Philosophy
 
@@ -153,10 +153,10 @@ When updating documentation:
 
 **Adding a new feature to Cleanroom Whisper:**
 1. Check if it violates principles in `source/meta/principles.rst` (section: "Features We Don't Build")
-2. Add requirement to `cleanroom-whisper-docs/source/requirements/srs.rst` using `.. req::` directive
-3. Update `cleanroom-whisper-docs/source/design/sdd.rst` with implementation approach
-4. Add test cases to `cleanroom-whisper-docs/source/testing/plan.rst` using `.. test::` directive with `:tests:` link
-5. Update `cleanroom-whisper-docs/source/roadmap.md` milestones if needed
+2. Add requirement to `whisper-docs/source/requirements/srs.rst` using `.. req::` directive
+3. Update `whisper-docs/source/design/sdd.rst` with implementation approach
+4. Add test cases to `whisper-docs/source/testing/plan.rst` using `.. test::` directive with `:tests:` link
+5. Update `whisper-docs/source/roadmap.md` milestones if needed
 6. Build docs and verify traceability tables update automatically
 
 **Clarifying a use case:**
@@ -177,7 +177,7 @@ When updating documentation:
 
 ### MVP Development Status
 
-Check `cleanroom-whisper-docs/source/roadmap.md` for current milestone status.
+Check `whisper-docs/source/roadmap.md` for current milestone status.
 
 ### Key Technologies
 
@@ -201,7 +201,7 @@ Declarative manifests (`AirGapDeploy.toml`) that define:
 
 ### Architecture
 
-See `airgap-deploy-docs/source/roadmap.md` for the complete 7-phase implementation plan:
+See `deploy-docs/source/roadmap.md` for the complete 7-phase implementation plan:
 1. Core Infrastructure
 2. Built-in Components (RustApp, ExternalBinary, ModelFile, SystemPackage)
 3. Collection & Packaging
