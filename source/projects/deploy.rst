@@ -8,11 +8,11 @@ AirGap Deploy is a Rust tool for preparing software deployments for air-gapped s
 Quick Links
 -----------
 
-* `View Full Documentation <../airgap-deploy/index.html>`_
-* `Requirements Specification <../airgap-deploy/requirements/srs.html>`_
-* `Design Document <../airgap-deploy/design/sdd.html>`_
-* `Implementation Roadmap <../airgap-deploy/roadmap.html>`_
-* `Use Cases <../airgap-deploy/use-cases/index.html>`_
+* `View Full Documentation <../deploy/index.html>`_
+* `Requirements Specification <../deploy/requirements/srs.html>`_
+* `Design Document <../deploy/design/sdd.html>`_
+* `Implementation Roadmap <../deploy/roadmap.html>`_
+* `Use Cases <../deploy/use-cases/index.html>`_
 
 Key Features
 ------------
