@@ -91,9 +91,9 @@ htmlhelp_basename = 'AirGapSuitedoc'
 
 # Extend the base intersphinx_mapping from theme_config
 intersphinx_mapping.update({
-    'cleanroom-whisper': ('/docs/cleanroom-whisper/', '../cleanroom-whisper-docs/build/html/objects.inv'),
-    'airgap-deploy': ('/docs/airgap-deploy/', '../airgap-deploy-docs/build/html/objects.inv'),
-    'airgap-transfer': ('/docs/airgap-transfer/', '../airgap-transfer-docs/build/html/objects.inv'),
+    'cleanroom-whisper': ('/docs/whisper/', '../whisper/build/html/objects.inv'),
+    'airgap-deploy': ('/docs/deploy/', '../deploy/build/html/objects.inv'),
+    'airgap-transfer': ('/docs/transfer/', '../transfer/build/html/objects.inv'),
 })
 
 # -- Sphinx-needs external needs (cross-project need links) -----------------
@@ -101,15 +101,15 @@ intersphinx_mapping.update({
 needs_external_needs = [
     {
         'base_url': '/docs/cleanroom-whisper/',
-        'json_path': os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'cleanroom-whisper-docs', 'build', 'html', 'needs.json'),
+        'json_path': os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'whisper', 'build', 'html', 'needs.json'),
     },
     {
         'base_url': '/docs/airgap-deploy/',
-        'json_path': os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'airgap-deploy-docs', 'build', 'html', 'needs.json'),
+        'json_path': os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'deploy', 'build', 'html', 'needs.json'),
     },
     {
         'base_url': '/docs/airgap-transfer/',
-        'json_path': os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'airgap-transfer-docs', 'build', 'html', 'needs.json'),
+        'json_path': os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'transfer', 'build', 'html', 'needs.json'),
     },
 ]
 

@@ -8,16 +8,16 @@ on:
       - 'requirements.txt'
       - 'Makefile'
       - '.github/workflows/sphinx-docs.yml'
-      - 'cleanroom-whisper-docs/**'
-      - 'airgap-deploy-docs/**'
-      - 'airgap-transfer-docs/**'
+      - 'whisper/**'
+      - 'deploy/**'
+      - 'transfer/**'
   pull_request:
     branches: [main]
     paths:
       - 'source/**'
-      - 'cleanroom-whisper-docs/**'
-      - 'airgap-deploy-docs/**'
-      - 'airgap-transfer-docs/**'
+      - 'whisper/**'
+      - 'deploy/**'
+      - 'transfer/**'
   workflow_dispatch:
 
 permissions:
@@ -48,7 +48,7 @@ jobs:
 
         echo ""
         echo "Verifying all submodules are initialized..."
-        for submodule in cleanroom-whisper-docs airgap-deploy-docs airgap-transfer-docs; do
+        for submodule in whisper deploy transfer; do
           if [ ! -d "$submodule/.git" ]; then
             echo "ERROR: Submodule $submodule not initialized"
             exit 1
@@ -106,7 +106,7 @@ jobs:
         # Verify project docs were copied
         echo ""
         echo "Verifying project documentation..."
-        for project in cleanroom-whisper airgap-deploy airgap-transfer; do
+        for project in whisper deploy transfer; do
           if [ ! -f build/html/$project/index.html ]; then
             echo "ERROR: $project docs not found in master build"
             exit 1
@@ -120,23 +120,13 @@ jobs:
         cd build/html
 
         # Check that project docs are referenced correctly
-        if ! grep -r "cleanroom-whisper" . >/dev/null 2>&1; then
-          echo "⚠️  Warning: No references to cleanroom-whisper found"
-        else
-          echo "✓ cleanroom-whisper references found"
-        fi
-
-        if ! grep -r "airgap-deploy" . >/dev/null 2>&1; then
-          echo "⚠️  Warning: No references to airgap-deploy found"
-        else
-          echo "✓ airgap-deploy references found"
-        fi
-
-        if ! grep -r "airgap-transfer" . >/dev/null 2>&1; then
-          echo "⚠️  Warning: No references to airgap-transfer found"
-        else
-          echo "✓ airgap-transfer references found"
-        fi
+        for project in whisper deploy transfer; do
+          if ! grep -r "$project" . >/dev/null 2>&1; then
+            echo "⚠️  Warning: No references to $project found"
+          else
+            echo "✓ $project references found"
+          fi
+        done
 
         cd ../..
 

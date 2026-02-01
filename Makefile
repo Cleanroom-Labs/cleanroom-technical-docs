@@ -9,7 +9,7 @@ SOURCEDIR     = source
 BUILDDIR      = build
 
 # Project submodules
-PROJECTS = cleanroom-whisper-docs airgap-deploy-docs airgap-transfer-docs
+PROJECTS = whisper deploy transfer
 
 # Put it first so that "make" without argument is like "make help".
 help:
@@ -43,7 +43,7 @@ copy-projects:
 	@echo "Copying project documentation into master build..."
 	@mkdir -p $(BUILDDIR)/html
 	@for project in $(PROJECTS); do \
-		project_name=$$(echo $$project | sed 's/-docs$$//'); \
+		project_name=$$project; \
 		echo "  Copying $$project_name..."; \
 		mkdir -p $(BUILDDIR)/html/$$project_name; \
 		cp -r $$project/build/html/* $(BUILDDIR)/html/$$project_name/; \
@@ -61,7 +61,7 @@ html: build-projects
 	@echo "  Master docs: $(BUILDDIR)/html/index.html"
 	@echo "  Project docs copied to:"
 	@for project in $(PROJECTS); do \
-		project_name=$$(echo $$project | sed 's/-docs$$//'); \
+		project_name=$$project; \
 		echo "    - $(BUILDDIR)/html/$$project_name/"; \
 	done
 

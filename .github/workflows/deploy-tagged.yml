@@ -56,7 +56,7 @@ jobs:
         echo "Checking if submodules have matching tags..."
         echo ""
 
-        for submodule in cleanroom-whisper-docs airgap-deploy-docs airgap-transfer-docs; do
+        for submodule in whisper deploy transfer; do
           cd $submodule
 
           # Check if this tag exists
@@ -97,7 +97,7 @@ jobs:
         # Verify project docs were copied
         echo ""
         echo "Verifying project documentation..."
-        for project in cleanroom-whisper airgap-deploy airgap-transfer; do
+        for project in whisper deploy transfer; do
           if [ ! -f build/html/$project/index.html ]; then
             echo "ERROR: $project docs not found in master build"
             exit 1
