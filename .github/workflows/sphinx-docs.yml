@@ -50,7 +50,7 @@ jobs:
         echo ""
         echo "Verifying all submodules are initialized..."
         for submodule in whisper deploy transfer; do
-          if [ ! -d "$submodule/.git" ]; then
+          if [ ! -e "$submodule/.git" ]; then
             echo "ERROR: Submodule $submodule not initialized"
             exit 1
           fi
