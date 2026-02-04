@@ -8,5 +8,5 @@
 	path = transfer
 	url = git@github.com:Cleanroom-Labs/airgap-transfer-docs.git
 [submodule "cleanroom-theme"]
-	path = source/theme
+	path = theme
 	url = git@github.com:Cleanroom-Labs/cleanroom-theme.git
