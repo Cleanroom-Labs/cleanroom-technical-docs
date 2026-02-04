@@ -68,17 +68,6 @@ In practice, this sequence is not strictly followed. Requirements and design spe
 
    Currently, the projects track use cases, requirements, loose descriptions of design specifications, and preliminary test plans with some identified cases. Implementation traceability will be added as the software is developed. The design specifications may be formalized as the projects mature.
 
-.. Import needs from subprojects for aggregation (built first by Makefile)
-
-.. needimport:: ../../whisper/build/html/needs.json
-   :hide:
-
-.. needimport:: ../../deploy/build/html/needs.json
-   :hide:
-
-.. needimport:: ../../transfer/build/html/needs.json
-   :hide:
-
 Project Statistics
 ------------------
 
