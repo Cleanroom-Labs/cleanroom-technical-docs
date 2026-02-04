@@ -76,27 +76,7 @@ build.log:
 
 # Check build log for warnings (run after 'make html')
 html-check: build.log
-	@ERRORS="$$(grep -E 'ERROR:' build.log || true)"; \
-	WARNINGS="$$(grep -E 'WARNING:' build.log || true)"; \
-	NON_IGNORED="$$(echo "$$WARNINGS" | grep -viE 'failed to reach any of the inventories|intersphinx inventory' || true)"; \
-	if [ -n "$$ERRORS" ]; then \
-		echo ""; \
-		echo "❌ Build completed with errors:"; \
-		echo "$$ERRORS"; \
-		exit 1; \
-	fi; \
-	if [ -n "$$NON_IGNORED" ]; then \
-		echo ""; \
-		echo "❌ Build completed with warnings:"; \
-		echo "$$NON_IGNORED"; \
-		exit 1; \
-	fi; \
-	if [ -n "$$WARNINGS" ]; then \
-		IGNORED_COUNT="$$(echo "$$WARNINGS" | wc -l | tr -d ' ')"; \
-		echo "✓ No warnings found ($$IGNORED_COUNT intersphinx inventory warning(s) ignored)"; \
-	else \
-		echo "✓ No warnings found"; \
-	fi
+	@common/scripts/check-sphinx-warnings.sh build.log
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).

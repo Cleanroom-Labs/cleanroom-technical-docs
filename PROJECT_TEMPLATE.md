@@ -5,10 +5,8 @@ Use this template when creating a new project-docs repository.
 ## Repository Structure
 
 ```
-project-name-docs/
-├── .github/
-│   └── workflows/
-│       └── build-docs.yml
+project-name/
+├── common/                    # Submodule: shared theme & build tools
 ├── source/
 │   ├── index.rst
 │   ├── conf.py
@@ -16,7 +14,7 @@ project-name-docs/
 │   ├── design/
 │   ├── testing/
 │   └── use-cases/
-├── requirements.txt
+├── requirements.txt           # References common/requirements.txt
 ├── Makefile
 ├── make.bat
 └── README.md
@@ -24,8 +22,8 @@ project-name-docs/
 
 ## conf.py Template
 
-See the shared theme configuration in the nested theme submodule:
-`source/theme/theme_config.py` (and the repo-level `technical-docs/source/theme/` copy).
+See the shared theme configuration in the common submodule:
+`common/theme_config.py` (at the repo root level).
 
 Project conf.py should import shared configuration:
 
@@ -39,9 +37,7 @@ Project conf.py should import shared configuration:
 
 ## requirements.txt
 
-Keep dependencies aligned with the aggregator baseline in `technical-docs/requirements.txt`.
-
-Add project-specific dependencies below if needed.
+Use `-r common/requirements.txt` to reference the shared common dependencies. Add project-specific dependencies below if needed.
 
 ## Setup Instructions
 
