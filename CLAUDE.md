@@ -14,23 +14,31 @@ This is a **Sphinx documentation repository** for the **AirGap project suite** -
 
 ```
 technical-docs/
-├── whisper-docs/            # Submodule: Whisper transcription app docs
+├── whisper/                           # Submodule: Whisper transcription app docs
+│   ├── common/                        # Nested submodule: shared theme & build tools
 │   └── source/
-│       ├── conf.py                    # Imports shared theme from theme/
+│       ├── conf.py                    # Imports shared theme from ../common/
 │       ├── index.rst
 │       ├── readme.rst                 # Project overview
 │       ├── roadmap.md                 # Current status and milestones
 │       ├── requirements/srs.rst       # Software Requirements Specification
 │       ├── design/sdd.rst             # Software Design Document
 │       ├── testing/plan.rst           # Test plan with traceability
-│       ├── use-cases/                 # Use case workflows
-│       └── theme/           # Nested submodule: shared theme
+│       └── use-cases/                 # Use case workflows
 │
-├── deploy-docs/                # Submodule: Deployment packaging tool docs
+├── deploy/                            # Submodule: Deployment packaging tool docs
+│   ├── common/                        # Nested submodule: shared theme & build tools
 │   └── source/                        # (same structure as above)
 │
-├── transfer-docs/              # Submodule: File transfer tool docs
+├── transfer/                          # Submodule: File transfer tool docs
+│   ├── common/                        # Nested submodule: shared theme & build tools
 │   └── source/                        # (same structure as above)
+│
+├── common/                            # Submodule: Shared theme & build tools
+│   ├── theme_config.py               # Common Sphinx settings
+│   ├── requirements.txt              # Shared Python dependencies
+│   ├── sphinx/                        # Templates and static assets
+│   └── scripts/                       # Build and validation scripts
 │
 ├── source/
 │   ├── meta/                          # Cross-project documentation
@@ -46,17 +54,16 @@ technical-docs/
 │   │   ├── deploy.rst                 # AirGap Deploy landing page
 │   │   └── transfer.rst               # AirGap Transfer landing page
 │   │
-│   ├── theme/               # Submodule: Theme configuration
 │   ├── conf.py                        # Sphinx configuration
 │   └── index.rst                      # Documentation home page
 │
 ├── PROJECT_TEMPLATE.md                # Template for creating new project docs
-├── Makefile                           # Build commands (make html, make clean)
-├── requirements.txt                   # Python dependencies for Sphinx
+├── Makefile                           # Build commands (make html, make clean, make html-check)
+├── requirements.txt                   # References common/requirements.txt
 └── build/html/                        # Generated HTML documentation
 ```
 
-**Note:** Project documentation is in separate submodules at root level, not inside `source/`. Each submodule contains its own `source/` directory with a nested `theme/` submodule. The `source/projects/` directory in the master repo contains landing pages that link to the project submodules.
+**Note:** Project documentation is in separate submodules at root level, not inside `source/`. Each submodule has a `common/` submodule at its root and a `source/` directory for content. The `source/projects/` directory in the master repo contains landing pages that link to the project submodules.
 
 ## Core Design Philosophy
 
@@ -107,17 +114,16 @@ Generated documentation appears in `build/html/index.html`.
 
 **Note:** The virtual environment is stored in `.venv/` and is excluded from git. If using direnv (detected via `.envrc`), the virtual environment activates automatically when entering the directory.
 
-### GitHub Actions Deployment
+### GitHub Actions CI
 
-Documentation is automatically built and deployed to GitHub Pages when changes are pushed to `main`:
+Documentation is automatically built and verified when changes are pushed to `main`:
 
 - **Workflow:** `.github/workflows/sphinx-docs.yml`
-- **Triggers:** Push to main branch (when `source/**`, `requirements.txt`, or `Makefile` changes)
-- **Deploy target:** GitHub Pages (requires repository Settings > Pages > Source set to "GitHub Actions")
-- **Build dependencies:** Python 3.11, Graphviz (for needflow diagrams)
-- **Deployment URL pattern:** `https://[username].github.io/[repo-name]/`
+- **Triggers:** Push to main branch (when `source/**`, `requirements.txt`, `Makefile`, or submodule paths change)
+- **Build dependencies:** Python 3.14, Graphviz (for needflow diagrams)
+- **Secrets required:** `SUBMODULE_PAT` (GitHub PAT with `repo` scope for private submodule checkout)
 
-The workflow runs `make html` and deploys `build/html/` to GitHub Pages. The build and deploy are separate jobs - PRs only build (don't deploy) to catch errors early. Check the Actions tab for build status and errors.
+The workflow runs `make html` then `make html-check` to build and verify documentation. Build artifacts are uploaded for download. A separate `deploy-tagged.yml` workflow handles deployment to GitHub Pages via tagged releases. Check the Actions tab for build status and errors.
 
 ### Document Types
 
@@ -153,10 +159,10 @@ When updating documentation:
 
 **Adding a new feature to Cleanroom Whisper:**
 1. Check if it violates principles in `source/meta/principles.rst` (section: "Features We Don't Build")
-2. Add requirement to `whisper-docs/source/requirements/srs.rst` using `.. req::` directive
-3. Update `whisper-docs/source/design/sdd.rst` with implementation approach
-4. Add test cases to `whisper-docs/source/testing/plan.rst` using `.. test::` directive with `:tests:` link
-5. Update `whisper-docs/source/roadmap.md` milestones if needed
+2. Add requirement to `whisper/source/requirements/srs.rst` using `.. req::` directive
+3. Update `whisper/source/design/sdd.rst` with implementation approach
+4. Add test cases to `whisper/source/testing/plan.rst` using `.. test::` directive with `:tests:` link
+5. Update `whisper/source/roadmap.md` milestones if needed
 6. Build docs and verify traceability tables update automatically
 
 **Clarifying a use case:**
@@ -177,7 +183,7 @@ When updating documentation:
 
 ### MVP Development Status
 
-Check `whisper-docs/source/roadmap.md` for current milestone status.
+Check `whisper/source/roadmap.md` for current milestone status.
 
 ### Key Technologies
 
@@ -201,7 +207,7 @@ Declarative manifests (`AirGapDeploy.toml`) that define:
 
 ### Architecture
 
-See `deploy-docs/source/roadmap.md` for the complete 7-phase implementation plan:
+See `deploy/source/roadmap.md` for the complete 7-phase implementation plan:
 1. Core Infrastructure
 2. Built-in Components (RustApp, ExternalBinary, ModelFile, SystemPackage)
 3. Collection & Packaging
@@ -288,17 +294,11 @@ This is a **Sphinx documentation repository** that generates professional HTML d
 - **sphinx_rtd_theme** - Read the Docs theme
 - **myst-parser** - Markdown support (optional, RST preferred)
 - **Graphviz** - Required for needflow diagrams and visualizations
-- **Python 3.11+** - Required for Sphinx
+- **Python 3.14+** - Required for Sphinx
 
 ### Dependencies
 
-See `requirements.txt` for exact versions. Key dependencies:
-- `Sphinx>=7.0.0,<8.0.0` - Documentation generator
-- `sphinx-rtd-theme>=3.0.0` - Read the Docs theme
-- `sphinx-needs>=6.3.0` - Traceability directives (`:req:`, `:test:`, `:usecase:`)
-- `graphviz>=0.20.0` - Diagram generation (also requires system Graphviz: `brew install graphviz` on macOS)
-- `myst-parser>=3.0.0` - Optional Markdown support
-- `sphinxcontrib-rust>=1.0.0` - Future Rust API documentation support
+Dependencies are defined in `common/requirements.txt` (the shared common submodule). The local `requirements.txt` simply references it via `-r common/requirements.txt`. Key dependencies include Sphinx, sphinx-needs, sphinx-rtd-theme, myst-parser, and graphviz. System Graphviz is also required (`brew install graphviz` on macOS).
 
 ### Git Workflow
 
