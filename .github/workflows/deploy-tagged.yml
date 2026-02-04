@@ -3,76 +3,53 @@ name: Deploy Tagged Release
 on:
   push:
     tags:
-      - 'v*'           # Release tags (e.g., v1.0.0)
-      - 'v*-rc.*'      # Release candidate tags (e.g., v1.0.0-rc.1)
+      - 'v*'           # All version tags (v1.0.0, v1.0.0-rc.1, v1.0.0-beta.1)
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
 concurrency:
-  group: "pages-${{ github.ref_name }}"
+  group: "pages-deploy"
   cancel-in-progress: false
 
 jobs:
-  determine-environment:
+  build-and-deploy:
     runs-on: ubuntu-latest
-    outputs:
-      environment: ${{ steps.env.outputs.environment }}
-      is_release_candidate: ${{ steps.env.outputs.is_release_candidate }}
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-    - name: Determine deployment environment
-      id: env
+    - name: Extract version from tag
+      id: version
       run: |
-        TAG_NAME="${GITHUB_REF#refs/tags/}"
-        echo "Tag: $TAG_NAME"
+        TAG_NAME="${GITHUB_REF#refs/tags/v}"
+        echo "version=$TAG_NAME" >> $GITHUB_OUTPUT
+        echo "tag=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
 
-        if [[ $TAG_NAME == *-rc.* ]]; then
-          echo "environment=preview" >> $GITHUB_OUTPUT
-          echo "is_release_candidate=true" >> $GITHUB_OUTPUT
-          echo "Deploying to PREVIEW environment"
+        # Determine stage
+        if [[ $TAG_NAME == *-beta.* ]]; then
+          echo "stage=beta" >> $GITHUB_OUTPUT
+          echo "is_stable=false" >> $GITHUB_OUTPUT
+        elif [[ $TAG_NAME == *-rc.* ]]; then
+          echo "stage=rc" >> $GITHUB_OUTPUT
+          echo "is_stable=false" >> $GITHUB_OUTPUT
         else
-          echo "environment=production" >> $GITHUB_OUTPUT
-          echo "is_release_candidate=false" >> $GITHUB_OUTPUT
-          echo "Deploying to PRODUCTION environment"
+          echo "stage=stable" >> $GITHUB_OUTPUT
+          echo "is_stable=true" >> $GITHUB_OUTPUT
         fi
 
-  build:
-    needs: determine-environment
-    runs-on: ubuntu-latest
+        echo "Version: $TAG_NAME"
 
-    steps:
     - name: Checkout repository with submodules
       uses: actions/checkout@v4
       with:
         submodules: recursive
         token: ${{ secrets.SUBMODULE_PAT }}
         fetch-depth: 0
-
-    - name: Verify tag exists on submodules
-      run: |
-        TAG_NAME="${GITHUB_REF#refs/tags/}"
-        echo "Checking if submodules have matching tags..."
-        echo ""
-
-        for submodule in whisper deploy transfer; do
-          cd $submodule
-
-          # Check if this tag exists
-          if git rev-parse "$TAG_NAME" >/dev/null 2>&1; then
-            echo "✓ $submodule has tag $TAG_NAME"
-            COMMIT=$(git rev-parse "$TAG_NAME")
-            echo "  Commit: $COMMIT"
-          else
-            echo "⚠️  $submodule does not have tag $TAG_NAME (using current commit)"
-            COMMIT=$(git rev-parse HEAD)
-            echo "  Commit: $COMMIT"
-          fi
-
-          cd ..
-        done
 
     - name: Set up Python
       uses: actions/setup-python@v5
@@ -87,102 +64,107 @@ jobs:
     - name: Install Python dependencies
       run: pip install -r requirements.txt
 
-    - name: Build all documentation (projects + master)
+    - name: Build documentation with version
+      env:
+        DOCS_VERSION: ${{ steps.version.outputs.version }}
       run: |
-        echo "Building all documentation for ${GITHUB_REF#refs/tags/}..."
-        echo ""
-
-        # Use the Makefile which handles building projects + master + copying
+        echo "Building documentation for version $DOCS_VERSION..."
         make html
 
-        # Verify project docs were copied
-        echo ""
-        echo "Verifying project documentation..."
+        # Verify project docs
         for project in whisper deploy transfer; do
           if [ ! -f build/html/$project/index.html ]; then
-            echo "ERROR: $project docs not found in master build"
+            echo "ERROR: $project docs not found"
             exit 1
           fi
-          echo "✓ $project documentation present"
+          echo "OK: $project"
         done
 
-    - name: Add version badge to docs
+    - name: Checkout gh-pages branch
+      uses: actions/checkout@v4
+      with:
+        ref: gh-pages
+        path: gh-pages
+        token: ${{ secrets.SUBMODULE_PAT }}
+      continue-on-error: true
+
+    - name: Initialize gh-pages if needed
       run: |
-        TAG_NAME="${GITHUB_REF#refs/tags/}"
-        IS_RC="${{ needs.determine-environment.outputs.is_release_candidate }}"
-
-        # Add version info to index page
-        cd build/html
-
-        if [ "$IS_RC" = "true" ]; then
-          BADGE_COLOR="orange"
-          BADGE_TEXT="Release Candidate"
-        else
-          BADGE_COLOR="blue"
-          BADGE_TEXT="Release"
+        if [ ! -d gh-pages/.git ]; then
+          mkdir -p gh-pages
+          cd gh-pages
+          git init
+          git checkout -b gh-pages
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit --allow-empty -m "Initialize gh-pages"
+          cd ..
         fi
 
-        echo "<div style='background: $BADGE_COLOR; color: white; padding: 10px; text-align: center;'>" >> index.html.new
-        echo "  <strong>$BADGE_TEXT: $TAG_NAME</strong>" >> index.html.new
-        echo "</div>" >> index.html.new
-        cat index.html >> index.html.new
-        mv index.html.new index.html
+    - name: Add versioned documentation
+      env:
+        VERSION: ${{ steps.version.outputs.version }}
+        IS_STABLE: ${{ steps.version.outputs.is_stable }}
+      run: |
+        # Remove old version directory if it exists (allows re-tagging)
+        rm -rf "gh-pages/$VERSION"
 
-        cd ../..
+        # Copy build output to versioned directory
+        cp -r build/html "gh-pages/$VERSION"
 
-    - name: Upload artifact
+        echo "Copied docs to gh-pages/$VERSION/"
+
+        # Update latest symlink for stable releases
+        if [ "$IS_STABLE" = "true" ]; then
+          cd gh-pages
+          rm -f latest
+          ln -s "$VERSION" latest
+          echo "Updated latest -> $VERSION"
+          cd ..
+        fi
+
+    - name: Update versions.json
+      env:
+        VERSION: ${{ steps.version.outputs.version }}
+        IS_STABLE: ${{ steps.version.outputs.is_stable }}
+      run: |
+        STABLE_FLAG=""
+        if [ "$IS_STABLE" = "true" ]; then
+          STABLE_FLAG="--stable"
+        fi
+
+        ./scripts/update-versions-json.sh \
+          --version "$VERSION" \
+          --url "/docs/$VERSION/" \
+          $STABLE_FLAG \
+          --file gh-pages/versions.json
+
+    - name: Commit and push to gh-pages
+      run: |
+        cd gh-pages
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git add -A
+        git diff --cached --quiet && echo "No changes to commit" && exit 0
+        git commit -m "Deploy ${{ steps.version.outputs.tag }}"
+        git push origin gh-pages
+        cd ..
+
+    - name: Upload Pages artifact
       uses: actions/upload-pages-artifact@v3
       with:
-        path: build/html
+        path: gh-pages
 
-  deploy-production:
-    needs: [determine-environment, build]
-    if: needs.determine-environment.outputs.is_release_candidate == 'false'
-    runs-on: ubuntu-latest
-
-    environment:
-      name: github-pages-production
-      url: ${{ steps.deployment.outputs.page_url }}
-
-    steps:
-    - name: Deploy to GitHub Pages (Production)
+    - name: Deploy to GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v4
 
-    - name: Create release summary
+    - name: Deployment summary
       run: |
-        TAG_NAME="${GITHUB_REF#refs/tags/}"
-        echo "# 🚀 Release Deployed: $TAG_NAME"
+        VERSION="${{ steps.version.outputs.version }}"
+        STAGE="${{ steps.version.outputs.stage }}"
+        echo "## Deployed: v$VERSION ($STAGE)"
         echo ""
-        echo "Production documentation deployed successfully!"
-        echo ""
-        echo "**URL:** ${{ steps.deployment.outputs.page_url }}"
-        echo "**Tag:** $TAG_NAME"
+        echo "**URL:** ${{ steps.deployment.outputs.page_url }}$VERSION/"
+        echo "**Tag:** ${{ steps.version.outputs.tag }}"
         echo "**Commit:** $GITHUB_SHA"
-
-  deploy-preview:
-    needs: [determine-environment, build]
-    if: needs.determine-environment.outputs.is_release_candidate == 'true'
-    runs-on: ubuntu-latest
-
-    environment:
-      name: github-pages-preview
-      url: ${{ steps.deployment.outputs.page_url }}
-
-    steps:
-    - name: Deploy to GitHub Pages (Preview)
-      id: deployment
-      uses: actions/deploy-pages@v4
-
-    - name: Create preview summary
-      run: |
-        TAG_NAME="${GITHUB_REF#refs/tags/}"
-        echo "# 🔍 Preview Deployed: $TAG_NAME"
-        echo ""
-        echo "Release candidate documentation deployed to preview environment!"
-        echo ""
-        echo "**URL:** ${{ steps.deployment.outputs.page_url }}"
-        echo "**Tag:** $TAG_NAME"
-        echo "**Commit:** $GITHUB_SHA"
-        echo ""
-        echo "⚠️  This is a preview deployment. Final release will deploy to production."
