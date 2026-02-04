@@ -15,9 +15,9 @@ This is a **Sphinx documentation repository** for the **AirGap project suite** -
 ```
 technical-docs/
 ├── whisper/                           # Submodule: Whisper transcription app docs
-│   ├── common/                        # Nested submodule: shared theme & build tools
+│   ├── common/                        # Nested submodule: shared design system & build tools
 │   └── source/
-│       ├── conf.py                    # Imports shared theme from ../common/
+│       ├── conf.py                    # Imports shared config from ../common/
 │       ├── index.rst
 │       ├── readme.rst                 # Project overview
 │       ├── roadmap.md                 # Current status and milestones
@@ -27,11 +27,11 @@ technical-docs/
 │       └── use-cases/                 # Use case workflows
 │
 ├── deploy/                            # Submodule: Deployment packaging tool docs
-│   ├── common/                        # Nested submodule: shared theme & build tools
+│   ├── common/                        # Nested submodule: shared design system & build tools
 │   └── source/                        # (same structure as above)
 │
 ├── transfer/                          # Submodule: File transfer tool docs
-│   ├── common/                        # Nested submodule: shared theme & build tools
+│   ├── common/                        # Nested submodule: shared design system & build tools
 │   └── source/                        # (same structure as above)
 │
 ├── common/                            # Submodule: Shared theme & build tools
