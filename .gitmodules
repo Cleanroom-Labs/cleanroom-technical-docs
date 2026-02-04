@@ -1,12 +1,12 @@
 [submodule "cleanroom-whisper-docs"]
 	path = whisper
-	url = git@github.com:Cleanroom-Labs/cleanroom-whisper-docs.git
+	url = https://github.com/Cleanroom-Labs/cleanroom-whisper-docs.git
 [submodule "airgap-deploy-docs"]
 	path = deploy
-	url = git@github.com:Cleanroom-Labs/airgap-deploy-docs.git
+	url = https://github.com/Cleanroom-Labs/airgap-deploy-docs.git
 [submodule "airgap-transfer-docs"]
 	path = transfer
-	url = git@github.com:Cleanroom-Labs/airgap-transfer-docs.git
+	url = https://github.com/Cleanroom-Labs/airgap-transfer-docs.git
 [submodule "cleanroom-theme"]
 	path = common
-	url = git@github.com:Cleanroom-Labs/cleanroom-website-common.git
+	url = https://github.com/Cleanroom-Labs/cleanroom-website-common.git
