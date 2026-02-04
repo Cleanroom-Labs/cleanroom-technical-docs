@@ -7,6 +7,6 @@
 [submodule "airgap-transfer-docs"]
 	path = transfer
 	url = https://github.com/Cleanroom-Labs/airgap-transfer-docs.git
-[submodule "cleanroom-theme"]
+[submodule "cleanroom-website-common"]
 	path = common
 	url = https://github.com/Cleanroom-Labs/cleanroom-website-common.git
