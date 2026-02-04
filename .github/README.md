@@ -23,7 +23,7 @@ The workflow triggers when any of these files change:
 
 ### Build Process
 
-1. **Setup:** Checkout code with submodules (requires `SUBMODULE_PAT` secret), install Python 3.14, install Graphviz
+1. **Setup:** Checkout code with submodules, install Python 3.14, install Graphviz
 2. **Verify:** Check all submodules are initialized
 3. **Dependencies:** Install Python packages from `requirements.txt`
 4. **Build:** Run `make html` to build all project and master documentation
@@ -33,8 +33,7 @@ The workflow triggers when any of these files change:
 
 ### Prerequisites
 
-1. Configure a `SUBMODULE_PAT` repository secret (GitHub PAT with `repo` scope) for private submodule checkout
-2. For deployment via `deploy-tagged.yml`: enable GitHub Pages (Settings > Pages > Source: "GitHub Actions")
+1. For deployment via `deploy-tagged.yml`: enable GitHub Pages (Settings > Pages > Source: "GitHub Actions")
 
 ### Local Testing
 
@@ -52,7 +51,6 @@ Check for errors in the build output. The built HTML will be in `build/html/`.
 
 **Build fails on GitHub Actions:**
 - Check the Actions tab for detailed error logs
-- Ensure `SUBMODULE_PAT` secret is configured with `repo` scope
 - Test the build locally with `make clean && make html && make html-check`
 
 **Missing dependencies:**
