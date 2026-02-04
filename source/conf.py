@@ -21,8 +21,8 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 project = 'Technical Documentation'
 copyright = '2026, Cleanroom Labs'
 author = 'Cleanroom Labs'
-version = '1.0.0'
-release = '1.0.0'
+version = get_docs_version()
+release = get_docs_version()
 
 # -- Extensions configuration ------------------------------------------------
 
@@ -62,6 +62,7 @@ html_context = {
     'conf_py_path': '/sphinx-docs/source/',
 }
 setup_project_icon(project, html_context)
+setup_version_context(html_context)
 
 # Favicon and logo (placeholders - can be added later)
 # html_favicon = '_static/favicon.ico'
