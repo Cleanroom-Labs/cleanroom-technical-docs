@@ -71,41 +71,13 @@ jobs:
       run: pip install -r requirements.txt
 
     - name: Build all documentation (projects + master)
+      run: make html
+
+    - name: Check for build warnings
+      run: make html-check
+
+    - name: Verify project documentation
       run: |
-        echo "Building all documentation..."
-        echo ""
-
-        # Use the Makefile which handles building projects + master + copying
-        make html 2>&1 | tee build.log
-
-        # Fail on errors/warnings except known intersphinx inventory fetch warnings.
-        echo ""
-        echo "Checking for build warnings..."
-        ERRORS_ALL="$(grep -E 'ERROR:' build.log || true)"
-        WARNINGS_ALL="$(grep -E 'WARNING:' build.log || true)"
-        WARNINGS_NON_IGNORED="$(echo "$WARNINGS_ALL" | grep -viE 'failed to reach any of the inventories|intersphinx inventory' || true)"
-
-        if [ -n "$ERRORS_ALL" ]; then
-          echo "❌ Build completed with errors:"
-          echo "$ERRORS_ALL"
-          exit 1
-        fi
-
-        if [ -n "$WARNINGS_NON_IGNORED" ]; then
-          echo "❌ Build completed with warnings:"
-          echo "$WARNINGS_NON_IGNORED"
-          exit 1
-        fi
-
-        if [ -n "$WARNINGS_ALL" ]; then
-          echo "ℹ️  Build produced intersphinx inventory warnings (ignored):"
-          echo "$WARNINGS_ALL"
-        else
-          echo "✓ Build completed with no warnings"
-        fi
-
-        # Verify project docs were copied
-        echo ""
         echo "Verifying project documentation..."
         for project in whisper deploy transfer; do
           if [ ! -f build/html/$project/index.html ]; then
