@@ -20,7 +20,7 @@ technical-docs/
 │       ├── whisper.rst
 │       ├── deploy.rst
 │       └── transfer.rst
-├── common/                              # Submodule: shared theme & build tools
+├── common/                              # Submodule: shared design system & build tools
 │   ├── theme_config.py                  # Common Sphinx settings
 │   ├── requirements.txt                 # Shared Python dependencies
 │   ├── tokens/                          # Design tokens (colors, nav)
@@ -70,11 +70,11 @@ git submodule update --remote
 git submodule status
 ```
 
-## Shared Theme Configuration
+## Shared Configuration
 
-All project documentation imports the shared theme from the `common` submodule at each repo's root level. Each project has its own copy of the submodule at `common/` (the `cleanroom-website-common` repository).
+All project documentation imports shared configuration from the `common` submodule at each repo's root level. Each project has its own copy of the submodule at `common/` (the `cleanroom-website-common` repository).
 
-### Using Shared Theme in Project Docs
+### Using Shared Configuration in Project Docs
 
 Each project's `source/conf.py` should include:
 
@@ -82,13 +82,13 @@ Each project's `source/conf.py` should include:
 import sys
 import os
 
-# Add theme submodule to path (one level up from source/)
+# Add common submodule to path (one level up from source/)
 sys.path.insert(0, os.path.abspath('../common'))
 
 # Import all shared settings
 from theme_config import *
 
-# Override paths for theme directory relative to source/
+# Override paths for common directory relative to source/
 html_static_path = ['../common/sphinx/_static']
 templates_path = ['../common/sphinx/_templates']
 html_favicon = '../common/sphinx/_static/favicon.ico'
@@ -121,7 +121,7 @@ needs_types = make_needs_types('YOURPROJECT-')
    git submodule add git@github.com:Cleanroom-Labs/cleanroom-website-common.git common
    ```
 4. Update `source/index.rst` to include the project
-5. Configure the project's `conf.py` to use the shared theme (see above)
+5. Configure the project's `conf.py` to use the shared configuration (see above)
 6. Add the project name to the `PROJECTS` variable in the `Makefile`
 7. Build and verify
 
