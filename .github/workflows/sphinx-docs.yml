@@ -20,15 +20,6 @@ on:
       - 'transfer/**'
   workflow_dispatch:
 
-permissions:
-  contents: write
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages-deploy"
-  cancel-in-progress: false
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -108,83 +99,3 @@ jobs:
       with:
         name: sphinx-docs
         path: build/html
-
-  deploy-dev:
-    needs: build
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-      with:
-        token: ${{ secrets.SUBMODULE_PAT }}
-
-    - name: Download build artifact
-      uses: actions/download-artifact@v4
-      with:
-        name: sphinx-docs
-        path: build-output
-
-    - name: Checkout gh-pages branch
-      uses: actions/checkout@v4
-      with:
-        ref: gh-pages
-        path: gh-pages
-        token: ${{ secrets.SUBMODULE_PAT }}
-      continue-on-error: true
-
-    - name: Initialize gh-pages if needed
-      run: |
-        if [ ! -d gh-pages/.git ]; then
-          mkdir -p gh-pages
-          cd gh-pages
-          git init
-          git checkout -b gh-pages
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git commit --allow-empty -m "Initialize gh-pages"
-          cd ..
-        fi
-
-    - name: Update dev documentation
-      run: |
-        # Remove old dev docs
-        rm -rf gh-pages/dev
-
-        # Copy new build output
-        cp -r build-output gh-pages/dev
-
-        echo "Updated gh-pages/dev/"
-
-    - name: Update versions.json with dev entry
-      run: |
-        ./scripts/update-versions-json.sh \
-          --version dev \
-          --url "/docs/dev/" \
-          --dev \
-          --file gh-pages/versions.json
-
-    - name: Commit and push to gh-pages
-      run: |
-        cd gh-pages
-        git config user.name "github-actions[bot]"
-        git config user.email "github-actions[bot]@users.noreply.github.com"
-        git add -A
-        git diff --cached --quiet && echo "No changes to commit" && exit 0
-        git commit -m "Deploy dev docs from main"
-        git push origin gh-pages
-        cd ..
-
-    - name: Upload Pages artifact
-      uses: actions/upload-pages-artifact@v3
-      with:
-        path: gh-pages
-
-    - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v4
