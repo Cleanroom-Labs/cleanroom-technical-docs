@@ -6,7 +6,7 @@ Use this template when creating a new project-docs repository.
 
 ```
 project-name/
-├── common/                    # Submodule: shared theme & build tools
+├── common/                    # Submodule: shared design system & build tools
 ├── source/
 │   ├── index.rst
 │   ├── conf.py
@@ -22,7 +22,7 @@ project-name/
 
 ## conf.py Template
 
-See the shared theme configuration in the common submodule:
+See the shared configuration in the common submodule:
 `common/theme_config.py` (at the repo root level).
 
 Project conf.py should import shared configuration:
@@ -44,7 +44,7 @@ Use `-r common/requirements.txt` to reference the shared common dependencies. Ad
 1. Create new repository for project docs
 2. Copy Makefile and make.bat from technical-docs
 3. Create source/ directory structure
-4. Write conf.py with shared theme import
+4. Write conf.py with shared config import
 5. Create index.rst
 6. Add as submodule to technical-docs
 7. Update master index.rst
