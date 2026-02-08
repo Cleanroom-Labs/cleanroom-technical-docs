@@ -71,7 +71,7 @@ In practice, this sequence is not strictly followed. Requirements and design spe
 Project Statistics
 ------------------
 
-This section provides an aggregate overview of all sphinx-needs directives across Cleanroom Lab's project suite. Statistics are automatically maintained using sphinx-needs' need_count directive.
+This section provides an aggregate overview of approved sphinx-needs directives across Cleanroom Lab's project suite. Statistics are automatically maintained using sphinx-needs' need_count directive. Proposed items for future releases are tracked in the :doc:`Release Roadmap <release-roadmap>`.
 
 AirGap Transfer
 ~~~~~~~~~~~~~~~
@@ -81,12 +81,12 @@ AirGap Transfer
 ================= ======================================================================================
 Category          Count
 ================= ======================================================================================
-Use Cases         :need_count:`type=='usecase' and 'transfer' in tags`
-Requirements      :need_count:`type in ['req', 'nfreq'] and 'transfer' in tags`
-  Functional      :need_count:`type=='req' and 'transfer' in tags`
-  Non-Functional  :need_count:`type=='nfreq' and 'transfer' in tags`
-Test Cases        :need_count:`type=='test' and 'transfer' in tags`
-**Total**         :need_count:`'transfer' in tags`
+Use Cases         :need_count:`type=='usecase' and 'transfer' in tags and status=='approved'`
+Requirements      :need_count:`type in ['req', 'nfreq'] and 'transfer' in tags and status=='approved'`
+  Functional      :need_count:`type=='req' and 'transfer' in tags and status=='approved'`
+  Non-Functional  :need_count:`type=='nfreq' and 'transfer' in tags and status=='approved'`
+Test Cases        :need_count:`type=='test' and 'transfer' in tags and status=='approved'`
+**Total**         :need_count:`'transfer' in tags and status=='approved'`
 ================= ======================================================================================
 
 AirGap Deploy
@@ -97,12 +97,12 @@ AirGap Deploy
 ================= ======================================================================================
 Category          Count
 ================= ======================================================================================
-Use Cases         :need_count:`type=='usecase' and 'deploy' in tags`
-Requirements      :need_count:`type in ['req', 'nfreq'] and 'deploy' in tags`
-  Functional      :need_count:`type=='req' and 'deploy' in tags`
-  Non-Functional  :need_count:`type=='nfreq' and 'deploy' in tags`
-Test Cases        :need_count:`type=='test' and 'deploy' in tags`
-**Total**         :need_count:`'deploy' in tags`
+Use Cases         :need_count:`type=='usecase' and 'deploy' in tags and status=='approved'`
+Requirements      :need_count:`type in ['req', 'nfreq'] and 'deploy' in tags and status=='approved'`
+  Functional      :need_count:`type=='req' and 'deploy' in tags and status=='approved'`
+  Non-Functional  :need_count:`type=='nfreq' and 'deploy' in tags and status=='approved'`
+Test Cases        :need_count:`type=='test' and 'deploy' in tags and status=='approved'`
+**Total**         :need_count:`'deploy' in tags and status=='approved'`
 ================= ======================================================================================
 
 Cleanroom Whisper
@@ -113,12 +113,12 @@ Cleanroom Whisper
 ================= ======================================================================================
 Category          Count
 ================= ======================================================================================
-Use Cases         :need_count:`type=='usecase' and 'whisper' in tags`
-Requirements      :need_count:`type in ['req', 'nfreq'] and 'whisper' in tags`
-  Functional      :need_count:`type=='req' and 'whisper' in tags`
-  Non-Functional  :need_count:`type=='nfreq' and 'whisper' in tags`
-Test Cases        :need_count:`type=='test' and 'whisper' in tags`
-**Total**         :need_count:`'whisper' in tags`
+Use Cases         :need_count:`type=='usecase' and 'whisper' in tags and status=='approved'`
+Requirements      :need_count:`type in ['req', 'nfreq'] and 'whisper' in tags and status=='approved'`
+  Functional      :need_count:`type=='req' and 'whisper' in tags and status=='approved'`
+  Non-Functional  :need_count:`type=='nfreq' and 'whisper' in tags and status=='approved'`
+Test Cases        :need_count:`type=='test' and 'whisper' in tags and status=='approved'`
+**Total**         :need_count:`'whisper' in tags and status=='approved'`
 ================= ======================================================================================
 
 Suite-Wide Summary
@@ -127,9 +127,9 @@ Suite-Wide Summary
 =================== ======================================================================================
 Category            Count
 =================== ======================================================================================
-Total Use Cases     :need_count:`type=='usecase'`
-Total Requirements  :need_count:`type in ['req', 'nfreq']`
-Total Test Cases    :need_count:`type=='test'`
-**Grand Total**     :need_count:`True`
+Total Use Cases     :need_count:`type=='usecase' and status=='approved'`
+Total Requirements  :need_count:`type in ['req', 'nfreq'] and status=='approved'`
+Total Test Cases    :need_count:`type=='test' and status=='approved'`
+**Grand Total**     :need_count:`status=='approved'`
 =================== ======================================================================================
 

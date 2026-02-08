@@ -32,4 +32,9 @@ Commercial licensing is available for all three projects individually or as a su
 Contact
 -------
 
-For licensing inquiries, contact: **legal@cleanroomlabs.com**
+For licensing inquiries, contact: `legal@cleanroomlabs.com <mailto:legal@cleanroomlabs.com>`_
+
+.. raw:: html
+
+   <div style="margin-top: 1.5em;"></div>
+

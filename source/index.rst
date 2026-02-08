@@ -10,16 +10,25 @@ Welcome to the Cleanroom Labs technical documentation. This documentation covers
 These three projects represent our near-term development focus and demonstrate core patterns for privacy-first, offline computing. All projects follow strict privacy-first design principles with zero network communication and minimal dependencies, establishing a foundation that can support future air-gapped tools.
 
 .. toctree::
+   :maxdepth: 1
+   :caption: Projects
+
+   projects/transfer
+   projects/deploy
+   projects/whisper
+
+.. toctree::
    :maxdepth: 2
    :caption: Cross-Project Information
 
+   meta/licensing
+   meta/scope-and-limitations
+   meta/competitive-landscape
    meta/principles
    meta/meta-architecture
    meta/specification-overview
-   meta/competitive-landscape
+   meta/release-philosophy
    meta/release-roadmap
-   meta/scope-and-limitations
-   meta/licensing
 
 .. toctree::
    :maxdepth: 2
@@ -29,31 +38,6 @@ These three projects represent our near-term development focus and demonstrate c
    meta/rust-integration-guide
    meta/developer-guidelines
 
-.. toctree::
-   :maxdepth: 1
-   :caption: Projects
-
-   projects/transfer
-   projects/deploy
-   projects/whisper
-
-Quick Links
-===========
-
-**Getting Started:**
-
-- :doc:`meta/principles` - Core design principles for all projects
-- :doc:`meta/meta-architecture` - Cross-project architecture overview
-
-**Requirements:**
-
-- `Cleanroom Whisper <cleanroom-whisper/requirements/srs.html>`_
-- `AirGap Deploy <airgap-deploy/requirements/srs.html>`_
-- `AirGap Transfer <airgap-transfer/requirements/srs.html>`_
-
-**Specification Overview:**
-
-- :doc:`meta/specification-overview` - Project statistics and traceability overview
 
 Indices and tables
 ==================

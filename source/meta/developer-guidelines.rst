@@ -49,7 +49,59 @@ All third-party dependencies must be compatible with the AGPL-3.0. In practice:
 
 Before adding a new dependency, verify its license compatibility. When in doubt, consult the `FSF license compatibility list <https://www.gnu.org/licenses/license-list.html>`_.
 
+Coding Conventions
+------------------
+
+These conventions follow from the :doc:`design principles <principles>`. They provide practical guidance for day-to-day development decisions.
+
+Before Adding a Dependency
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Ask:
+
+1. Can I do this with stdlib?
+2. Can I do this with code I write myself (<100 lines)?
+3. Does this crate have network capabilities?
+4. How many transitive dependencies does it add?
+5. Is it actively maintained?
+
+If the answer to #1 or #2 is yes, don't add the dependency.
+
+Code Rules
+~~~~~~~~~~
+
+============================== ===================================
+Do                             Don't
+============================== ===================================
+Write functions                Create traits you'll implement once
+Use concrete types             Use generics for "flexibility"
+Handle errors where they occur Create error hierarchies
+Use ``String``                 Create newtype wrappers
+============================== ===================================
+
+The YAGNI Test
+~~~~~~~~~~~~~~
+
+Before adding any feature or abstraction:
+
+- Do I need this right now to make the app work?
+- Have I needed this exact thing twice already?
+
+If both answers aren't "yes", don't add it.
+
+**Examples:**
+
+- **Avoid:** Trait abstractions for single implementations
+- **Prefer:** Simple functions
+- **Avoid:** Multiple format support (e.g., WAV, FLAC, MP3, M4A)
+- **Prefer:** Single format (e.g., WAV only)
+
 Note on Formal CLA
 -------------------
 
 This document describes project guidelines and expectations for contributors. It is **not** a formal Contributor License Agreement (CLA). A formal CLA may be introduced as the project matures. Until then, contributions are governed by the AGPL-3.0 license and the expectations outlined above.
+
+.. raw:: html
+
+   <div style="margin-top: 1.5em;"></div>
+

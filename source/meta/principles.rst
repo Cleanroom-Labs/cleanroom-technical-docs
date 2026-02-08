@@ -3,8 +3,6 @@ Design Principles
 
 These principles guide every decision across all Cleanroom Labs projects. When in doubt, refer here.
 
---------------
-
 Privacy Through Data Locality
 --------------------------------
 
@@ -54,8 +52,6 @@ Build dependencies
 
 **For air-gapped builds:** Platform-specific build tools, Rust toolchain, and C++ compiler must be pre-installed on the target system.
 
---------------
-
 Minimal Dependencies
 -----------------------
 
@@ -74,20 +70,7 @@ Technology constraints
 - Pure Rust
 - Use stdlib where possible (time handling, string operations, etc.)
 
-Before adding a dependency
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Ask:
-
-1. Can I do this with stdlib?
-2. Can I do this with code I write myself (<100 lines)?
-3. Does this crate have network capabilities?
-4. How many transitive dependencies does it add?
-5. Is it actively maintained?
-
-If the answer to #1 or #2 is yes, don’t add the dependency.
-
---------------
+For the dependency evaluation checklist, see :doc:`developer-guidelines`.
 
 Simple Architecture
 ----------------------
@@ -99,37 +82,7 @@ File structure
 
 **Flat structure:** No nested modules.
 
-Code rules
-~~~~~~~~~~
-
-============================== ===================================
-Do                             Don’t
-============================== ===================================
-Write functions                Create traits you’ll implement once
-Use concrete types             Use generics for “flexibility”
-Handle errors where they occur Create error hierarchies
-Use ``String``                 Create newtype wrappers
-============================== ===================================
-
-The YAGNI test
-~~~~~~~~~~~~~~
-
-Before adding any feature or abstraction:
-
-- Do I need this right now to make the app work?
-- Have I needed this exact thing twice already?
-
-If both answers aren’t “yes”, don’t add it.
-
-Examples
-~~~~~~~~
-
-- **Avoid:** Trait abstractions for single implementations
-- **Prefer:** Simple functions
-- **Avoid:** Multiple format support (e.g., WAV, FLAC, MP3, M4A)
-- **Prefer:** Single format (e.g., WAV only)
-
---------------
+For coding conventions and the YAGNI test, see :doc:`developer-guidelines`.
 
 Features We Don’t Build
 --------------------------
@@ -183,19 +136,3 @@ All three projects follow the core principles above:
 | **Air-gap Ready**         | Designed for air-gaps    | Entire purpose                      | Vendored deps                 |
 +---------------------------+--------------------------+-------------------------------------+-------------------------------+
 
-Quality Bar
---------------
-
-For MVP
-~~~~~~~
-
-- **Works:** Core flow functions without crashing
-- **Usable:** It can be used on a daily basis without frustration
-- **Stable:** No data loss
-
-Not required for MVP
-~~~~~~~~~~~~~~~~~~~~
-
-- Performance optimization (make it work first)
-- Fully, fleshed-out requirements and corresponding implementation
-- Comprehensive test suite covering all branches aside from the happy paths
