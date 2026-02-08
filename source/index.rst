@@ -19,16 +19,32 @@ These three projects represent our near-term development focus and demonstrate c
 
 .. toctree::
    :maxdepth: 2
-   :caption: Cross-Project Information
+   :caption: General Information
 
    meta/licensing
    meta/scope-and-limitations
    meta/competitive-landscape
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Design
+
    meta/principles
    meta/meta-architecture
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Systems Engineering
+
    meta/specification-overview
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Project Management
+
    meta/release-philosophy
    meta/release-roadmap
+   meta/planning
 
 .. toctree::
    :maxdepth: 2

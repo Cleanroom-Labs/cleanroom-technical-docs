@@ -81,32 +81,6 @@ v1.0.0 Quality Bar
 - Fully fleshed-out requirements and corresponding implementation
 - Comprehensive test suite covering all branches aside from the happy paths
 
-Cross-Project Integration Milestones
--------------------------------------
-
-The v1.0.0 release validates that the three projects work together seamlessly.
-
-Integration Scenario: Ollama Deployment
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-This end-to-end workflow must work for v1.0.0 release:
-
-1. **AirGap Deploy** packages Ollama + llama2-7b model (~20GB)
-2. **AirGap Transfer** chunks package across multiple USB drives
-3. **AirGap Transfer** reconstructs package on air-gapped system
-4. **AirGap Deploy** install script successfully installs Ollama offline
-5. Ollama runs successfully with downloaded model
-
-**Validation Criteria:**
-
-- Zero manual intervention required after initial manifest creation
-- Cryptographic integrity verification passes
-- Cross-platform compatibility (test on macOS, Linux, Windows)
-- Process documented in demo blog post
-
-**Status:** Not Started
-**Target:** Milestone 6
-
 v1.0.0 Milestone Plan
 ----------------------
 
@@ -171,56 +145,42 @@ Milestone Details
 - **Goal:** Cross-platform testing, integration validation, documentation, coordinated launch
 - **Key outputs:** All three projects release v1.0.0 simultaneously, blog posts, demo content
 
-v1.1 Planning
---------------
+Cross-Project Integration Milestones
+-------------------------------------
 
-The following features are under consideration for v1.1, to be scoped after v1.0.0 release and user feedback.
+The v1.0.0 release validates that the three projects work together seamlessly.
 
-**AirGap Deploy v1.1:**
+Integration Scenario: Ollama Deployment
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- **SBOM generation:** Generate CycloneDX SBOM during ``prep`` phase from Cargo.lock dependency graph, component metadata, and license information
-- **CBOM generation:** Scan dependencies for known cryptographic crates and document crypto usage as CycloneDX CBOM entries
-- **Vulnerability scanning:** ``airgap-deploy scan`` subcommand that checks SBOMs against an offline vulnerability database (Grype or Trivy)
+This end-to-end workflow must work for v1.0.0 release:
 
-**AirGap Transfer v1.1:**
+1. **AirGap Deploy** packages Ollama + llama2-7b model (~20GB)
+2. **AirGap Transfer** chunks package across multiple USB drives
+3. **AirGap Transfer** reconstructs package on air-gapped system
+4. **AirGap Deploy** install script successfully installs Ollama offline
+5. Ollama runs successfully with downloaded model
 
-- **SBOM-aware manifests:** Reference CycloneDX SBOM files in transfer manifests for chain-of-custody documentation
+**Validation Criteria:**
 
-**Target:** Post-v1.0.0, scope finalized based on v1.0.0 feedback and adoption patterns.
+- Zero manual intervention required after initial manifest creation
+- Cryptographic integrity verification passes
+- Cross-platform compatibility (test on macOS, Linux, Windows)
+- Process documented in demo blog post
 
-See individual project SRS documents for detailed requirements (tagged ``v1.1``).
-
-v1.1 Proposed Artifacts
-~~~~~~~~~~~~~~~~~~~~~~~
-
-The following tables list all proposed sphinx-needs artifacts for v1.1. These items are not yet approved and may change based on v1.0.0 feedback.
-
-AirGap Deploy
-^^^^^^^^^^^^^
-
-.. needtable::
-   :columns: id, title, type, priority, status
-   :filter: status=='proposed' and 'deploy' in tags
-   :style: table
-   :sort: id
-
-AirGap Transfer
-^^^^^^^^^^^^^^^
-
-.. needtable::
-   :columns: id, title, type, priority, status
-   :filter: status=='proposed' and 'transfer' in tags
-   :style: table
-   :sort: id
+**Status:** Not Started
+**Target:** Milestone 6
 
 Individual Project Roadmaps
 ----------------------------
 
-For detailed MVP implementation plans, see:
+For detailed, project roadmaps, see:
 
 - `AirGap Deploy Roadmap <../deploy/roadmap.html>`_
 - `AirGap Transfer Roadmap <../transfer/roadmap.html>`_
 - `Cleanroom Whisper Roadmap <../whisper/roadmap.html>`_
+
+For planning of development not covered by this roadmap, see :doc:`planning`.
 
 Progress Log
 ~~~~~~~~~~~~
@@ -233,4 +193,3 @@ Date       Activity
 2026-02-08 Added v1.1 planning (SBOM/CBOM/vuln-scan requirements and use
            cases); reorganized cross-project docs
 ========== ================================================================
-
