@@ -37,6 +37,7 @@ These three projects represent our near-term development focus and demonstrate c
    :caption: Systems Engineering
 
    meta/specification-overview
+   meta/standards-framework
 
 .. toctree::
    :maxdepth: 2
@@ -44,6 +45,7 @@ These three projects represent our near-term development focus and demonstrate c
 
    meta/release-philosophy
    meta/release-roadmap
+   meta/project-statistics
    meta/planning
 
 .. toctree::
