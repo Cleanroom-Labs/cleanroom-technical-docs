@@ -1,13 +1,12 @@
 Technical Documentation
 =======================
 
-Welcome to the Cleanroom Labs technical documentation. This documentation covers three **foundation Rust projects** designed for secure, air-gapped environments, with room for future expansion:
+Welcome to the Cleanroom Labs technical documentation — the central reference for the design, specifications, and development practices behind our privacy-first tools for air-gapped environments.
 
-- **AirGap Transfer**: Large file transfer utility
-- **AirGap Deploy**: Developer deployment packaging tool
-- **Cleanroom Whisper**: End-user transcription application
+How this documentation is organized
+------------------------------------
 
-These three projects represent our near-term development focus and demonstrate core patterns for privacy-first, offline computing. All projects follow strict privacy-first design principles with zero network communication and minimal dependencies, establishing a foundation that can support future air-gapped tools.
+**Projects** contains the specifications, design documents, and roadmaps for each individual project. **General Information** covers licensing, scope, and competitive positioning across the suite. **Design** describes the core principles and architectural patterns shared across projects. **Systems Engineering** defines the requirements engineering framework, standards alignment, and guidance for writing specifications. **Project Management** tracks release strategy, roadmaps, and progress. **Developer Resources** provides practical guides for contributing, including sphinx-needs usage, Rust API integration, and coding standards.
 
 .. toctree::
    :maxdepth: 1
