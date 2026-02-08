@@ -1,7 +1,9 @@
 Project Statistics
 ==================
 
-This page provides an aggregate overview of approved sphinx-needs directives across Cleanroom Lab's project suite. Statistics are automatically maintained using sphinx-needs' need_count directive. Proposed items for future releases are tracked in the :doc:`Release Roadmap <release-roadmap>`.
+This page provides an aggregate overview of approved sphinx-needs directives across Cleanroom Lab's project suite. Statistics are automatically maintained using sphinx-needs' need_count directive. Proposed items for future releases are tracked in the :doc:`v1.1 Planning <planning>` page.
+
+These counts reflect only artifacts with ``status=='approved'`` — requirements, use cases, and test cases that have been reviewed and accepted for v1.0.0. The ratio of test cases to requirements indicates specification coverage maturity; where tests lag behind requirements, test planning is still in progress. For detailed traceability showing which specific requirements lack test coverage, see the traceability matrices in :doc:`specification-overview`.
 
 AirGap Transfer
 ---------------
