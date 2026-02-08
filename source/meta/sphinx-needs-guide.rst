@@ -26,56 +26,9 @@ Why Use sphinx-needs?
 - ✅ **Visual Diagrams:** Auto-generate flowcharts showing relationships
 - ✅ **Searchable:** Full-text search across all requirements
 - ✅ **Maintainable:** Changes propagate automatically
-- ✅ **Standards-Compliant:** Supports IEEE requirements engineering practices
+- ✅ **Standards-Aligned:** Implements the project's :doc:`documentation standards framework <standards-framework>`
 
-Documentation Standards
------------------------
-
-Each project's technical documents are loosely modeled on IEEE standards for structure and content guidance:
-
-- **SRS** (Software Requirements Specification) — informed by `IEEE 830-1998 <https://standards.ieee.org/standard/830-1998.html>`_
-- **SDD** (Software Design Document) — informed by `IEEE 1016-2009 <https://standards.ieee.org/standard/1016-2009.html>`_
-- **Test Plan** — informed by `IEEE 829-2008 <https://standards.ieee.org/standard/829-2008.html>`_
-
-These standards serve as structural guides, not strict compliance targets. The projects adopt the general document outline (Introduction, Scope, Definitions, etc.) while keeping content lean and MVP-focused.
-
-Available Directive Types
---------------------------
-
-The AirGap Project Suite uses 6 sphinx-needs directive types:
-
-.. list-table::
-   :header-rows: 1
-   :widths: 20 15 15 50
-
-   * - Directive
-     - Prefix
-     - Color
-     - Purpose
-   * - ``usecase``
-     - ``UC``
-     - Blue
-     - User stories and workflow descriptions
-   * - ``req``
-     - ``FR``
-     - Orange
-     - Functional requirements
-   * - ``nfreq``
-     - ``NFR``
-     - Dark Orange
-     - Non-functional requirements (performance, security, etc.)
-   * - ``spec``
-     - ``DS``
-     - Yellow
-     - Design specifications
-   * - ``impl``
-     - ``IMPL``
-     - Purple
-     - Code implementations (future)
-   * - ``test``
-     - ``TC``
-     - Green
-     - Test cases
+This guide covers the technical details of creating and linking needs directives. For the IEEE standards that inform this documentation framework and the artifact type definitions, see :doc:`standards-framework`. For the full list of directive types, prefixes, and their purposes, see the :ref:`artifact type schema <artifact-type-schema>`.
 
 Creating Needs
 --------------
@@ -311,7 +264,7 @@ Common Filters
 
 .. code-block:: rst
 
-   :filter: len(is_tested_by) == 0
+   :filter: len(tests_back) == 0
 
 **Multiple conditions:**
 
@@ -532,7 +485,7 @@ Use filters to find gaps:
    .. needtable::
       :types: req
       :columns: id, title
-      :filter: len(is_tested_by) == 0
+      :filter: len(tests_back) == 0
 
 **Requirements without use cases:**
 
@@ -677,11 +630,9 @@ Complete, validated, bidirectional traceability from use cases through requireme
 See Also
 --------
 
-- :doc:`/meta/specification-overview` - See sphinx-needs in action
+- :doc:`/meta/standards-framework` - IEEE standards alignment and artifact type schema
+- :doc:`/meta/specification-overview` - Artifact types and traceability chain
 - :doc:`/meta/rust-integration-guide` - Link code to requirements
 - `sphinx-needs Documentation <https://sphinx-needs.readthedocs.io/>`_
-- `IEEE 830-1998 <https://standards.ieee.org/standard/830-1998.html>`_ - Requirements specification standard
-- `IEEE 1016-2009 <https://standards.ieee.org/standard/1016-2009.html>`_ - Software design description standard
-- `IEEE 829-2008 <https://standards.ieee.org/standard/829-2008.html>`_ - Software test documentation standard
 
 .. _sphinx-needs: https://sphinx-needs.readthedocs.io/en/stable/
