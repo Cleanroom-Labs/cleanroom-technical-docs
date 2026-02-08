@@ -1,7 +1,8 @@
-Design Principles
-=================
+Principles
+==========
 
-These principles guide every decision across all Cleanroom Labs projects. When in doubt, refer here.
+These principles guide every design decision across all Cleanroom Labs
+projects. When in doubt, refer here.
 
 Privacy Through Data Locality
 --------------------------------
@@ -80,7 +81,7 @@ Simple Architecture
 File structure
 ~~~~~~~~~~~~~~
 
-**Flat structure:** No nested modules.
+**Flat structure:** No needless module nesting.
 
 For coding conventions and the YAGNI test, see :doc:`developer-guidelines`.
 
