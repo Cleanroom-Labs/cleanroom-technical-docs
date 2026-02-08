@@ -15,6 +15,10 @@ The Cleanroom Labs technical documentation uses a multi-layered documentation ap
 
 This creates bidirectional traceability at every level.
 
+.. note::
+
+   This guide describes the integration infrastructure that is configured and ready in the Sphinx build system. The ``:impl:`` directives and Rust API cross-references will be populated as implementation progresses. The patterns documented here are the target workflow for development.
+
 Prerequisites
 -------------
 

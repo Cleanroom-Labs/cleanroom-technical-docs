@@ -132,7 +132,7 @@ Milestone Details
 
 **M4: Transfer Complete** (Status: Not Started)
 
-- **Goal:** Complete AirGap Transfer with chunking, verification, and recovery
+- **Goal:** Complete AirGap Transfer with chunking, verification, resume capability, and recovery
 - **Key outputs:** AirGap Transfer v1.0.0-rc
 
 **M5: Whisper MVP** (Status: Not Started)

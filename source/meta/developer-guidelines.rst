@@ -15,7 +15,7 @@ This means that all source code is freely available, and anyone can use, modify,
 Contributor Expectations
 ------------------------
 
-By contributing code to any Cleanroom Labs project, you agree that your contributions are licensed under AGPL-3.0.
+By contributing code to any Cleanroom Labs project, you agree that your contributions are licensed under AGPL-3.0. (Note: this is not a formal Contributor License Agreement. A formal CLA may be introduced as the project matures. Until then, contributions are governed by the AGPL-3.0 license and the expectations outlined here.)
 
 .. raw:: html
 
@@ -96,12 +96,37 @@ If both answers aren't "yes", don't add it.
 - **Avoid:** Multiple format support (e.g., WAV, FLAC, MP3, M4A)
 - **Prefer:** Single format (e.g., WAV only)
 
-Note on Formal CLA
--------------------
+Code Style
+~~~~~~~~~~
 
-This document describes project guidelines and expectations for contributors. It is **not** a formal Contributor License Agreement (CLA). A formal CLA may be introduced as the project matures. Until then, contributions are governed by the AGPL-3.0 license and the expectations outlined above.
+- All Rust code must pass ``cargo fmt`` (default rustfmt settings)
+- All code must pass ``cargo clippy`` with no warnings
+- Avoid ``#[allow(...)]`` annotations to suppress clippy warnings without a comment explaining why the suppression is necessary
+- Follow standard Rust naming: ``snake_case`` for functions and variables, ``CamelCase`` for types, ``SCREAMING_CASE`` for constants
 
-.. raw:: html
+Testing Expectations
+~~~~~~~~~~~~~~~~~~~~
 
-   <div style="margin-top: 1.5em;"></div>
+- Every functional requirement that reaches implementation should have at least one corresponding test
+- Test cases in sphinx-needs (``:test:`` directives) describe *what* to verify; Rust ``#[test]`` functions implement the verification
+- Focus on happy-path tests for MVP — see the :doc:`v1.0.0 quality bar <release-roadmap>` for the current bar
+- Prefer integration tests over unit tests where they cover the same behavior with less coupling to internals
+- No coverage targets — test the behavior, not the line count
+
+Documentation Standards
+~~~~~~~~~~~~~~~~~~~~~~~
+
+- When changing behavior covered by existing requirements, update the corresponding sphinx-needs artifacts (SRS, test plan)
+- Add Rust doc comments (``///``) on public API items: modules, structs, and public functions
+- No documentation needed for obvious getters/setters or trivial utility functions
+- See the :doc:`sphinx-needs-guide` for requirements authoring syntax and :doc:`specification-writing-guide` for guidance on writing good specification artifacts
+
+Git Workflow
+~~~~~~~~~~~~
+
+- Work on feature branches; merge to ``main`` via pull request
+- Commit messages: imperative mood, concise subject line, body for non-obvious changes
+- One logical change per commit — split unrelated changes into separate commits
+- Build docs before pushing documentation changes: ``node scripts/build-docs.mjs`` from the website root, or ``make html`` from the ``technical-docs/`` directory
+- Pull requests should describe what changed and why; link to relevant requirements if applicable
 

@@ -38,6 +38,7 @@ These three projects represent our near-term development focus and demonstrate c
 
    meta/specification-overview
    meta/standards-framework
+   meta/specification-writing-guide
 
 .. toctree::
    :maxdepth: 2
