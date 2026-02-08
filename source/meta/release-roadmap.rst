@@ -1,19 +1,7 @@
 Release Roadmap
 ===============
 
-This document coordinates release planning across the three foundation projects: AirGap Deploy, AirGap Transfer, and Cleanroom Whisper.
-
-Release Philosophy
-------------------
-
-The AirGap suite follows a **synchronized release strategy** for major versions:
-
-- **v1.0.0**: Coordinated release across all three projects
-- **Scope**: Minimum Viable Product (MVP) for each project
-- **Goal**: Demonstrate integrated workflows (e.g., Deploy → Transfer → Install)
-- **Development Window**: 12 months, organized into 6 milestones
-
-Individual projects may have independent patch releases (v1.0.1, v1.0.2) for bug fixes, but major feature releases (v1.1, v2.0) will be coordinated.
+This document tracks active release planning across the three foundation projects. For the versioning strategy and coordination rules, see :doc:`release-philosophy`.
 
 v1.0.0 Release Criteria
 -----------------------
@@ -23,7 +11,7 @@ AirGap Deploy v1.0.0
 
 **Definition of Done:**
 
-- All MVP features implemented (see `Deploy Roadmap <../airgap-deploy/roadmap.html>`_)
+- All MVP features implemented (see `Deploy Roadmap <../deploy/roadmap.html>`_)
 - Core components: RustApp, ExternalBinary, ModelFile working
 - Manifest validation working
 - Install script generation (Linux/macOS Bash, Windows PowerShell)
@@ -44,7 +32,7 @@ AirGap Transfer v1.0.0
 
 **Definition of Done:**
 
-- All MVP features implemented (see `Transfer Roadmap <../airgap-transfer/roadmap.html>`_)
+- All MVP features implemented (see `Transfer Roadmap <../transfer/roadmap.html>`_)
 - Pack/unpack/list operations working
 - SHA-256 verification functional
 - Resume capability working
@@ -64,7 +52,7 @@ Cleanroom Whisper v1.0.0
 
 **Definition of Done:**
 
-- All MVP features implemented (see `Whisper Roadmap <../cleanroom-whisper/roadmap.html>`_)
+- All MVP features implemented (see `Whisper Roadmap <../whisper/roadmap.html>`_)
 - Cross-platform support (macOS, Windows, Linux)
 - SQLite history storage working
 - Global hotkeys functional
@@ -77,6 +65,21 @@ Cleanroom Whisper v1.0.0
 - Pre-built binaries for all platforms
 - Demo blog post
 - User documentation
+
+v1.0.0 Quality Bar
+~~~~~~~~~~~~~~~~~~~
+
+**For MVP:**
+
+- **Works:** Core flow functions without crashing
+- **Usable:** It can be used on a daily basis without frustration
+- **Stable:** No data loss
+
+**Not required for MVP:**
+
+- Performance optimization (make it work first)
+- Fully fleshed-out requirements and corresponding implementation
+- Comprehensive test suite covering all branches aside from the happy paths
 
 Cross-Project Integration Milestones
 -------------------------------------
@@ -168,22 +171,56 @@ Milestone Details
 - **Goal:** Cross-platform testing, integration validation, documentation, coordinated launch
 - **Key outputs:** All three projects release v1.0.0 simultaneously, blog posts, demo content
 
+v1.1 Planning
+--------------
+
+The following features are under consideration for v1.1, to be scoped after v1.0.0 release and user feedback.
+
+**AirGap Deploy v1.1:**
+
+- **SBOM generation:** Generate CycloneDX SBOM during ``prep`` phase from Cargo.lock dependency graph, component metadata, and license information
+- **CBOM generation:** Scan dependencies for known cryptographic crates and document crypto usage as CycloneDX CBOM entries
+- **Vulnerability scanning:** ``airgap-deploy scan`` subcommand that checks SBOMs against an offline vulnerability database (Grype or Trivy)
+
+**AirGap Transfer v1.1:**
+
+- **SBOM-aware manifests:** Reference CycloneDX SBOM files in transfer manifests for chain-of-custody documentation
+
+**Target:** Post-v1.0.0, scope finalized based on v1.0.0 feedback and adoption patterns.
+
+See individual project SRS documents for detailed requirements (tagged ``v1.1``).
+
+v1.1 Proposed Artifacts
+~~~~~~~~~~~~~~~~~~~~~~~
+
+The following tables list all proposed sphinx-needs artifacts for v1.1. These items are not yet approved and may change based on v1.0.0 feedback.
+
+AirGap Deploy
+^^^^^^^^^^^^^
+
+.. needtable::
+   :columns: id, title, type, priority, status
+   :filter: status=='proposed' and 'deploy' in tags
+   :style: table
+   :sort: id
+
+AirGap Transfer
+^^^^^^^^^^^^^^^
+
+.. needtable::
+   :columns: id, title, type, priority, status
+   :filter: status=='proposed' and 'transfer' in tags
+   :style: table
+   :sort: id
+
 Individual Project Roadmaps
 ----------------------------
 
 For detailed MVP implementation plans, see:
 
-- `AirGap Deploy Roadmap <../airgap-deploy/roadmap.html>`_
-- `AirGap Transfer Roadmap <../airgap-transfer/roadmap.html>`_
-- `Cleanroom Whisper Roadmap <../cleanroom-whisper/roadmap.html>`_
-
-Each roadmap documents:
-
-- MVP feature scope
-- Implementation milestones
-- Definition of done
-- What's NOT in MVP (deferred features)
-- Progress tracking
+- `AirGap Deploy Roadmap <../deploy/roadmap.html>`_
+- `AirGap Transfer Roadmap <../transfer/roadmap.html>`_
+- `Cleanroom Whisper Roadmap <../whisper/roadmap.html>`_
 
 Progress Log
 ~~~~~~~~~~~~
@@ -193,5 +230,7 @@ Date       Activity
 ========== ================================================================
 2026-01-28 Created release roadmap and coordinated project specifications
 2026-01-31 Restructured from 22-week/5-phase plan to 6-milestone/12-month plan
+2026-02-08 Added v1.1 planning (SBOM/CBOM/vuln-scan requirements and use
+           cases); reorganized cross-project docs
 ========== ================================================================
 

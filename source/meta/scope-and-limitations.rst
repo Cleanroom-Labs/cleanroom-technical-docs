@@ -39,8 +39,6 @@ Cleanroom Whisper
 - No real-time or streaming transcription — operates in batch mode on recorded audio
 - Model quality and language support are determined by upstream Whisper model releases
 
---------------
-
 Disclaimer of Warranty
 ----------------------
 
@@ -50,7 +48,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
    <div style="margin-top: 1.5em;"></div>
 
-See the AGPL-3.0 license (Section 15) for the complete warranty disclaimer.
+See the AGPL-3.0 license for the complete warranty disclaimer.
 
 Limitation of Liability
 -----------------------
@@ -61,7 +59,7 @@ IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING WILL ANY C
 
    <div style="margin-top: 1.5em;"></div>
 
-See the AGPL-3.0 license (Section 16) for the complete limitation of liability.
+See the AGPL-3.0 license for the complete limitation of liability.
 
 --------------
 

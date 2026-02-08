@@ -8,11 +8,11 @@ Cleanroom Whisper is an end-user desktop application for offline audio transcrip
 Quick Links
 -----------
 
-* `View Full Documentation <../cleanroom-whisper/index.html>`_
-* `Requirements Specification <../cleanroom-whisper/requirements/srs.html>`_
-* `Design Document <../cleanroom-whisper/design/sdd.html>`_
-* `Implementation Roadmap <../cleanroom-whisper/roadmap.html>`_
-* `Use Cases <../cleanroom-whisper/use-cases/overview.html>`_
+* `View Full Documentation <../whisper/index.html>`_
+* `Requirements Specification <../whisper/requirements/srs.html>`_
+* `Design Document <../whisper/design/sdd.html>`_
+* `Implementation Roadmap <../whisper/roadmap.html>`_
+* `Use Cases <../whisper/use-cases/overview.html>`_
 
 Key Features
 ------------
