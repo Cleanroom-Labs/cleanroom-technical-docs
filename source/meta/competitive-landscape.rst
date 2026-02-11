@@ -1,7 +1,7 @@
 Competitive Landscape
 =====================
 
-**Purpose:** Summarize the competitive positioning of each Cleanroom Labs project and the integrated suite.
+**Purpose:** Summarize the competitive positioning of each Cleanroom Labs project and the integrated suite. Detailed competitive analyses are maintained in each project's technical documentation; this page provides the cross-project summary and integrated suite comparison.
 
 Per-Project Competitive Analysis
 ---------------------------------

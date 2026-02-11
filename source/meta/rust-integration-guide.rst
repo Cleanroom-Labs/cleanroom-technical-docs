@@ -15,6 +15,10 @@ The Cleanroom Labs technical documentation uses a multi-layered documentation ap
 
 This creates bidirectional traceability at every level.
 
+.. note::
+
+   This guide describes the integration infrastructure that is configured and ready in the Sphinx build system. The ``:impl:`` directives and Rust API cross-references will be populated as implementation progresses. The patterns documented here are the target workflow for development.
+
 Prerequisites
 -------------
 
@@ -431,5 +435,5 @@ See Also
 - :doc:`cleanroom-whisper:api/index` - Cleanroom Whisper API placeholder
 - :doc:`airgap-deploy:api/index` - AirGap Deploy API placeholder
 - :doc:`airgap-transfer:api/index` - AirGap Transfer API placeholder
-- :doc:`/meta/specification-overview` - Project statistics and traceability overview
+- :doc:`/meta/specification-overview` - Artifact types and traceability overview
 - `sphinxcontrib-rust documentation <https://sphinx-contrib-rust.readthedocs.io/>`_

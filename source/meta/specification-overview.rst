@@ -6,7 +6,7 @@ This document provides an aggregate overview of requirements, test cases, and tr
 Artifact Types
 --------------
 
-Each project's documentation is organized around five artifact types that serve distinct roles in the development process. The structure draws on IEEE 830 (SRS) for requirements, IEEE 1016 (SDD) for design specifications, and IEEE 829 for test documentation, adapted to the scale of these projects.
+Each project's documentation is organized around five artifact types that serve distinct roles in the development process. The structure draws on IEEE 830 (SRS) for requirements, IEEE 1016 (SDD) for design specifications, and IEEE 829 for test documentation, adapted to the scale of these projects. For details on how these standards inform the documentation structure, see :doc:`standards-framework`.
 
 .. raw:: html
 
@@ -68,68 +68,36 @@ In practice, this sequence is not strictly followed. Requirements and design spe
 
    Currently, the projects track use cases, requirements, loose descriptions of design specifications, and preliminary test plans with some identified cases. Implementation traceability will be added as the software is developed. The design specifications may be formalized as the projects mature.
 
-Project Statistics
-------------------
+Traceability Matrices
+---------------------
 
-This section provides an aggregate overview of approved sphinx-needs directives across Cleanroom Lab's project suite. Statistics are automatically maintained using sphinx-needs' need_count directive. Proposed items for future releases are tracked in the :doc:`Release Roadmap <release-roadmap>`.
+The following tables provide a cross-project view of requirements coverage, automatically generated from sphinx-needs directives across all project submodules.
 
-AirGap Transfer
-~~~~~~~~~~~~~~~
+Requirements Coverage
+~~~~~~~~~~~~~~~~~~~~~
 
-**Project docs:** :doc:`Use Cases <airgap-transfer:use-cases/index>` · :doc:`Requirements (SRS) <airgap-transfer:requirements/srs>` · :doc:`Design (SDD) <airgap-transfer:design/sdd>` · :doc:`Test Plan <airgap-transfer:testing/plan>`
+All approved requirements with their linked test cases:
 
-================= ======================================================================================
-Category          Count
-================= ======================================================================================
-Use Cases         :need_count:`type=='usecase' and 'transfer' in tags and status=='approved'`
-Requirements      :need_count:`type in ['req', 'nfreq'] and 'transfer' in tags and status=='approved'`
-  Functional      :need_count:`type=='req' and 'transfer' in tags and status=='approved'`
-  Non-Functional  :need_count:`type=='nfreq' and 'transfer' in tags and status=='approved'`
-Test Cases        :need_count:`type=='test' and 'transfer' in tags and status=='approved'`
-**Total**         :need_count:`'transfer' in tags and status=='approved'`
-================= ======================================================================================
+.. needtable::
+   :types: req, nfreq
+   :columns: id, title, priority, tests_back
+   :filter: status=='approved'
+   :style: table
+   :sort: id
 
-AirGap Deploy
-~~~~~~~~~~~~~
+Untested Requirements
+~~~~~~~~~~~~~~~~~~~~~
 
-**Project docs:** :doc:`Use Cases <airgap-deploy:use-cases/index>` · :doc:`Requirements (SRS) <airgap-deploy:requirements/srs>` · :doc:`Design (SDD) <airgap-deploy:design/sdd>` · :doc:`Test Plan <airgap-deploy:testing/plan>`
+Requirements that do not yet have linked test cases:
 
-================= ======================================================================================
-Category          Count
-================= ======================================================================================
-Use Cases         :need_count:`type=='usecase' and 'deploy' in tags and status=='approved'`
-Requirements      :need_count:`type in ['req', 'nfreq'] and 'deploy' in tags and status=='approved'`
-  Functional      :need_count:`type=='req' and 'deploy' in tags and status=='approved'`
-  Non-Functional  :need_count:`type=='nfreq' and 'deploy' in tags and status=='approved'`
-Test Cases        :need_count:`type=='test' and 'deploy' in tags and status=='approved'`
-**Total**         :need_count:`'deploy' in tags and status=='approved'`
-================= ======================================================================================
+.. needtable::
+   :types: req, nfreq
+   :columns: id, title, priority
+   :filter: status=='approved' and len(tests_back) == 0
+   :style: table
+   :sort: id
 
-Cleanroom Whisper
-~~~~~~~~~~~~~~~~~
+.. seealso::
 
-**Project docs:** :doc:`Use Cases <cleanroom-whisper:use-cases/index>` · :doc:`Requirements (SRS) <cleanroom-whisper:requirements/srs>` · :doc:`Design (SDD) <cleanroom-whisper:design/sdd>` · :doc:`Test Plan <cleanroom-whisper:testing/plan>`
-
-================= ======================================================================================
-Category          Count
-================= ======================================================================================
-Use Cases         :need_count:`type=='usecase' and 'whisper' in tags and status=='approved'`
-Requirements      :need_count:`type in ['req', 'nfreq'] and 'whisper' in tags and status=='approved'`
-  Functional      :need_count:`type=='req' and 'whisper' in tags and status=='approved'`
-  Non-Functional  :need_count:`type=='nfreq' and 'whisper' in tags and status=='approved'`
-Test Cases        :need_count:`type=='test' and 'whisper' in tags and status=='approved'`
-**Total**         :need_count:`'whisper' in tags and status=='approved'`
-================= ======================================================================================
-
-Suite-Wide Summary
-~~~~~~~~~~~~~~~~~~
-
-=================== ======================================================================================
-Category            Count
-=================== ======================================================================================
-Total Use Cases     :need_count:`type=='usecase' and status=='approved'`
-Total Requirements  :need_count:`type in ['req', 'nfreq'] and status=='approved'`
-Total Test Cases    :need_count:`type=='test' and status=='approved'`
-**Grand Total**     :need_count:`status=='approved'`
-=================== ======================================================================================
+   For aggregate project statistics (artifact counts per project), see :doc:`project-statistics`.
 
