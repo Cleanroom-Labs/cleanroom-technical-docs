@@ -35,7 +35,7 @@ Cleanroom Whisper follows the :doc:`/meta/principles` established for all AirGap
 * Privacy through data locality (no network code)
 * Minimal dependencies (≤10 direct Rust crates)
 * Simple architecture (obvious, maintainable code)
-* Air-gap ready (works with zero internet access)
+* air-gap ready (works with zero internet access)
 
 Related Projects
 ----------------

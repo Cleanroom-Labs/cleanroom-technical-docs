@@ -6,7 +6,7 @@ This document provides an aggregate overview of requirements, test cases, and tr
 Artifact Types
 --------------
 
-Each project's documentation is organized around five artifact types that serve distinct roles in the development process. The structure draws on IEEE 830 (SRS) for requirements, IEEE 1016 (SDD) for design specifications, and IEEE 829 for test documentation, adapted to the scale of these projects. For details on how these standards inform the documentation structure, see :doc:`standards-framework`.
+Each project's documentation is organized around six artifact types that serve distinct roles in the development process. The structure draws on IEEE 830 (SRS) for requirements, IEEE 1016 (SDD) for design specifications, and IEEE 829 for test documentation, adapted to the scale of these projects. For details on how these standards inform the documentation structure, see :doc:`standards-framework`.
 
 .. raw:: html
 
@@ -68,36 +68,117 @@ In practice, this sequence is not strictly followed. Requirements and design spe
 
    Currently, the projects track use cases, requirements, loose descriptions of design specifications, and preliminary test plans with some identified cases. Implementation traceability will be added as the software is developed. The design specifications may be formalized as the projects mature.
 
-Traceability Matrices
----------------------
+Requirements by Category
+------------------------
 
-The following tables provide a cross-project view of requirements coverage, automatically generated from sphinx-needs directives across all project submodules.
+The following tables show the distribution of approved requirements across functional and non-functional categories for each project. For aggregate totals, see :doc:`project-statistics`. For detailed traceability matrices linking individual requirements to test cases, see each project's test plan.
 
-Requirements Coverage
-~~~~~~~~~~~~~~~~~~~~~
+Cleanroom Whisper
+~~~~~~~~~~~~~~~~~
 
-All approved requirements with their linked test cases:
+**Functional Requirements** — :need_count:`type=='req' and 'whisper' in tags and status=='approved'` total
 
-.. needtable::
-   :types: req, nfreq
-   :columns: id, title, priority, tests_back
-   :filter: status=='approved'
-   :style: table
-   :sort: id
+================================ ======================================================================================
+Category                         Count
+================================ ======================================================================================
+Recording                        :need_count:`type=='req' and 'whisper' in tags and 'recording' in tags and status=='approved'`
+Transcription                    :need_count:`type=='req' and 'whisper' in tags and 'transcription' in tags and status=='approved'`
+History & Database               :need_count:`type=='req' and 'whisper' in tags and 'history' in tags and status=='approved'`
+Output                           :need_count:`type=='req' and 'whisper' in tags and 'output' in tags and status=='approved'`
+Settings                         :need_count:`type=='req' and 'whisper' in tags and 'settings' in tags and status=='approved'`
+System Tray                      :need_count:`type=='req' and 'whisper' in tags and 'tray' in tags and status=='approved'`
+Security                         :need_count:`type=='req' and 'whisper' in tags and 'security' in tags and status=='approved'`
+Deployment                       :need_count:`type=='req' and 'whisper' in tags and 'deployment' in tags and status=='approved'`
+================================ ======================================================================================
 
-Untested Requirements
-~~~~~~~~~~~~~~~~~~~~~
+**Non-Functional Requirements** — :need_count:`type=='nfreq' and 'whisper' in tags and status=='approved'` total
 
-Requirements that do not yet have linked test cases:
+================================ ======================================================================================
+Category                         Count
+================================ ======================================================================================
+Performance                      :need_count:`type=='nfreq' and 'whisper' in tags and 'performance' in tags and status=='approved'`
+Reliability                      :need_count:`type=='nfreq' and 'whisper' in tags and 'reliability' in tags and status=='approved'`
+Usability                        :need_count:`type=='nfreq' and 'whisper' in tags and 'usability' in tags and status=='approved'`
+Maintainability                  :need_count:`type=='nfreq' and 'whisper' in tags and 'maintainability' in tags and status=='approved'`
+Portability                      :need_count:`type=='nfreq' and 'whisper' in tags and 'portability' in tags and status=='approved'`
+Scalability                      :need_count:`type=='nfreq' and 'whisper' in tags and 'scalability' in tags and status=='approved'`
+Security & Privacy               :need_count:`type=='nfreq' and 'whisper' in tags and 'security' in tags and status=='approved'`
+================================ ======================================================================================
 
-.. needtable::
-   :types: req, nfreq
-   :columns: id, title, priority
-   :filter: status=='approved' and len(tests_back) == 0
-   :style: table
-   :sort: id
+:doc:`Full traceability → Whisper Test Plan <cleanroom-whisper:testing/plan>`
 
-.. seealso::
+AirGap Transfer
+~~~~~~~~~~~~~~~
 
-   For aggregate project statistics (artifact counts per project), see :doc:`project-statistics`.
+**Functional Requirements** — :need_count:`type=='req' and 'transfer' in tags and status=='approved'` total
+
+================================ ======================================================================================
+Category                         Count
+================================ ======================================================================================
+Pack Operation                   :need_count:`type=='req' and 'transfer' in tags and 'pack' in tags and status=='approved'`
+Unpack Operation                 :need_count:`type=='req' and 'transfer' in tags and 'unpack' in tags and status=='approved'`
+List Operation                   :need_count:`type=='req' and 'transfer' in tags and 'list' in tags and status=='approved'`
+Integrity & Verification         :need_count:`type=='req' and 'transfer' in tags and 'verification' in tags and status=='approved'`
+Cryptographic Agility            :need_count:`type=='req' and 'transfer' in tags and 'crypto-agility' in tags and status=='approved'`
+State Management                 :need_count:`type=='req' and 'transfer' in tags and 'state' in tags and status=='approved'`
+Command Interface                :need_count:`type=='req' and 'transfer' in tags and 'cli' in tags and status=='approved'`
+Error Handling & Safety          :need_count:`type=='req' and 'transfer' in tags and ('error-handling' in tags or 'safety' in tags) and status=='approved'`
+Deployment                       :need_count:`type=='req' and 'transfer' in tags and 'deployment' in tags and status=='approved'`
+================================ ======================================================================================
+
+**Non-Functional Requirements** — :need_count:`type=='nfreq' and 'transfer' in tags and status=='approved'` total
+
+================================ ======================================================================================
+Category                         Count
+================================ ======================================================================================
+Performance                      :need_count:`type=='nfreq' and 'transfer' in tags and 'performance' in tags and status=='approved'`
+Reliability                      :need_count:`type=='nfreq' and 'transfer' in tags and 'reliability' in tags and status=='approved'`
+Usability                        :need_count:`type=='nfreq' and 'transfer' in tags and 'usability' in tags and status=='approved'`
+Maintainability                  :need_count:`type=='nfreq' and 'transfer' in tags and 'maintainability' in tags and status=='approved'`
+Portability                      :need_count:`type=='nfreq' and 'transfer' in tags and 'portability' in tags and status=='approved'`
+Scalability                      :need_count:`type=='nfreq' and 'transfer' in tags and 'scalability' in tags and status=='approved'`
+Security & Privacy               :need_count:`type=='nfreq' and 'transfer' in tags and 'security' in tags and status=='approved'`
+================================ ======================================================================================
+
+:doc:`Full traceability → Transfer Test Plan <airgap-transfer:testing/plan>`
+
+AirGap Deploy
+~~~~~~~~~~~~~
+
+**Functional Requirements** — :need_count:`type=='req' and 'deploy' in tags and status=='approved'` total
+
+================================ ======================================================================================
+Category                         Count
+================================ ======================================================================================
+Manifest Parsing & Validation    :need_count:`type=='req' and 'deploy' in tags and 'manifest' in tags and status=='approved'`
+Rust App Component               :need_count:`type=='req' and 'deploy' in tags and 'rust' in tags and status=='approved'`
+External Binary Component        :need_count:`type=='req' and 'deploy' in tags and 'external-binary' in tags and status=='approved'`
+Model File Component             :need_count:`type=='req' and 'deploy' in tags and 'model' in tags and status=='approved'`
+System Package Component         :need_count:`type=='req' and 'deploy' in tags and 'system-package' in tags and status=='approved'`
+Packaging                        :need_count:`type=='req' and 'deploy' in tags and 'packaging' in tags and status=='approved'`
+Installation Scripts             :need_count:`type=='req' and 'deploy' in tags and 'installation' in tags and status=='approved'`
+CLI                              :need_count:`type=='req' and 'deploy' in tags and 'cli' in tags and status=='approved'`
+Error Handling & Recovery        :need_count:`type=='req' and 'deploy' in tags and 'error-handling' in tags and status=='approved'`
+External Interfaces              :need_count:`type=='req' and 'deploy' in tags and 'external-interface' in tags and status=='approved'`
+================================ ======================================================================================
+
+**Non-Functional Requirements** — :need_count:`type=='nfreq' and 'deploy' in tags and status=='approved'` total
+
+================================ ======================================================================================
+Category                         Count
+================================ ======================================================================================
+Performance                      :need_count:`type=='nfreq' and 'deploy' in tags and 'performance' in tags and status=='approved'`
+Reliability                      :need_count:`type=='nfreq' and 'deploy' in tags and 'reliability' in tags and status=='approved'`
+Usability                        :need_count:`type=='nfreq' and 'deploy' in tags and 'usability' in tags and status=='approved'`
+Maintainability                  :need_count:`type=='nfreq' and 'deploy' in tags and 'maintainability' in tags and status=='approved'`
+Portability                      :need_count:`type=='nfreq' and 'deploy' in tags and 'portability' in tags and status=='approved'`
+Scalability                      :need_count:`type=='nfreq' and 'deploy' in tags and 'scalability' in tags and status=='approved'`
+Security                         :need_count:`type=='nfreq' and 'deploy' in tags and 'security' in tags and status=='approved'`
+================================ ======================================================================================
+
+:doc:`Full traceability → Deploy Test Plan <airgap-deploy:testing/plan>`
+
+.. note::
+
+   Category counts may overlap where requirements carry multiple tags (e.g., a CLI requirement tagged both ``cli`` and ``verification``). See each project's SRS for the authoritative requirement listing.
 

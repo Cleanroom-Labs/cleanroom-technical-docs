@@ -36,7 +36,7 @@ AirGap Deploy follows the :doc:`/meta/principles` established for all AirGap pro
 * Privacy through data locality (no network code in deployed apps)
 * Minimal dependencies (tool itself has minimal deps)
 * Simple architecture (clear, maintainable code)
-* Air-gap ready (designed for offline environments)
+* air-gap ready (designed for offline environments)
 
 Example Use Cases
 -----------------

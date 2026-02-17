@@ -200,7 +200,6 @@ Compile-Time Dependencies
 
    AirGap Deploy dependencies:
      - Rust crates: reqwest, serde, toml, tar, etc.
-     - Dependency on AirGap Transfer
      - NO dependency on Cleanroom Whisper or AirGap Transfer
 
    AirGap Transfer dependencies:

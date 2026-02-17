@@ -36,7 +36,7 @@ AirGap Transfer follows the :doc:`/meta/principles` established for all AirGap p
 * Privacy through data locality (no network code)
 * Minimal dependencies (≤10 direct Rust crates)
 * Simple architecture (obvious, maintainable code)
-* Air-gap ready (designed for offline environments)
+* air-gap ready (designed for offline environments)
 
 Common Scenarios
 ----------------

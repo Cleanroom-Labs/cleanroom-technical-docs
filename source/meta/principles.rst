@@ -85,10 +85,12 @@ File structure
 
 For coding conventions and the YAGNI test, see :doc:`developer-guidelines`.
 
-Features We Don’t Build
+Features We Don't Build
 --------------------------
 
-These are explicitly out of scope, regardless of how useful they might seem:
+These are explicitly out of scope, regardless of how useful they might seem. If we need any of these later, we add them later. Not before.
+
+**Cleanroom Whisper**
 
 +-------------------------------------+-------------------------------------------------+
 | Feature                             | Reason                                          |
@@ -118,7 +120,37 @@ These are explicitly out of scope, regardless of how useful they might seem:
 | Batch import                        | Record one at a time                            |
 +-------------------------------------+-------------------------------------------------+
 
-If we need any of these later, we add them later. Not before.
+**AirGap Deploy**
+
++-------------------------------------+-------------------------------------------------+
+| Feature                             | Reason                                          |
++=====================================+=================================================+
+| GUI installer                       | Shell scripts are sufficient, no GUI dependency |
++-------------------------------------+-------------------------------------------------+
+| Cloud deployment                    | Violates air-gap constraint                     |
++-------------------------------------+-------------------------------------------------+
+| Docker/container orchestration      | Out of scope, deploy to bare metal              |
++-------------------------------------+-------------------------------------------------+
+| Package manager integration         | Extra complexity, tar archives are universal    |
++-------------------------------------+-------------------------------------------------+
+| Auto-update mechanism               | Requires network                                |
++-------------------------------------+-------------------------------------------------+
+
+**AirGap Transfer**
+
++-------------------------------------+-------------------------------------------------+
+| Feature                             | Reason                                          |
++=====================================+=================================================+
+| Network transfer                    | Violates air-gap constraint                     |
++-------------------------------------+-------------------------------------------------+
+| Cloud sync                          | Violates data locality                          |
++-------------------------------------+-------------------------------------------------+
+| Compression                         | Extra dependency, defer to post-MVP             |
++-------------------------------------+-------------------------------------------------+
+| Encryption                          | Extra complexity, defer to post-MVP             |
++-------------------------------------+-------------------------------------------------+
+| GUI interface                       | CLI is sufficient for target users              |
++-------------------------------------+-------------------------------------------------+
 
 Design Principles Alignment
 ----------------------------
@@ -134,6 +166,6 @@ All three projects follow the core principles above:
 +---------------------------+--------------------------+-------------------------------------+-------------------------------+
 | **Simple Architecture**   | Single responsibility    | Clear component separation          | Flat structure, ~5 files      |
 +---------------------------+--------------------------+-------------------------------------+-------------------------------+
-| **Air-gap Ready**         | Designed for air-gaps    | Entire purpose                      | Vendored deps                 |
+| **Air-Gap Ready**         | Designed for air-gaps    | Entire purpose                      | Vendored deps                 |
 +---------------------------+--------------------------+-------------------------------------+-------------------------------+
 
