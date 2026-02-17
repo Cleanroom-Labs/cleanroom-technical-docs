@@ -115,7 +115,7 @@ Development is organized into 6 milestones over 12 months. The order front-loads
 Milestone Details
 ~~~~~~~~~~~~~~~~~
 
-**M1: Foundations** (Status: Not Started)
+**M1: Foundations** (Status: In Progress — Specifications Complete)
 
 - **Goal:** Refine specifications across all projects; stand up AirGap Deploy core
 - **Key outputs:** Finalized SRS/SDD for all projects, working manifest parser, CLI skeleton
@@ -192,4 +192,6 @@ Date       Activity
 2026-01-31 Restructured from 22-week/5-phase plan to 6-milestone/12-month plan
 2026-02-08 Added v1.1 planning (SBOM/CBOM/vuln-scan requirements and use
            cases); reorganized cross-project docs
+2026-02-16 Requirements specified and ready for implementation; M1
+           specifications milestone complete
 ========== ================================================================
