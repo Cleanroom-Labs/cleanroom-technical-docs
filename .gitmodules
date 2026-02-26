@@ -1,9 +1,11 @@
 [submodule "cleanroom-whisper-docs"]
 	path = whisper
 	url = https://github.com/Cleanroom-Labs/cleanroom-whisper-docs.git
+	branch = main
 [submodule "airgap-deploy-docs"]
 	path = deploy
 	url = https://github.com/Cleanroom-Labs/airgap-deploy-docs.git
+	branch = main
 [submodule "airgap-transfer-docs"]
 	path = transfer
 	url = https://github.com/Cleanroom-Labs/airgap-transfer-docs.git
