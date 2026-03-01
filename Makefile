@@ -9,7 +9,7 @@ SOURCEDIR     = source
 BUILDDIR      = build
 
 # Project submodules
-PROJECTS = whisper deploy transfer
+PROJECTS = deploy transfer whisper
 
 # Put it first so that "make" without argument is like "make help".
 help:
